@@ -16,7 +16,7 @@ function ProductList() {
             });
     },[])
     
-    const {items, status} = useSelector((state)=>state.products)
+    // const {items:products, status} = useSelector((state)=>state.products)
     const dispatch = useDispatch();
        
     return (
