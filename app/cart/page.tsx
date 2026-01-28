@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "@/components/Navbar"
-import ProductList from "@/components/ProductList"
+import CartList from "@/components/CartList"
 
 
 export default function CartPage() {
   return (
     <>
         <Navbar />
-        <h1>Cart Page</h1 >
+        <CartList />
     </>
   )
 }

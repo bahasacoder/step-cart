@@ -39,7 +39,7 @@ function ProductList() {
                         <ShoppingCart className="h-8 w-8 text-primary" />
                         <h1 className="text-2xl font-bold">ShopHub</h1>
                       </div>
-                      <Link href="/fake-cart">
+                      <Link href="/cart">
                         <Button variant="outline" className="relative">
                           <ShoppingCart className="mr-2 h-4 w-4" />
                           Cart
