@@ -1,5 +1,16 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-
+interface product {
+        id: number;
+        image: string;
+        price: number;
+        title: string
+    }
+ interface item {
+        id: number;
+        image: string;
+        price: number;
+        title: string
+    }   
 const initialState = {
     items:[], // Final cart items
     tempItems:[], //Temporary items for update
@@ -11,7 +22,7 @@ const cartSlice = createSlice({
     reducers:{
         addToCart: (state, action) => {
             const item = action.payload;
-            const existing = state.items.find((i) => i.id === item.id);
+            const existing = state.items.find((item) => item.id === item.id);
             if (existing) {
                 existing.quantity += item.quantity || 1;
             } else {
@@ -19,11 +30,11 @@ const cartSlice = createSlice({
             }
         },
         removeFromCart: (state, action) => {
-            state.items = state.items.filter((i) => i.id !== action.payload);
+            state.items = state.items.filter((item) => item.id !== action.payload);
         },
         updateQuantity: (state, action) => {
             const { id, quantity } = action.payload;
-            const item = state.items.find((i) => i.id === id);
+            const item = state.items.find((item) => item.id === id);
             if (item && quantity > 0) {
                 item.quantity = quantity;
             }

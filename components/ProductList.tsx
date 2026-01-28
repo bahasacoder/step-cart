@@ -23,7 +23,7 @@ function ProductList() {
     
     //const {items, status} = useSelector((state)=>state.products)
     const dispatch = useDispatch();
-       
+
     return (
         <div>
             <h1>Product List Page</h1>
@@ -32,7 +32,7 @@ function ProductList() {
                 <img src={product?.image} alt="image title" />
                 <h2>{product.title.length > 20 ? `${product.title.slice(0, 20)}...` : product.title }</h2>
                 <p>Price : ${product.price}</p>
-                <button onClick={()=>dispatch(addToCart(product))}>Add to cart</button>
+                <button onClick={()=>dispatch(addToCart(product))} className="border-2 p-2 m-2 bg-zinc-300 ">Add to cart</button>
                 </div>
             ))}
            
@@ -41,14 +41,3 @@ function ProductList() {
 }
 
 export default ProductList
-
-{/*
-    // https://www.geeksforgeeks.org/reactjs/fetching-data-from-an-api-with-useeffect-and-usestate-hook/ 
-        const [userList, setUserList] = useState([]);
-
-        useEffect(() => {
-            fetch('https://random-data-api.com/api/v2/users?size=5')
-                .then(response => response.json())
-                .then(data => setUserList(data));
-        }, []);
-*/}
