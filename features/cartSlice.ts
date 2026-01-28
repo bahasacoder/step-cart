@@ -13,21 +13,33 @@ interface product {
     }   
 const initialState = {
     items:[], // Final cart items
-    tempItems:[], //Temporary items for update
-    totalPrice:0
+    totalQuantity: 0,
+    totalAmount: 0,
 }
 const cartSlice = createSlice({
     name:'cart',
     initialState,
     reducers:{
-        addToCart: (state, action) => {
-            const item = action.payload;
-            const existing = state.items.find((item) => item.id === item.id);
-            if (existing) {
-                existing.quantity += item.quantity || 1;
-            } else {
-                state.items.push({ ...item, quantity: item.quantity || 1 });
-            }
+         addToCart(state, action) {
+        const newItem = action.payload;
+        const existingItem = state.items.find(item => item.id === newItem.id);
+        
+        if (existingItem) {
+            existingItem.quantity++;
+            existingItem.totalPrice += newItem.price;
+        } else {
+            state.items.push({
+            id: newItem.id,
+            name: newItem.name,
+            price: newItem.price,
+            image: newItem.image,
+            quantity: 1,
+            totalPrice: newItem.price,
+            });
+        }
+        
+        state.totalQuantity++;
+        state.totalAmount += newItem.price;
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter((item) => item.id !== action.payload);
