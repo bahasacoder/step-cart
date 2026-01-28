@@ -8,6 +8,7 @@ import { ShoppingCart, Plus } from 'lucide-react';
 import Link from "next/link";
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useAppSelector, useAppDispatch, useAppStore } from '@/lib/hooks'
 
 function ProductList() {
     const [products, setProducts] = useState<product[]>([]); // from fetchdata
@@ -27,7 +28,7 @@ function ProductList() {
     
     //const {items, status} = useSelector((state)=>state.products)
     const dispatch = useDispatch();
-     const { totalQuantity } = useSelector((state) => state.cart);
+     const { totalQuantity } = useAppSelector((state) => state.cart);
 
     return (
         
