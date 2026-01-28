@@ -28,7 +28,7 @@ function ProductList() {
     
     //const {items, status} = useSelector((state)=>state.products)
     const dispatch = useDispatch();
-     const { totalQuantity } = useAppSelector((state) => state.cart);
+     const { items:product, totalQuantity } = useAppSelector((state) => state.cart);
 
     return (
         
