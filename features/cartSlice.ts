@@ -1,29 +1,16 @@
 import { configureStore, createSlice, PayloadAction  } from '@reduxjs/toolkit'
 
-export type Product = {
-  id: string | number;
-  title: string;
-  price: number;
-  image?: string;
-  // add other product fields as needed (stock, description, etc.)
-};
-
-export type CartItem = {
-  id: string | number;
-  title: string;
-  price: number;
-  quantity: number;
-  image?: string;
-};
 
 type CartState = {
-  products: Product[]; // product catalog (set from your products array)
-  cart: CartItem[]; // items in cart
+  items: Items[]; // product catalog (set from your products array)
+  // cart: CartItem[]; // items in cart
+   totalQuantity: 0,
+    totalAmount: 0,
 };
 
 const initialState: CartState = {
-  products: [],
-  cart: [],
+  items: [],
+ //  cart: [],
     totalQuantity: 0,
     totalAmount: 0,
 };
