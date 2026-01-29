@@ -15,15 +15,7 @@ export default function CartList() {
   const { items, totalQuantity, totalAmount } = useAppSelector((state) => state.cart);
 
   const handleRemove = (id: any) => {
-    dispatch(cartActions.removeFromCart(id));
-  };
-
-  const handleIncrement = (id: any) => {
-    dispatch(cartActions.updateQuantity({ id, type: 'increment' }));
-  };
-
-  const handleDecrement = (id: any) => {
-    dispatch(cartActions.updateQuantity({ id, type: 'decrement' }));
+    dispatch(cartActions.removeOneFromCart(id));
   };
 
   const handleClearCart = () => {
@@ -114,7 +106,7 @@ export default function CartList() {
                             <Button
                               variant="outline"
                               size="icon"
-                              onClick={() => handleDecrement(item.id)}
+                             
                               disabled={item.quantity <= 1}
                               className="h-8 w-8"
                             >
@@ -126,7 +118,7 @@ export default function CartList() {
                             <Button
                               variant="outline"
                               size="icon"
-                              onClick={() => handleIncrement(item.id)}
+                             
                               className="h-8 w-8"
                             >
                               <Plus className="h-4 w-4" />
