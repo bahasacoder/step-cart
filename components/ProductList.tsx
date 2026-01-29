@@ -29,7 +29,9 @@ function ProductList() {
     //const {items, status} = useSelector((state)=>state.products)
     const dispatch = useDispatch();
      const { items:product, totalQuantity } = useAppSelector((state) => state.cart);
-
+    const handleAddToCart = (product: product) => {
+      dispatch(addToCart(product));
+    };
     return (
         
         <div>
