@@ -1,43 +1,25 @@
 import { configureStore, createSlice, PayloadAction  } from '@reduxjs/toolkit'
-
-export type Product = {
-  id: string | number;
-  title: string;
-  price: number;
-  image?: string;
-  // add other product fields as needed (stock, description, etc.)
-};
-
-export type CartItem = {
-  id: string | number;
-  title: string;
-  price: number;
-  quantity: number;
-  image?: string;
-};
-
-type CartState = {
-  products: Product[]; // product catalog (set from your products array)
-  cart: CartItem[]; // items in cart
-};
-
-const initialState: CartState = {
-  products: [],
-  cart: [],
+interface product {
+        id: number;
+        image: string;
+        price: number;
+        title: string
+    }
+ interface item {
+        id: number;
+        image: string;
+        price: number;
+        title: string
+    }   
+const initialState = {
+    items:[], // Final cart items
     totalQuantity: 0,
     totalAmount: 0,
-};
-
-const cartSlice = createSlice({
+}
+const cartSlice0 = createSlice({
     name:'cart',
     initialState,
     reducers:{
-
-        // set the products array (call once when you have products, or whenever it changes)
-    setProducts(state, action: PayloadAction<product[]>) {
-      state.products = action.payload;
-    },
-
         addToCart(state, action: PayloadAction<product>) {
             const newItem = action.payload;
             const existingItem = state.items.find(item => item?.id === newItem.id);
