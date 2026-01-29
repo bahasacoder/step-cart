@@ -1,14 +1,8 @@
 import { configureStore, createSlice, PayloadAction  } from '@reduxjs/toolkit'
 
 
-type CartState = {
-  items: Items[]; // product catalog (set from your products array)
-  // cart: CartItem[]; // items in cart
-   totalQuantity: 0,
-    totalAmount: 0,
-};
 
-const initialState: CartState = {
+const initialState = {
   items: [],
  //  cart: [],
     totalQuantity: 0,
