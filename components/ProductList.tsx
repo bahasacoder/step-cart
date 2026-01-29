@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { useAppSelector, useAppDispatch, useAppStore } from '@/lib/hooks'
 
 function ProductList() {
-    const [products, setProducts] = useStat([]); // from fetchdata
+    const [products, setProducts] = useState([]); // from fetchdata
     
     useEffect(()=>{    
             axios.get('https://fakestoreapi.com/products')
