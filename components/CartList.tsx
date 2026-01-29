@@ -19,7 +19,7 @@ export default function CartList() {
   };
 
   const handleClearCart = () => {
-    dispatch(clearCart());
+    dispatch(cartActions.clearCart());
   };
 
   return (
