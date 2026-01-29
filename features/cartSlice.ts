@@ -15,7 +15,7 @@ const cartSlice = createSlice({
     reducers:{
 
         // set the products array (call once when you have products, or whenever it changes)
-    setProducts(state, action: PayloadAction<product[]>) {
+    setProducts(state, action: PayloadAction<[]>) {
       state.products = action.payload;
     },
 
