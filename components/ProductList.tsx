@@ -1,5 +1,5 @@
 "use client"
-import { addToCart } from "@/features/cartSlice";
+import { cartActions } from "@/features/cartSlice";
 // import { fetchProducts } from "@/features/productSlice";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch  } from "react-redux";
@@ -12,12 +12,7 @@ import { useAppSelector, useAppDispatch, useAppStore } from '@/lib/hooks'
 
 function ProductList() {
     const [products, setProducts] = useState<product[]>([]); // from fetchdata
-    interface product {
-        id: number;
-        image: string;
-        price: number;
-        title: string
-    }
+    
     useEffect(()=>{    
             axios.get('https://fakestoreapi.com/products')
             .then(response => setProducts(response.data))
@@ -29,10 +24,19 @@ function ProductList() {
     //const {items, status} = useSelector((state)=>state.products)
 
     const dispatch = useDispatch();
-     const { items:product, totalQuantity } = useAppSelector((state) => state.cart);
-    const handleAddToCart = (product: product) => {
-      dispatch(addToCart(product));
-    };
+     const { items, totalQuantity } = useAppSelector((state) => state.cart);
+     const handleAddToCart = (qty = 1) => {
+        dispatch(
+          cartActions.addToCart({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image,
+            quantity: qty,
+          })
+        );
+      };
+   
     return (
         
         <div>
@@ -64,7 +68,7 @@ function ProductList() {
                 <img src={product?.image} alt="image title" />
                 <h2>{product.title.length > 20 ? `${product.title.slice(0, 20)}...` : product.title }</h2>
                 <p>Price : ${product.price}</p>
-                <button onClick={()=>dispatch(addToCart(product))} className="border-2 p-2 m-2 bg-zinc-300 ">Add to cart</button>
+                <button onClick={() => handleAddToCart()} className="border-2 p-2 m-2 bg-zinc-300 ">Add to cart</button>
                 </div>
             ))}
            
