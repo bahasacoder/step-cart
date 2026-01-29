@@ -15,15 +15,15 @@ export default function CartList() {
   const { items, totalQuantity, totalAmount } = useAppSelector((state) => state.cart);
 
   const handleRemove = (id: any) => {
-    dispatch(removeFromCart(id));
+    dispatch(cartActions.removeFromCart(id));
   };
 
   const handleIncrement = (id: any) => {
-    dispatch(updateQuantity({ id, type: 'increment' }));
+    dispatch(cartActions.updateQuantity({ id, type: 'increment' }));
   };
 
   const handleDecrement = (id: any) => {
-    dispatch(updateQuantity({ id, type: 'decrement' }));
+    dispatch(cartActions.updateQuantity({ id, type: 'decrement' }));
   };
 
   const handleClearCart = () => {
