@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { configureStore, createSlice, PayloadAction  } from '@reduxjs/toolkit'
 interface product {
         id: number;
         image: string;
@@ -20,7 +20,7 @@ const cartSlice = createSlice({
     name:'cart',
     initialState,
     reducers:{
-        addToCart(state, action) {
+        addToCart(state, action: PayloadAction<product>) {
             const newItem = action.payload;
             const existingItem = state.items.find(item => item?.id === newItem.id);
             
