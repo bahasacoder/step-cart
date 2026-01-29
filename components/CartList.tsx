@@ -2,7 +2,7 @@
 'use client';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, updateQuantity, clearCart } from '@/features/cartSlice';
+import { addToCart, removeOneFromCart, clearCart } from '@/features/cartSlice';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
