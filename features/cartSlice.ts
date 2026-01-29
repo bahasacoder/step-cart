@@ -14,12 +14,8 @@ const cartSlice = createSlice({
     initialState,
     reducers:{
 
-        // set the products array (call once when you have products, or whenever it changes)
-    setProducts(state, action: PayloadAction<[]>) {
-      state.products = action.payload;
-    },
-
-        addToCart(state, action: PayloadAction<product>) {
+        
+        addToCart(state, action: PayloadAction<items>) {
             const newItem = action.payload;
             const existingItem = state.items.find(item => item?.id === newItem.id);
      
