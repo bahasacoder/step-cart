@@ -19,11 +19,15 @@ export type CartItem = {
 type CartState = {
   products: Product[]; // product catalog (set from your products array)
   cart: CartItem[]; // items in cart
+  totalQuantity: number;
+  totalAmount: number;
 };
 
 const initialState: CartState = {
   products: [],
   cart: [],
+  totalQuantity: 0,
+  totalAmount: 0,
 };
 
 const findProductInCatalog = (products: Product[], id: string | number) =>
