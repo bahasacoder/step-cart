@@ -1,7 +1,3 @@
-import Products from "@/components/products"
-
 export default function ProductsPage() {
-  return (
-    <Products />
-  )
+  return <h1>Hello, Next.js!</h1>
 }
