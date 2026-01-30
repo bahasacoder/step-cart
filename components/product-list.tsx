@@ -14,19 +14,25 @@ function ProductList() {
     const [products, setProducts] = useState([]); // from fetchdata
     // Initialize state as an empty array []
     let postsArray = [];
-    const fetchData = async () => {
-        try {
-          const response = await axios.get('https://fakestoreapi.com/products');
-          // Assign the response data to your array variable
-          postsArray = response.data;
-          setProducts(postsArray); // Update state with fetched data
-          console.log(postsArray); // This will now contain your data array
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
+    useEffect(() => {
+      
+      const fetchData = async () => {
+          try {
+            axios.get('https://fakestoreapi.com/products')
+              .then(response => {
+                //console.log(response.data);
+                setProducts(response.data);
+              });
+                  
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
 
-      fetchData();
+      fetchData()
+    }, []); 
+// Function to fetch data from the API    
+    console.log("Products data:", products);
     const dispatch = useDispatch<AppDispatch>();
     const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
     const totalAmount = useSelector((s: RootState) => selectTotalAmount (s));
@@ -61,8 +67,9 @@ function ProductList() {
             
             <h1>Product List Page</h1>
             {products.map((product) => (
-                <div key={product.id}>
-                <img src={product.image} alt="image title" />
+                <div key={product?.id}>
+                  <p>{product?.id}</p>
+                <img src={product?.image} alt="image title" />
                 <h2>{product.title.length > 20 ? `${product.title.slice(0, 20)}...` : product.title }</h2>
                 <p>Price : ${product.price}</p>
                 <button onClick={()=>dispatch(addToCart(product))} className="border-2 p-2 m-2 bg-zinc-300 ">Add to cart</button>
