@@ -1,3 +1,6 @@
+import Products from "@/components/products"
 export default function ProductsPage() {
-  return <h1>Hello, ProductsPage Next.js!</h1>
+  return (
+    <Products />
+  )
 }
