@@ -12,17 +12,21 @@ import { addToCart, selectTotalQuantity, selectTotalAmount } from "@/features/ca
 
 function ProductList() {
     const [products, setProducts] = useState([]); // from fetchdata
-   
-    useEffect(()=>{    
-            axios.get('https://fakestoreapi.com/products')
-            .then(response => setProducts(response.data))
-            .catch(error => {
-              console.error('There was an error fetching the data!', error);
-            });
-        
-    },[])
-     console.log('Client-side array:', products); 
-    
+    // Initialize state as an empty array []
+    let postsArray = [];
+    const fetchData = async () => {
+        try {
+          const response = await axios.get('https://fakestoreapi.com/products');
+          // Assign the response data to your array variable
+          postsArray = response.data;
+          setProducts(postsArray); // Update state with fetched data
+          console.log(postsArray); // This will now contain your data array
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      fetchData();
     const dispatch = useDispatch<AppDispatch>();
     const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
     const totalAmount = useSelector((s: RootState) => selectTotalAmount (s));
