@@ -11,9 +11,16 @@ import { addToCart, selectTotalQuantity, selectTotalAmount } from "@/features/ca
 // import { fetchProducts } from "@/features/productSlice";
 
 function ProductList() {
-    const [products, setProducts] = useState([]); // from fetchdata
+
+  interface ProductWithId {
+    id: string | number; // Use the actual type of 'id'
+    image: string;
+    title: string;
+    price: number;
+    // Add other properties as needed
+  }
+    const [products, setProducts] = useState<ProductWithId[]>([]); // from fetchdata
     // Initialize state as an empty array []
-    let postsArray = [];
     useEffect(() => {
       
       const fetchData = async () => {
