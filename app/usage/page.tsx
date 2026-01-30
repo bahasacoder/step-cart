@@ -1,14 +1,11 @@
 "use client"
 import React from 'react';
-import { Provider, useSelector } from 'react-redux';
 import { store, RootState } from '@/lib/store';
-import Shop from '@/components/Shop';
+import Shop from '@/components/shop';
 
 const Usage = () => {
   return (
-    <Provider store={store}>
       <Shop />
-    </Provider>
   );
 };
 

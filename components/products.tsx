@@ -1,4 +1,5 @@
 // assume React + react-redux hooks
+"use client"
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, addToCart, selectCartItems, selectCartTotalItems, selectCartSubtotal } from "@/features/cartSlice";
@@ -9,7 +10,7 @@ const productsArray = [
   { id: "p2", title: "Hat", price: 14.5, image: "/hat.jpg" },
 ];
 
-export default function Shop() {
+export default function Products() {
   const dispatch = useDispatch<AppDispatch>();
   const cartItems = useSelector((s: RootState) => selectCartItems(s));
   const totalCount = useSelector((s: RootState) => selectCartTotalItems(s));
@@ -34,15 +35,6 @@ export default function Shop() {
         </div>
       ))}
 
-      <h2>Cart ({totalCount})</h2>
-      <div>Subtotal: ${subtotal.toFixed(2)}</div>
-      <ul>
-        {cartItems.map((c) => (
-          <li key={c.id}>
-            {c.title} x {c.quantity} — ${c.price}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
