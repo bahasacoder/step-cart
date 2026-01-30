@@ -10,4 +10,4 @@ const List = () => {
   );
 };
 
-export default Usage;
+export default List;
