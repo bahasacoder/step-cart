@@ -11,17 +11,35 @@ import { addToCart, selectTotalQuantity, selectTotalAmount } from "@/features/ca
 // import { fetchProducts } from "@/features/productSlice";
 
 function ProductList() {
-    const [products, setProducts] = useState([]); // from fetchdata
-   
-    useEffect(()=>{    
+
+  interface ProductWithId {
+    id: string | number; // Use the actual type of 'id'
+    image: string;
+    title: string;
+    price: number;
+    // Add other properties as needed
+  }
+    const [products, setProducts] = useState<ProductWithId[]>([]); // from fetchdata
+    // Initialize state as an empty array []
+    useEffect(() => {
+      
+      const fetchData = async () => {
+          try {
             axios.get('https://fakestoreapi.com/products')
-            .then(response => setProducts(response.data))
-            .catch(error => {
-              console.error('There was an error fetching the data!', error);
-            });
-         console.log('Client-side array:', products); 
-    },[])
-    
+              .then(response => {
+                //console.log(response.data);
+                setProducts(response.data);
+              });
+                  
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+
+      fetchData()
+    }, []); 
+// Function to fetch data from the API    
+    console.log("Products data:", products);
     const dispatch = useDispatch<AppDispatch>();
     const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
     const totalAmount = useSelector((s: RootState) => selectTotalAmount (s));
@@ -57,6 +75,7 @@ function ProductList() {
             <h1>Product List Page</h1>
             {products.map((product) => (
                 <div key={product?.id}>
+                  <p>{product?.id}</p>
                 <img src={product?.image} alt="image title" />
                 <h2>{product.title.length > 20 ? `${product.title.slice(0, 20)}...` : product.title }</h2>
                 <p>Price : ${product.price}</p>
