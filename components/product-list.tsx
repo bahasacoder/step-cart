@@ -61,8 +61,8 @@ function ProductList() {
             
             <h1>Product List Page</h1>
             {products.map((product) => (
-                <div key={product?.id}>
-                <img src={product?.image} alt="image title" />
+                <div key={product.id}>
+                <img src={product.image} alt="image title" />
                 <h2>{product.title.length > 20 ? `${product.title.slice(0, 20)}...` : product.title }</h2>
                 <p>Price : ${product.price}</p>
                 <button onClick={()=>dispatch(addToCart(product))} className="border-2 p-2 m-2 bg-zinc-300 ">Add to cart</button>
