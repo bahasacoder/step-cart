@@ -19,8 +19,9 @@ function ProductList() {
             .catch(error => {
               console.error('There was an error fetching the data!', error);
             });
-         console.log('Client-side array:', products); 
+        
     },[])
+     console.log('Client-side array:', products); 
     
     const dispatch = useDispatch<AppDispatch>();
     const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
