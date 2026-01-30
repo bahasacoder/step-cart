@@ -140,6 +140,8 @@ export const {
 export default cartSlice.reducer;
 
 // Selectors (example)
+export const selectTotalQuantity = (state: { cart: CartState }) => state.cart.totalQuantity;
+export const selectTotalAmount = (state: { cart: CartState }) => state.cart.totalAmount;
 export const selectProducts = (state: { cart: CartState }) => state.cart.products;
 export const selectCartItems = (state: { cart: CartState }) => state.cart.cart;
 export const selectCartTotalItems = (state: { cart: CartState }) =>
