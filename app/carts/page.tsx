@@ -1,3 +1,6 @@
+import Carts from "@/components/cart"
 export default function CartsPage() {
-  return <h1>Hello, CartPage</h1>
+  return (
+    <Carts />
+  )
 }
