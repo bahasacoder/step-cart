@@ -1,6 +1,4 @@
 "use client"
-import { addToCart } from "@/features/cartSlice";
-// import { fetchProducts } from "@/features/productSlice";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch  } from "react-redux";
 import axios from "axios";
@@ -8,6 +6,9 @@ import { ShoppingCart, Plus } from 'lucide-react';
 import Link from "next/link";
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import type { RootState, AppDispatch } from "@/lib/store";
+import { addToCart } from "@/features/cartSlice";
+// import { fetchProducts } from "@/features/productSlice";
 
 function ProductList() {
     const [products, setProducts] = useState([]); // from fetchdata
@@ -20,10 +21,10 @@ function ProductList() {
             });
     },[])
     
-    //const {items, status} = useSelector((state)=>state.products)
-
-    const dispatch = useDispatch();
-     const { totalQuantity } = useSelector((state) => state.cart);
+    const dispatch = useDispatch<AppDispatch>();
+    const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
+    const totalAmount = useSelector((s: RootState) => selectTotalAmount (s));
+    
     const handleAddToCart = (product:any) => {
       dispatch(addToCart(product));
     };
