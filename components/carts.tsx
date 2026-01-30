@@ -1,4 +1,5 @@
 // assume React + react-redux hooks
+"use client"
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, addToCart, selectCartItems, selectCartTotalItems, selectCartSubtotal } from "@/features/cartSlice";
