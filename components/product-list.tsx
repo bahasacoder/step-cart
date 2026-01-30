@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { RootState, AppDispatch } from "@/lib/store";
-import { addToCart } from "@/features/cartSlice";
+import { addToCart, selectTotalQuantity, selectTotalAmount } from "@/features/cartSlice";
 // import { fetchProducts } from "@/features/productSlice";
 
 function ProductList() {
