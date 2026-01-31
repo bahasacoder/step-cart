@@ -41,7 +41,8 @@ function ProductList() {
 // Function to fetch data from the API    
     console.log("Products data:", products);
     const dispatch = useDispatch<AppDispatch>();
-    const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
+     const { totalQuantity } = useSelector((state: RootState) => state.cart);
+    //const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
     const totalAmount = useSelector((s: RootState) => selectTotalAmount (s));
     
     const handleAddToCart = (product:any) => {
@@ -79,7 +80,14 @@ function ProductList() {
                 <img src={product?.image} alt="image title" />
                 <h2>{product.title.length > 20 ? `${product.title.slice(0, 20)}...` : product.title }</h2>
                 <p>Price : ${product.price}</p>
-                <button onClick={()=>dispatch(addToCart(product))} className="border-2 p-2 m-2 bg-zinc-300 ">Add to cart</button>
+                  <Button
+                              onClick={() => handleAddToCart(product)}
+                              className="w-full"
+                              size="lg"
+                            >
+                              <Plus className="mr-2 h-4 w-4" />
+                              Add to Cart
+                            </Button>
                 </div>
             ))}
            

@@ -80,6 +80,10 @@ const cartSlice = createSlice({
           quantity,
         });
       }
+
+      state.totalQuantity++;
+      state.totalAmount += product.price;
+
     },
 
     // remove an item fully
