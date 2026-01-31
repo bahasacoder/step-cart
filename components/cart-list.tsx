@@ -2,7 +2,8 @@
 'use client';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, updateQuantity, clearCart } from '@/features/cartSlice';
+import { useAppSelector, useAppDispatch } from '@/lib/hooks';
+import { removeFromCart, updateQuantity, clearCart } from '@/features/keranjangSlice';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -11,7 +12,7 @@ import Link from 'next/link';
 
 export default function CartShop() {
   const dispatch = useDispatch();
-  const { cartItems, totalQuantity, totalAmount } = useSelector((state) => state.cart);
+  const { cartItems, totalQuantity, totalAmount } = useAppSelector((state) => state.keranjang);
 
   const handleRemove = (id) => {
     dispatch(removeFromCart(id));

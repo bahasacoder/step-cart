@@ -7,8 +7,8 @@ import Link from "next/link";
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { RootState, AppDispatch } from "@/lib/store";
-import { addToCart, selectCartTotalItems, selectTotalAmount } from "@/features/cartSlice";
-// import { fetchProducts } from "@/features/productSlice";
+import { addToCart } from "@/features/keranjangSlice";
+import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 
 function ProductList() {
 
@@ -42,11 +42,11 @@ function ProductList() {
     console.log("Products data:", products);
     const dispatch = useDispatch<AppDispatch>();
      // const { totalQuantity } = useSelector((state: RootState) => state.cart);
-    const totalQuantity = useSelector((s: RootState) => selectCartTotalItems (s));
-    const totalAmount = useSelector((s: RootState) => selectTotalAmount (s));
+    const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity);
+    const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
     
     const handleAddToCart = (product:any) => {
-      dispatch(addToCart(product));
+      dispatch(addToCart(product ));
     };
     return (
         
@@ -57,7 +57,7 @@ function ProductList() {
                         <ShoppingCart className="h-8 w-8 text-primary" />
                         <h1 className="text-2xl font-bold">ShopHub</h1>
                       </div>
-                      <Link href="/cart">
+                      <Link href="/fakecart">
                         <Button variant="outline" className="relative">
                           <ShoppingCart className="mr-2 h-4 w-4" />
                           Cart

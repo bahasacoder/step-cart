@@ -81,8 +81,7 @@ const cartSlice = createSlice({
         });
       }
 
-      state.totalQuantity++;
-      state.totalAmount += product.price;
+      
 
     },
 
