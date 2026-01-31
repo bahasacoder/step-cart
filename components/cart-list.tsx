@@ -11,20 +11,28 @@ import { ShoppingCart, Trash2, Plus, Minus, ArrowLeft, ShoppingBag } from 'lucid
 import Link from 'next/link';
 
 export default function CartShop() {
+  
+  interface ProductWithId {
+    id: string | number; // Use the actual type of 'id'
+    image: string;
+    title: string;
+    price: number;
+    // Add other properties as needed
+  }
   const dispatch = useDispatch();
   const { cartItems, totalQuantity, totalAmount } = useAppSelector((state) => state.keranjang);
 
-  const handleRemove = (id) => {
+  const handleRemove = (id:any) => {
     dispatch(removeFromCart(id));
   };
 
-  const handleIncrement = (id) => {
+  const handleIncrement = (id:any) => {
     dispatch(updateQuantity({ id, type: 'increment' }));
   };
 
-  const handleDecrement = (id) => {
+  const handleDecrement = (id:any) => {
     dispatch(updateQuantity({ id, type: 'decrement' }));
-  };
+  };  
 
   const handleClearCart = () => {
     dispatch(clearCart());
