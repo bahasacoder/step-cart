@@ -10,21 +10,28 @@ import { Separator } from '@/components/ui/separator';
 import { ShoppingCart, Trash2, Plus, Minus, ArrowLeft, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import { RootState } from '@reduxjs/toolkit/query';
 
 export default function CartShop() {
   
-  interface ItemWithId {
+  interface Item {
     id: string | number; // Use the actual type of 'id'
     image: string;
     title: string;
     price: number;
     // Add other properties as needed
   }
+  type CartItems = Item & {
+    quantity: number;
+    totalPrice: number;
+  };  
   const dispatch = useDispatch();
-  const cartItems =  useAppSelector((state) => state.keranjang.cartItems);
+  const cartItems: CartItems[] =  useAppSelector((state: RootState) => state.keranjang.cartItems);
   const totalQuantity = useAppSelector((state) => state.keranjang.totalQuantity);
   const totalAmount = useAppSelector((state) => state.keranjang.totalAmount);
+  
 console.log(Array.isArray(cartItems)); // Check if cartItems is an array
+
   const handleRemove = (id:any) => {
     dispatch(removeFromCart(id));
   };
