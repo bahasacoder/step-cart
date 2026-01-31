@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { RootState, AppDispatch } from "@/lib/store";
-import { addToCart, selectTotalQuantity, selectTotalAmount } from "@/features/cartSlice";
+import { addToCart, selectCartTotalItems, selectTotalAmount } from "@/features/cartSlice";
 // import { fetchProducts } from "@/features/productSlice";
 
 function ProductList() {
@@ -41,8 +41,8 @@ function ProductList() {
 // Function to fetch data from the API    
     console.log("Products data:", products);
     const dispatch = useDispatch<AppDispatch>();
-     const { totalQuantity } = useSelector((state: RootState) => state.cart);
-    //const totalQuantity = useSelector((s: RootState) => selectTotalQuantity (s));
+     // const { totalQuantity } = useSelector((state: RootState) => state.cart);
+    const totalQuantity = useSelector((s: RootState) => selectCartTotalItems (s));
     const totalAmount = useSelector((s: RootState) => selectTotalAmount (s));
     
     const handleAddToCart = (product:any) => {
