@@ -1,31 +1,34 @@
 // /app/store/cartSlice.js
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useEffect, useState } from "react";
+type item = {
+  id: string | number; // Use the actual type of 'id'
+  image: string;    
+}
 
-export type Product = {
-  id: string | number;
-  title: string;
-  price: number;
-  image?: string;
-  // add other product fields as needed (stock, description, etc.)
-};
-
-export type CartItem = {
+ type CartItems = {
   id: string | number;
   title: string;
   price: number;
   quantity: number;
   image?: string;
 };
+    interface CartState {
+      cartItems: CartItems[];
+      totalQuantity: number;
+      totalAmount: number;  
+}
 
+// 2. Define the initial state
+const initialState: CartState = {
+  cartItems: [],
+    totalQuantity: 0,
+    totalAmount: 0,
+};
 
 const keranjangSlice  = createSlice({
   name: 'keranjang',
-  initialState: {
-    cartItems: [],
-    totalQuantity: 0,
-    totalAmount: 0,
-  },
+  initialState,
 
   reducers: {
     addToCart(state, action) {
