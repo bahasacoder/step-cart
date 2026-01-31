@@ -114,7 +114,7 @@ console.log(Array.isArray(cartItems)); // Check if cartItems is an array
                       <div className="flex-shrink-0">
                         <img
                           src={item.image}
-                          alt={item.name}
+                          alt={item.title}
                           className="w-24 h-24 object-cover rounded-md"
                         />
                       </div>
