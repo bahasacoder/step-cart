@@ -10,7 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { ShoppingCart, Trash2, Plus, Minus, ArrowLeft, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { RootState } from '@reduxjs/toolkit/query';
+import { RootState } from '@/lib/store';
 
 export default function CartShop() {
   
