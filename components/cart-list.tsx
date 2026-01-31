@@ -9,10 +9,11 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Separator } from '@/components/ui/separator';
 import { ShoppingCart, Trash2, Plus, Minus, ArrowLeft, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function CartShop() {
   
-  interface ProductWithId {
+  interface ItemWithId {
     id: string | number; // Use the actual type of 'id'
     image: string;
     title: string;
@@ -20,11 +21,10 @@ export default function CartShop() {
     // Add other properties as needed
   }
   const dispatch = useDispatch();
-  const cartItems=  useAppSelector((state) => state.keranjang.cartItems);
-  const { totalQuantity } = useAppSelector((state) => state.keranjang.totalQuantity);
-  const { totalAmount } = useAppSelector((state) => state.keranjang.totalAmount);
-  // const [products, setProducts] = useState<ProductWithId[]>([]); // from fetchdata
-
+  const cartItems =  useAppSelector((state) => state.keranjang.cartItems);
+  const totalQuantity = useAppSelector((state) => state.keranjang.totalQuantity);
+  const totalAmount = useAppSelector((state) => state.keranjang.totalAmount);
+console.log(Array.isArray(cartItems)); // Check if cartItems is an array
   const handleRemove = (id:any) => {
     dispatch(removeFromCart(id));
   };
