@@ -26,7 +26,7 @@ export default function CartShop() {
     totalPrice: number;
   };  
   const dispatch = useDispatch();
-  const cartItems: CartItems[] =  useAppSelector((state: RootState) => state.keranjang.cartItems);
+  const cartItems =  useAppSelector((state: RootState) => state.keranjang.cartItems);
   const totalQuantity = useAppSelector((state) => state.keranjang.totalQuantity);
   const totalAmount = useAppSelector((state) => state.keranjang.totalAmount);
   
