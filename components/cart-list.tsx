@@ -20,7 +20,10 @@ export default function CartShop() {
     // Add other properties as needed
   }
   const dispatch = useDispatch();
-  const { cartItems, totalQuantity, totalAmount } = useAppSelector((state) => state.keranjang);
+  const cartItems=  useAppSelector((state) => state.keranjang.cartItems);
+  const { totalQuantity } = useAppSelector((state) => state.keranjang.totalQuantity);
+  const { totalAmount } = useAppSelector((state) => state.keranjang.totalAmount);
+  // const [products, setProducts] = useState<ProductWithId[]>([]); // from fetchdata
 
   const handleRemove = (id:any) => {
     dispatch(removeFromCart(id));
