@@ -18,6 +18,10 @@ const navigationData: NavigationSection[] = [
   {
     title: 'Recipes',
     href: '#'
+  },
+  {
+    title: 'Today\'s',
+    href: '#'
   }
 ]
 
