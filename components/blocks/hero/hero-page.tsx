@@ -31,7 +31,7 @@ const menudata = [
     img: 'https://cdn.shadcnstudio.com/ss-assets/template/landing-page/bistro/image-18.png',
     imgAlt: 'plate-1',
     userComment: 'Telur Ayam Kampungnya sangat segar dan rasanya lezat! Sangat direkomendasikan.',
-    userAvatar: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-56.png'
+    userAvatar: 'https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg'
   },
   {
     id: 2,
@@ -51,8 +51,8 @@ const menudata = [
     id: 4,
     img: 'https://cdn.shadcnstudio.com/ss-assets/template/landing-page/bistro/image-05.png',
     imgAlt: 'plate-4',
-    userComment: 'Ayam Kampung frozennya berkualitas tinggi dan rasanya enak sekali!',
-    userAvatar: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-58.png'
+    userComment: 'Ayam Kampung frozen berkualitas tinggi dan rasanya enak sekali!',
+    userAvatar: 'https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@3bc973a2d28cbc2cbd694b3aa776be9ce23dab27/uploads/2026-02-11T13-31-06-114Z-yuktmis7e.jpg'
   },
   {
     id: 5,
