@@ -28,7 +28,7 @@ const navigationData: NavigationSection[] = [
 const menudata = [
   {
     id: 1,
-    img: ''https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg',
+    img: 'https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg',
     imgAlt: 'plate-1',
     userComment: 'Telur Ayam Kampung segar dengan rasanya lezat! Sangat direkomendasikan.',
     userAvatar: 'https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg'
