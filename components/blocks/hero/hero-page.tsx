@@ -1,4 +1,4 @@
-import Header from './header'
+import HeaderMenu from './header-menu'
 import HeroSection from './hero-section'
 import type { NavigationSection } from '@/components/blocks/menu-navigation'
 
@@ -59,11 +59,11 @@ const menudata = [
   }
 ]
 
-const HeroSectionPage = () => {
+const HeroPage = () => {
   return (
     <div className='overflow-x-hidden'>
       {/* Header Section */}
-      <Header navigationData={navigationData} />
+      <HeaderMenu navigationData={navigationData} />
 
       {/* Main Content */}
       <main className='flex flex-col pt-17.5'>
@@ -73,4 +73,4 @@ const HeroSectionPage = () => {
   )
 }
 
-export default HeroSectionPage
+export default HeroPage

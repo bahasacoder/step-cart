@@ -12,15 +12,17 @@ import MenuNavigation from '@/components/blocks/menu-navigation'
 import type { NavigationSection } from '@/components/blocks/menu-navigation'
 
 import { cn } from '@/lib/utils'
+import Image from 'next/image';
 
 import BistroLogo from '@/public/assets/svg/bistro-logo'
+import PbcLogo from '@/public/assets/pbc-logo.svg'
 
 type HeaderProps = {
   navigationData: NavigationSection[]
   className?: string
 }
 
-const Header = ({ navigationData, className }: HeaderProps) => {
+const HeaderMenu = ({ navigationData, className }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
       <div className='mx-auto flex h-full max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8'>
         {/* Logo */}
         <a href='#' className='flex items-center gap-3'>
-          <BistroLogo />
+          <Image src={PbcLogo} alt='PasarBone Logo' width={40} height={40} />
           <span className='text-primary text-[20px] font-semibold'>PasarBone</span>
         </a>
 
@@ -98,4 +100,4 @@ const Header = ({ navigationData, className }: HeaderProps) => {
   )
 }
 
-export default Header
+export default HeaderMenu
