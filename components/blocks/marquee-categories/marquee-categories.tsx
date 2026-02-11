@@ -35,14 +35,14 @@ export default function MarqueeCategries() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper flex justify-center items-center"
       >
-        <SwiperSlide style={{width:'200px'}}><Link href="/slide1"><Image src="/logo_marque/ayam-cat.png" alt="Ayam" width={200} height={200} /></Link></SwiperSlide>        
+        <SwiperSlide style={{width:'200px'}}><Link href="/slide1"><Image src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@9d083315f938e6eabd384cc2dabd5c33555505d6/uploads/2026-02-11T14-13-42-800Z-c5n04a1li.png" alt="Ayam" width={200} height={200} /></Link></SwiperSlide>        
         <SwiperSlide style={{width:'200px'}}><Link href="/slide1"><Image src="/logo_marque/meat-cat.png" alt="Daging" width={200} height={200} /></Link></SwiperSlide>        
         <SwiperSlide style={{width:'200px'}}><Link href="/slide2"><Image src="/logo_marque/sayuran-cat.png" alt="Sayuran" width={200} height={200} /></Link></SwiperSlide>
         <SwiperSlide style={{width:'200px'}}><Link href="/slide3"><Image src="/logo_marque/buah-cat.png" alt="Buahan" width={200} height={200} /></Link></SwiperSlide>
         <SwiperSlide style={{width:'200px'}}><Link href="/slide4"><Image src="/logo_marque/ikan-cat.png" alt="Ikan" width={200} height={200} /></Link></SwiperSlide>
         <SwiperSlide style={{width:'200px'}}><Link href="/slide5"><Image src="/logo_marque/drink-cat.png" alt="Minuman" width={200} height={200} /></Link></SwiperSlide>
         <SwiperSlide style={{width:'200px'}}><Link href="/slide6"><Image src="/logo_marque/rempah-ext.png" alt="Rempah" width={200} height={200} /></Link></SwiperSlide>
-        <SwiperSlide style={{width:'300px'}}><Link href="/slide7"><Image src="/logo_marque/suplement-cat.png" alt="Suplemen" width={200} height={200} /></Link></SwiperSlide>
+        <SwiperSlide style={{width:'300px'}}><Link href="/slide7"><Image src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@a43a6a8f5a26eb06674ac0937196b0823fe403b7/uploads/2026-02-11T14-11-52-491Z-g1rk9xcg5.png" alt="Suplemen" width={200} height={200} /></Link></SwiperSlide>
         <SwiperSlide style={{width:'200px'}}><Link href="/slide8"><Image src="/logo_marque/cookies-cat.png" alt="Cookies" width={200} height={200} /></Link></SwiperSlide>
         <SwiperSlide style={{width:'200px'}}><Link href="/slide9"><Image src="/logo_marque/snack-cat.png" alt="Snack" width={200} height={200} /></Link></SwiperSlide>
         <SwiperSlide style={{width:'200px'}}><Link href="/slide10"><Image src="/logo_marque/bibit-buah.png" alt="Bibit" width={200} height={200} /></Link></SwiperSlide>
