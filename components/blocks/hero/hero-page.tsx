@@ -44,7 +44,7 @@ const menudata = [
     id: 3,
     img: 'https://cdn.shadcnstudio.com/ss-assets/template/landing-page/bistro/image-20.png',
     imgAlt: 'plate-3',
-    userComment: 'Every dish is crafted with care. This place never disappoints!',
+    userComment: 'Anak ayam kampung asli untuk pemelihaaraan lanjutan.',
     userAvatar: 'https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-57.png'
   },
   {
