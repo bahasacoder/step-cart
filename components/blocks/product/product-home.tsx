@@ -57,8 +57,8 @@ export default function ProductPage() {
                             <div data-slot="card" className="bg-card text-card-foreground flex flex-col rounded-xl border group gap-0 py-0 shadow-none transition-all duration-300">
                                 <div className="relative" aria-roledescription="carousel" data-slot="carousel">
                                     <div className="overflow-hidden" data-slot="carousel-content">
-                                        <div className="flex -ml-4" >{/*  style="transform: translate3d(0px, 0px, 0px);"*/}
-                                            <div aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@e3a8ff34a8d74beae6ace2b9b853d2a50fce3773/uploads/2026-02-12T05-56-39-420Z-e1rah59mc.png" alt="Men suit" className="h-103.75" /></div>
+                                        <div className="flex items-center justify-center -ml-4" >{/*  style="transform: translate3d(0px, 0px, 0px);"*/}
+                                            <div aria-roledescription="slide" data-slot="carousel-item" className=" border-2 min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@e3a8ff34a8d74beae6ace2b9b853d2a50fce3773/uploads/2026-02-12T05-56-39-420Z-e1rah59mc.png" alt="Men suit" className="h-103.75" /></div>
                                             <div aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@e3a8ff34a8d74beae6ace2b9b853d2a50fce3773/uploads/2026-02-12T05-56-39-420Z-e1rah59mc.png" alt="Men suit" className="h-103.75" /></div>
                                             <div aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@e3a8ff34a8d74beae6ace2b9b853d2a50fce3773/uploads/2026-02-12T05-56-39-420Z-e1rah59mc.png" alt="Men suit" className="h-103.75" /></div>
                                         </div>
@@ -71,7 +71,7 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Wintage</h3><span className="text-2xl">$-- --35</span>
+                                        <h3 className="text-lg">Proud_Hen_Farmyard_Morning</h3><span className="text-2xl">$-- --35</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Men Solid Suits</span>
                                         <div className="flex items-center justify-between gap-2"><span className="line-through">$!-- --45</span><span className="text-sm text-green-600 dark:text-green-400">22-- --% Off</span></div>
