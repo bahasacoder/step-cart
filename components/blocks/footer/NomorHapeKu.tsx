@@ -15,7 +15,7 @@ interface TextToSvgComponentProps extends React.SVGProps<SVGSVGElement> {
   height?: string | number;
 }
 
-const TextToSvg085211190139Component: React.FC<TextToSvgComponentProps> = ({
+const NomorHapeKu: React.FC<TextToSvgComponentProps> = ({
   className = '',
   style = {},
   fill = '#000000',
@@ -41,4 +41,4 @@ const TextToSvg085211190139Component: React.FC<TextToSvgComponentProps> = ({
   );
 };
 
-export default TextToSvg085211190139Component;
+export default NomorHapeKu;
