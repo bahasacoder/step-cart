@@ -151,9 +151,9 @@ export default function ProductPage() {
                                 <div className="relative" aria-roledescription="carousel" data-slot="carousel">
                                     <div className="overflow-hidden" data-slot="carousel-content">
                                         <div className="flex -ml-4" > {/** style="transform: translate3d(0px, 0px, 0px);" */}
-                                            <div aria-roledescription="slide" data-slot="carousel-item" className="flex items-center justify-center min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-list/image-22.png" alt="Men suit" className="h-103.75" /></div>
-                                            <div aria-roledescription="slide" data-slot="carousel-item" className="flex items-center justify-center min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-list/image-23.png" alt="Men suit" className="h-103.75" /></div>
-                                            <div aria-roledescription="slide" data-slot="carousel-item" className="flex items-center justify-center min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-list/image-20.png" alt="Men suit" className="h-103.75" /></div>
+                                            <div aria-roledescription="slide" data-slot="carousel-item" className="flex items-center justify-center min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png" alt="Men suit" className="h-103.75" /></div>
+                                            <div aria-roledescription="slide" data-slot="carousel-item" className="flex items-center justify-center min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png" alt="Men suit" className="h-103.75" /></div>
+                                            <div aria-roledescription="slide" data-slot="carousel-item" className="flex items-center justify-center min-w-0 shrink-0 grow-0 basis-full pl-4"><img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png" alt="Men suit" className="h-103.75" /></div>
                                         </div>
                                     </div>
                                     <div className="bg-card absolute bottom-0 flex w-full translate-y-full flex-col items-center gap-4 px-6 pt-4 opacity-0 duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -164,7 +164,7 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Peter England Elite</h3><span className="text-2xl">$!-- --42</span>
+                                        <h3 className="text-lg">Chickens Farmyard Breeding</h3><span className="text-2xl">$!-- --42</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Men Solid Suits</span></div>
                                 </div>
