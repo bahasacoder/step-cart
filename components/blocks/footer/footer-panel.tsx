@@ -2,7 +2,7 @@ import { Instagram, Facebook, Twitter, Youtube, Linkedin,  } from 'lucide-react'
 
 import Image from "next/image"  
 import PbcLogo from '@/public/assets/pbc_logo.svg'
-
+import NomorHapeKu from './NomorHapeKu'
 export default function Footer() {
 
   return (
@@ -87,11 +87,7 @@ export default function Footer() {
                     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
                     <path d="m9 12 2 2 4-4"></path>
                 </svg> Secure Payment</span>
-                  <img src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/lemon-squeezy.png" alt="Lemon Squeezy" className="h-6 dark:hidden" />
-                  <img src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/lemon-squeezy-white.png" alt="Lemon Squeezy" className="hidden h-6 dark:inline-block" />
-                  <img src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/visa.png" alt="Visa" className="h-5" />
-                  <img src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/paypal.png" alt="Paypal" className="h-5" />
-                  <img src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/master.png" alt="Mastercard" className="h-5" />
+                <NomorHapeKu />
           </div>
     </div>
 </footer>
