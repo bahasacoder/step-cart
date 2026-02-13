@@ -10,8 +10,6 @@ import { MapPinHouse } from "lucide-react";
 import ResponsiveIframe from "./responsive-iframe";
 import SendEmailForm from "./send-email-form";
 
-
-
 export default function ContactUs() {
   return (
   <div className="w-full">
@@ -28,7 +26,7 @@ export default function ContactUs() {
 				<h3 className="mx-auto text-2xl font-bold">
 					Email Address
 				</h3>
-				<div className="mx-auto text-xl italic">contact@pasarbone.com</div>
+				<div className="mx-auto text-xl italic">officialpasarbone@gmail.com</div>
 			</div>
 			<div className="w-xs flex flex-col justify-center px-2 py-4 mx-2 my-4 border-3 shadow-xl rounded-md">
 				<div className="mx-auto">
