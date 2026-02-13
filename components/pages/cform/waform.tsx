@@ -28,4 +28,8 @@ function WhatsAppButton({ phoneNumber, message }: { phoneNumber: string; message
   );
 }
 
+<<<<<<< HEAD
 export default WhatsAppButton;
+=======
+export default WhatsAppButton;
+>>>>>>> 514374b574eba104e5c3e82e7c72eb6d5a124b43

@@ -1,7 +1,7 @@
 import React from "react";
 import CartShop from "@/components/cart-list"
 
-export default function CartPage() {
+export default function FakeCartPage() {
   return (
     <div>
         <CartShop />
