@@ -5,7 +5,7 @@ import type { NavigationSection } from '@/components/blocks/menu-navigation'
 const navigationData: NavigationSection[] = [
   {
     title: 'About Us',
-    href: '#'
+    href: '/about'
   },
   {
     title: 'Products',
@@ -13,7 +13,7 @@ const navigationData: NavigationSection[] = [
   },
   {
     title: 'Contact us',
-    href: '#'
+    href: '/contact'
   },
   {
     title: 'Recipes',
