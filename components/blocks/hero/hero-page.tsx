@@ -70,7 +70,7 @@ const HeroPage = () => {
       <HeaderMenu navigationData={navigationData} />
 
       {/* Main Content */}
-      <main className='flex flex-col pt-17.5'>
+      <main className='flex flex-col'>
         <HeroSection menudata={menudata} />
       </main>
     </div>
