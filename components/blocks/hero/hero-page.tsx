@@ -5,7 +5,7 @@ import type { NavigationSection } from '@/components/blocks/menu-navigation'
 const navigationData: NavigationSection[] = [
   {
     title: 'About Us',
-    href: '/about'
+    href: '#'
   },
   {
     title: 'Products',
@@ -13,7 +13,7 @@ const navigationData: NavigationSection[] = [
   },
   {
     title: 'Contact us',
-    href: '/contact'
+    href: '#'
   },
   {
     title: 'Recipes',
@@ -70,7 +70,7 @@ const HeroPage = () => {
       <HeaderMenu navigationData={navigationData} />
 
       {/* Main Content */}
-      <main className='flex flex-col'>
+      <main className='flex flex-col pt-17.5'>
         <HeroSection menudata={menudata} />
       </main>
     </div>
