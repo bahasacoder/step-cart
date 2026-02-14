@@ -31,7 +31,6 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <StickyMenu />
-          <div className="py-8 my-8"></div>
           {children}
         </ReduxProvider>
       </body>
