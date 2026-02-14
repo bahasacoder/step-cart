@@ -26,7 +26,7 @@ const navigationData: NavigationSection[] = [
 
 
 
-const HeroPage = () => {
+const StickyMenu = () => {
   return (
     <div className='overflow-x-hidden'>
       {/* Header Section */}
@@ -36,4 +36,4 @@ const HeroPage = () => {
   )
 }
 
-export default HeroPage
+export default StickyMenu
