@@ -50,7 +50,7 @@ const HeaderMenu = ({ navigationData, className }: HeaderProps) => {
     >
       <div className='mx-auto flex h-full max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8'>
         {/* Logo */}
-        <a href='#' className='flex items-center gap-3'>
+        <a href='/' className='flex items-center gap-3'>
           <Image src={PbcLogo} alt='PasarBone Logo' width={40} height={40} />
           <span className='text-primary text-[20px] font-semibold'>PasarBone</span>
         </a>
