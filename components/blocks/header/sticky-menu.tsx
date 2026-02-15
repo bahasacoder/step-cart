@@ -1,4 +1,4 @@
-import HeaderMenu from '@/components/blocks/hero/header-menu'
+import HeaderMenu from '@/components/blocks/header/header-menu'
 import type { NavigationSection } from '@/components/blocks/menu-navigation'
 
 const navigationData: NavigationSection[] = [
@@ -8,7 +8,7 @@ const navigationData: NavigationSection[] = [
   },
   {
     title: 'Products',
-    href: '#'
+    href: '/products'
   },
   {
     title: 'Contact us',
@@ -16,7 +16,7 @@ const navigationData: NavigationSection[] = [
   },
   {
     title: 'Recipes',
-    href: '#'
+    href: '/recipes'
   },
   {
     title: 'Today\'s',
@@ -28,7 +28,7 @@ const navigationData: NavigationSection[] = [
 
 const StickyMenu = () => {
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden pb-17.5'>
       {/* Header Section */}
       <HeaderMenu navigationData={navigationData} />
 

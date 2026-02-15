@@ -1,7 +1,7 @@
-import HeaderMenu from './header-menu'
+//import HeaderMenu from './header-menu'
 import HeroSection from './hero-section'
 import type { NavigationSection } from '@/components/blocks/menu-navigation'
-
+/*
 const navigationData: NavigationSection[] = [
   {
     title: 'About Us',
@@ -24,7 +24,7 @@ const navigationData: NavigationSection[] = [
     href: '#'
   }
 ]
-
+*/
 const menudata = [
   {
     id: 1,
@@ -65,15 +65,11 @@ const menudata = [
 
 const HeroPage = () => {
   return (
-    <div className='overflow-x-hidden'>
-      {/* Header Section */}
-      <HeaderMenu navigationData={navigationData} />
 
-      {/* Main Content */}
-      <main className='flex flex-col pt-17.5'>
+
+      <main className='flex flex-col'>
         <HeroSection menudata={menudata} />
       </main>
-    </div>
   )
 }
 

@@ -5,7 +5,9 @@ import { TitlePage } from "./title-page";
 
 export default function AboutUs() {
   return (
-  <div className="w-full">
+	    <div className='overflow-x-hidden'>
+
+  <div className="w-full flex flex-col">
 	<div className="w-full flex items-center justify-center py-12 mx-auto font-bold text-5xl text-slate bg-stone-100"> 
 		<div className="mx-auto"><TitlePage title="About Us" textTitle="Dapatkan Produk Halal, Sehat, dan Bergizi." /></div>
 	</div>
@@ -144,5 +146,7 @@ export default function AboutUs() {
 		</div>
 	</div>
     </div>
+{/* overflow-x-hidden */}
+	</div> 
   )
 }	
