@@ -118,9 +118,9 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Native_Eggs_Macro</h3><span className="text-2xl">Rp .000</span>
+                                        <h3 className="text-lg">Telur Ayam Kampung</h3><span className="text-2xl">Rp .000</span>
                                     </div>
-                                    <div className="flex items-center justify-between"><span className="text-muted-foreground">Men Solid Suits</span>
+                                    <div className="flex items-center justify-between"><span className="text-muted-foreground">Ayam, Daging</span>
                                         <div className="flex items-center justify-between gap-2"><span className="line-through">Rp. 000</span><span className="text-sm text-green-600 dark:text-green-400">--% Off</span></div>
                                     </div>
                                 </div>
