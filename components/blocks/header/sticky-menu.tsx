@@ -1,28 +1,8 @@
 import HeaderMenu from '@/components/blocks/header/header-menu'
 import type { NavigationSection } from '@/components/blocks/menu-navigation'
+import navigationData from '@/db/stickyMenu.json'
 
-const navigationData: NavigationSection[] = [
-  {
-    title: 'About Us',
-    href: '/about'
-  },
-  {
-    title: 'Products',
-    href: '/products'
-  },
-  {
-    title: 'Contact us',
-    href: '/contact'
-  },
-  {
-    title: 'Recipes',
-    href: '/recipes'
-  },
-  {
-    title: 'Today\'s',
-    href: '#'
-  }
-]
+// const navigationData: NavigationSection[] = ... // Load this from your JSON file or define it directly
 
 
 

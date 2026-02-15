@@ -2,7 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadCrumbContainer } from "./breadcrumb-container";
 import { TitlePage } from "./title-page";
-
+import items from "@/db/items.json"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import {
   Card,
   CardAction,
@@ -34,9 +40,7 @@ export default function Recipes() {
 					<h3 className="text-xl font-medium">Bahan-bahan:</h3>
 					<ul className="list-disc list-inside text-left">
 						<li>1 ekor ayam kampung utuh (sekitar 1.5 kg)</li>	
-
 						<li>2 sendok makan minyak zaitun</li>
-
 						<li>4 siung bawang putih, cincang halus</li>
 						<li>1 sendok makan rosemary segar, cincang</li>
 						<li>1 sendok makan thyme segar, cincang</li>
@@ -59,14 +63,26 @@ export default function Recipes() {
 		
 
 
-			<div className="relative w-[100%] min-h-[256px] h-auto lg:h-[512px] flex justify-center items-center my-8 mx-auto py-4 px-6">
-				<Image 
-					src="/istockphoto-makanan-diet-seimbang.jpg" 
-					alt="makanan-natural-seimbang" 
-					fill
-					style={{ objectFit: 'cover', borderRadius: '10px', }}
-				/>
-			</div>
+			<Card className="w-full max-w-sm">
+				  <CardHeader>
+					<CardTitle>Subscription & Billing</CardTitle>
+					<CardDescription>
+					  Common questions about your account, plans, payments and
+					  cancellations.
+					</CardDescription>
+				  </CardHeader>
+				  <CardContent>
+					<Accordion type="single" collapsible defaultValue="plans">
+					  {items.map((item) => (
+						<AccordionItem key={item.value} value={item.value}>
+						  <AccordionTrigger>{item.trigger}</AccordionTrigger>
+						  <AccordionContent>{item.content}</AccordionContent>
+						</AccordionItem>
+					  ))}
+					</Accordion>
+				  </CardContent>
+			</Card>
+
 		</div> 
 	</div>
   )
