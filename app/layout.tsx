@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ReduxProvider from "./ReduxProvider";
 import StickyMenu from "@/components/blocks/header/sticky-menu"
-import Footer from "@/components/blocks/footer/footer-panel";
+import FooterPanel from "@/components/blocks/footer/footer-panel";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +34,7 @@ export default function RootLayout({
           <StickyMenu />
           {children}
         </ReduxProvider>
-        <Footer />
+        <FooterPanel />
       </body>
     </html>
   );
