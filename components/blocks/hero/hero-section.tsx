@@ -9,7 +9,7 @@ import { type CarouselApi, Carousel, CarouselContent, CarouselItem } from '@/com
 import { cn } from '@/lib/utils'
 
 export type MenuData = {
-  id: string
+  id: number
   img: string
   imgAlt: string
   userAvatar: string
