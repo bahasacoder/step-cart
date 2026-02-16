@@ -1,0 +1,98 @@
+"use client"
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch  } from "react-redux";
+import axios from "axios";
+import { ShoppingCart, Plus } from 'lucide-react';
+import Link from "next/link";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import type { RootState, AppDispatch } from "@/lib/store";
+import { addToCart } from "@/features/keranjangSlice";
+import { useAppSelector, useAppDispatch } from "@/lib/hooks";
+
+function ProductList() {
+
+  interface ProductWithId {
+    id: string | number; // Use the actual type of 'id'
+    image: string;
+    title: string;
+    price: number;
+    // Add other properties as needed
+  }
+    const [products, setProducts] = useState<ProductWithId[]>([]); // from fetchdata
+    // Initialize state as an empty array []
+    useEffect(() => {
+      
+      const fetchData = async () => {
+          try {
+            axios.get('https://fakestoreapi.com/products')
+              .then(response => {
+                //console.log(response.data);
+                setProducts(response.data);
+              });
+                  
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+
+      fetchData()
+    }, []); 
+// Function to fetch data from the API    
+    console.log("Products data:", products);
+    const dispatch = useDispatch<AppDispatch>();
+     // const { totalQuantity } = useSelector((state: RootState) => state.cart);
+    const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity);
+    const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
+    
+    const handleAddToCart = (product:any) => {
+      dispatch(addToCart(product ));
+    };
+    return (
+        
+        <div>
+              <header className="bg-background border-b sticky top-0 z-50 backdrop-blur-sm bg-background/95">
+                    <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <ShoppingCart className="h-8 w-8 text-primary" />
+                        <h1 className="text-2xl font-bold">ShopHub</h1>
+                      </div>
+                      <Link href="/fakecart">
+                        <Button variant="outline" className="relative">
+                          <ShoppingCart className="mr-2 h-4 w-4" />
+                          Cart
+                          {totalQuantity > 0 && (
+                            <Badge className="ml-2 bg-primary text-primary-foreground">
+                              {totalQuantity}
+                            </Badge>
+                          )}
+                        </Button>
+                      </Link>
+                    </div>
+                  </header>
+            
+
+            
+            <h1>Product List Page</h1>
+            {products.map((product) => (
+                <div key={product?.id}>
+                  <p>{product?.id}</p>
+                <img src={product?.image} alt="image title" />
+                <h2>{product.title.length > 20 ? `${product.title.slice(0, 20)}...` : product.title }</h2>
+                <p>Price : ${product.price}</p>
+                  <Button
+                              onClick={() => handleAddToCart(product)}
+                              className="w-full"
+                              size="lg"
+                            >
+                              <Plus className="mr-2 h-4 w-4" />
+                              Add to Cart
+                            </Button>
+                </div>
+            ))}
+           
+        </div>
+    )
+}
+
+export default ProductList
