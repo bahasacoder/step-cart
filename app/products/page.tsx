@@ -1,4 +1,4 @@
-import ShopAll from "@/components/page/shop-all"
+import ShopAll from "@/components/pages/shop-all"
 export default function ProductsPage() {
   return (
     <ShopAll />
