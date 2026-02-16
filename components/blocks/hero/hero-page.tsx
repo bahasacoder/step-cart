@@ -12,7 +12,7 @@ const HeroPage = () => {
 
 
       <main className='flex flex-col'>
-        <HeroSection menudata={herodata} />
+        <HeroSection menudata = {herodata} />
       </main>
   )
 }
