@@ -10,7 +10,7 @@ const productsArray = [
   { id: "p2", title: "Hat", price: 14.5, image: "/hat.jpg" },
 ];
 
-export default function Products() {
+export default function Products000() {
   const dispatch = useDispatch<AppDispatch>();
   const cartItems = useSelector((s: RootState) => selectCartItems(s));
   const totalCount = useSelector((s: RootState) => selectCartTotalItems(s));
