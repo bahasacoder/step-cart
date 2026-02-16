@@ -1,8 +1,8 @@
-import ShopAll from "@/components/pages/shop-all"
-// import ShopAll from "@/components/pages/products"
+// import ShopAll from "@/components/pages/shop-all"
+import ProductPage from "@/components/pages/products"
 
 export default function ProductsPage() {
   return (
-    <ShopAll />
+    <ProductPage />
   )
 }
