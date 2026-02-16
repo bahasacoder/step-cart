@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import products from "@/db/items.json";
 
-export function ProductItemsGrid() {
+export default function ProductItemsGrid() {
 
 	return (
 		<>
