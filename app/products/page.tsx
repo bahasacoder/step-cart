@@ -1,4 +1,4 @@
-import Products from "@/components/products"
+import Products from "@/components/page/shop-all"
 export default function ProductsPage() {
   return (
     <Products />
