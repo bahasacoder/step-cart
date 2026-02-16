@@ -1,6 +1,6 @@
-import Products from "@/components/page/shop-all"
+import ShopAll from "@/components/page/shop-all"
 export default function ProductsPage() {
   return (
-    <Products />
+    <ShopAll />
   )
 }
