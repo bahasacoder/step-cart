@@ -17,9 +17,9 @@
 			"sold":"2",
 			"unit":"Pack",
 			"star":"3",
-			"description":"Telur Ayang Kampung dalam 1 Pack isi 10 butir",
+			"description":"Telur Ayang Kampung dalam 1 Pack isi 6 butir",
 			"note_option":"harga belum termasuk pengiriman",
-			"image":"/pbon/eggs-in-plastic.png",
+			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@33e5fda77a3070902b823ef2b0a1dc3c37b50b73/uploads/2026-02-16T14-41-38-414Z-1qdfeh0qg.jpg",
 			"date_input":"11/23/2025 12:50",
 			"date_update":"11/23/2025 12:51"
 		},
@@ -41,9 +41,9 @@
 			"sold":"2",
 			"unit":"Butir",
 			"star":"3",
-			"description":"Telur Ayang Kampung dalam 1 Pack isi 10 butir",
+			"description":"Telur Ayang Kampung Satuan 1 butir",
 			"note_option":"harga belum termasuk pengiriman",
-			"image":"/pbon/telur-jerami.jpg",
+			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@b07240c6274a1b64d0760717e50b87729e8417a2/uploads/2026-02-16T14-47-31-865Z-kzjpkuhhb.png",
 			"date_input":"11/23/2025 12:50",
 			"date_update":"11/23/2025 12:51"
 		},		
@@ -67,7 +67,7 @@
 			"star":"3",
 			"description":"Pemotongan dan Pembersihan di satu tempat",
 			"note_option":"pemotongan ayam secara langsung",
-			"image":"/pbon/ayam-cleaning.png",
+			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@da4433dbaf3399389f1cdb296ee48ae16f549697/uploads/2026-02-16T14-46-36-491Z-69ymgdxfu.png",
 			"date_input":"11/23/2025 12:50",
 			"date_update":"11/23/2025 12:51"
 		},		
