@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import products from "@/db/items.json";
+import products from "@/db/products.json";
 
 export default function ProductItemsGrid() {
 
