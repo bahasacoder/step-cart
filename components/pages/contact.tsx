@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Form from "next/form";
-import { BreadCrumbContainer } from "./breadcrumb-container";
+import { BreadCrumbContainer } from "@/components/blocks/breadcrumb-container";
 import { TitlePage } from "./title-page";
 
 import { Mail } from "lucide-react";

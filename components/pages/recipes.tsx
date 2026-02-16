@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BreadCrumbContainer } from "./breadcrumb-container";
+import { BreadCrumbContainer } from "@/components/blocks/breadcrumb-container";
 import { TitlePage } from "./title-page";
 import items from "@/db/items.json"
 import {

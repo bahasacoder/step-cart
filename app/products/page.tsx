@@ -1,6 +1,9 @@
-import Products from "@/components/products"
+// import ShopAll from "@/components/pages/shop-all"
+// import ProductPage from "@/components/pages/products"
+import ProductItemsGrid from "@/components/pages/product-items"
+
 export default function ProductsPage() {
   return (
-    <Products />
+    <ProductItemsGrid />
   )
 }
