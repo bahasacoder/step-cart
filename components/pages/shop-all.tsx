@@ -10,7 +10,7 @@ import type { RootState, AppDispatch } from "@/lib/store";
 import { addToCart } from "@/features/keranjangSlice";
 import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 
-function ProductList() {
+export default function ShopAll() {
 
   interface ProductWithId {
     id: string | number; // Use the actual type of 'id'
@@ -94,5 +94,3 @@ function ProductList() {
         </div>
     )
 }
-
-export default ProductList
