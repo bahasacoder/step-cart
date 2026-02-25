@@ -1,14 +1,14 @@
 // app/products/[category]/page.tsx (or .js)
+import products from "@/db/products.json";
 
 // Define and export the generateStaticParams function
 export async function generateStaticParams() {
   // You can fetch all possible categories from an API, database, or a local source
   // const categories = await fetch('https://api.example.com/categories').then((res) => res.json());
-  const categories = ['food', 'drink', 'meat'];
 
   // Return an array of objects, where each object matches the dynamic segment name
-  return categories.map((category) => ({
-    category: category.slug, // The value for the [category] dynamic segment
+  return products.map((product) => ({
+    category: product.category, // The value for the [category] dynamic segment
   }));
 }
 
