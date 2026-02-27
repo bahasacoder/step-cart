@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 // Your main page component
 export default function Page({ params }: { params: { category: string } }) {
   // Access the params.category here to render content for the specific category
-  const { slug } = params;
+  const { category } = params;
   return (
     <div>
       <h1>Category: {params.category}</h1>
