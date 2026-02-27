@@ -1,13 +1,14 @@
-// app/products/[category]/page.tsx (or .js)
-import products from "@/db/products.json";
+// app/blog/[slug]/page.js
+export default function BlogPost({ params }) {
+  const { category } = params;
+  
+  // You can use the slug value to fetch data (e.g., from a database or API)
+  // const postData = await fetchPostBySlug(slug);
 
-
-export default function Page() {
- 
   return (
     <div>
-      <h1>Category: </h1>
-  
+      <h1>Blog Post: {category}</h1>
+      {/* Display post content here */}
     </div>
   );
 }
