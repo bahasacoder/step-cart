@@ -15,10 +15,12 @@ export async function generateStaticParams() {
 // Your main page component
 export default function Page({ params }: { params: { category: string } }) {
   // Access the params.category here to render content for the specific category
+  const { slug } = params;
   return (
     <div>
       <h1>Category: {params.category}</h1>
       {/* ... rest of your page content */}
+      <h1>Slug: {params}</h1>
     </div>
   );
 }
