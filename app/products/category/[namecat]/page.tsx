@@ -1,5 +1,5 @@
 export async function generateStaticParams() {
-  return [{ "category" : "meats" }, { "category" : "fruits"}, { "category" : "drinks"}];
+  return [{ "namecat" : "meats" }, { "namecat" : "fruits"}, { "namecat" : "drinks"}];
 }
 
 export default async function CategoryPage(
