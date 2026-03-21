@@ -1,6 +1,6 @@
 // import get_item from "@/actions/getDb"
 export async function generateStaticParams() {
-  return [{ id: "1" }, { id : "2"}, { id : "3"}];
+  return [{ id: "10001" }, { id : "10002"}, { id : "10003"}, { id : "10004"}, { id : "10005"}];
 }
 
 export default async function ProductPage(
