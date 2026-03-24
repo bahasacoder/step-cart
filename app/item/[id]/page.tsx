@@ -1,11 +1,5 @@
 // import { fetchItems } from "@/actions/getDb"
 import items from "@/db/items.json";
-/*
-export async function generateStaticParams() {
-  return [{ id: "10001" }, { id : "10002"}, { id : "10003"}, { id : "10004"}, { id : "10005"}];
-}
-  */
-
 
 export default async function ItemDetailPage(
   { params }: { params: { id: string } }
