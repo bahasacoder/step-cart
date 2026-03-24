@@ -1,6 +1,7 @@
 [
 		{
 			"id":"10001",
+			"slug":"telur-pack-isi-10",
 			"name":"Telur Pack isi 10",
 			"title":"Telur Pack Isi 10",
 			"brand":"Zxy",
@@ -25,6 +26,7 @@
 		},
 		{
 			"id":"10002",
+			"slug":"telur-per-butir",
 			"name":"Telur per Butir",
 			"title":"Telur Per Butir",
 			"brand":"B-zyx",
@@ -49,6 +51,7 @@
 		},		
 		{
 			"id":"10003",
+			"slug":"ayam-segar-bersih",
 			"name":"Ayam Segar Bersih",
 			"title":"Ayam Segar Bersih",
 			"brand":"Zxy",
@@ -73,6 +76,7 @@
 		},		
 		{
 			"id":"10004",
+			"slug":"ayam-marinasi-zyx",
 			"name":"Ayam Marinasi zyx",
 			"title":"Ayam Marinasi zyx",
 			"brand":"B-zyx",
@@ -97,6 +101,7 @@
 		},				
 		{
 			"id":"10005",
+			"slug":"jahe-asli-bubuk",
 			"name":"Jahe Asli Bubuk",
 			"title":"Jahe Asli Bubuk",
 			"brand":"B-zyx",
