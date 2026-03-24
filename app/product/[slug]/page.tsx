@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ItemDetailPage(
+export default async function ProductSlugPage(
   { params }: { params: { slug: string } }
 )  {
   const { slug } = await params
