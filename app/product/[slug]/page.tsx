@@ -9,15 +9,14 @@ export async function generateStaticParams() {
   // Return an array of IDs to be pre-rendered
   return products.map((product) => ({
     slug: product.slug.toString(), // id must be a string
-    id: product.id.toString()
   }));
 }
 
 export default async function ItemDetailPage(
   { params }: { params: { slug: string } }
 )  {
-  const { slug, id } = await params
-  const found = await products.find((item) => product.id === id );
+  const { slug } = await params
+  const found = await products.find((product) => product.slug === slug );
 
   return (
 
