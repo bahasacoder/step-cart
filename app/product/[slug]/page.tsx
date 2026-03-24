@@ -26,7 +26,6 @@ export default async function ItemDetailPage(
          <p>Product Page</p>
       </div>
       <div> 
-        <h2>id products : { id }</h2>
          <h2>slug products : { slug }</h2>
       </div>
     </div>
