@@ -1,11 +1,15 @@
 // import { fetchItems } from "@/actions/getDb"
 import items from "@/db/items.json";
-/*
-export async function generateStaticParams() {
-  return [{ id: "10001" }, { id : "10002"}, { id : "10003"}, { id : "10004"}, { id : "10005"}];
-}
-  */
 
+export async function generateStaticParams() {
+  // Fetch your data to get the list of IDs
+  //const posts = await fetch('https://.../items').then((res) => res.json());
+
+  // Return an array of IDs to be pre-rendered
+  return items.map((item) => ({
+    id: item.id.toString(), // id must be a string
+  }));
+}
 
 export default async function ItemDetailPage(
   { params }: { params: { id: string } }
