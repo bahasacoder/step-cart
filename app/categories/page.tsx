@@ -1,4 +1,4 @@
-export default Categoriespage() {
+export default function Categoriespage() {
   return (
     <>
          <section class="py-8 sm:py-16 lg:py-24">
