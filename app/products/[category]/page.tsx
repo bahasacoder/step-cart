@@ -1,4 +1,4 @@
-import ProductCategoryList from "@/components/blocks/product-category-list.tsx";
+import ProductCategoryList from "@/components/blocks/product-category-list";
 
 export async function generateStaticParams() {
   return [{ "category" : "meats" }, { "category" : "fruits"}, { "category" : "drinks"}];
