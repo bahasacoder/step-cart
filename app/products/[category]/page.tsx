@@ -3,9 +3,9 @@ export async function generateStaticParams() {
 }
 
 export default async function CategoryPage(
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ category: string }> }
 ) {
-  const { id } = await params;
+  const { category } = await params;
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <div className="flex flex-col items-center gap-4">
