@@ -1,4 +1,4 @@
-import ProductCategoryList from "@/components/blocks/product-category-list";
+import ProductListDelapan from "@/components/blocks/product-list-delapan";
 
 export async function generateStaticParams() {
   return [{ "category" : "meats" }, { "category" : "fruits"}, { "category" : "drinks"}];
@@ -16,7 +16,7 @@ export default async function CategoryPage(
           <h3>{ category }</h3>
         </div>
       </div>
-      <ProductCategoryList />
+      <ProductListDelapan />
     </>
   );
 }
