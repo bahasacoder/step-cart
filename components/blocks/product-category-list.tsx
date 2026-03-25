@@ -109,4 +109,4 @@ const ProductCategoryList = ({ products }: ProductProps) => {
   )
 }
 
-export default ProductList
+export default ProductCategoryList
