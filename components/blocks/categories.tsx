@@ -11,27 +11,27 @@ export default function CategoriesBlock() {
                 <div className="overflow-hidden" data-slot="carousel-content">
                     <div className="flex -ml-6" style={{transform: "translate3d(0px, 0px, 0px)"}}>
                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-10.png" alt="Smart Electronics" className="h-22 object-contain"></div>
+                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-10.png" alt="Smart Electronics" className="h-22 object-contain" /></div>
                                 <h2 className="text-center text-lg font-medium">Smart Electronics</h2>
                             </a></div>
                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-11.png" alt="Smart Appliances" className="h-22 object-contain"></div>
+                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-11.png" alt="Smart Appliances" className="h-22 object-contain" /></div>
                                 <h2 className="text-center text-lg font-medium">Smart Appliances</h2>
                             </a></div>
                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-9.png" alt="Smart Lighting" className="h-22 object-contain"></div>
+                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-9.png" alt="Smart Lighting" className="h-22 object-contain" /></div>
                                 <h2 className="text-center text-lg font-medium">Smart Lighting</h2>
                             </a></div>
                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-12.png" alt="Audio Visual" className="h-22 object-contain"></div>
+                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-12.png" alt="Audio Visual" className="h-22 object-contain" /></div>
                                 <h2 className="text-center text-lg font-medium">Audio Visual</h2>
                             </a></div>
                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-13.png" alt="Smart Hubs" className="h-22 object-contain"></div>
+                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-13.png" alt="Smart Hubs" className="h-22 object-contain" /></div>
                                 <h2 className="text-center text-lg font-medium">Smart Hubs</h2>
                             </a></div>
                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-14.png" alt="Smart Gadget" className="h-22 object-contain"></div>
+                                <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-14.png" alt="Smart Gadget" className="h-22 object-contain" /></div>
                                 <h2 className="text-center text-lg font-medium">Smart Gadget</h2>
                             </a></div>
                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
