@@ -1,13 +1,7 @@
-// import ShopAll from "@/components/pages/shop-all"
-// import ProductPage from "@/components/pages/products"
-import ProductItemsGrid from "@/components/pages/product-items-grid"
-import CategoriesBlock from "@/components/blocks/categories"
+import Recipes from "@/components/pages/recipes";
 
-export default function ProductsPage() {
+export default function RecipesPage() {
   return (
-    <>
-      <h1>Products Page</h1>
-    
-    </>
+    <Recipes />
   )
 }
