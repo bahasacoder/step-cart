@@ -21,6 +21,9 @@ try {
 } catch (error) {
   console.error("Error:", (error as Error).message);
 }
+export async function generateStaticParams() {
+  return [{ "category" : "meats" }, { "category" : "fruits"}, { "category" : "drinks"}];
+}
 
 export default async function CategoryPage(
   { params }: { params: Promise<{ category: string }> }
