@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import products from "@/db/products.json";
 import ProductListDelapan from "@/components/blocks/product-list-delapan";
-
+//
 function getUniqueCategories(categs:any) {
   if (!Array.isArray(categs)) {
     throw new Error("Input must be an array");
