@@ -6,7 +6,6 @@ import CategoriesBlock from "@/components/blocks/categories"
 export default function ProductsPage() {
   return (
     <>
-      <h1>Products Umum Page</h1>
       <CategoriesBlock />
       <ProductItemsGrid />
     </>
