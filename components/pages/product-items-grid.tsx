@@ -6,7 +6,7 @@ export default function ProductItemsGrid() {
 
 	return (
 		<>
-			<div className="relative flex flex-wrap w-full max-w-5xl">
+			<div className="relative  w-full max-w-5xl flex flex-wrap mx-auto">
 			{products.map((product) => (
  					<div key={product.id} className="overflow-hidden relative w-[14rem] m-2 p-2 bg-zinc-50 rounded-md">						
 						<div className="relative w-[211px] h-[385px] flex flex-col justify-center shadow-md rounded-xl duration-500">
