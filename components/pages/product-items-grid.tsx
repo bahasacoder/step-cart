@@ -8,7 +8,7 @@ export default function ProductItemsGrid() {
 		<>
 			{products.map((product) => (
  					<div key={product.id} className="overflow-hidden relative w-[14rem] m-2 p-2 bg-zinc-50 rounded-md">						
-						<div className="relative w-[211px] h-[385px] flex flex-col justify-center shadow-md rounded-xl duration-500">
+						<div className="relative w-[211px] h-[385px] flex flex-col md:flex-wrap justify-center shadow-md rounded-xl duration-500">
 							<div className="block z-18 absolute top-0 w-[40%] bg-amber-400 text-white p-1 m-1 rounded-lg">14% Off</div>
 							<Link href="#" className="z-8 absolute top-6 flex justify-end w-full h-[228px]">
 								<Image  
