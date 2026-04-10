@@ -8,7 +8,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import categories from "@/db/catageories.json";
+import categories from "@/db/categories.json";
 
 // import './styles.css';
 
