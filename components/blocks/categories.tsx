@@ -37,7 +37,7 @@ export default function CategoriesBlock() {
                             modules={[Autoplay]}
                             className="mySwiper flex justify-center items-center"
                           >
-                          {products.map((product) => (
+                          {categories.map((category) => (
                             <SwiperSlide style={{width:'200px'}}>
                             <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
                                     <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-10.png" alt="Smart Electronics" className="h-22 object-contain" /></div>
