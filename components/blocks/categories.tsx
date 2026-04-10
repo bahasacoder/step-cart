@@ -8,6 +8,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import categories from "@/db/catageories.json";
 
 // import './styles.css';
 
@@ -36,54 +37,14 @@ export default function CategoriesBlock() {
                             modules={[Autoplay]}
                             className="mySwiper flex justify-center items-center"
                           >
+                          {products.map((product) => (
                             <SwiperSlide style={{width:'200px'}}>
                             <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
                                     <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-10.png" alt="Smart Electronics" className="h-22 object-contain" /></div>
                                     <h2 className="text-center text-lg font-medium">Smart Electronics</h2>
                                 </a></div>
                             </SwiperSlide>
-                            <SwiperSlide style={{width:'200px'}}>
-                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-11.png" alt="Smart Appliances" className="h-22 object-contain" /></div>
-                                    <h2 className="text-center text-lg font-medium">Smart Appliances</h2>
-                                </a></div>
-                            </SwiperSlide>
-                            <SwiperSlide style={{width:'200px'}}>
-                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-9.png" alt="Smart Lighting" className="h-22 object-contain" /></div>
-                                    <h2 className="text-center text-lg font-medium">Smart Lighting</h2>
-                                </a></div>
-                            </SwiperSlide>
-                            <SwiperSlide style={{width:'200px'}}>
-                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-12.png" alt="Audio Visual" className="h-22 object-contain" /></div>
-                                    <h2 className="text-center text-lg font-medium">Audio Visual</h2>
-                                </a></div>
-                            </SwiperSlide>
-                            <SwiperSlide style={{width:'200px'}}>
-                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-13.png" alt="Smart Hubs" className="h-22 object-contain" /></div>
-                                    <h2 className="text-center text-lg font-medium">Smart Hubs</h2>
-                                </a></div>
-                            </SwiperSlide>
-                            <SwiperSlide style={{width:'200px'}}>
-                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-14.png" alt="Smart Gadget" className="h-22 object-contain" /></div>
-                                    <h2 className="text-center text-lg font-medium">Smart Gadget</h2>
-                                </a></div>
-                            </SwiperSlide>
-                            <SwiperSlide style={{width:'200px'}}>
-                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-15.png" alt="Buds" className="h-22 object-contain" /></div>
-                                    <h2 className="text-center text-lg font-medium">Buds</h2>
-                                </a></div>
-                            </SwiperSlide>
-                            <SwiperSlide style={{width:'200px'}}>
-                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
-                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-17.png" alt="Goggles" className="h-22 object-contain" /></div>
-                                    <h2 className="text-center text-lg font-medium">Goggles</h2>
-                                </a></div>
-                            </SwiperSlide>
+                            ))}
                     </Swiper>    
                     </div>
                 </div>
