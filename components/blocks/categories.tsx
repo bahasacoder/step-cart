@@ -8,6 +8,10 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+<<<<<<< HEAD
+=======
+import categories from "@/db/categories.json";
+>>>>>>> ca6c537bf02255caa824cd9dd6937149859fd864
 
 // import './styles.css';
 
@@ -36,6 +40,7 @@ export default function CategoriesBlock() {
                             modules={[Autoplay]}
                             className="mySwiper flex justify-center items-center"
                           >
+<<<<<<< HEAD
                             <SwiperSlide style={{width:'200px'}}>
                             <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
                                     <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-category/image-10.png" alt="Smart Electronics" className="h-22 object-contain" /></div>
@@ -84,6 +89,16 @@ export default function CategoriesBlock() {
                                     <h2 className="text-center text-lg font-medium">Goggles</h2>
                                 </a></div>
                             </SwiperSlide>
+=======
+                          {categories.map((category) => (
+                            <SwiperSlide style={{width:'200px'}}>
+                            <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-6 md:basis-1/3 lg:basis-1/6"><a href="#">
+                                    <div className="bg-muted mb-6 flex h-32 items-center justify-center rounded-md px-11.25"><img src={category.imgSrc} alt={category.imgAlt} className="h-full object-contain" /></div>
+                                    <h2 className="text-center text-lg font-medium capitalize">{category.name}</h2>
+                                </a></div>
+                            </SwiperSlide>
+                            ))}
+>>>>>>> ca6c537bf02255caa824cd9dd6937149859fd864
                     </Swiper>    
                     </div>
                 </div>
