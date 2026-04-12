@@ -6,11 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // import Swiper styles
-import 'swiper/swiper.min.css'; // Minified version (recommended for production)
-// Navigation arrows and bullets
-import 'swiper/modules/navigation/navigation.min.css'; 
-// Pagination dots/bullets
-import 'swiper/modules/pagination/pagination.min.css';
+import 'swiper/css';
 
 // import './styles.css';
 
