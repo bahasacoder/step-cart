@@ -5,21 +5,19 @@ import posts from "@/db/posts.json";
 
 export default function PostsPage() {
     const [results, setResults] = useState([]);
-    const getResults = async () => {
-        await axios
-            .get('http://')
-            .then(response => {
-                setResults(response.data.MRData)
-            })
-    }
-    useEffect(()=>{
-        getResults()
-    }, [])
-
+ 
     return (
         <>
             <div>
                 <h1>Posts</h1>
+            </div>
+            <div>
+                {posts.map((post) => (
+                    <div key={post.id}>
+                        <h2>{post.title}</h2>       
+                        <p>{post.content}</p>
+                    </div>
+                ))}
             </div>
         </>
     )
