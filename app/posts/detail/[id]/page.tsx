@@ -1,7 +1,15 @@
 import posts from "@/db/posts.json";
 
+export async function generateStaticParams() {
+  // 1. Fetch your data (from an API, CMS, or local file)
+  // const posts = await fetch('https://example.com').then((res) => res.json());
 
-export default function PostPage({ params }: { params: { id: string } }) {
+  // 2. Return an array of params matching the [id] segment
+  return posts.map((post) => ({
+    id: post.id.toString(),
+  }));
+}
+export default function DetailPostPage({ params }: { params: { id: string } }) {
     const { id } = params;
     const post = posts.find((post) => post.id == (id));
     if (!post) {
