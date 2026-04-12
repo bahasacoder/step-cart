@@ -4,8 +4,13 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from 'next/link';
 import Image from 'next/image';
-// Import Swiper styles
-import 'swiper/css';
+
+// import Swiper styles
+import 'swiper/swiper.min.css'; // Minified version (recommended for production)
+// Navigation arrows and bullets
+import 'swiper/modules/navigation/navigation.min.css'; 
+// Pagination dots/bullets
+import 'swiper/modules/pagination/pagination.min.css';
 
 // import './styles.css';
 
