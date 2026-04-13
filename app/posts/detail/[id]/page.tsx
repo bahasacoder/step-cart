@@ -9,9 +9,9 @@ export async function generateStaticParams() {
     id: post.id.toString(),
   }));
 }
-export default function DetailPostPage({ params }: { params: { id: string } }) {
-    const { id } = params;
-    const post = posts.find((post) => post.id === (id));
+export default async function DetailPostPage({ params }: { params: { id: string } }) {
+    const { id } = await params;
+    const post = await posts.find((post) => post.id === id);
     if (!post) {
         return <div>Post not found</div>;
     }
@@ -22,6 +22,7 @@ export default function DetailPostPage({ params }: { params: { id: string } }) {
             </div>
             <div>   
                 <p>{post.content}</p>
+              <p>ID unique : {id}</p>
             </div>
         </>
     )
