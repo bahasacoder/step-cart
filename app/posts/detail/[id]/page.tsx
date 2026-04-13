@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 }
 export default function DetailPostPage({ params }: { params: { id: string } }) {
     const { id } = params;
-    const post = posts.find((post) => post.id == (id));
+    const post = posts.find((post) => post.id === (id));
     if (!post) {
         return <div>Post not found</div>;
     }
