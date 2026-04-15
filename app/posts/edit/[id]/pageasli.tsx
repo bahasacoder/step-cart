@@ -1,5 +1,4 @@
 import posts from "@/db/posts.json";
-import FormEditPost from "./form-post";
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   // const posts = await fetch('https://.../posts').then((res) => res.json())
@@ -8,7 +7,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function DetailEditPage({
+export default async function DetailEditPageAsli({
   params,
 }: {
   params: Promise<{ id: string }>
@@ -16,7 +15,8 @@ export default async function DetailEditPage({
   const { id } = await params
   return (
     <>
-      <FormEditPost id={id} />
+      <h1>Halaman Detail Edit Page</h1>
+      <p> id: {id} </p>
     </>
   )
 }

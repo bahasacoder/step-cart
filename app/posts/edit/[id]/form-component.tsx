@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import {
   Field,
   FieldDescription,
@@ -25,23 +25,27 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import posts from "@/db/posts.json";
 
-export default function JobApplication() {
-  const formSchema = z.object({
+export default function FormEditItem({ id }: { id: string }) {
+  const satupost = posts.find((post) => post.id === id)
+  if (!satupost) {
+    return <div>Loading...</div>;
+  }
+
+    const formSchema = z.object({
     "text-0": z.string(),
-    "text-input-0": z.string().min(1, { message: "This field is required" }),
-    "email-input-0": z
-      .string()
-      .email({ message: "Invalid email address" })
-      .min(1, { message: "This field is required" }),
-    "tel-input-0": z.string().min(1, { message: "This field is required" }),
+    "text-input-product-name-0": z.string().min(1, { message: "This field is required" }),
+    "text-input-date-time-0": z.string().min(1, { message: "This field is required" }),
     "select-0": z.string().min(1, { message: "This field is required" }),
     "file-input-0": z.string().min(1, { message: "This field is required" }),
     "file-input-1": z.string(),
+    "text-input-image-link-0": z.string().url({ message: "Please enter a valid URL" }),
     "textarea-0": z
       .string()
       .min(1, { message: "This field is required" })
       .min(100, { message: "Must be at least 100 characters" }),
+    "select-payment-method-0": z.string().min(1, { message: "This field is required" }),
     "checkbox-0": z
       .boolean({
         error: "This field is required.",
@@ -56,15 +60,17 @@ export default function JobApplication() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       "text-0": "",
-      "text-input-0": "",
-      "email-input-0": "",
-      "tel-input-0": "",
+      "text-input-product-name-0": "",
+      "text-input-date-time-0": "", 
       "select-0": "",
       "file-input-0": "",
       "file-input-1": "",
       "textarea-0": "",
+      "text-input-image-link-0": "",
       "checkbox-0": false,
-    },
+      "select-payment-method-0": "",
+      "submit-button-0":"",
+    }
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -76,7 +82,14 @@ export default function JobApplication() {
     form.clearErrors();
   }
 
+  
   return (
+    <>
+    <div>
+      <h2>Edit Post</h2>
+      <p>Title: {satupost.title}</p>
+      <p>Content: {satupost.content}</p>
+    </div>
     <form
       onSubmit={form.handleSubmit(onSubmit)}
       onReset={onReset}
@@ -92,65 +105,21 @@ export default function JobApplication() {
             </span>
           </p>
         </div>
-
-        <Controller
+      </div>
+      <Controller
           control={form.control}
-          name="text-input-0"
+          name="text-input-product-name-0"
           render={({ field, fieldState }) => (
             <Field
               className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
               data-invalid={fieldState.invalid}
             >
-              <FieldLabel className="flex w-auto!">Full Name</FieldLabel>
+              <FieldLabel className="flex w-auto!">Product Name</FieldLabel>
 
               <Input
-                key="text-input-0"
-                placeholder="John Doe"
+                key="input-product-name-0"
+                placeholder="Product Name"
                 type="text"
-                className=""
-                {...field}
-              />
-
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
-        />
-        <Controller
-          control={form.control}
-          name="email-input-0"
-          render={({ field, fieldState }) => (
-            <Field
-              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
-              data-invalid={fieldState.invalid}
-            >
-              <FieldLabel className="flex w-auto!">Email</FieldLabel>
-
-              <Input
-                key="email-input-0"
-                placeholder="john@example.com"
-                type="email"
-                className=""
-                {...field}
-              />
-
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
-        />
-        <Controller
-          control={form.control}
-          name="tel-input-0"
-          render={({ field, fieldState }) => (
-            <Field
-              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
-              data-invalid={fieldState.invalid}
-            >
-              <FieldLabel className="flex w-auto!">Phone Number</FieldLabel>
-
-              <Input
-                key="tel-input-0"
-                placeholder="+1 (555) 000-0000"
-                type="tel"
                 className=""
                 {...field}
               />
@@ -168,7 +137,7 @@ export default function JobApplication() {
               data-invalid={fieldState.invalid}
             >
               <FieldLabel className="flex w-auto!">
-                Position Applied For
+                Position Side
               </FieldLabel>
 
               <Select
@@ -181,20 +150,14 @@ export default function JobApplication() {
                   <SelectValue placeholder="" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem key="developer" value="developer">
-                    Software Developer
+                  <SelectItem key="developer" value="one-row">
+                    One Row
                   </SelectItem>
-
-                  <SelectItem key="designer" value="designer">
-                    UI/UX Designer
+                  <SelectItem key="designer" value="left-block">
+                    Left Block
                   </SelectItem>
-
-                  <SelectItem key="manager" value="manager">
-                    Project Manager
-                  </SelectItem>
-
-                  <SelectItem key="other" value="other">
-                    Other
+                  <SelectItem key="manager" value="right-block">
+                    Right Block
                   </SelectItem>
                 </SelectContent>
               </Select>
@@ -203,6 +166,7 @@ export default function JobApplication() {
             </Field>
           )}
         />
+        
         <Controller
           control={form.control}
           name="file-input-0"
@@ -211,10 +175,10 @@ export default function JobApplication() {
               className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
               data-invalid={fieldState.invalid}
             >
-              <FieldLabel className="flex w-auto!">Resume/CV</FieldLabel>
+              <FieldLabel className="flex w-auto!">Image Product</FieldLabel>
 
               <Input
-                key="file-input-0"
+                key="file-image-product-0"
                 placeholder=""
                 type="file"
                 className=""
@@ -225,28 +189,7 @@ export default function JobApplication() {
             </Field>
           )}
         />
-        <Controller
-          control={form.control}
-          name="file-input-1"
-          render={({ field, fieldState }) => (
-            <Field
-              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
-              data-invalid={fieldState.invalid}
-            >
-              <FieldLabel className="flex w-auto!">Cover Letter</FieldLabel>
-
-              <Input
-                key="file-input-1"
-                placeholder=""
-                type="file"
-                className=""
-                {...field}
-              />
-
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
-        />
+        
         <Controller
           control={form.control}
           name="textarea-0"
@@ -256,13 +199,13 @@ export default function JobApplication() {
               data-invalid={fieldState.invalid}
             >
               <FieldLabel className="flex w-auto!">
-                Why do you want to join us?
+                Description Your Product
               </FieldLabel>
 
               <Textarea
-                key="textarea-0"
+                key="textarea-description-product-0"
                 id="textarea-0"
-                placeholder="Tell us why you&#039;re interested in this position..."
+                placeholder="Describe your product..."
                 className=""
                 {...field}
               />
@@ -273,6 +216,105 @@ export default function JobApplication() {
         />
         <Controller
           control={form.control}
+          name="text-input-image-link-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">Image Link</FieldLabel>
+
+              <Input
+                key="input-image-link-0"
+                placeholder="Image Link"
+                type="text"
+                className=""
+                {...field}
+              />
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        
+        <Controller
+          control={form.control}
+          name="text-input-date-time-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">Tanggal Input</FieldLabel>
+
+              <Input
+                key="input-date-time-0"
+                placeholder="data-time"
+                type="text"
+                className=""
+                {...field}
+              />
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="select-payment-method-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">
+                Payment Method
+              </FieldLabel>
+
+              <Select
+                key="select-0"
+                value={field.value}
+                name={field.name}
+                onValueChange={field.onChange}
+              >
+                <SelectTrigger className="w-full ">
+                  <SelectValue placeholder="" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem key="virtual-account" value="virtual-account">
+                    Virtual Account
+                  </SelectItem>
+                  <SelectItem key="ewallet" value="ewallet">
+                    E-Wallet
+                  </SelectItem>
+                  <SelectItem key="bank-transfer" value="bank-transfer">
+                    Bank Transfer
+                  </SelectItem>
+                  <SelectItem key="otc-payment" value="OTC-payment">
+                    Overh-the-counter payments (OTC)
+                  </SelectItem>
+                  <SelectItem key="qris" value="qris">
+                    Qris
+                  </SelectItem>
+                  <SelectItem key="paylater" value="paylater">
+                    Paylater
+                  </SelectItem>
+                  <SelectItem key="credit-card" value="credit-card">
+                    Credit Card
+                  </SelectItem>
+                  <SelectItem key="direct-debit" value="direct-debit">
+                    Direct Debit
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        
+        <Controller
+          control={form.control}
           name="checkbox-0"
           render={({ field, fieldState }) => (
             <Field
@@ -280,7 +322,7 @@ export default function JobApplication() {
               data-invalid={fieldState.invalid}
             >
               <FieldLabel className="hidden w-auto!">
-                I confirm that all information provided is accurate
+                Shipping Methode
               </FieldLabel>
 
               <div
@@ -306,32 +348,17 @@ export default function JobApplication() {
             </Field>
           )}
         />
-        <Controller
-          control={form.control}
-          name="submit-button-0"
-          render={({ field, fieldState }) => (
-            <Field
-              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
-              data-invalid={fieldState.invalid}
-            >
-              <FieldLabel className="hidden w-auto!">Submit</FieldLabel>
+        <Button type="submit" variant="default">
+          Submit
+        </Button>
+        <Button type="reset" variant="outline">
+          Reset
+        </Button>
 
-              <Button
-                key="submit-button-0"
-                id="submit-button-0"
-                name=""
-                className="w-full"
-                type="submit"
-                variant="default"
-              >
-                Submit Application
-              </Button>
+      </form>
 
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
-        />
-      </div>
-    </form>
+    </>
+    
   );
 }
+
