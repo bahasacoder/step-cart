@@ -37,12 +37,10 @@ export default function FormEditItem({ id }: { id: string }) {
     "text-0": z.string(),
     "text-input-product-name-0": z.string().min(1, { message: "This field is required" }),
     "text-input-date-time-0": z.string().min(1, { message: "This field is required" }),
-    "email-input-0": z
-      .string()
-      .min(1, { message: "This field is required" }),
     "select-0": z.string().min(1, { message: "This field is required" }),
     "file-input-0": z.string().min(1, { message: "This field is required" }),
     "file-input-1": z.string(),
+    "text-input-image-link-0": z.string().url({ message: "Please enter a valid URL" }),
     "textarea-0": z
       .string()
       .min(1, { message: "This field is required" })
@@ -68,6 +66,7 @@ export default function FormEditItem({ id }: { id: string }) {
       "file-input-0": "",
       "file-input-1": "",
       "textarea-0": "",
+      "text-input-image-link-0": "",
       "checkbox-0": false,
       "select-payment-method-0": "",
       "submit-button-0":"",
@@ -107,28 +106,256 @@ export default function FormEditItem({ id }: { id: string }) {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-4">
-        <Field key="text-input-product-name-0" className="col-span-12 col-start-auto">
-          <FieldLabel>Product Name</FieldLabel>
-          <FieldDescription>
-            Please enter the name of the product you want to apply for. This will help us identify the position you are interested in.
-          </FieldDescription>
-          <InputGroup>  
-            <Controller
-              control={form.control}
-              name="text-input-product-name-0"
-              render={({ field }) => (        
-                <Input
-                  {...field}
-                  id="text-input-product-name-0"
-                  placeholder="Enter product name"  
+      <Controller
+          control={form.control}
+          name="text-input-product-name-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">Product Name</FieldLabel>
+
+              <Input
+                key="input-product-name-0"
+                placeholder="Product Name"
+                type="text"
+                className=""
+                {...field}
+              />
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="select-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">
+                Position Side
+              </FieldLabel>
+
+              <Select
+                key="select-0"
+                value={field.value}
+                name={field.name}
+                onValueChange={field.onChange}
+              >
+                <SelectTrigger className="w-full ">
+                  <SelectValue placeholder="" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem key="developer" value="one-row">
+                    One Row
+                  </SelectItem>
+                  <SelectItem key="designer" value="left-block">
+                    Left Block
+                  </SelectItem>
+                  <SelectItem key="manager" value="right-block">
+                    Right Block
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        
+        <Controller
+          control={form.control}
+          name="file-input-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">Image Product</FieldLabel>
+
+              <Input
+                key="file-image-product-0"
+                placeholder=""
+                type="file"
+                className=""
+                {...field}
+              />
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        
+        <Controller
+          control={form.control}
+          name="textarea-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">
+                Description Your Product
+              </FieldLabel>
+
+              <Textarea
+                key="textarea-description-product-0"
+                id="textarea-0"
+                placeholder="Describe your product..."
+                className=""
+                {...field}
+              />
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="text-input-image-link-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">Image Link</FieldLabel>
+
+              <Input
+                key="input-image-link-0"
+                placeholder="Image Link"
+                type="text"
+                className=""
+                {...field}
+              />
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        
+        <Controller
+          control={form.control}
+          name="text-input-date-time-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">Tanggal Input</FieldLabel>
+
+              <Input
+                key="input-date-time-0"
+                placeholder="data-time"
+                type="text"
+                className=""
+                {...field}
+              />
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        <Controller
+          control={form.control}
+          name="select-payment-method-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="flex w-auto!">
+                Payment Method
+              </FieldLabel>
+
+              <Select
+                key="select-0"
+                value={field.value}
+                name={field.name}
+                onValueChange={field.onChange}
+              >
+                <SelectTrigger className="w-full ">
+                  <SelectValue placeholder="" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem key="virtual-account" value="virtual-account">
+                    Virtual Account
+                  </SelectItem>
+                  <SelectItem key="ewallet" value="ewallet">
+                    E-Wallet
+                  </SelectItem>
+                  <SelectItem key="bank-transfer" value="bank-transfer">
+                    Bank Transfer
+                  </SelectItem>
+                  <SelectItem key="otc-payment" value="OTC-payment">
+                    Overh-the-counter payments (OTC)
+                  </SelectItem>
+                  <SelectItem key="qris" value="qris">
+                    Qris
+                  </SelectItem>
+                  <SelectItem key="paylater" value="paylater">
+                    Paylater
+                  </SelectItem>
+                  <SelectItem key="credit-card" value="credit-card">
+                    Credit Card
+                  </SelectItem>
+                  <SelectItem key="direct-debit" value="direct-debit">
+                    Direct Debit
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        
+        <Controller
+          control={form.control}
+          name="checkbox-0"
+          render={({ field, fieldState }) => (
+            <Field
+              className="col-span-12 col-start-auto flex self-end flex-col gap-2 space-y-0 items-start"
+              data-invalid={fieldState.invalid}
+            >
+              <FieldLabel className="hidden w-auto!">
+                Shipping Methode
+              </FieldLabel>
+
+              <div
+                key="checkbox-0"
+                className="border-0 p-0 w-full flex items-start has-[[data-state=checked]]:border-primary"
+              >
+                <Checkbox
+                  id="checkbox-0"
+                  name={field.name}
+                  className=""
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
                 />
-              )}
-            />
-          </InputGroup>
-          </Field>
-        </div>
-        </form>
+                <div className="grid gap-1.5 leading-none">
+                  <FieldLabel>
+                    I confirm that all information provided is accurate
+                  </FieldLabel>
+                  <p className="text-sm text-muted-foreground"></p>
+                </div>
+              </div>
+
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+        <Button type="submit" variant="default">
+          Submit
+        </Button>
+        <Button type="reset" variant="outline">
+          Reset
+        </Button>
+
+      </form>
 
     </>
     

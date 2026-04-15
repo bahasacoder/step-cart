@@ -1,5 +1,5 @@
 import posts from "@/db/posts.json";
-import FormEditItem from "./form-component";
+import FormEditPost from "./form-post";
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   // const posts = await fetch('https://.../posts').then((res) => res.json())
@@ -16,8 +16,7 @@ export default async function DetailEditPage({
   const { id } = await params
   return (
     <>
-      <h1>Halaman Detail Edit Page</h1>
-      <FormEditItem id={id} />
+      <FormEditPost id={id} />
     </>
   )
 }
