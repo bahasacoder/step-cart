@@ -36,4 +36,8 @@ export default async function ItemDetailPage(
     </div>
   );
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ad606bca612e00dec0b864e514b841c40303963d
