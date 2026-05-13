@@ -7,6 +7,24 @@ export default function AddProduct() {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const router = useRouter();
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault(); 
+    try {
+        const response = await fetch("/api/products", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, price, description }),
+        }); 
+        if (response.ok) {
+            alert("Product added successfully!");
+            router.push("/products");
+        }
+    } catch (error) {
+        console.error("Error adding product:", error);
+    }
+}
 return (
     <div>
       <h1>Add Product</h1>  
@@ -42,21 +60,4 @@ return (
         </form>
     </div>
 );
-async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault(); 
-    try {
-        const response = await fetch("/api/products", {
-            method: "POST", 
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ name, price, description }),
-        }); 
-        if (response.ok) {
-            alert("Product added successfully!");
-            router.push("/products");
-        }
-    } catch (error) {
-        console.error("Error adding product:", error);
-    }
 }
