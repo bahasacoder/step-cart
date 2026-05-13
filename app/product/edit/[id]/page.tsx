@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 
-import items from "@/db/items.json";
-export async function generateStaticParams() {
-  // Fetch your data to get the list of IDs
-  //const posts = await fetch('https://.../items').then((res) => res.json());
+const data = [
+  { id: '1', title: 'First Post' },
+  { id: '2', title: 'Second Post' },
+];
 
-  // Return an array of IDs to be pre-rendered
-  return items.map((item) => ({
-    id: item.id.toString(), // id must be a string
+// Returns an array of objects to populate the [id] dynamic segment
+export async function generateStaticParams() {
+  return data.map((post) => ({
+    id: post.id,
   }));
 }
-
 
 export default function EditProductPage() {
   
