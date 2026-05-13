@@ -1,7 +1,3 @@
-"use client"; // Required for client-side interactivity
-
-import { useState } from "react";
-
 const data = [
   { id: '1', title: 'First Post' },
   { id: '2', title: 'Second Post' },
