@@ -49,7 +49,7 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">DOC Ayam Kampung</h3><span className="text-2xl">Rp. 000</span>
+                                        <h3 className="text-lg">DOC Ayam Kampung</h3><span className="text-2xl">Rp. 7.000</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Ayam</span></div>
                                 </div>
@@ -71,7 +71,7 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Ayam Kampung Betina</h3><span className="text-2xl">Rp. 000</span>
+                                        <h3 className="text-lg">Ayam Kampung Betina</h3><span className="text-2xl">Rp. 50.000</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Ayam</span>
                                         <div className="flex items-center justify-between gap-2"><span className="line-through">Rp .000</span><span className="text-sm text-green-600 dark:text-green-400">---% Off</span></div>
@@ -96,7 +96,7 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Frozen_Native_Chicken</h3><span className="text-2xl">Rp. 000</span>
+                                        <h3 className="text-lg">Frozen_Native_Chicken</h3><span className="text-2xl">Rp. 60.000</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Ayam, Frozen</span></div>
                                 </div>
@@ -118,10 +118,10 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Telur Ayam Kampung</h3><span className="text-2xl">Rp .000</span>
+                                        <h3 className="text-lg">Telur Ayam Kampung</h3><span className="text-2xl">Rp 2.500</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Ayam, Daging</span>
-                                        <div className="flex items-center justify-between gap-2"><span className="line-through">Rp. 000</span><span className="text-sm text-green-600 dark:text-green-400">--% Off</span></div>
+                                        <div className="flex items-center justify-between gap-2"><span className="line-through">Rp. 3.000</span><span className="text-sm text-green-600 dark:text-green-400">--% Off</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Ayam Kampung Pejantan</h3><span className="text-2xl">Rp. 000</span>
+                                        <h3 className="text-lg">Ayam Kampung Pejantan</h3><span className="text-2xl">Rp. 55.000</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Ayam</span></div>
                                 </div>
@@ -164,7 +164,7 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Ayam Kampung Indukan</h3><span className="text-2xl">Rp. 000</span>
+                                        <h3 className="text-lg">Ayam Kampung Indukan</h3><span className="text-2xl">Rp. 100.000</span>
                                     </div>
                                     <div className="flex items-center justify-between"><span className="text-muted-foreground">Ayam</span></div>
                                 </div>
