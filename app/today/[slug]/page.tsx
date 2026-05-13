@@ -6,7 +6,7 @@ const data = [
 // Returns an array of objects to populate the [id] dynamic segment
 export async function generateStaticParams() {
   return data.map((t) => ({
-    id: t.id,
+    slug: t.id,
   }));
 }
 
