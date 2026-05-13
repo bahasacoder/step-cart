@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+export async function generateStaticParams() {
+  const product = [{}];
+  return  product;
+} 
 export default function HomePage() {
   
   return (
