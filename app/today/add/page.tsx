@@ -1,10 +1,12 @@
+"use client"
 import AddFormEx from "./add-form-ex";
+import AddTodayForm from "./add-form-zod";
 
 export default function AddTodayPage(){
   return (
     <div>
       <div>Add Item Today Form</div>
-      <AddFormEx />
+      <AddTodayForm />
     </div>
   )
 }
