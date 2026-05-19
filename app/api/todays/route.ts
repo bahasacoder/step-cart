@@ -9,3 +9,17 @@ export async function GET() {
   const users = JSON.parse(fileData);
   return Response.json(users);  
 }
+
+export async function POST(request: Request) {
+  const newItemToday = await request.json();
+  const filePath = path.join(process.cwd(), "db", "todays.json");
+  const fileData = await fs.readFile(filePath, "utf8");
+  const itemsTodays = JSON.parse(fileData);
+  newItemToday.id = itemsTodays.length + 1;
+  itemsTodays.push(newItemToday);
+  await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2));
+  return Response.json({ message: "Item today's created", itemToday: newItemToday });
+}
+
+
+  
