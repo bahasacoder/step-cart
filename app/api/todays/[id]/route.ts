@@ -6,14 +6,14 @@ import { any, array } from "zod";
 import { it, tr } from "zod/v4/locales";
 import { request } from "https";
 
-export async function GET(request: NextRequest, {params}: { params: {id: string}}) { 
+export async function GET(request: Request, {params}: { params: {id: string}}) { 
   try {    
     const id = params.id;
     const filePath = path.join(process.cwd(), "db", "todays.json");
     const fileData = await fs.readFile(filePath, "utf8");
     const itemsTodays = JSON.parse(fileData);
     const itemFind = itemsTodays.find((itemToday: any) => itemToday.id === id );  
-    return NextResponse.json(itemFind);  
+    return Response.json(itemFind);  
   } catch (error) {
     console.error("Error fetching user:", error);
     return NextResponse.json({ error: "User not found" }, { status: 404 });
