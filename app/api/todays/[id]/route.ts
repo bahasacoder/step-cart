@@ -6,17 +6,17 @@ import { any, array } from "zod";
 import { it, tr } from "zod/v4/locales";
 import { request } from "https";
 
-type Params = Promise<{ id: string }>
 
-export async function GET(request: Request, segmentData: { params: Params}) { 
+export async function GET(request: NextRequest,
+  context: { params: Promise<{ id: string }> }) { 
   try {    
-    const params = await segmentData.params
-    const id = params.id
+   const { id } = await context.params;
+  
 
     if (!id) {
       return NextResponse.json({ error: 'User ID is required.' }, { status: 400 });
     }
-
+    return NextResponse.json({ message: `Fetching data for ID: ${id}` });
   } catch (error) {
     console.error("Error fetching user:", error);
     return NextResponse.json({ error: "User not found" }, { status: 404 });
