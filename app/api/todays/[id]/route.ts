@@ -1,26 +1,24 @@
 export const dynamic = 'force-static';
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
 import { any, array } from "zod";
 import { it, tr } from "zod/v4/locales";
 import { request } from "https";
 
-export async function GET(request: Request, {params}: { params: {id: string}}) { 
+export async function GET(request: NextRequest, {params}: { params: {id: string}}) { 
   try {    
-    const { id } = await params;
+    const { id } = params;
     const filePath = path.join(process.cwd(), "db", "todays.json");
     const fileData = await fs.readFile(filePath, "utf8");
     const itemsTodays = JSON.parse(fileData);
     const itemFind = itemsTodays.find((itemToday: any) => itemToday.id === id );  
-    return Response.json(itemFind);  
+    return NextResponse.json(itemFind);  
   } catch (error) {
-    console.error("Error fetching item Todays:", error);
-    return NextResponse.json({ error: "item Todays not found" }, { status: 404 });
+    console.error("Error fetching user:", error);
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 }
- 
- 
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
   const { id, name, email } = await request.json();
