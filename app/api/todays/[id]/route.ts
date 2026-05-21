@@ -7,9 +7,12 @@ import { it, tr } from "zod/v4/locales";
 import { request } from "https";
 
 
-export async function GET(_req: NextRequest, ctx: RouteContext<'/todays/[id]'>) { 
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ id: string }>
+  ) { 
   try {    
-   const { id } = await ctx.params
+   const { id } = await params
   
 
     if (!id) {
