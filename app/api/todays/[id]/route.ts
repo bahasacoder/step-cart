@@ -10,7 +10,7 @@ type Params = Promise<{ id: string }>
 
 export async function GET(request: Request, segmentData: { params: Params}) { 
   try {    
-    cconst params = await segmentData.params
+    const params = await segmentData.params
     const id = params.id
 
     if (!id) {
