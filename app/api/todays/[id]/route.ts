@@ -8,7 +8,7 @@ import { request } from "https";
 
 export async function GET(request: NextRequest, {params}: { params: {id: string}}) { 
   try {    
-    const { id } = params;
+    const id = params.id;
     const filePath = path.join(process.cwd(), "db", "todays.json");
     const fileData = await fs.readFile(filePath, "utf8");
     const itemsTodays = JSON.parse(fileData);
