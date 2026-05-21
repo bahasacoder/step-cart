@@ -6,7 +6,7 @@ import { any, array } from "zod";
 import { it, tr } from "zod/v4/locales";
 import { request } from "https";
 
-export async function GET(request: Request, {params}: { params: {id: string}}) { 
+export async function GET(request: NextRequest, {params}: { params: Promise<{id: string}> }) { 
   try {    
     const id = params.id;
     const filePath = path.join(process.cwd(), "db", "todays.json");
