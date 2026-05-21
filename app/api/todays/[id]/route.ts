@@ -6,15 +6,12 @@ import { any, array } from "zod";
 import { it, tr } from "zod/v4/locales";
 import { request } from "https";
 
-interface RouteContext {
-  params: {
-    id: string;
-  };
-}
+type Params = Promise<{ id: string }>
 
-export async function GET(request: NextRequest, context: RouteContext ) { 
+export async function GET(request: Request, segmentData: { params: Params}) { 
   try {    
-    const { id } = context.params;
+    cconst params = await segmentData.params
+    const id = params.id
 
     if (!id) {
       return NextResponse.json({ error: 'User ID is required.' }, { status: 400 });
