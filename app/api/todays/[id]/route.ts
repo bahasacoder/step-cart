@@ -14,7 +14,7 @@ export async function generateStaticParams() {
        "Content-Type": "application/json",
      },
    } );
- const itemsTodays: ItemsTodays[] = await response.json();  
+ const itemsTodays = await response.json();  
   return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() }));  
 }
 
