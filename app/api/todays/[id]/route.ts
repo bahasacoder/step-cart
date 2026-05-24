@@ -8,7 +8,7 @@ import { request } from "https";
 
 export async function generateStaticParams() {
   // Fetch your IDs from a database or CMS
-  const response = await fetch('http://pasarbone.com/api/todays',", {
+  const response = await fetch('http://pasarbone.com/api/todays', {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
