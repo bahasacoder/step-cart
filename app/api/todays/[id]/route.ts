@@ -6,6 +6,17 @@ import { any, array } from "zod";
 import { it, tr } from "zod/v4/locales";
 import { request } from "https";
 
+export async function generateStaticParams() {
+  // Fetch your IDs from a database or CMS
+  const response = await fetch('http://pasarbone.com/api/todays',", {
+     method: "GET",
+     headers: {
+       "Content-Type": "application/json",
+     },
+   } );
+ const itemsTodays: ItemsTodays[] = await response.json();  
+  return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() }));  
+}
 
 export async function GET(
   request: Request,
