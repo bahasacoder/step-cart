@@ -17,7 +17,7 @@ interface ItemsTodays {
 }
 
 export async function generateStaticParams() {
-  const response = await fetch("http://localhost:3000/api/todays", {
+  const response = await fetch("https://pasarbone.com/api/todays", {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
