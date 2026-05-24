@@ -25,7 +25,7 @@ export async function GET(
   }
 }
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request,   { params }: { params: Promise<{ id: string }>} ) {
   const { id, name, email } = await request.json();
   const updatedUser = { id, name, email };
   let idUpdated = updatedUser.id;
