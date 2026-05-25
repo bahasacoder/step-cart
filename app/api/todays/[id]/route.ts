@@ -23,32 +23,23 @@ interface ItemsTodays {
   id: string;
 }
 
-export async function generateStaticParams() {
-  // Fetch your IDs from a database or CMS
-  const response = await fetch('http://pasarbone.com/api/todays', {
-     method: "GET",
-     headers: {
-       "Content-Type": "application/json",
-     },
-   } );
- const itemsTodays: ItemsTodays[] = await response.json();  
-  return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() }));  
-}
-
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }>}
   ) { 
   try {    
    const { id } = await params
-  
+    const filePath = path.join(process.cwd(), "data", "todays.json");  
+    const fileData = await fs.readFile(filePath, "utf8");
+    const itemsTodays: ItemsTodays[] = JSON.parse(fileData);
+    const itemToday = itemsTodays.find((item: any) => item.id === id);
 
-    if (!id) {
-      return NextResponse.json({ error: 'User ID is required.' }, { status: 400 });
+    if (!itemToday) {
+      return NextResponse.json({ error: 'Item not found' }, { status: 404 });
     }
-    return NextResponse.json({ message: `Fetching data for ID: ${id}` });
+    return NextResponse.json(itemToday);
   } catch (error) {
-    console.error("Error fetching user:", error);
-    return NextResponse.json({ error: "User not found" }, { status: 404 });
+    console.error("Error fetching item:", error);
+    return NextResponse.json({ error: "Item not found" }, { status: 404 });
   }
 }
