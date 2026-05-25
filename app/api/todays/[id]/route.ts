@@ -30,7 +30,7 @@ export async function generateStaticParams() {
     const itemsTodays: ItemsTodays[] = JSON.parse(fileData);
   
   return itemsTodays.map((id) => ({
-    id: id,
+    id: itemTodays.id.toString(),
   }));
 }
 
