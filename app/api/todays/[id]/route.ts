@@ -34,3 +34,20 @@ export async function generateStaticParams() {
  const itemsTodays: ItemsTodays[] = await response.json();  
   return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() }));  
 }
+
+
+export async function GET(request: Request, {params}: { params: {id: string}}) { 
+  try {    
+    const { id } = params;
+    const filePath = path.join(process.cwd(), "db", "todays.json");
+    const fileData = await fs.readFile(filePath, "utf8");
+    const itemsTodays = JSON.parse(fileData);
+    const itemFind = itemsTodays.find((itemToday: any) => itemToday.id === id );  
+    return Response.json(itemFind);  
+    // return NextResponse.json(itemFind);
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+  }
+}
+ 
