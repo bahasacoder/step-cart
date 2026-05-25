@@ -35,19 +35,20 @@ export async function generateStaticParams() {
   return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() }));  
 }
 
-
-export async function GET(request: Request, {params}: { params: {id: string}}) { 
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ id: string }>}
+  ) { 
   try {    
-    const { id } = params;
-    const filePath = path.join(process.cwd(), "db", "todays.json");
-    const fileData = await fs.readFile(filePath, "utf8");
-    const itemsTodays = JSON.parse(fileData);
-    const itemFind = itemsTodays.find((itemToday: any) => itemToday.id === id );  
-    return Response.json(itemFind);  
-    // return NextResponse.json(itemFind);
+   const { id } = await params
+  
+
+    if (!id) {
+      return NextResponse.json({ error: 'User ID is required.' }, { status: 400 });
+    }
+    return NextResponse.json({ message: `Fetching data for ID: ${id}` });
   } catch (error) {
     console.error("Error fetching user:", error);
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 }
- 
