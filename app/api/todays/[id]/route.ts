@@ -34,21 +34,3 @@ export async function generateStaticParams() {
  const itemsTodays: ItemsTodays[] = await response.json();  
   return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() }));  
 }
-
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<{ id: string }>}
-  ) { 
-  try {    
-   const { id } = await params
-  
-
-    if (!id) {
-      return NextResponse.json({ error: 'User ID is required.' }, { status: 400 });
-    }
-    return NextResponse.json({ message: `Fetching data for ID: ${id}` });
-  } catch (error) {
-    console.error("Error fetching user:", error);
-    return NextResponse.json({ error: "User not found" }, { status: 404 });
-  }
-}
