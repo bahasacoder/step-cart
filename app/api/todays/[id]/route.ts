@@ -29,7 +29,7 @@ export async function generateStaticParams() {
     const fileData = await fs.readFile(filePath, "utf8");
     const itemsTodays: ItemsTodays[] = JSON.parse(fileData);
   
-  return itemsTodays.map((id) => ({
+  return itemsTodays.map((itemTodays) => ({
     id: itemTodays.id.toString(),
   }));
 }
