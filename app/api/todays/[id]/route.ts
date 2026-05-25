@@ -23,6 +23,17 @@ interface ItemsTodays {
   id: string;
 }
 
+export async function generateStaticParams() {
+  // You can also fetch these from a database or API
+    const filePath = path.join(process.cwd(), "data", "todays.json");  
+    const fileData = await fs.readFile(filePath, "utf8");
+    const itemsTodays: ItemsTodays[] = JSON.parse(fileData);
+  
+  return itemsTodays.map((id) => ({
+    id: id,
+  }));
+}
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }>}
