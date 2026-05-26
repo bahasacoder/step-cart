@@ -17,7 +17,7 @@ interface ItemsTodays {
 }
 
 export async function generateStaticParams() {
-  const response = await fetch("https://pasarbone.com/api/todays", {
+  const response = await fetch("http://localhost:3000/api/todays", {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
@@ -44,8 +44,11 @@ export default async function EditTodayPage({ params }: { params: Promise<{ id: 
         console.log("arrayItemsTodays is not an array.");
     }
     console.log("Response id:", id);
-  
- const foundItem = arrayItemsTodays.find((ait: any) => ait.id === parseInt(id));
+  const parseItemTodays = arrayItemsTodays.map((item: any) => ({
+    ...item,
+    id: item.id.toString(),
+  }));
+ const foundItem = parseItemTodays.find((ait: any) => ait.id === id);
 console.log("Found Item ID:", foundItem);
   if (!response.ok) {
     return <div>Item Todays not found</div>;
@@ -54,10 +57,10 @@ console.log("Found Item ID:", foundItem);
   return (
     <>
     <div>This Edit Today</div>
-      <EditItemTodayForm 
-        params={{ id }} 
-        foundItemTodays={foundItem} 
-      />
+    <p>nomor id : {id}</p>
+    <p>Found Item: {JSON.stringify(foundItem)}</p>
     </> 
   )
+
+  // <EditItemTodayForm params={{id}} foundItemTodays={foundItem}/>
 }
