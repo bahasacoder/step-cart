@@ -26,11 +26,11 @@ export default async function ItemTodaysPage(
       </div>
       <div>
         {itemsTodays.map((item) => (
-          <p key={item.id}>{item.value}</p>
+          <p key={item.id}>{item.nama}</p>
         ))}
       </div>
       <div>
-        <h2>found : { found?.value }</h2>
+        <h2>found : { found?.nama }</h2>
         <h2>iditem : { id }</h2>
       </div>
     </div>
