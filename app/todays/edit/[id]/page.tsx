@@ -15,6 +15,20 @@ interface ItemsTodays {
   id: string;
 }
 
+
+export async function generateStaticParams() {
+  const response = await fetch("http://localhost:3000/api/todays", {
+     method: "GET",
+     headers: {
+       "Content-Type": "application/json",
+     },
+   }
+  );
+  const itemsTodays: ItemsTodays[] = await response.json();  
+  return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() }));  
+}
+
+
 export default async function EditTodayPage({ params }: { params: Promise<{ id: string } > }){
   const { id } = await params;
 
