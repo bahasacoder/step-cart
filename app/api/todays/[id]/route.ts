@@ -25,13 +25,12 @@ interface ItemsTodays {
 
 export async function generateStaticParams() {
   // You can also fetch these from a database or API
-    const filePath = path.join(process.cwd(), "data", "todays.json");  
+    const filePath = path.join(process.cwd(), "db", "todays.json");  
     const fileData = await fs.readFile(filePath, "utf8");
     const itemsTodays: ItemsTodays[] = JSON.parse(fileData);
   
-  return itemsTodays.map((id) => ({
-    id: id,
-  }));
+   const itemsTodays: ItemsTodays[] = await response.json();  
+   return itemsTodays.map(itemTodays => ({ id: itemTodays.id.toString() })); 
 }
 
 export async function GET(
