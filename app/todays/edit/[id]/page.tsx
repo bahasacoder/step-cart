@@ -57,8 +57,7 @@ console.log("Found Item ID:", foundItem);
   return (
     <>
     <div>This Edit Today</div>
-    <p>nomor id : {id}</p>
-    <p>Found Item: {JSON.stringify(foundItem)}</p>
+  
     </> 
   )
 
