@@ -1,21 +1,21 @@
 // import { fetchItems } from "@/actions/getDb"
-import items from "@/db/items.json";
+import itemsTodays from "@/db/todays.json";
 
 export async function generateStaticParams() {
   // Fetch your data to get the list of IDs
   //const posts = await fetch('https://.../items').then((res) => res.json());
 
   // Return an array of IDs to be pre-rendered
-  return items.map((item) => ({
-    id: item.id.toString(), // id must be a string
+  return itemsTodays.map((itemTodays) => ({
+    id: itemTodays.id.toString(), // id must be a string
   }));
 }
 
-export default async function ItemDetailPage(
+export default async function ItemTodaysPage(
   { params }: { params: { id: string } }
 )  {
   const { id } = await params
-  const found = await items.find((item) => item.id === id );
+  const found = await itemTodays.find((item) => item.id === id );
 
   return (
 
@@ -25,7 +25,7 @@ export default async function ItemDetailPage(
          <p>Product Page</p>
       </div>
       <div>
-        {items.map((item) => (
+        {itemTodays.map((item) => (
           <p key={item.id}>{item.value}</p>
         ))}
       </div>
