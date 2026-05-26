@@ -30,9 +30,6 @@ export async function generateStaticParams() {
 
 export default async function EditTodayPage({ params }: { params: Promise<{ id: string } > }){
   const { id } = await params;
-   if (!response.ok) {
-    return <div>Item Todays not found</div>;
-  }
 
   return (
     <>
