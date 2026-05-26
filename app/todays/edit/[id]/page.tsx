@@ -25,7 +25,7 @@ export default async function ItemTodaysPage(
          <p>Product Page</p>
       </div>
       <div>
-        {itemTodays.map((item) => (
+        {itemsTodays.map((item) => (
           <p key={item.id}>{item.value}</p>
         ))}
       </div>
