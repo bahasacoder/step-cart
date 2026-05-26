@@ -1,16 +1,16 @@
-
-
-
-
-export default async function EditTodayPage(){
-
-
+'use client'
+import { use } from 'react'
+ 
+export default function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = use(params)
+ 
   return (
-    <>
-    <div>This Edit Today</div>
-  
-    </> 
+    <div>
+      <p>{slug}</p>
+    </div>
   )
-
-  // <EditItemTodayForm params={{id}} foundItemTodays={foundItem}/>
 }
