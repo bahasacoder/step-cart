@@ -15,7 +15,7 @@ export default async function ItemTodaysPage(
   { params }: { params: { id: string } }
 )  {
   const { id } = await params
-  const found = await itemTodays.find((item) => item.id === id );
+  const found = await itemsTodays.find((item) => item.id === id );
 
   return (
 
