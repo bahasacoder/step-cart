@@ -30,27 +30,7 @@ export async function generateStaticParams() {
 
 export default async function EditTodayPage({ params }: { params: Promise<{ id: string } > }){
   const { id } = await params;
-  const response = await fetch(`https://pasarbone.com/api/todays`, {
-    method: "GET",
-     headers: {
-       "Content-Type": "application/json",
-     },
-   })
-  const jsonItemsTodays: ItemsTodays = await response.json();
-  const arrayItemsTodays = JSON.parse(JSON.stringify(jsonItemsTodays)) ;
-    if (Array.isArray(arrayItemsTodays)) {
-        console.log("arrayItemsTodays found:", arrayItemsTodays);
-    } else {
-        console.log("arrayItemsTodays is not an array.");
-    }
-    console.log("Response id:", id);
-  const parseItemTodays = arrayItemsTodays.map((item: any) => ({
-    ...item,
-    id: item.id.toString(),
-  }));
- const foundItem = parseItemTodays.find((ait: any) => ait.id === id);
-console.log("Found Item ID:", foundItem);
-  if (!response.ok) {
+   if (!response.ok) {
     return <div>Item Todays not found</div>;
   }
 
