@@ -19,7 +19,7 @@ export default async function EditItemTodaysPage(
   { params }: EditItemTodaysProps
 )  {
   const { id } = await params;
-  const response = await fetch("/api/todays", {
+  const response = await fetch("https://pasarbone.com/api/todays", {
       method: "GET"
       }
     );
