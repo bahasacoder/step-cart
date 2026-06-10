@@ -73,7 +73,7 @@ export async function PUT2(request: NextRequest, { params }: { params: { id: str
   */
 }
 
-export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }>) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   // const { id } = params;
   const { id } = await params
   const body = await request.json();
