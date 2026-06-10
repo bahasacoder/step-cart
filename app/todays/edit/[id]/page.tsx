@@ -12,10 +12,13 @@ export async function generateStaticParams() {
   return itemsTodays.map((item: any) => ({ id: item.id.toString() }));  
 }
 
+interface EditItemTodaysProps {
+  params: Promise<{ id: string }>;
+}
 export default async function EditItemTodaysPage(
-  { params }: { params: { id: string } }
+  { params }: EditItemTodaysProps
 )  {
-  const { id } = await params
+  const { id } = await params;
   const response = await fetch("http://localhost:3000/api/todays", {
       method: "GET"
       }
