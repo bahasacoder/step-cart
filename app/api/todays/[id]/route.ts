@@ -40,8 +40,8 @@ export async function generateStaticParams() {
 }
 
 export async function GET(
-  request: Request,
-  context: { params: Promise<{ id: string }>}
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }>}
   ) { 
    try {    
    const { id } = await params
@@ -62,7 +62,7 @@ export async function GET(
 
 
 // PUT from users learn-json
-export async function PUT2(request: Request, { params }: { params: { id: string } }) {
+export async function PUT2(request: NextRequest, { params }: { params: { id: string } }) {
   return NextResponse.json({ message: "Barang updated" });
   /*
   const updatedBarang = await request.json();
@@ -73,7 +73,7 @@ export async function PUT2(request: Request, { params }: { params: { id: string 
   */
 }
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
   // const { id } = params;
   const { id } = await params
   const body = await request.json();
