@@ -48,7 +48,7 @@ export default function EditItemTodayForm( {params, findItemTodays }:
     }      
     try {
       // const id = Number(params.id);
-      const response = await fetch(`/api/todays/${idItemToday}`, {
+      const response = await fetch(`https://pasarbone.com/api/todays/${idItemToday}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
