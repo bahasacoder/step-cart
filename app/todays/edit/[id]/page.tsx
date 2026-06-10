@@ -1,39 +1,50 @@
-// import { fetchItems } from "@/actions/getDb"
-import itemsTodays from "@/db/todays.json";
+import EditItemTodayForm from "./edit-item-today-form"; 
 
 export async function generateStaticParams() {
-  // Fetch your data to get the list of IDs
-  //const posts = await fetch('https://.../items').then((res) => res.json());
-
-  // Return an array of IDs to be pre-rendered
-  return itemsTodays.map((itemTodays) => ({
-    id: itemTodays.id.toString(), // id must be a string
-  }));
+  const response = await fetch("http://localhost:3000/api/todays", {
+     method: "GET",
+     headers: {
+       "Content-Type": "application/json",
+     },
+   }
+  );
+  const itemsTodays = await response.json();  
+  return itemsTodays.map((item: any) => ({ id: item.id.toString() }));  
 }
 
-export default async function ItemTodaysPage(
-  { params }: { params: { id: string } }
+export default async function EditItemTodaysPage(
+  { params }: { params: Promise<{ id: string }> }
 )  {
   const { id } = await params
-  const found = await itemsTodays.find((item) => item.id === id );
-
+  const response = await fetch("http://localhost:3000/api/todays", {
+      method: "GET"
+      }
+    );
+    const itemsTodays = await response.json();
+  //const mapItemsTodays = itemsTodays.map((ait: any) => ait.id === id ? ait : null);
+  const findItemTodays = itemsTodays.find((ait: any) => ait.id ===  parseInt(id));
+        console.log("found ", findItemTodays);
+ 
   return (
 
-
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <div className="flex flex-col items-center gap-4">
-         <p>Product Page</p>
+    <div>
+      <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        <div className="flex flex-col items-center gap-4">
+          <p>Product Page</p>
+        </div>
+        <div>
+          <h2>found : </h2>
+          <h2>iditem : { id }</h2>
+        </div>
+        <div>
+          <h2>ITEM TODAY TO UPDATE:</h2>
+          <p> nama barang : {findItemTodays?.nama} </p>
+        </div>
       </div>
       <div>
-        {itemsTodays.map((item) => (
-          <p key={item.id}>{item.nama}</p>
-        ))}
-      </div>
-      <div>
-        <h2>found : { found?.nama }</h2>
-        <h2>iditem : { id }</h2>
+        <EditItemTodayForm params={params} findItemTodays={findItemTodays}/>
       </div>
     </div>
+    
   );
-
 }
