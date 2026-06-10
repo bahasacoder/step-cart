@@ -1,7 +1,7 @@
 import EditItemTodayForm from "./edit-item-today-form"; 
 export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
-  const response = await fetch("https://pasarbone.com/api/todays", {
+  const response = await fetch("https://github.com/bahasacoder/step-cart/app/api/todays", {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export default async function EditItemTodaysPage(
   { params }: EditItemTodaysProps
 )  {
   const { id } = await params;
-  const response = await fetch("https://pasarbone.com/api/todays", {
+  const response = await fetch("https://github.com/bahasacoder/step-cart/app/api/todays", {
       method: "GET"
       }
     );
