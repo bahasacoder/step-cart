@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export default async function EditItemTodaysPage(
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 )  {
   const { id } = await params
   const response = await fetch("http://localhost:3000/api/todays", {
