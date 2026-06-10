@@ -1,5 +1,5 @@
 import EditItemTodayForm from "./edit-item-today-form"; 
-
+export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
   const response = await fetch("https://pasarbone.com/api/todays", {
      method: "GET",
