@@ -49,7 +49,7 @@ export default function EditItemTodaysForm( {params, findItemTodays }:
     try {
       // const id = Number(params.id);
       // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-      const response = await fetch(`/api/todays/${idItemToday}`, {
+      const response = await fetch(`http://localhost:3000/api/todays/${idItemToday}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
