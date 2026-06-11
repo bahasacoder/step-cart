@@ -1,4 +1,4 @@
-import EditItemTodayForm from "./edit-item-today-form"; 
+import EditItemTodaysForm from "./edit-item-todays-form"; 
 export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
   // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
@@ -47,7 +47,7 @@ export default async function EditItemTodaysPage(
         </div>
       </div>
       <div>
-        <EditItemTodayForm params={params} findItemTodays={findItemTodays}/>
+        <EditItemTodaysForm params={params} findItemTodays={findItemTodays}/>
       </div>
     </div>
     
