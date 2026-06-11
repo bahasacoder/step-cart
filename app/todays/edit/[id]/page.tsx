@@ -37,18 +37,8 @@ export default async function EditItemTodaysPage(
         <div className="flex flex-col items-center gap-4">
           <p>Product Page</p>
         </div>
-        <div>
-          <h2>found : </h2>
-          <h2>iditem : { id }</h2>
-        </div>
-        <div>
-          <h2>ITEM TODAY TO UPDATE:</h2>
-          <p> nama barang : {findItemTodays?.nama} </p>
-        </div>
       </div>
-      <div>
-        <EditItemTodayForm params={params} findItemTodays={findItemTodays}/>
-      </div>
+      
     </div>
     
   );
