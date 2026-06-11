@@ -48,6 +48,7 @@ export default function EditItemTodayForm( {params, findItemTodays }:
     }      
     try {
       // const id = Number(params.id);
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
       const response = await fetch(`${baseUrl}/api/todays/${idItemToday}`, {
         method: "PATCH",
         headers: {
