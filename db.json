@@ -1,24 +1,425 @@
-[
-  {
-    "id": 1003,
-    "nama": "ReactJS Frontend",
-    "harga": "165000000",
-    "kategori": "Mobil",
-    "deskripsi": "Daihatsu Move adalah mobil kecil yang cocok untuk penggunaan di perkotaan. Dengan desain yang kompak dan efisien, Daihatsu Move menawarkan kenyamanan dan kepraktisan dalam berkendara sehari-hari?",
-    "lokasi": "Jakarta",
-    "gambar": {
-      "url1": "https://example.com/daihatsu-move.jpg",
-      "url2": "https://example.com/daihatsu-move-interior.jpg",
-      "url3": "https://example.com/daihatsu-move-back.jpg",
-      "url4": "https://example.com/daihatsu-move-side.jpg"
-    },
-    "map": "object object ",
-    "createdAt": "2024-06-01T10:00:00Z",
-    "penjual": "John Doex",
-    "kontak": "0812345678900",
-    "alamat": "Jl. Sudirman No. 123, Jakarta",
-    "gambar1": "picture1satu.link",
-    "gambar2": "pria djua dsdu",
+{
+  "categories": [
+        {
+          "id": 1,
+          "name": "ayam",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@9d083315f938e6eabd384cc2dabd5c33555505d6/uploads/2026-02-11T14-13-42-800Z-c5n04a1li.png",
+          "imgAlt": "Ayam",
+          "description": "Paket Ayam Kampung utuh",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 2,
+          "name": "daging",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@03df35933b7920efa6337a6c3775627938a37dce/uploads/2026-02-11T14-18-22-934Z-z2r7xcqan.png",
+          "imgAlt": "Daging",
+          "description": "Aneka potongan daging sapi dan ayam",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 3,
+          "name": "sayuran",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@fc9e77bc8d51f219b0e7b9cca98abc908e8f73fc/uploads/2026-02-11T14-19-03-054Z-tiyxhpjc3.png",
+          "imgAlt": "Sayuran",
+          "description": "Aneka sayuran dengan kualitas terpantau",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 4,
+          "name": "buahan",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@796ead94bb9b817760616171544df707c542cd11/uploads/2026-02-11T14-19-36-856Z-66don9pre.png",
+          "imgAlt": "Buahan",
+          "description": "Buahan musiman dan berkelanjutan",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 5,
+          "name": "ikan",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@aa8d1d81672b448fcb838c8c99855f9bd3252af8/uploads/2026-02-11T14-20-21-277Z-36ks3b0zj.png",
+          "imgAlt": "Ikan",
+          "description": "Ikan segar dan ikan olahan",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 6,
+          "name": "minuman",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@6ca15a4efb6997d5fe31874abfcf3756494bb2cb/uploads/2026-02-11T14-20-51-492Z-ptgs1pvf4.png",
+          "imgAlt": "Minuman",
+          "description": "Minuman Olahan dan minuman ber-sirup",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 7,
+          "name": "rempah",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@c08e3e6ee91e0c8fd383ba948996f996f2cf56e7/uploads/2026-02-11T14-21-57-766Z-n8tthkppf.png",
+          "imgAlt": "Rempah",
+          "description": "Aneka Rempah dan Rimpang",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 8,
+          "name": "suplemen",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@a43a6a8f5a26eb06674ac0937196b0823fe403b7/uploads/2026-02-11T14-11-52-491Z-g1rk9xcg5.png",
+          "imgAlt": "Suplement",
+          "description": "Suplemen dan Vitamin",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 9,
+          "name": "cookies",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@9a6ac4e0bbaf9412a4056de8bc367f486cfbcd04/uploads/2026-02-11T14-22-41-494Z-va2twml1j.png",
+          "imgAlt": "Cookies",
+          "description": "Aneka kue, bolu, dan kukis",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 10,
+          "name": "snack",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@12d4ff02d7c9a149f9dd705cc6897c6c01bc62f7/uploads/2026-02-11T14-23-21-052Z-acqwn5si0.png",
+          "imgAlt": "Snack dan Makanan Ringan atau cemilan",
+          "description": "Suplemen dan Vitamin",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        },
+        {
+          "id": 11,
+          "name": "bibit",
+          "imgSrc": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@d1ce77fb694d4419abeff3afdba3d0a1fbfce3c9/uploads/2026-02-11T14-23-51-117Z-c6lsq3psv.png",
+          "imgAlt": "Bibit",
+          "description": "Bibit Tanaman",
+          "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+        }
+  ],
+  "heroData": [
+      {
+        "id": 1,
+        "img": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg",
+        "imgAlt": "plate-1",
+        "userComment": "Telur Ayam Kampung segar dengan rasanya lezat! Sangat direkomendasikan",
+        "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@caf3b27229a7a6040fd0da2db8d6acce5ef66604/uploads/2026-02-11T13-25-48-236Z-r4v4clqxn.jpg"
+      },
+      {
+        "id": 2,
+        "img": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@17adf2502b9a3c1995a663317fff7025a21a66c1/uploads/2026-02-11T13-58-09-796Z-x74stcxze.jpg",
+        "imgAlt": "plate-2",
+        "userComment": "DOC pilihan, untuk maksimalkan ternak ayam kampung asli",
+        "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@17adf2502b9a3c1995a663317fff7025a21a66c1/uploads/2026-02-11T13-58-09-796Z-x74stcxze.jpg"
+      },
+      {
+        "id": 3,
+        "img": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@8fe9291f11e9c09d575be26f7e91f69d21f77e4c/uploads/2026-02-11T13-59-39-333Z-uwnn3v0st.jpg",
+        "imgAlt": "plate-3",
+        "userComment": "Anakan Ayam Kampung, memiliki perternakan ayam kampung akan terasa lebih mudah",
+        "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@8fe9291f11e9c09d575be26f7e91f69d21f77e4c/uploads/2026-02-11T13-59-39-333Z-uwnn3v0st.jpg"
+      },
+      {
+        "id": 4,
+        "img": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@3bc973a2d28cbc2cbd694b3aa776be9ce23dab27/uploads/2026-02-11T13-31-06-114Z-yuktmis7e.jpg",
+        "imgAlt": "plate-4",
+        "userComment": "Daging Ayam Kampung Asli, dengan kebersihan dan kesegaran yang terjaga",
+        "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@3bc973a2d28cbc2cbd694b3aa776be9ce23dab27/uploads/2026-02-11T13-31-06-114Z-yuktmis7e.jpg"
+      },
+      {
+        "id": 5,
+        "img": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@843c257eb10ec413f439b015bf51b4833b6e1fe4/uploads/2026-02-11T14-02-47-007Z-twl21bx45.jpg",
+        "imgAlt": "plate-5",
+        "userComment": "Ayam kampung 1 ekor berat 1 kg rasanya enak banget",
+        "userAvatar": "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@843c257eb10ec413f439b015bf51b4833b6e1fe4/uploads/2026-02-11T14-02-47-007Z-twl21bx45.jpg"
+      }
+    ],
+  "items": [
+          {
+            "id": "10001",
+            "value": "plans",
+            "trigger": "What subscription plans do you offer?",
+            "content":
+              "We offer three subscription tiers: Starter ($9/month), Professional ($29/month), and Enterprise ($99/month). Each plan includes increasing storage limits, API access, priority support, and team collaboration features."
+          },
+          {
+            "id": "10002",
+            "value": "billing",
+            "trigger": "How does billing work?",
+            "content":
+              "Billing occurs automatically at the start of each billing cycle. We accept all major credit cards, PayPal, and ACH transfers for enterprise customers. You'll receive an invoice via email after each payment."
+          },
+          {
+            "id": "10003",
+            "value": "newsletter",
+            "trigger": "How do I cancel my subscription?",
+            "content":
+              "You can cancel your subscription anytime from your account settings. There are no cancellation fees or penalties. Your access will continue until the end of your current billing period."
+          }
+  ],
+  "posts": [
+        {
+          "id": "74e2",
+          "title": "First post",
+          "content": "What subscription plans do you offer?",
+          "createdAt": "2026-04-10 22:42"
+        },
+        {
+          "id": "8416",
+          "title": "Second post",
+          "content": "How does billing work?",
+          "createdAt": "2026-04-10 22:42"
+        },
+        {
+          "id": "095e",
+          "title": "Third post",
+          "content":  "How do I cancel my subscription?",
+          "createdAt": "2026-04-10 22:42"
+        },
+        {
+          "id": "f632",
+          "title": "Fourth post",
+          "content":  "Billing occurs automatically at the start of each billing cycle.",
+          "createdAt": "2026-04-10 22:42"
+        }
+  ],
+  "products": [
+      		{
+      			"id":"10001",
+      			"slug":"telur-pack-isi-10",
+      			"name":"Telur Pack isi 10",
+      			"title":"Telur Pack Isi 10",
+      			"brand":"Zxy",
+      			"category":"daging",
+      			"supplier":"pbon zyx",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Pack",
+      			"star":"3",
+      			"description":"Telur Ayang Kampung dalam 1 Pack isi 6 butir",
+      			"note_option":"harga belum termasuk pengiriman",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@33e5fda77a3070902b823ef2b0a1dc3c37b50b73/uploads/2026-02-16T14-41-38-414Z-1qdfeh0qg.jpg",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		},
+      		{
+      			"id":"10002",
+      			"slug":"telur-per-butir",
+      			"name":"Telur per Butir",
+      			"title":"Telur Per Butir",
+      			"brand":"B-zyx",
+      			"category":"daging",
+      			"supplier":"pbon zyx",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Butir",
+      			"star":"3",
+      			"description":"Telur Ayang Kampung Satuan 1 butir",
+      			"note_option":"harga belum termasuk pengiriman",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@b07240c6274a1b64d0760717e50b87729e8417a2/uploads/2026-02-16T14-47-31-865Z-kzjpkuhhb.png",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		},		
+      		{
+      			"id":"10003",
+      			"slug":"ayam-segar-bersih",
+      			"name":"Ayam Segar Bersih",
+      			"title":"Ayam Segar Bersih",
+      			"brand":"Zxy",
+      			"category":"meat",
+      			"supplier":"pbon",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Pack",
+      			"star":"3",
+      			"description":"Pemotongan dan Pembersihan di satu tempat",
+      			"note_option":"pemotongan ayam secara langsung",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@da4433dbaf3399389f1cdb296ee48ae16f549697/uploads/2026-02-16T14-46-36-491Z-69ymgdxfu.png",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		},		
+      		{
+      			"id":"10004",
+      			"slug":"ayam-marinasi-zyx",
+      			"name":"Ayam Marinasi zyx",
+      			"title":"Ayam Marinasi zyx",
+      			"brand":"B-zyx",
+      			"category":"daging",
+      			"supplier":"pbon zyx",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Pack",
+      			"star":"3",
+      			"description":"Ayam segar yang dilumuri dengan bumbu kunyit",
+      			"note_option":"ayam segar tanpa pengolahan",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@ef240ffae436c4049b221936a1e099d79ede4363/uploads/2026-03-21T13-00-52-082Z-8x561b63w.png",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		},				
+      		{
+      			"id":"10005",
+      			"slug":"jahe-asli-bubuk",
+      			"name":"Jahe Asli Bubuk",
+      			"title":"Jahe Asli Bubuk",
+      			"brand":"B-zyx",
+      			"category":"rempah",
+      			"supplier":"pbon",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Pack",
+      			"star":"3",
+      			"description":"Ayam segar yang dilumuri dengan bumbu kunyit",
+      			"note_option":"ayam segar tanpa pengolahan",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@eb01404e04c53091977ef49dc47f035e097125af/uploads/2026-03-21T13-02-19-664Z-wnqg0x11p.png",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		},				
+      		{
+      			"id":"10006",
+      			"slug":"ayam-satu-plus-jantan",
+      			"name":"Ayam Satu Plus-Jantan",
+      			"title":"Ayam Satu Plus-Jantan",
+      			"brand":"B-zyx",
+      			"category":"daging",
+      			"supplier":"pbon",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Pack",
+      			"star":"3",
+      			"description":"Ayam jantan muda denga berat lebih satu kilogram",
+      			"note_option":"ayam kampung asli natural jantan",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@02d49983f4f412355a2dfb65be7dae6545001497/uploads/2026-04-06T02-25-17-870Z-meh09y9oz.png",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		},				
+      		{
+      			"id":"10007",
+      			"slug":"ayam-kampung-betina",
+      			"name":"Ayam Kampung Betina",
+      			"title":"Ayam kampung Betina",
+      			"brand":"B-zyx",
+      			"category":"daging",
+      			"supplier":"pbon",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Pack",
+      			"star":"3",
+      			"description":"Ayam Kampung Betina Asli dengan berat kurang  Kg yang di Frozen",
+      			"note_option":"ayam kampung asli Frozen",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@d66bdc67247b4bc958ebf01abd0dccc3e7865d1e/uploads/2026-04-06T02-29-12-291Z-akyrblmcx.png",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		},				
+      		{
+      			"id":"10008",
+      			"slug":"ayam-kampung Beku-Frozen",
+      			"name":"Ayam Kampung Beku Frozen",
+      			"title":"Ayam kampung Beku Forzen",
+      			"brand":"B-zyx",
+      			"category":"daging",
+      			"supplier":"pbon",
+      			"location":"pattiro",
+      			"price_now":"23.00",
+      			"price_net":"2.50",
+      			"price_avg":"2.50",
+      			"price_min":"2.30",
+      			"price_max":"2.50",
+      			"discount":"1%",
+      			"available":"10",
+      			"sold":"2",
+      			"unit":"Pack",
+      			"star":"3",
+      			"description":"Ayam Kampung Beku Asli dengan berat kurang lebih 1 Kg yang di Frozen",
+      			"note_option":"ayam kampung asli Beku Frozen",
+      			"image":"https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@1a4405b610975557b8548c6dc17172636549e61d/uploads/2026-04-06T02-30-14-977Z-6dwpvtpra.png",
+      			"date_input":"11/23/2025 12:50",
+      			"date_update":"11/23/2025 12:51"
+      		}
+  	],
+  "stickyMenu": [
+        {
+          "title": "About Us",
+          "href": "/about"
+        },
+        {
+          "title": "Products",
+          "href": "/products"
+        },
+        {
+          "title": "Contact us",
+          "href": "/contact"
+        },
+        {
+          "title": "Recipes",
+          "href": "/recipes"
+        },
+        {
+          "title": "Today's",
+          "href": "#"
+        }
+      ],
+  "todays": [
+        {
+          "id": 1003,
+          "nama": "ReactJS Frontend",
+          "harga": "165000000",
+          "kategori": "Mobil",
+          "deskripsi": "Daihatsu Move adalah mobil kecil yang cocok untuk penggunaan di perkotaan. Dengan desain yang kompak dan efisien, Daihatsu Move menawarkan kenyamanan dan kepraktisan dalam berkendara sehari-hari?",
+          "lokasi": "Jakarta",
+          "gambar": {
+            "url1": "https://example.com/daihatsu-move.jpg",
+            "url2": "https://example.com/daihatsu-move-interior.jpg",
+            "url3": "https://example.com/daihatsu-move-back.jpg",
+            "url4": "https://example.com/daihatsu-move-side.jpg"
+          },
+          "map": "object object ",
+          "createdAt": "2024-06-01T10:00:00Z",
+          "penjual": "John Doex",
+          "kontak": "0812345678900",
+          "alamat": "Jl. Sudirman No. 123, Jakarta",
+          "gambar1": "picture1satu.link",
+          "gambar2": "pria djua dsdu",
     "gambar3": "pricrue wriga"
   },
   {
@@ -37,3 +438,4 @@
     "alamat": "bajo"
   }
 ]
+}
