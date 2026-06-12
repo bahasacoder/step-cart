@@ -1,5 +1,5 @@
 export default async function ItemsTodaysPage() {
-    const response = await fetch(`http://localhost:3000/api/todays`, {
+    const response = await fetch(`/api/todays`, {
         method: "GET"
         }
       );
