@@ -1,5 +1,5 @@
 export default async function ItemsTodaysPage() {
-    const response = await fetch(`/api/todays`, {
+    const response = await fetch(`https://api.github.com/repos/bahasacoder/step-cart/api/todays`, {
         method: "GET"
         }
       );
