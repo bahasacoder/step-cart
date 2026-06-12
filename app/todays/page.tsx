@@ -1,6 +1,6 @@
 export default async function ItemsTodaysPage() {
     // https://api.github.com/repos/bahasacoder/step-cart
-    const response = await fetch(`http://localhost:3000/api/todays`, {
+    const response = await fetch(`https://www.jsonkeeper.com/b/DMY7A`, {
         method: "GET",
         headers: {
             'Authorization': 'Bearer YOUR_PERSONAL_ACCESS_TOKEN'
