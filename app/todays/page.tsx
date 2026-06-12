@@ -1,21 +1,40 @@
 export default async function ItemsTodaysPage() {
-    const response = await fetch(`https://api.github.com/repos/bahasacoder/step-cart/api/todays`, {
-        method: "GET"
+    // https://api.github.com/repos/bahasacoder/step-cart
+    const response = await fetch(`http://localhost:3000/api/todays`, {
+        method: "GET",
+        headers: {
+            'Authorization': 'Bearer YOUR_PERSONAL_ACCESS_TOKEN'
+          }
+        
         }
       );
       const itemsTodays = await response.json();
+      console.log("items todays : ", itemsTodays); // array of object
+      const itemsTodaysString = JSON.stringify(itemsTodays);
+      console.log("items todays string : ", itemsTodaysString); // stringified array of object
+        const jsonItemsTodays = JSON.parse(itemsTodaysString);
+        console.log("json items todays parse : ", jsonItemsTodays); // array of object again
+        const itemsTodaysList = jsonItemsTodays[0]; // array of nama items todays
+        console.log("items todays list : ", itemsTodaysList); // array of nama items todays
+        const itemsTodaysValues = Object.values(itemsTodaysList);
+        console.log("items todays values : ", itemsTodaysValues); // array of nama items todays
+      //console.log("items todays : ", jsonItemsTodays);
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
             <div className="flex flex-col items-center gap-4">
                 <p>Items Todays Page</p>    
             </div>
-            <div>
-            {
-                itemsTodays.map((item: any) => (
-                    <p key={item.id}>{item.nama}</p>
-                ))
-            }
+            <div className="flex flex-col">
+                {itemsTodays.map((item: any) => (
+                    <div>
+                        <div key={item.id}>
+                            <h3 className="text-2xl">{item.nama}</h3>
+                            <p>{item.deskripsi}</p>
+                        </div>
+                        <div className="mb-2 mt-2"></div>
+                    </div>
+                ))}
             </div>
         </div>
 
