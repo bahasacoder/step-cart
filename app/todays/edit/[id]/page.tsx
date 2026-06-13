@@ -21,7 +21,7 @@ export default async function EditItemTodaysPage(
 )  {
   const { id } = await params;
  // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-  const response = await fetch(`http://localhost:3000/api/todays`, {
+  const response = await fetch(`/api/todays`, {
       method: "GET"
       }
     );
