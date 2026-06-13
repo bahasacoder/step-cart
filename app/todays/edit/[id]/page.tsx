@@ -2,7 +2,7 @@ import EditItemTodaysForm from "./edit-item-todays-form";
 export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
   // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-  const response = await fetch(`http://localhost:3000/api/todays`, {
+  const response = await fetch(`/api/todays`, {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
