@@ -18,9 +18,10 @@ interface FormData {
   id: string;
 }
 
-export default function EditItemTodayForm( {params, findItemTodays }: 
-  {params: { id: string }, findItemTodays: any }) {
+export default function EditItemTodaysForm( {params, findItemTodays }: 
+  {params: Promise<{ id: string }>, findItemTodays: any }) {
     const id = params;
+    const idItemToday = findItemTodays?.id;
     const [itemsTodays, setItemTodays] = useState([])
   const [formData, setFormData] = useState({
     nama: "",
@@ -34,55 +35,31 @@ export default function EditItemTodayForm( {params, findItemTodays }:
     map: "",
     penjual: "",
     kontak: "",
-    alamat: ""
+    alamat: "",
+    id: ""
   });
-
-  const [nama, setNama] = useState("");
-  const [harga, setHarga] = useState("");
-  const [kategori, setKategori] = useState("");
-  const [deskripsi, setDeskripsi] = useState("");
-  const [lokasi, setLokasi] = useState("");
-  const [gambar1, setGambar1] = useState("");
-  const [gambar2, setGambar2] = useState("");
-  const [gambar3, setGambar3] = useState("");
-  const [map, setMap] = useState("");   
-  const [penjual, setPenjual] = useState("");
-  const [kontak, setKontak] = useState("");
-  const [alamat, setAlamat] = useState("");
-
-  const handleUpdateItemTodays = async (event: React.FormEvent<HTMLFormElement>) => {
+ 
+  const handleUpdateItemTodays = async (id: any, event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // const formData = new FormData(event.target as HTMLFormElement); // Collect all form fields
-
-    if (!formData.nama || !formData.harga || !formData.kategori || !formData.deskripsi || !formData.lokasi || !formData.gambar1 || !formData.gambar2 || !formData.gambar3 || !formData.map || !formData.penjual || !formData.kontak || !formData.alamat) {
+    if (!formData.nama || !formData.harga || !formData.kategori || !formData.deskripsi || !formData.lokasi || !formData.map || !formData.gambar1 || !formData.gambar2 || !formData.gambar3 || !formData.penjual || !formData.kontak || !formData.alamat) {
       alert("Please fill in all required fields.");
       return;
-    }    
-      
+    }      
     try {
-      const response = await fetch(`/api/todays/${id}`, {
+      // const id = Number(params.id);
+      // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+      const response = await fetch(`/api/todays/${idItemToday}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id, nama, harga, kategori, deskripsi, lokasi, gambar1, gambar2, gambar3, map, penjual, kontak, alamat }), // Send all form data as JSON
+        body: JSON.stringify({ id: idItemToday, nama: formData.nama, harga: formData.harga, kategori: formData.kategori, deskripsi: formData.deskripsi, lokasi: formData.lokasi, map: formData.map, gambar1: formData.gambar1, gambar2: formData.gambar2, gambar3: formData.gambar3, penjual: formData.penjual, kontak: formData.kontak, alamat: formData.alamat }), // Send all form data as JSON
       }); 
       if (response.ok) {
-        alert(`Item today's updated successfully!`);
-        //setFormData({} as FormData);
-        setNama("");
-        setHarga("");
-        setKategori("");
-        setDeskripsi("");   
-        setLokasi("");
-        setGambar1("");
-        setGambar2("");
-        setGambar3("");
-        setMap("");
-        setPenjual("");
-        setKontak("");
-        setAlamat("");
-
+        alert(`Item today's updated successfully!, id: ${idItemToday}, nama: ${formData.nama}, harga: ${formData.harga} `);
+        // setFormData({} as FormData);
+        
         const data = await response.json();
         return NextResponse.json(data);
       } else {
@@ -102,9 +79,9 @@ export default function EditItemTodayForm( {params, findItemTodays }:
           <h2 className="text-4xl font-bold leading-tight">Update Item Todays</h2>
           <p className="text-gray-700">Please fill in the form below to update a item for today.</p>
         </div>
-        <form onSubmit={handleUpdateItemTodays} className="space-y-4">
+        <form onSubmit={(e) => handleUpdateItemTodays(id, e)} className="space-y-4">
           <h2 className="font-bold text-lg">Barang</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">             
               <label htmlFor="nama">Nama Barang</label>
                 <input type="text" id="nama" name="nama" defaultValue={findItemTodays.nama || ``} onChange={(e) => setFormData({...formData, nama: e.target.value})} className="border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
               <label htmlFor="harga">Harga</label>
@@ -132,7 +109,7 @@ export default function EditItemTodayForm( {params, findItemTodays }:
                 <input type="text" id="kontak" name="kontak" defaultValue={findItemTodays.kontak || ``} onChange={(e) => setFormData({...formData, kontak: e.target.value})} className="border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
               <label htmlFor="alamat">Alamat</label>
                 <input type="text" id="alamat" name="alamat" defaultValue={findItemTodays.alamat || ``} onChange={(e) => setFormData({...formData, alamat: e.target.value})} className="border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />    
-            </div>    
+            </div>     
           <button type="submit">Submit</button>
 
         </form>

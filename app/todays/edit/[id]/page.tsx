@@ -1,7 +1,8 @@
-import EditItemTodayForm from "./edit-item-today-form"; 
-
+import EditItemTodaysForm from "./edit-item-todays-form"; 
+export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
-  const response = await fetch("http://localhost:3000/api/todays", {
+  // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+  const response = await fetch(`http://localhost:3000/api/todays`, {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
@@ -12,11 +13,15 @@ export async function generateStaticParams() {
   return itemsTodays.map((item: any) => ({ id: item.id.toString() }));  
 }
 
+interface EditItemTodaysProps {
+  params: Promise<{ id: string }>;
+}
 export default async function EditItemTodaysPage(
-  { params }: { params: { id: string } }
+  { params }: EditItemTodaysProps
 )  {
-  const { id } = await params
-  const response = await fetch("http://localhost:3000/api/todays", {
+  const { id } = await params;
+ // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+  const response = await fetch(`http://localhost:3000/api/todays`, {
       method: "GET"
       }
     );
@@ -42,7 +47,7 @@ export default async function EditItemTodaysPage(
         </div>
       </div>
       <div>
-        <EditItemTodayForm params={params} findItemTodays={findItemTodays}/>
+        <EditItemTodaysForm params={params} findItemTodays={findItemTodays}/>
       </div>
     </div>
     
