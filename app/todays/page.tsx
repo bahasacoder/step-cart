@@ -1,6 +1,6 @@
 export default async function ItemsTodaysPage() {
-    const response = await fetch(`https://www.jsonkeeper.com/b/AIVAX`, {
-    //const response = await fetch(`https://api.github/bahasacoder/step-cart`, {
+    // const response = await fetch(`https://www.jsonkeeper.com/b/AIVAX`, {
+    const response = await fetch(`http://localhost:3000/api/todays`, {
         method: "GET"
         }
       );
