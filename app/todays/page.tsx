@@ -1,5 +1,10 @@
 export default async function ItemsTodaysPage() {
+<<<<<<< HEAD
     const response = await fetch(`https://www.jsonkeeper.com/b/AIVAX`, {
+=======
+    // const response = await fetch(`https://www.jsonkeeper.com/b/AIVAX`, {
+    const response = await fetch(`http://localhost:3000/api/todays`, {
+>>>>>>> f97fa2d6e811f7d5d6b9cf04b30cef5b6ccdfbd9
         method: "GET"
         }
       );
@@ -36,4 +41,8 @@ export default async function ItemsTodaysPage() {
         </div>
 
     )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f97fa2d6e811f7d5d6b9cf04b30cef5b6ccdfbd9

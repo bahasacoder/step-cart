@@ -23,8 +23,13 @@
   },
   {
     "id": 2002,
+<<<<<<< HEAD
     "nama": "honda satu",
     "harga": "100000000",
+=======
+    "nama": "NextJs Framework",
+    "harga": "120000000",
+>>>>>>> f97fa2d6e811f7d5d6b9cf04b30cef5b6ccdfbd9
     "kategori": "mobil",
     "deskripsi": "mobil hitam putih",
     "lokasi": "bone",
