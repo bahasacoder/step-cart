@@ -1,7 +1,7 @@
 import EditItemTodaysForm from "./edit-item-todays-form"; 
 export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+  //const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
   const response = await fetch(`https://pasarbone.com/api/todays`, {
      method: "GET",
      headers: {
@@ -20,7 +20,7 @@ export default async function EditItemTodaysPage(
   { params }: EditItemTodaysProps
 )  {
   const { id } = await params;
- const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+  // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
   const response = await fetch(`https://pasarbone.com/api/todays`, {
       method: "GET"
       }
