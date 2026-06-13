@@ -1,13 +1,8 @@
 import EditItemTodaysForm from "./edit-item-todays-form"; 
 export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
-<<<<<<< HEAD
   // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
   const response = await fetch(`http://localhost:3000/api/todays`, {
-=======
-  //const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-  const response = await fetch(`https://pasarbone.com/api/todays`, {
->>>>>>> f97fa2d6e811f7d5d6b9cf04b30cef5b6ccdfbd9
      method: "GET",
      headers: {
        "Content-Type": "application/json",
@@ -25,14 +20,9 @@ export default async function EditItemTodaysPage(
   { params }: EditItemTodaysProps
 )  {
   const { id } = await params;
-<<<<<<< HEAD
  // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
   const response = await fetch(`http://localhost:3000/api/todays`, {
-=======
-  // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-  const response = await fetch(`https://pasarbone.com/api/todays`, {
->>>>>>> f97fa2d6e811f7d5d6b9cf04b30cef5b6ccdfbd9
-      method: "GET"
+      method: "GET" 
       }
     );
     const itemsTodays = await response.json();
@@ -62,8 +52,4 @@ export default async function EditItemTodaysPage(
     </div>
     
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f97fa2d6e811f7d5d6b9cf04b30cef5b6ccdfbd9
