@@ -20,8 +20,8 @@ export default async function EditItemTodaysPage(
   { params }: EditItemTodaysProps
 )  {
   const { id } = await params;
- // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-  const response = await fetch(`/api/todays`, {
+ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+  const response = await fetch(`${baseUrl}/api/todays`, {
       method: "GET"
       }
     );
