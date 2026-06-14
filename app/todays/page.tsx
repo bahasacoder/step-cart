@@ -7,8 +7,8 @@ export default async function ItemsTodaysPage() {
         }
       );
       const itemsTodays = await response.json();
-      const todaysTodaysList = itemsTodays["todays"]; // array of nama items todays
-      //const todaysTodaysList = itemsTodays;
+      // const todaysTodaysList = itemsTodays["todays"]; // array of nama items todays
+      const todaysTodaysList = itemsTodays;
       console.log("items todays : ", todaysTodaysList); // array of object
       /*
       const itemsTodaysString = JSON.stringify(itemsTodays);
