@@ -5,7 +5,8 @@ export default async function ItemsTodaysPage() {
         }
       );
       const itemsTodays = await response.json();
-      const todaysTodaysList = itemsTodays["todays"]; // array of nama items todays
+      //const todaysTodaysList = itemsTodays["todays"]; // array of nama items todays
+      const todaysTodaysList = itemsTodays;
       console.log("items todays : ", todaysTodaysList); // array of object
       /*
       const itemsTodaysString = JSON.stringify(itemsTodays);
@@ -25,8 +26,8 @@ export default async function ItemsTodaysPage() {
             </div>
             <div className="flex flex-col">
                 {todaysTodaysList.map((item: any) => (
-                    <div className="flex">
-                        <div key={item.id}>
+                    <div className="flex" key={item.id}>
+                        <div>
                             <h3 className="text-2xl">{item.nama}</h3>
                             <p>{item.deskripsi}</p>
                         </div>
