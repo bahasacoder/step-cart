@@ -1,11 +1,14 @@
 import EditItemTodaysForm from "./edit-item-todays-form"; 
 export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
-  // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-  const response = await fetch(`http://localhost:3000/api/todays`, {
+  //const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+    // "https://raw.githubusercontent.com/USERNAME/REPO/BRANCH/path/to/bundledb.json";
+
+  const response = await fetch(`https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`, {
      method: "GET",
      headers: {
        "Content-Type": "application/json",
+       "Accept": "application/vnd.github.v4+raw"
      },
    }
   );
@@ -20,9 +23,9 @@ export default async function EditItemTodaysPage(
   { params }: EditItemTodaysProps
 )  {
   const { id } = await params;
- // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
-  const response = await fetch(`http://localhost:3000/api/todays`, {
-      method: "GET" 
+  // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
+  const response = await fetch(`https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`, {
+      method: "GET"
       }
     );
     const itemsTodays = await response.json();
