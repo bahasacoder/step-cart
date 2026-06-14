@@ -1,12 +1,14 @@
 export default async function ItemsTodaysPage() {
     // const response = await fetch(`https://www.jsonkeeper.com/b/AIVAX`, {
-    const response = await fetch(`http://localhost:3000/api/todays`, {
+    // https://raw.githubusercontent.com/<username>/<repo>/main/db.json')
+    // https://github.com/<your_Github_username>/<your_repository_name>/<branch_name>/<file_name>.<extension_name>
+    const response = await fetch(`https://github.com/bahasacoder/step-cart/main/db.json`, {
         method: "GET"
         }
       );
       const itemsTodays = await response.json();
-      //const todaysTodaysList = itemsTodays["todays"]; // array of nama items todays
-      const todaysTodaysList = itemsTodays;
+      const todaysTodaysList = itemsTodays["todays"]; // array of nama items todays
+      //const todaysTodaysList = itemsTodays;
       console.log("items todays : ", todaysTodaysList); // array of object
       /*
       const itemsTodaysString = JSON.stringify(itemsTodays);
