@@ -1,5 +1,4 @@
 import EditItemTodaysForm from "./edit-item-todays-form"; 
-export const dynamic = 'force-dynamic';
 export async function generateStaticParams() {
   //const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
     // "https://raw.githubusercontent.com/USERNAME/REPO/BRANCH/path/to/bundledb.json";
