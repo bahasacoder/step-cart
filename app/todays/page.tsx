@@ -2,8 +2,9 @@ export default async function ItemsTodaysPage() {
     // const response = await fetch(`https://www.jsonkeeper.com/b/AIVAX`, {
     // https://raw.githubusercontent.com/<username>/<repo>/main/db.json')
     // https://github.com/<your_Github_username>/<your_repository_name>/<branch_name>/<file_name>.<extension_name>
-    // https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json
-    const response = await fetch(`https://pasarbone.com/api/todays`, {
+    const url_raw = `https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`
+    const url_pb = `https://pasarbone.com/api/todays`
+    const response = await fetch(`${url_raw}`, {
         method: "GET"
         }
       );
