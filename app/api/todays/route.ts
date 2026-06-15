@@ -4,6 +4,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 export async function GET() { 
+  // https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`
   const filePath = path.join(process.cwd(), "db", "todays.json");
   const fileData = await fs.readFile(filePath, "utf8");
   const itemsTodays = JSON.parse(fileData);

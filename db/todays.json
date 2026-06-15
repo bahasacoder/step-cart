@@ -35,5 +35,20 @@
     "penjual": "hariu",
     "kontak": "08923",
     "alamat": "bajo"
+  },
+  {
+    "id": 3003,
+    "nama": "Github Free Hpsting",
+    "harga": "135000000",
+    "kategori": "Github",
+    "deskripsi": "github repos nextjs",
+    "lokasi": "bone",
+    "gambar1": "git",
+    "gambar2": "git",
+    "gambar3": "git",
+    "map": "-",
+    "penjual": "harius",
+    "kontak": "08923",
+    "alamat": "bajo"
   }
 ]

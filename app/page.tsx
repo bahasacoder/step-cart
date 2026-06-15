@@ -4,6 +4,7 @@ import MarqueeCategories from "@/components/blocks/marquee-categories/marquee-ca
 import ProductHome from "@/components/blocks/product/product-home";
 
 export default function Home() {
+  
   return (
     <>
      <HeroPage />
