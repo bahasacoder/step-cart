@@ -4,7 +4,7 @@ export default async function ItemsTodaysPage() {
     // https://github.com/<your_Github_username>/<your_repository_name>/<branch_name>/<file_name>.<extension_name>
     const url_raw = `https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`
     const url_pb = `https://pasarbone.com/api/todays`
-    const response = await fetch(`https://raw.githubusercontent.com/bahasacoder/step-cart/api/todays`, {
+    const response = await fetch(`/api/todays`, {
         method: "GET"
         }
       );
