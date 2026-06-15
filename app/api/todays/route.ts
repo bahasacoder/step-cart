@@ -5,8 +5,7 @@ import path from "path";
 
 export async function GET() { 
   // https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`
-  // const filePath = path.join(process.cwd(), "db", "todays.json");
-  const filePath = path.join(process.cwd(), `https://raw.githubusercontent.com/bahasacoder/step-cart/main/db`, `todays.json`);
+  const filePath = path.join(process.cwd(), "db", "todays.json");
   const fileData = await fs.readFile(filePath, "utf8");
   const users = JSON.parse(fileData);
   return Response.json(users);  
