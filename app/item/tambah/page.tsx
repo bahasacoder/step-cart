@@ -4,7 +4,7 @@ import path from "path";
 
 export default async function AddItemPage() {
 
-    async function tambahItem(formData: FormData) {
+    async function tambahItem((formData: FormData) => void | Promise) {
         "use server";
         // Logic to handle form submission and add item to the database
         console.log("Item added!");
