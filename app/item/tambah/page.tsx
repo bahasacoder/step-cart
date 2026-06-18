@@ -1,7 +1,4 @@
 
-import { error } from "console";
-import fs from "fs/promises";
-import path from "path";
 import { myActionItems } from "@/app/actions";
 
 export default async function AddItemPage() {
