@@ -1,11 +1,12 @@
-'use client';
 
-import { useActionState } from 'react';
 import { error } from "console";
 import fs from "fs/promises";
 import path from "path";
 
 
+
+
+export default async function AddItemPage() {
     async function myAction(formData: FormData): Promise<{ success: boolean }> {
         "use server";
         // Logic to handle form submission and add item to the database
@@ -33,9 +34,6 @@ import path from "path";
             }
        
     }
-
-export default async function AddItemPage() {
-const [state, formAction] = useActionState(myAction, { success: false });
 
     return (
         <div className="flex min-h-screen flex flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
