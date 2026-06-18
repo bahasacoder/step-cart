@@ -1,6 +1,10 @@
 // app/actions.ts
 'use server' // Marks this file's functions to run exclusively on the server
 
+import { error } from "console";
+import fs from "fs/promises";
+import path from "path";
+
 export async function handleSubmitUser(formData: FormData) {
   // Extract inputs using their native HTML 'name' attribute
   const email = formData.get('email') as string
