@@ -21,6 +21,7 @@ export default async function AddItemPage() {
             itemsTodays.push(rawFormData);
             // await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2));
             console.log("Updated Items:", itemsTodays);
+        /*
          try {
                 await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2), 'utf-8');
                 return { success: true };
@@ -28,7 +29,7 @@ export default async function AddItemPage() {
                 console.error('Failed to write file:', error);
                 return { success: false };
             }
-       
+       */
     }
     return (
         <div className="flex min-h-screen flex flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
