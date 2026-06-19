@@ -18,6 +18,27 @@ export async function myActionItems(formData: FormData) {
         "use server";
         // Logic to handle form submission and add item to the database
         console.log("Item added!");
-            
+        const rawFormData = {
+                Value: formData.get('value'),
+                Trigger: formData.get('trigger'),
+                Content: formData.get('content'),
+        }
+        console.log("Raw Form Data:", rawFormData);
+            const filePath = path.join(process.cwd(), "db", "todays.json");
+            const fileData = await fs.readFile(filePath, "utf8");
+           //  const itemsTodays = JSON.parse(fileData);
+           const itemsTodays = [];
+            itemsTodays.push(rawFormData);
+            // await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2));
+            console.log("Updated Items:", itemsTodays);
+        
+         try {
+                await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2), 'utf-8');
+                return { success: true };
+            } catch (error) {
+                console.error('Failed to write file:', error);
+                return { success: false };
+            }
+       
     }
 
