@@ -1,7 +1,9 @@
+import TodaysDB from '@/db/todays.json';
 import EditItemTodaysForm from "./edit-item-todays-form"; 
 export async function generateStaticParams() {
   //const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
     // "https://raw.githubusercontent.com/USERNAME/REPO/BRANCH/path/to/bundledb.json";
+  /*
  const raw_todays = "https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json"
   const response = await fetch(`https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`, {
      method: "GET",
@@ -12,6 +14,8 @@ export async function generateStaticParams() {
    }
   );
   const itemsTodays = await response.json();  
+  */
+  const itemsTodays = await TodaysDB;
   return itemsTodays.map((item: any) => ({ id: item.id.toString() }));  
 }
 
@@ -24,13 +28,15 @@ export default async function EditItemTodaysPage(
   const { id } = await params;
   // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
   // https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json
+  /*
    const raw_todays = "https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json"
-
   const response = await fetch(`https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json`, {
       method: "GET"
       }
     );
     const itemsTodays = await response.json();
+    */
+  const itemsTodays = await TodaysDB;
   //const mapItemsTodays = itemsTodays.map((ait: any) => ait.id === id ? ait : null);
   const findItemTodays = itemsTodays.find((ait: any) => ait.id ===  parseInt(id));
         console.log("found ", findItemTodays);
