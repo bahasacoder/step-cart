@@ -8,7 +8,7 @@ export default async function AddItemPage() {
             <div className="flex flex-col items-center gap-4">
                 <p>Add Item Page</p>
             </div>
-            <form action={myActionItems} className="w-full max-w-md">
+            <form action={(formData) => { myActionItems(formData); }} className="w-full max-w-md">
                 <div className="flex flex-col items-center gap-4">
                     <input type="text" placeholder="Identity" name="Identity" className="border p-2 mb-4" />
                     <input type="text" placeholder="Value" name="value" className="border p-2 mb-4" />
