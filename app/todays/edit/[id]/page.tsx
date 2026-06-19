@@ -24,6 +24,8 @@ export default async function EditItemTodaysPage(
   const { id } = await params;
   // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pasarbone.com';
   // https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json
+   const raw_todays = "https://raw.githubusercontent.com/bahasacoder/step-cart/main/db/todays.json"
+
   const response = await fetch(raw_todays, {
       method: "GET"
       }
