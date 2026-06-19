@@ -24,6 +24,14 @@ export async function myActionItems(formData: FormData) {
                 Content: formData.get('content'),
         }
         console.log("Raw Form Data:", rawFormData);
+            const filePath = path.join(process.cwd(), "db", "todays.json");
+            const fileData = await fs.readFile(filePath, "utf8");
+           //  const itemsTodays = JSON.parse(fileData);
+           const itemsTodays = [];
+            itemsTodays.push(rawFormData);
+            // await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2));
+            console.log("Updated Items:", itemsTodays);
+        
           
     }
 
