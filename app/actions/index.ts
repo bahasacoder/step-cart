@@ -14,7 +14,7 @@ export async function handleSubmitUser(formData: FormData) {
   console.log({ email, password })
 }
 
-export async function myActionItems(formData: FormData): Promise<{ success: boolean }> {
+export async function myActionItems(formData: FormData) {
         "use server";
         // Logic to handle form submission and add item to the database
         console.log("Item added!");
