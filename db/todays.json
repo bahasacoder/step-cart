@@ -50,5 +50,20 @@
     "penjual": "harius",
     "kontak": "08923",
     "alamat": "bajo"
+  },
+  {
+    "id": 4004,
+    "nama": "PHP Framework",
+    "harga": "125000000",
+    "kategori": "Localhost",
+    "deskripsi": "PHP Codeignier Larvel loprem lipsums",
+    "lokasi": "bone",
+    "gambar1": "git",
+    "gambar2": "git",
+    "gambar3": "git",
+    "map": "-",
+    "penjual": "harius",
+    "kontak": "08923",
+    "alamat": "bajo"
   }
 ]
