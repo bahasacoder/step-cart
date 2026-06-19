@@ -31,7 +31,13 @@ export async function myActionItems(formData: FormData) {
             itemsTodays.push(rawFormData);
             // await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2));
             console.log("Updated Items:", itemsTodays);
-        
+          try {
+                await fs.writeFile(filePath, JSON.stringify(itemsTodays, null, 2), 'utf-8');
+                return { success: true };
+            } catch (error) {
+                console.error('Failed to write file:', error);
+                return { success: false };
+            }
           
     }
 
