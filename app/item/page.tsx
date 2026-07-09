@@ -1,7 +1,7 @@
 import Items from "@/db/items.json";
 import path from "path";
 import fs from "fs/promises";
-import PopoverHome from "@/components/popover-home";
+import PopoverHome from "@/components/blocks/popover-home";
 export default async function ListItems() {   
     
     return (
