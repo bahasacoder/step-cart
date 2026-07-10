@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-export default function PopoverHome() {
+export default function DialogBoxHome() {
   // absolute
   return(
     <div data-popover="popover"
