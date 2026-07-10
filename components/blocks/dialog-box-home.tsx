@@ -19,7 +19,7 @@ export default function DialogBoxHome() {
           <DialogContent className="sm:max-w-md">            
              <DialogTitle></DialogTitle>
               <div className="relative w-full h-auto mx-auto my-auto p-4">
-                 <h1 className=" w-full absolute top-0 left-0 text-8x z-10 font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-103 hover:text-blue-700 hover:font-bold hover:tracking-widest">Kami Juga Melayani Pembuatan Website UMKM</h1>
+                 <h1 className=" w-full absolute top-0 left-0 text-8x z-10 font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Kami Juga Melayani Pembuatan Website UMKM</h1>
                  
                 </div>
           </DialogContent>
