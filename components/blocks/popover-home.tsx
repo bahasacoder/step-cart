@@ -21,7 +21,7 @@ export default function PopoverHome() {
               <div>
                  <h1 className="text-2x text-center">Kami Juga Melayani Pembuatan Website UMKM</h1>
                   <Image
-                    src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@ed2c10a5b9c2baebab4b37575b0ef096bc343d03/uploads/2026-07-10T01-54-58-805Z-f3mdld6v0.jpg"
+                    src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@70c3f27ff5a6d467cf2db3331d5744f0431eb500/uploads/2026-02-11T14-57-41-361Z-vizvnobtw.png"
                     width={500}
                     height={500}
                     alt="Web Developer"
