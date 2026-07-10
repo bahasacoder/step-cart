@@ -18,8 +18,8 @@ export default function PopoverHome() {
        <Dialog defaultOpen>
           <DialogContent className="sm:max-w-md">            
              <DialogTitle></DialogTitle>
-              <div>
-                 <h1 className="text-2x text-center">Kami Juga Melayani Pembuatan Website UMKM</h1>
+              <div className="relative h-24 w-24 mx-auto my-auto p-4">
+                 <h1 className="text-2x text-center z-10">Kami Juga Melayani Pembuatan Website UMKM</h1>
                   <Image
                     src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@70c3f27ff5a6d467cf2db3331d5744f0431eb500/uploads/2026-02-11T14-57-41-361Z-vizvnobtw.png"
                     width={500}
