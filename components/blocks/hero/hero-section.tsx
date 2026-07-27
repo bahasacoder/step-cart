@@ -87,7 +87,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
         <div className='grid grid-cols-1 gap-6 gap-y-12 md:gap-y-16 lg:grid-cols-5'>
           <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3 lg:h-95.5'>
             <h1 className='text-3xl leading-[1.29167] font-semibold text-balance max-lg:text-center sm:text-4xl lg:text-5xl'>
-              Supllier Ayam Kampung Asli
+              Supplier Ayam Kampung Asli
             </h1>
 
             <p className='text-muted-foreground max-w-xl text-xl max-lg:text-center'>

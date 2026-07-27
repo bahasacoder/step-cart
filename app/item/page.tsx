@@ -1,12 +1,12 @@
 import Items from "@/db/items.json";
 import path from "path";
 import fs from "fs/promises";
-import PopoverHome from "@/components/blocks/popover-home";
+import DialogBoxHome from "@/components/blocks/dialog-box-home";
 export default async function ListItems() {   
     
     return (
         <>
-            <PopoverHome />
+            <DialogBoxHome />
             <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
                 <div className="flex flex-col items-center gap-4">
                     <p>Item List Page</p>
