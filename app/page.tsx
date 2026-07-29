@@ -12,6 +12,7 @@ export default function Home() {
      <DialogBoxHome />
      <HeroPage />
      <MarqueeCategories />
+     <HotTwoProducts />
      <ProductHome />
      <HotTwoProducts />
     </>
