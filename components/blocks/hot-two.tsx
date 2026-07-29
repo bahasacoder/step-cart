@@ -14,7 +14,7 @@ export default function HotTwoProducts(){
 		            {/* <!-- Image --> */}
 		                <div className="w-full h-auto relative bg-gray-100 rounded-2xl p-8 flex items-center justify-center w-48">
 		                    <Image 
-		                        src="/images/abon813.png"
+		                        src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/uploads/2026-07-29T06-46-44-073Z-p2c3zeb2s.png"
 		                        alt="Product" 
 		                        width={100} height={100}
 								style={{ objectFit: 'fill', borderRadius: '10px', objectPosition: 'top', width:'200px', height: '228px'}}
