@@ -1,6 +1,6 @@
 import { AirVent } from "lucide-react";
 import Image from "next/image";
-export default function RowTwo(){
+export default function HotTwoProducts(){
   return(
     <div className="w-full flex sm:flex-col md:flex-row justify-between bg-zinc-50">
       <div className="w-full mx-auto ">
