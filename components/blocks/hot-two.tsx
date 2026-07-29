@@ -22,9 +22,9 @@ export default function HotTwoProducts(){
 		                </div>
 		                {/* <!-- Details --> */}
 		                <div className="w-full space-y-6">
-		                    <h1 className="text-3xl font-bold">AeroSport Shoes</h1>
-		                    <p className="text-2xl font-semibold text-gray-700">$129.99</p>
-		                    <p className="text-gray-600">Comfortable daily running shoes.</p>
+		                    <h1 className="text-3xl font-bold">Abone Telur Kita</h1>
+		                    <p className="text-2xl font-semibold text-gray-700">Rp. 25.000</p>
+		                    <p className="text-gray-600">Bahan Telur Ayam</p>
 		                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
 		                </div>
 		            </div>
@@ -43,9 +43,9 @@ export default function HotTwoProducts(){
 		                </div>
 		                {/* <!-- Details --> */}
 		                <div className="w-full space-y-6">
-		                    <h1 className="text-3xl font-bold">AeroSport Shoes</h1>
-		                    <p className="text-2xl font-semibold text-gray-700">$129.99</p>
-		                    <p className="text-gray-600">Comfortable daily running shoes.</p>
+		                    <h1 className="text-3xl font-bold">Sambal Cakalang</h1>
+		                    <p className="text-2xl font-semibold text-gray-700">Rp. 25.000</p>
+		                    <p className="text-gray-600">Bahan Ikan Cakalang</p>
 		                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
 		                </div>
 		            </div>
