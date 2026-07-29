@@ -2,51 +2,55 @@ import { AirVent } from "lucide-react";
 import Image from "next/image";
 export default function HotTwoProducts(){
   return(
-    <div className="w-full flex sm:flex-col md:flex-row justify-between bg-zinc-50">
-      <div className="w-full mx-auto ">
-        <h1 className="w-full text-2x font-bold text-center">New Hot Products</h1>
-      </div>
-        <div className="flex w-full bg-yellow-100">
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 bg-white">
-            {/* <!-- Image --> */}
-                <div className="w-full h-auto relative bg-gray-100 rounded-2xl p-8 flex items-center justify-center w-48">
-                    <Image 
-                        src="/images/abon813.png"
-                        alt="Product" 
-                        width={100} height={100}
-						style={{ objectFit: 'fill', borderRadius: '10px', objectPosition: 'top', width:'200px', height: '228px'}}
-                    />
-                </div>
-                {/* <!-- Details --> */}
-                <div className="w-full space-y-6">
-                    <h1 className="text-3xl font-bold">AeroSport Shoes</h1>
-                    <p className="text-2xl font-semibold text-gray-700">$129.99</p>
-                    <p className="text-gray-600">Comfortable daily running shoes.</p>
-                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-        <div className="flex w-full bg-green-100">
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 bg-white">
-            {/* <!-- Image --> */}
-                <div className="w-full h-auto relative bg-gray-100 rounded-2xl p-8 flex items-center justify-center w-48">
-                    <Image 
-                        src="/images/sambacakalang2.png"
-                        alt="Product" 
-                        width={100} height={100}
-						style={{ objectFit: 'fill', borderRadius: '10px', objectPosition: 'top', width:'200px', height: '228px'}}
-								
-                    />
-                </div>
-                {/* <!-- Details --> */}
-                <div className="w-full space-y-6">
-                    <h1 className="text-3xl font-bold">AeroSport Shoes</h1>
-                    <p className="text-2xl font-semibold text-gray-700">$129.99</p>
-                    <p className="text-gray-600">Comfortable daily running shoes.</p>
-                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </div>    
+	  <>
+		  <div className="w-full mx-auto ">
+	        <h1 className="w-full text-2x font-bold text-center">New Hot Products</h1>
+	      </div>
+			 
+		    <div className="w-full flex sm:flex-col md:flex-row justify-between bg-zinc-50">
+		      
+		        <div className="flex w-full bg-yellow-100">
+		            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 bg-white">
+		            {/* <!-- Image --> */}
+		                <div className="w-full h-auto relative bg-gray-100 rounded-2xl p-8 flex items-center justify-center w-48">
+		                    <Image 
+		                        src="/images/abon813.png"
+		                        alt="Product" 
+		                        width={100} height={100}
+								style={{ objectFit: 'fill', borderRadius: '10px', objectPosition: 'top', width:'200px', height: '228px'}}
+		                    />
+		                </div>
+		                {/* <!-- Details --> */}
+		                <div className="w-full space-y-6">
+		                    <h1 className="text-3xl font-bold">AeroSport Shoes</h1>
+		                    <p className="text-2xl font-semibold text-gray-700">$129.99</p>
+		                    <p className="text-gray-600">Comfortable daily running shoes.</p>
+		                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
+		                </div>
+		            </div>
+		        </div>
+		        <div className="flex w-full bg-green-100">
+		            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 bg-white">
+		            {/* <!-- Image --> */}
+		                <div className="w-full h-auto relative bg-gray-100 rounded-2xl p-8 flex items-center justify-center w-48">
+		                    <Image 
+		                        src="/images/sambacakalang2.png"
+		                        alt="Product" 
+		                        width={100} height={100}
+								style={{ objectFit: 'fill', borderRadius: '10px', objectPosition: 'top', width:'200px', height: '228px'}}
+										
+		                    />
+		                </div>
+		                {/* <!-- Details --> */}
+		                <div className="w-full space-y-6">
+		                    <h1 className="text-3xl font-bold">AeroSport Shoes</h1>
+		                    <p className="text-2xl font-semibold text-gray-700">$129.99</p>
+		                    <p className="text-gray-600">Comfortable daily running shoes.</p>
+		                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		 </>
   )
 }
