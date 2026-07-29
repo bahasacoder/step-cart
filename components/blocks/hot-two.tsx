@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function HotTwoProducts(){
   return(
 	  <>
-		  <div className="w-full mx-auto ">
-	        <h1 className="w-full text-2x font-bold text-center">New Hot Products</h1>
+		  <div className="w-full mx-auto mt-24 p-8">
+	        <h1 className="w-full text-5xl font-bold text-center">New Hot Products</h1>
 	      </div>
 			 
 		    <div className="w-full flex sm:flex-col md:flex-row justify-between bg-zinc-50">
