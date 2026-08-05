@@ -2,7 +2,8 @@
 import { useState } from "react";
 import Image from "next/image";
 export default function AllProductsPage() {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(5);
+  const [selectedOption, setSelectedOption] = useState("option2");
 
   return (
     <div>
@@ -133,7 +134,7 @@ export default function AllProductsPage() {
                           </div>
                           <div className="col-sm-4">
                             <div className="form-group">
-                              <select defaultValue={1} className="form-control">
+                              <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
                                 <option selected disabled>Rating</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
