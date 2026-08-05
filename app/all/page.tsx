@@ -8,44 +8,44 @@ export default function AllProductsPage() {
   return (
     <div>
        <section className="relative block p-[140px]">
-          <div className="container max-w-6xl flex p-8 m-auto">
-            <div className="row w-full relative">
-              <div className="col-sm-6 float-left w-full md:w-[50%]"><a className="gallery" href="/assets/images/shop/product-7.jpg"><Image src="/assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
+          <div className="container max-w-6xl flex flex-wrap p-0 m-auto">
+            <div className="row w-full m-0 flex flex-wrap justify-between items-start">
+              <div className="col-sm-6 w-full md:w-[50%] float-left border-2 border-red-200"><a className="gallery" href="/assets/images/shop/product-7.jpg"><Image src="/assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
                 <ul className="product-gallery">
                   <li><a className="gallery" href="/assets/images/shop/product-8.jpg"></a><Image src="/assets/images/shop/product-8.jpg" alt="Single Product" width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-9.jpg"></a><Image src="/assets/images/shop/product-9.jpg" alt="Single Product"  width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-10.jpg"></a><Image src="/assets/images/shop/product-10.jpg" alt="Single Product"  width={100} height={100}/></li>
                 </ul>
               </div>
-              <div className="col-sm-6 float-left w-full md:w-[50%]">
+              <div className="col-sm-6 w-full float-left w-full md:w-[50%]">
                 <div className="row">
                   <div className="col-sm-12">
-                    <h1 className="product-title font-alt">Accessories Pack</h1>
+                    <h1 className="product-title text-4xl">Accessories Pack</h1>
                   </div>
                 </div>
-                <div className="row mb-20">
+                <div className="row mb-18 w-full ">
                   <div className="col-sm-12"><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star-off"></i></span><a className="open-tab section-scroll" href="#reviews">-2customer reviews</a>
                   </div>
                 </div>
-                <div className="row mb-20">
+                <div className="row mb-18">
                   <div className="col-sm-12">
-                    <div className="price font-alt"><span className="amount">£20.00</span></div>
+                    <div className="price tracking-widest uppercase text-3xl"><span className="amount">£20.00</span></div>
                   </div>
                 </div>
-                <div className="row mb-20">
+                <div className="row mb-18">
                   <div className="col-sm-12">
                     <div className="description">
                       <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
                     </div>
                   </div>
                 </div>
-                <div className="row mb-20">
+                <div className="row mb-18">
                   <div className="col-sm-4 mb-sm-20">
                     <input className="form-control input-lg" type="number" name="" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} max="40" min="1" required />
                   </div>
                   <div className="col-sm-8"><a className="btn btn-lg btn-block btn-round btn-b" href="#">Add To Cart</a></div>
                 </div>
-                <div className="row mb-20">
+                <div className="row mb-18">
                   <div className="col-sm-12">
                     <div className="product_meta">Categories:<a href="#"> Man, </a><a href="#">Clothing, </a><a href="#">T-shirts</a>
                     </div>
