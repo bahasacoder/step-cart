@@ -7,17 +7,17 @@ export default function AllProductsPage() {
 
   return (
     <div>
-       <section className="module">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-6 mb-sm-40"><a className="gallery" href="/assets/images/shop/product-7.jpg"><Image src="/assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
+       <section className="relative block p-[140px]">
+          <div className="container max-w-6xl flex p-8 m-auto">
+            <div className="row w-full relative">
+              <div className="col-sm-6 float-left w-full md:w-[50%]"><a className="gallery" href="/assets/images/shop/product-7.jpg"><Image src="/assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
                 <ul className="product-gallery">
                   <li><a className="gallery" href="/assets/images/shop/product-8.jpg"></a><Image src="/assets/images/shop/product-8.jpg" alt="Single Product" width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-9.jpg"></a><Image src="/assets/images/shop/product-9.jpg" alt="Single Product"  width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-10.jpg"></a><Image src="/assets/images/shop/product-10.jpg" alt="Single Product"  width={100} height={100}/></li>
                 </ul>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-6 float-left w-full md:w-[50%]">
                 <div className="row">
                   <div className="col-sm-12">
                     <h1 className="product-title font-alt">Accessories Pack</h1>
