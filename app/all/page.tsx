@@ -6,11 +6,11 @@ export default function AllProductsPage() {
        <section className="module">
           <div className="container">
             <div className="row">
-              <div className="col-sm-6 mb-sm-40"><a className="gallery" href="assets/images/shop/product-7.jpg"><Image src="assets/images/shop/product-7.jpg" alt="Single Product Image" /></a>
+              <div className="col-sm-6 mb-sm-40"><a className="gallery" href="assets/images/shop/product-7.jpg"><Image src="assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
                 <ul className="product-gallery">
-                  <li><a className="gallery" href="assets/images/shop/product-8.jpg"></a><Image src="assets/images/shop/product-8.jpg" alt="Single Product" /></li>
-                  <li><a className="gallery" href="assets/images/shop/product-9.jpg"></a><Image src="assets/images/shop/product-9.jpg" alt="Single Product" /></li>
-                  <li><a className="gallery" href="assets/images/shop/product-10.jpg"></a><Image src="assets/images/shop/product-10.jpg" alt="Single Product" /></li>
+                  <li><a className="gallery" href="assets/images/shop/product-8.jpg"></a><Image src="assets/images/shop/product-8.jpg" alt="Single Product" width={100} height={100}/></li>
+                  <li><a className="gallery" href="assets/images/shop/product-9.jpg"></a><Image src="assets/images/shop/product-9.jpg" alt="Single Product"  width={100} height={100}/></li>
+                  <li><a className="gallery" href="assets/images/shop/product-10.jpg"></a><Image src="assets/images/shop/product-10.jpg" alt="Single Product"  width={100} height={100}/></li>
                 </ul>
               </div>
               <div className="col-sm-6">
