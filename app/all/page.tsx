@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function AllProductsPage() {
   
   return (
@@ -5,11 +6,11 @@ export default function AllProductsPage() {
        <section className="module">
           <div className="container">
             <div className="row">
-              <div className="col-sm-6 mb-sm-40"><a className="gallery" href="assets/images/shop/product-7.jpg"><img src="assets/images/shop/product-7.jpg" alt="Single Product Image"></a>
+              <div className="col-sm-6 mb-sm-40"><a className="gallery" href="assets/images/shop/product-7.jpg"><Image src="assets/images/shop/product-7.jpg" alt="Single Product Image" /></a>
                 <ul className="product-gallery">
-                  <li><a className="gallery" href="assets/images/shop/product-8.jpg"></a><img src="assets/images/shop/product-8.jpg" alt="Single Product"></li>
-                  <li><a className="gallery" href="assets/images/shop/product-9.jpg"></a><img src="assets/images/shop/product-9.jpg" alt="Single Product"></li>
-                  <li><a className="gallery" href="assets/images/shop/product-10.jpg"></a><img src="assets/images/shop/product-10.jpg" alt="Single Product"></li>
+                  <li><a className="gallery" href="assets/images/shop/product-8.jpg"></a><Image src="assets/images/shop/product-8.jpg" alt="Single Product" /></li>
+                  <li><a className="gallery" href="assets/images/shop/product-9.jpg"></a><Image src="assets/images/shop/product-9.jpg" alt="Single Product" /></li>
+                  <li><a className="gallery" href="assets/images/shop/product-10.jpg"></a><Image src="assets/images/shop/product-10.jpg" alt="Single Product" /></li>
                 </ul>
               </div>
               <div className="col-sm-6">
@@ -36,7 +37,7 @@ export default function AllProductsPage() {
                 </div>
                 <div className="row mb-20">
                   <div className="col-sm-4 mb-sm-20">
-                    <input className="form-control input-lg" type="number" name="" value="1" max="40" min="1" required="required">
+                    <input className="form-control input-lg" type="number" name="" value="1" max="40" min="1" required />
                   </div>
                   <div className="col-sm-8"><a className="btn btn-lg btn-block btn-round btn-b" href="#">Add To Cart</a></div>
                 </div>
@@ -89,7 +90,7 @@ export default function AllProductsPage() {
                   <div className="tab-pane" id="reviews">
                     <div className="comments reviews">
                       <div className="comment clearfix">
-                        <div className="comment-avatar"><img src="" alt="avatar"></div>
+                        <div className="comment-avatar"><Image src="" alt="avatar" / ></div>
                         <div className="comment-content clearfix">
                           <div className="comment-author font-alt"><a href="#">John Doe</a></div>
                           <div className="comment-body">
@@ -100,9 +101,9 @@ export default function AllProductsPage() {
                         </div>
                       </div>
                       <div className="comment clearfix">
-                        <div className="comment-avatar"><img src="" alt="avatar"></div>
+                        <div className="comment-avatar"><Image src="" alt="avatar" /></div>
                         <div className="comment-content clearfix">
-                          <div className="comment-author font-alt"><a href="#">Mark Stone</a></div>
+                          <div className="comment-author font-alt"><a href="#">MarkStone</a></div>
                           <div className="comment-body">
                             <p>Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
                           </div>
@@ -117,20 +118,20 @@ export default function AllProductsPage() {
                         <div className="row">
                           <div className="col-sm-4">
                             <div className="form-group">
-                              <label className="sr-only" for="name">Name</label>
-                              <input className="form-control" id="name" type="text" name="name" placeholder="Name">
+                              <label className="sr-only" htmlFor="name">Name</label>
+                              <input className="form-control" id="name" type="text" name="name" placeholder="Name" />
                             </div>
                           </div>
                           <div className="col-sm-4">
                             <div className="form-group">
-                              <label className="sr-only" for="email">Name</label>
-                              <input className="form-control" id="email" type="text" name="email" placeholder="E-mail">
+                              <label className="sr-only" htmlFor="email">Email</label>
+                              <input className="form-control" id="email" type="text" name="email" placeholder="E-mail" />
                             </div>
                           </div>
                           <div className="col-sm-4">
                             <div className="form-group">
                               <select className="form-control">
-                                <option selected="true" disabled="">Rating</option>
+                                <option selected disabled>Rating</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -141,7 +142,7 @@ export default function AllProductsPage() {
                           </div>
                           <div className="col-sm-12">
                             <div className="form-group">
-                              <textarea className="form-control" id="" name="" rows="4" placeholder="Review"></textarea>
+                              <textarea className="form-control" id="" name="" rows={4} placeholder="Review"></textarea>
                             </div>
                           </div>
                           <div className="col-sm-12">
