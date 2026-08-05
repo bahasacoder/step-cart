@@ -1,16 +1,19 @@
+"use client"
+import { useState } from "react";
 import Image from "next/image";
 export default function AllProductsPage() {
-  
+  const [quantity, setQuantity] = useState(1);
+
   return (
     <div>
        <section className="module">
           <div className="container">
             <div className="row">
-              <div className="col-sm-6 mb-sm-40"><a className="gallery" href="assets/images/shop/product-7.jpg"><Image src="assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
+              <div className="col-sm-6 mb-sm-40"><a className="gallery" href="/assets/images/shop/product-7.jpg"><Image src="/assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
                 <ul className="product-gallery">
-                  <li><a className="gallery" href="assets/images/shop/product-8.jpg"></a><Image src="assets/images/shop/product-8.jpg" alt="Single Product" width={100} height={100}/></li>
-                  <li><a className="gallery" href="assets/images/shop/product-9.jpg"></a><Image src="assets/images/shop/product-9.jpg" alt="Single Product"  width={100} height={100}/></li>
-                  <li><a className="gallery" href="assets/images/shop/product-10.jpg"></a><Image src="assets/images/shop/product-10.jpg" alt="Single Product"  width={100} height={100}/></li>
+                  <li><a className="gallery" href="/assets/images/shop/product-8.jpg"></a><Image src="/assets/images/shop/product-8.jpg" alt="Single Product" width={100} height={100}/></li>
+                  <li><a className="gallery" href="/assets/images/shop/product-9.jpg"></a><Image src="/assets/images/shop/product-9.jpg" alt="Single Product"  width={100} height={100}/></li>
+                  <li><a className="gallery" href="/assets/images/shop/product-10.jpg"></a><Image src="/assets/images/shop/product-10.jpg" alt="Single Product"  width={100} height={100}/></li>
                 </ul>
               </div>
               <div className="col-sm-6">
@@ -37,7 +40,7 @@ export default function AllProductsPage() {
                 </div>
                 <div className="row mb-20">
                   <div className="col-sm-4 mb-sm-20">
-                    <input className="form-control input-lg" type="number" name="" value="1" max="40" min="1" required />
+                    <input className="form-control input-lg" type="number" name="" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} max="40" min="1" required />
                   </div>
                   <div className="col-sm-8"><a className="btn btn-lg btn-block btn-round btn-b" href="#">Add To Cart</a></div>
                 </div>
@@ -90,7 +93,7 @@ export default function AllProductsPage() {
                   <div className="tab-pane" id="reviews">
                     <div className="comments reviews">
                       <div className="comment clearfix">
-                        <div className="comment-avatar"><Image src="" alt="avatar" / ></div>
+                        <div className="comment-avatar"><Image src="/assets/images/shop/avatar-1.jpg" alt="avatar" width={100} height={100} /></div>
                         <div className="comment-content clearfix">
                           <div className="comment-author font-alt"><a href="#">John Doe</a></div>
                           <div className="comment-body">
@@ -101,7 +104,7 @@ export default function AllProductsPage() {
                         </div>
                       </div>
                       <div className="comment clearfix">
-                        <div className="comment-avatar"><Image src="" alt="avatar" /></div>
+                        <div className="comment-avatar"><Image src="/assets/images/shop/avatar-2.jpg" alt="avatar" width={100} height={100} /></div>
                         <div className="comment-content clearfix">
                           <div className="comment-author font-alt"><a href="#">MarkStone</a></div>
                           <div className="comment-body">
@@ -130,7 +133,7 @@ export default function AllProductsPage() {
                           </div>
                           <div className="col-sm-4">
                             <div className="form-group">
-                              <select className="form-control">
+                              <select defaultValue={0} className="form-control">
                                 <option selected disabled>Rating</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -161,12 +164,11 @@ export default function AllProductsPage() {
           <div className="max-w-[42rem] m-auto inline">
               <div className="flex m-0 p-0 text-center justify-center items-center">
                 <div className="w-full m-0 p-0 border border-gray-300"></div>
-                  <i className="fa fa-star-o">Button</i>
+                  <i className="fa fa-star-o">*</i>
                 <div className="w-full m-0 p-0 border border-rose-300"></div>
               </div>
           </div>
-          
-
+        
         </div>
     </div>
   )
