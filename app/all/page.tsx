@@ -133,7 +133,7 @@ export default function AllProductsPage() {
                           </div>
                           <div className="col-sm-4">
                             <div className="form-group">
-                              <select defaultValue={0} className="form-control">
+                              <select defaultValue={1} className="form-control">
                                 <option selected disabled>Rating</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
