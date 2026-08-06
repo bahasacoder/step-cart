@@ -1,33 +1,43 @@
 "use client"
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 export default function AllProductsPage() {
   const [quantity, setQuantity] = useState(5);
-  const [selectedOption, setSelectedOption] = useState("option2");
+  const [selectedOption, setSelectedOption] = useState("0");
 
   return (
     <div>
        <section className="relative block p-[140px]">
           <div className="container max-w-6xl flex flex-wrap p-0 m-auto">
             <div className="row w-full m-0 flex flex-wrap justify-between items-start">
-              <div className="col-sm-6 w-full md:w-[50%] float-left border-2 border-red-200"><a className="gallery" href="/assets/images/shop/product-7.jpg"><Image src="/assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
-                <ul className="product-gallery">
+              <div className="col-sm-6 relative w-full h-auto md:w-[50%] flex flex-col border-2 border-red-200 float">
+                <div className="product-gallery w-full flex p-0 m-0 min-w-84 min-h-84">
+                    <Link className="gallery w-full md:w-lg" href="/assets/images/shop/product-7.jpg">
+                      <Image 
+                        src="/assets/images/shop/product-7.jpg" alt="Single Product Image"
+                        fill 
+                        className="object-contain w-full h-full top-0"
+                      />
+                    </Link>
+                </div>
+                <ul className="product-gallery w-full flex flex-row p-0 m-0">
                   <li><a className="gallery" href="/assets/images/shop/product-8.jpg"></a><Image src="/assets/images/shop/product-8.jpg" alt="Single Product" width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-9.jpg"></a><Image src="/assets/images/shop/product-9.jpg" alt="Single Product"  width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-10.jpg"></a><Image src="/assets/images/shop/product-10.jpg" alt="Single Product"  width={100} height={100}/></li>
                 </ul>
               </div>
-              <div className="col-sm-6 w-full float-left w-full md:w-[50%]">
+              <div className="col-sm-6 w-full float-left w-full md:w-[50%] bg-orange-100 p-6">
                 <div className="row">
-                  <div className="col-sm-12">
+                  <div className="col-sm-12 mt-0 my-8">
                     <h1 className="product-title text-4xl">Accessories Pack</h1>
                   </div>
                 </div>
-                <div className="row mb-18 w-full ">
+                <div className="row w-full my-4 ">
                   <div className="col-sm-12"><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star-off"></i></span><a className="open-tab section-scroll" href="#reviews">-2customer reviews</a>
                   </div>
                 </div>
-                <div className="row mb-18">
+                <div className="row w-full mt-4 mb-8">
                   <div className="col-sm-12">
                     <div className="price tracking-widest uppercase text-3xl"><span className="amount">£20.00</span></div>
                   </div>
@@ -39,11 +49,13 @@ export default function AllProductsPage() {
                     </div>
                   </div>
                 </div>
-                <div className="row mb-18">
-                  <div className="col-sm-4 mb-sm-20">
-                    <input className="form-control input-lg" type="number" name="" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} max="40" min="1" required />
+                <div className="row w-full flex my-2 justify-between items-center">
+                  <div className="col-sm-4 bg-rose-100 w-3xs mx-auto my-2 flex items-center justify-center">
+                    <input className="form-control border border-gray-300 px-4 py-2 w-4/5" type="number" name="" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} max="40" min="1" required />
                   </div>
-                  <div className="col-sm-8"><a className="btn btn-lg btn-block btn-round btn-b" href="#">Add To Cart</a></div>
+                  <div className="col-sm-8 bg-black w-full mx-auto my-2 flex items-center justify-center">
+                    <Link className="btn px-6 py-2 uppercase text-white" href="#">Add To Cart</Link>
+                  </div>
                 </div>
                 <div className="row mb-18">
                   <div className="col-sm-12">
@@ -133,9 +145,9 @@ export default function AllProductsPage() {
                             </div>
                           </div>
                           <div className="col-sm-4">
-                            <div className="form-group">
+                            <div className="form-group">  
                               <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
-                                <option selected disabled>Rating</option>
+                                <option value="0" disabled>Rating</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
