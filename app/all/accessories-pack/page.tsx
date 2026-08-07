@@ -67,6 +67,7 @@ export default function AllProductsPage() {
               </div>
             </div>
 
+            
             <div className="row mt-70">
               <div className="col-sm-12">
                 <ul className="nav nav-tabs font-alt" role="tablist">
@@ -172,8 +173,9 @@ export default function AllProductsPage() {
                   </div>
                 </div>
               </div>
+              
 
-                        </div>
+            </div>
           </div>
         </section>
         <div id="divider" className="divider divider-center block p-[2rem]">
