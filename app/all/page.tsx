@@ -1,22 +1,15 @@
 "use client"
 import { useState } from "react";
 import Image from "next/image";
-<<<<<<< HEAD
 import Link from "next/link";
 export default function AllProductsPage() {
   const [quantity, setQuantity] = useState(5);
   const [selectedOption, setSelectedOption] = useState("0");
-=======
-export default function AllProductsPage() {
-  const [quantity, setQuantity] = useState(5);
-  const [selectedOption, setSelectedOption] = useState("option2");
->>>>>>> 0abacf90bffb584ddbefa57a86ef7afa0ed07ac8
 
   return (
     <div>
        <section className="relative block p-[140px]">
           <div className="container max-w-6xl flex flex-wrap p-0 m-auto">
-<<<<<<< HEAD
 
             <div className="row w-full m-0 flex flex-wrap justify-between items-start gap-4">
               <div className="col-sm-6 w-full md:max-w-4/9 flex flex-col border-2 border-red-200 float">
@@ -30,17 +23,11 @@ export default function AllProductsPage() {
                     </Link>
                 </div>
                 <ul className="product-gallery w-full flex flex-row p-0 m-0 gap-2 justify-start items-center overflow-x-auto">
-=======
-            <div className="row w-full m-0 flex flex-wrap justify-between items-start">
-              <div className="col-sm-6 w-full md:w-[50%] float-left border-2 border-red-200"><a className="gallery" href="/assets/images/shop/product-7.jpg"><Image src="/assets/images/shop/product-7.jpg" alt="Single Product Image"  width={100} height={100}/></a>
-                <ul className="product-gallery">
->>>>>>> 0abacf90bffb584ddbefa57a86ef7afa0ed07ac8
                   <li><a className="gallery" href="/assets/images/shop/product-8.jpg"></a><Image src="/assets/images/shop/product-8.jpg" alt="Single Product" width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-9.jpg"></a><Image src="/assets/images/shop/product-9.jpg" alt="Single Product"  width={100} height={100}/></li>
                   <li><a className="gallery" href="/assets/images/shop/product-10.jpg"></a><Image src="/assets/images/shop/product-10.jpg" alt="Single Product"  width={100} height={100}/></li>
                 </ul>
               </div>
-<<<<<<< HEAD
               <div className="col-sm-6 float-left w-full md:w-1/2 bg-orange-100 p-6">
                 <div className="row">
                   <div className="col-sm-12 mt-0 my-8">
@@ -52,19 +39,6 @@ export default function AllProductsPage() {
                   </div>
                 </div>
                 <div className="row w-full mt-4 mb-8">
-=======
-              <div className="col-sm-6 w-full float-left w-full md:w-[50%]">
-                <div className="row">
-                  <div className="col-sm-12">
-                    <h1 className="product-title text-4xl">Accessories Pack</h1>
-                  </div>
-                </div>
-                <div className="row mb-18 w-full ">
-                  <div className="col-sm-12"><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star-off"></i></span><a className="open-tab section-scroll" href="#reviews">-2customer reviews</a>
-                  </div>
-                </div>
-                <div className="row mb-18">
->>>>>>> 0abacf90bffb584ddbefa57a86ef7afa0ed07ac8
                   <div className="col-sm-12">
                     <div className="price tracking-widest uppercase text-3xl"><span className="amount">£20.00</span></div>
                   </div>
@@ -76,18 +50,12 @@ export default function AllProductsPage() {
                     </div>
                   </div>
                 </div>
-<<<<<<< HEAD
                 <div className="row w-full flex my-2 justify-between items-center">
                   <div className="col-sm-4 bg-rose-100 w-3xs mx-auto my-2 flex items-center justify-center">
                     <input className="form-control border border-gray-300 px-4 py-2 w-4/5" type="number" name="" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} max="40" min="1" required />
                   </div>
                   <div className="col-sm-8 bg-black w-full mx-auto my-2 flex items-center justify-center">
                     <Link className="btn px-6 py-2 uppercase text-white" href="#">Add To Cart</Link>
-=======
-                <div className="row mb-18">
-                  <div className="col-sm-4 mb-sm-20">
-                    <input className="form-control input-lg" type="number" name="" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} max="40" min="1" required />
->>>>>>> 0abacf90bffb584ddbefa57a86ef7afa0ed07ac8
                   </div>
                 </div>
                 <div className="row mb-18">
@@ -179,15 +147,9 @@ export default function AllProductsPage() {
                             </div>
                           </div>
                           <div className="col-sm-4">
-<<<<<<< HEAD
                             <div className="form-group">  
                               <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
                                 <option value="0" disabled>Rating</option>
-=======
-                            <div className="form-group">
-                              <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
-                                <option selected disabled>Rating</option>
->>>>>>> 0abacf90bffb584ddbefa57a86ef7afa0ed07ac8
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -211,53 +173,7 @@ export default function AllProductsPage() {
                 </div>
               </div>
 
-              <div className="w-full">
-  <div className="relative right-0">
-    <ul className="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-md bg-slate-100" data-tabs="tabs" role="list">
-      <li className="z-30 flex-auto text-center">
-        <a className="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer text-slate-600 bg-inherit"
-        data-tab-target="" role="tab" aria-selected="true" aria-controls="dashboard">
-          Dashboard
-        </a>
-      </li>
-      <li className="z-30 flex-auto text-center">
-        <a className="z-30 flex items-center justify-center w-full px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-600 bg-inherit"
-        data-tab-target="" role="tab" aria-selected="false"  aria-controls="profile">
-          Profile
-        </a>
-      </li>
-      <li className="z-30 flex-auto text-center">
-        <a className="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-        data-tab-target="" role="tab" aria-selected="false" aria-controls="settings">
-          Settings
-        </a>
-      </li>
-    </ul>
- 
-    <div data-tab-content="" className="p-5">
-      <div id="dashboard" role="tabpanel">
-        <p className="text-slate-400 font-light">
-          Because it&apos;s about motivating the doers. Because I&apos;m
-          here to follow my dreams and inspire other people to follow their
-          dreams, too.
-        </p>
-      </div>
-      <div className="hidden opacity-0" id="profile" role="tabpanel">
-        <p className="text-slate-400 font-light">
-          The reading of all good books is like a conversation with the
-          finest minds of past centuries.
-        </p>
-      </div>
-      <div className="hidden opacity-0" id="settings" role="tabpanel">
-        <p className="text-slate-400 font-light">
-          Comparing yourself to others is the thief of joy.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-            </div>
+                        </div>
           </div>
         </section>
         <div id="divider" className="divider divider-center block p-[2rem]">
