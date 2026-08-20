@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import styles from './index.module.css';
+import TabDescription from "./tab-description";
+import TabDataSheet from "./tab-data-sheet";
+import TabReviews from "./tab-reviews";
 
 export default function AllProductsPage() {
   const [quantity, setQuantity] = useState(5);
@@ -79,101 +82,9 @@ export default function AllProductsPage() {
                   <li className=""><a href="#reviews" data-toggle="tab" aria-expanded="false"><span className="icon-tools-2"></span>Reviews (2)</a></li>
                 </ul>
                 <div className="tab-content">
-                  <div className="tab-pane active" id="description">
-                    <p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.</p>
-                    <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  </div>
-                  <div className="tab-pane" id="data-sheet">
-                    <table className="table table-striped ds-table table-responsive">
-                      <tbody>
-                        <tr>
-                          <th>Title</th>
-                          <th>Info</th>
-                        </tr>
-                        <tr>
-                          <td>Compositions</td>
-                          <td>Jeans</td>
-                        </tr>
-                        <tr>
-                          <td>Size</td>
-                          <td>44, 46, 48</td>
-                        </tr>
-                        <tr>
-                          <td>Color</td>
-                          <td>Black</td>
-                        </tr>
-                        <tr>
-                          <td>Brand</td>
-                          <td>Somebrand</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div className="tab-pane" id="reviews">
-                    <div className="comments reviews">
-                      <div className="comment clearfix">
-                        <div className="comment-avatar"><Image src="/assets/images/shop/avatar-1.jpg" alt="avatar" width={100} height={100} /></div>
-                        <div className="comment-content clearfix">
-                          <div className="comment-author font-alt"><a href="#">John Doe</a></div>
-                          <div className="comment-body">
-                            <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                          </div>
-                          <div className="comment-meta font-alt">Today, 14:55 -<span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star-off"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="comment clearfix">
-                        <div className="comment-avatar"><Image src="/assets/images/shop/avatar-2.jpg" alt="avatar" width={100} height={100} /></div>
-                        <div className="comment-content clearfix">
-                          <div className="comment-author font-alt"><a href="#">MarkStone</a></div>
-                          <div className="comment-body">
-                            <p>Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                          </div>
-                          <div className="comment-meta font-alt">Today, 14:59 -<span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star"></i></span><span><i className="fa fa-star star-off"></i></span><span><i className="fa fa-star star-off"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="comment-form mt-30">
-                      <h4 className="comment-form-title font-alt">Add review</h4>
-                      <form method="post">
-                        <div className="row">
-                          <div className="col-sm-4">
-                            <div className="form-group">
-                              <label className="sr-only" htmlFor="name">Name</label>
-                              <input className="form-control" id="name" type="text" name="name" placeholder="Name" />
-                            </div>
-                          </div>
-                          <div className="col-sm-4">
-                            <div className="form-group">
-                              <label className="sr-only" htmlFor="email">Email</label>
-                              <input className="form-control" id="email" type="text" name="email" placeholder="E-mail" />
-                            </div>
-                          </div>
-                          <div className="col-sm-4">
-                            <div className="form-group">  
-                              <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
-                                <option value="0" disabled>Rating</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div className="col-sm-12">
-                            <div className="form-group">
-                              <textarea className="form-control" id="" name="" rows={4} placeholder="Review"></textarea>
-                            </div>
-                          </div>
-                          <div className="col-sm-12">
-                            <button className="btn btn-round btn-d" type="submit">Submit Review</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+                  <TabDescription />
+                  <TabDataSheet />
+                  <TabReviews />
                 </div>
               </div>
               
