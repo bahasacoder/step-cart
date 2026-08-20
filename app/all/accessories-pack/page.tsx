@@ -2,6 +2,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import styles from './index.module.css';
+
 export default function AllProductsPage() {
   const [quantity, setQuantity] = useState(5);
   const [selectedOption, setSelectedOption] = useState("0");
@@ -67,7 +70,7 @@ export default function AllProductsPage() {
               </div>
             </div>
 
-            
+            {/* Product Tabs */}
             <div className="row mt-70">
               <div className="col-sm-12">
                 <ul className="nav nav-tabs font-alt" role="tablist">
@@ -188,6 +191,33 @@ export default function AllProductsPage() {
           </div>
         
         </div>
+
+   
+    <Tabs className={styles.Root} defaultValue="overview">
+      <TabsList className={styles.List}>
+        <TabsTrigger className={styles.Tab} value="overview">
+          Overview
+        </TabsTrigger>
+        <TabsTrigger className={styles.Tab} value="projects">
+          Projects
+        </TabsTrigger>
+        <TabsTrigger className={styles.Tab} value="account">
+          Account
+        </TabsTrigger>
+      </TabsList>
+      <div className={styles.PanelViewport}>
+        <TabsContent className={styles.Panel} value="overview">
+          <p className={styles.Paragraph}>Workspace stats and activity.</p>
+        </TabsContent>
+        <TabsContent className={styles.Panel} value="projects">
+          <p className={styles.Paragraph}>Milestones and deadlines.</p>
+        </TabsContent>
+        <TabsContent className={styles.Panel} value="account">
+          <p className={styles.Paragraph}>Profile and preferences.</p>
+        </TabsContent>
+      </div>
+    </Tabs>
+
     </div>
   )
 }
