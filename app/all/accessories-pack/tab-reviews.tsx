@@ -1,6 +1,9 @@
+"use client"
+import { useState } from "react";
 import Image from "next/image";
 
 export default function tabReviews(){
+  const [selectedOption, setSelectedOption] = useState("0");
   return (
     <>
       <div className="tab-pane" id="reviews">
