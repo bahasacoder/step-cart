@@ -76,16 +76,30 @@ export default function AllProductsPage() {
             {/* Product Tabs */}
             <div className="row mt-70">
               <div className="col-sm-12">
-                <ul className="nav nav-tabs font-alt" role="tablist">
-                  <li className="active"><a href="#description" data-toggle="tab" aria-expanded="true"><span className="icon-tools-2"></span>Description</a></li>
-                  <li className=""><a href="#data-sheet" data-toggle="tab" aria-expanded="false"><span className="icon-tools-2"></span>Data sheet</a></li>
-                  <li className=""><a href="#reviews" data-toggle="tab" aria-expanded="false"><span className="icon-tools-2"></span>Reviews (2)</a></li>
-                </ul>
-                <div className="tab-content">
-                  <TabDescription />
-                  <TabDataSheet />
-                  <TabReviews />
-                </div>
+                 <Tabs className={styles.Root} defaultValue="overview">
+                    <TabsList className={styles.List}>
+                      <TabsTrigger className={styles.Tab} value="overview">
+                        Description
+                      </TabsTrigger>
+                      <TabsTrigger className={styles.Tab} value="projects">
+                        Data Sheet
+                      </TabsTrigger>
+                      <TabsTrigger className={styles.Tab} value="account">
+                        Reviews (2)
+                      </TabsTrigger>
+                    </TabsList>
+                    <div className={styles.PanelViewport}>
+                      <TabsContent className={styles.Panel} value="overview">
+                        <TabDescription />
+                      </TabsContent>
+                      <TabsContent className={styles.Panel} value="projects">
+                        <TabDataSheet />
+                      </TabsContent>
+                      <TabsContent className={styles.Panel} value="account">
+                        <TabReviews />
+                      </TabsContent>
+                    </div>
+                  </Tabs>
               </div>
               
 
@@ -104,31 +118,6 @@ export default function AllProductsPage() {
         </div>
 
    
-    <Tabs className={styles.Root} defaultValue="overview">
-      <TabsList className={styles.List}>
-        <TabsTrigger className={styles.Tab} value="overview">
-          Overview
-        </TabsTrigger>
-        <TabsTrigger className={styles.Tab} value="projects">
-          Projects
-        </TabsTrigger>
-        <TabsTrigger className={styles.Tab} value="account">
-          Account
-        </TabsTrigger>
-      </TabsList>
-      <div className={styles.PanelViewport}>
-        <TabsContent className={styles.Panel} value="overview">
-          <p className={styles.Paragraph}>Workspace stats and activity.</p>
-        </TabsContent>
-        <TabsContent className={styles.Panel} value="projects">
-          <p className={styles.Paragraph}>Milestones and deadlines.</p>
-        </TabsContent>
-        <TabsContent className={styles.Panel} value="account">
-          <p className={styles.Paragraph}>Profile and preferences.</p>
-        </TabsContent>
-      </div>
-    </Tabs>
-
-    </div>
+       </div>
   )
 }
