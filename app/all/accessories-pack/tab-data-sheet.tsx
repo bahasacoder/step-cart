@@ -2,7 +2,7 @@ export default function tabDataSheet() {
   return (
     <>
         <div className="tab-pane w-full bg-green-100" id="data-sheet">
-                    <table className="table table-striped ds-table table-responsive">
+                    <table className="table table-striped ds-table table-responsive w-full">
                       <tbody>
                         <tr>
                           <th>Title</th>
