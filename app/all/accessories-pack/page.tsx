@@ -88,7 +88,6 @@ export default function AllProductsPage() {
                         Reviews (2)
                       </TabsTrigger>
                     </TabsList>
-                    <div className="">
                       <TabsContent className="" value="description">
                         <TabDescription />
                       </TabsContent>
@@ -98,7 +97,6 @@ export default function AllProductsPage() {
                       <TabsContent className="" value="reviews">
                         <TabReviews />
                       </TabsContent>
-                    </div>
                   </Tabs>
               </div>
               
