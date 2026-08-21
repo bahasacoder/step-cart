@@ -2,8 +2,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import styles from './index.module.css';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"//
+// import styles from './index.module.css';
 import TabDescription from "./tab-description";
 import TabDataSheet from "./tab-data-sheet";
 import TabReviews from "./tab-reviews";
@@ -76,15 +76,15 @@ export default function AllProductsPage() {
             {/* Product Tabs */}
             <div className="row mt-70">
               <div className="col-sm-12">
-                 <Tabs className={styles.Root} defaultValue="overview">
-                    <TabsList className={styles.List}>
-                      <TabsTrigger className={styles.Tab} value="overview">
+                 <Tabs className="w-full bg-rose-500" defaultValue="overview">
+                    <TabsList className="">
+                      <TabsTrigger className={styles.Tab} value="description">
                         Description
                       </TabsTrigger>
-                      <TabsTrigger className={styles.Tab} value="projects">
+                      <TabsTrigger className={styles.Tab} value="datasheet">
                         Data Sheet
                       </TabsTrigger>
-                      <TabsTrigger className={styles.Tab} value="account">
+                      <TabsTrigger className={styles.Tab} value="reviews">
                         Reviews (2)
                       </TabsTrigger>
                     </TabsList>
