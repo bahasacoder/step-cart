@@ -78,24 +78,24 @@ export default function AllProductsPage() {
               <div className="col-sm-12">
                  <Tabs className="w-full bg-rose-500" defaultValue="overview">
                     <TabsList className="">
-                      <TabsTrigger className={styles.Tab} value="description">
+                      <TabsTrigger className="" value="description">
                         Description
                       </TabsTrigger>
-                      <TabsTrigger className={styles.Tab} value="datasheet">
+                      <TabsTrigger className="" value="datasheet">
                         Data Sheet
                       </TabsTrigger>
-                      <TabsTrigger className={styles.Tab} value="reviews">
+                      <TabsTrigger className="" value="reviews">
                         Reviews (2)
                       </TabsTrigger>
                     </TabsList>
-                    <div className={styles.PanelViewport}>
-                      <TabsContent className={styles.Panel} value="overview">
+                    <div className="">
+                      <TabsContent className="" value="description">
                         <TabDescription />
                       </TabsContent>
-                      <TabsContent className={styles.Panel} value="projects">
+                      <TabsContent className="" value="datasheet">
                         <TabDataSheet />
                       </TabsContent>
-                      <TabsContent className={styles.Panel} value="account">
+                      <TabsContent className="" value="reviews">
                         <TabReviews />
                       </TabsContent>
                     </div>
