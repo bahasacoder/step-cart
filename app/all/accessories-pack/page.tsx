@@ -76,7 +76,7 @@ export default function AllProductsPage() {
             {/* Product Tabs */}
             <div className="row mt-70">
               <div className="col-sm-12">
-                 <Tabs className="w-full bg-rose-500" defaultValue="overview">
+                 <Tabs className="w-full" defaultValue="overview">
                     <TabsList className="">
                       <TabsTrigger className="" value="description">
                         Description
