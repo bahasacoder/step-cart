@@ -90,7 +90,7 @@ export default function AllProductsPage() {
             <div className="row mt-70">
               <div className="col-sm-12">
                  <Tabs className="w-full" defaultValue="description">
-                    <TabsList className="">
+                    <TabsList className="" variant="line">
                       <TabsTrigger className="relative flex bg-gray-100 border-s border-b-2 border-green-300 py-4 px-4 hover:text-rose-900 text-sm font-medium text-center overflow-hidden hover:bg-rose-500 focus:z-10 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none" value="description">
                         Description
                       </TabsTrigger>
