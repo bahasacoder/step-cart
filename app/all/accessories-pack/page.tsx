@@ -89,9 +89,9 @@ export default function AllProductsPage() {
             {/* Product Tabs */}
             <div className="row mt-70">
               <div className="col-sm-12">
-                 <Tabs className="w-full" defaultValue="description">
-                    <TabsList className="" variant="line">
-                      <TabsTrigger className="relative flex bg-gray-100 border-s border-b-2 border-green-300 py-4 px-4 hover:text-rose-900 text-sm font-medium text-center overflow-hidden hover:bg-rose-500 focus:z-10 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none" value="description">
+                 <Tabs className="w-full flex flex-col gap-3" defaultValue="description">
+                    <TabsList className="w-full flex p-4 bg-green-100 border-b border-red-100" variant="line">
+                      <TabsTrigger className="relative flex" value="description">
                         Description
                       </TabsTrigger>
                       <TabsTrigger className="relative flex" value="datasheet">
