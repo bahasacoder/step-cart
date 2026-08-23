@@ -91,13 +91,13 @@ export default function AllProductsPage() {
               <div className="col-sm-12">
                  <Tabs className="w-full flex flex-col gap-3" defaultValue="description">
                     <TabsList className="w-full flex p-4 bg-green-100" variant="line">
-                      <TabsTrigger className="relative flex border-b border-red-100 " value="description">
+                      <TabsTrigger className="relative flex border-b border-red-100 py-4 " value="description">
                         Description
                       </TabsTrigger>
-                      <TabsTrigger className="relative flex border-b border-red-200 " value="datasheet">
+                      <TabsTrigger className="relative flex border-b border-red-200 py-4" value="datasheet">
                         Data Sheet
                       </TabsTrigger>
-                      <TabsTrigger className="relative flex border-b border-red-300 " value="reviews">
+                      <TabsTrigger className="relative flex border-b border-red-300 py-4" value="reviews">
                         Reviews (2)
                       </TabsTrigger>
                     </TabsList>
