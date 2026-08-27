@@ -87,7 +87,7 @@ export default function AllProductsPage() {
             </div>
 
             {/* Product Tabs */}
-            <div className="row mt-70">
+            <div className="row">
               <div className="col-sm-12">
                  <Tabs className="w-full flex flex-col gap-3" defaultValue="description">
                     <TabsList className="w-full flex p-4" variant="line">
