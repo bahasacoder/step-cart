@@ -30,7 +30,7 @@ export default function AllProductsPage() {
        <section className="relative block p-[140px]">
           <div className="container max-w-6xl flex flex-wrap p-0 m-auto">
 
-            <div className="row w-full mb-24 flex flex-wrap justify-between items-start gap-4">
+            <div className="row w-full mb-18 flex flex-wrap justify-between items-start gap-4">
               <div className="col-sm-6 w-full md:max-w-4/9 flex flex-col border-2 border-red-200 float">
                 <div className="product-gallery absolute top-0 left-0 h-[550px] flex mb-2 pb-4 relative bg-yellow-100 ">
                     <Link className="gallery" href="/assets/images/shop/product-7.jpg">
