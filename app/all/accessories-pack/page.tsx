@@ -15,6 +15,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button"
 
 // import styles from './index.module.css';
 import TabDescription from "./tab-description";
@@ -92,7 +93,7 @@ export default function AllProductsPage() {
                  <Tabs className="w-full flex flex-col gap-3" defaultValue="description">
                     <TabsList className="w-full flex p-4" variant="line">
                       <TabsTrigger className="relative flex rounded-none py-4 active:bg-blue-300" value="description" variant="secondary">
-                        Description
+                        <Button variant="secondary">Description</Button>
                       </TabsTrigger>
                       <TabsTrigger className="relative flex py-4" value="datasheet">
                         Data Sheet
