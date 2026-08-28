@@ -98,7 +98,7 @@ export default function AllProductsPage() {
                       <TabsTrigger className="relative flex py-4 hover:bg-yellow-200" value="datasheet">
                         Data Sheet
                       </TabsTrigger>
-                      <TabsTrigger className="relative flex py-4 active:bg-yellow-200" value="reviews">
+                      <TabsTrigger className="relative flex py-4 bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700" value="reviews">
                         Reviews (2)
                       </TabsTrigger>
                     </TabsList>
