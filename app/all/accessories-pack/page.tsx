@@ -95,7 +95,7 @@ export default function AllProductsPage() {
                       <TabsTrigger className='ring-offset-background hover:ring-primary/90 transition-all duration-300 hover:ring-2 hover:ring-offset-2' value="description">
                         Description
                       </TabsTrigger>
-                      <TabsTrigger className="relative flex py-4" value="datasheet">
+                      <TabsTrigger className="relative flex py-4 hover:bg-yellow-200" value="datasheet">
                         Data Sheet
                       </TabsTrigger>
                       <TabsTrigger className="relative flex py-4 active:bg-yellow-200" value="reviews">
