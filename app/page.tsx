@@ -14,7 +14,6 @@ export default function Home() {
      <MarqueeCategories />
      <HotTwoProducts />
      <ProductHome />
-     <HotTwoProducts />
     </>
   );
 }
