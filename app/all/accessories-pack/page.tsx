@@ -92,13 +92,13 @@ export default function AllProductsPage() {
               <div className="col-sm-12">
                  <Tabs className="w-full flex flex-col gap-3" defaultValue="description">
                     <TabsList className="w-full flex p-4" variant="line">
-                      <TabsTrigger className='ring-offset-background hover:ring-primary/90 transition-all duration-300 hover:ring-2 hover:ring-offset-2' value="description">
+                      <TabsTrigger className='relative flex py-4 hover:text-blue-200' value="description">
                         Description
                       </TabsTrigger>
-                      <TabsTrigger className="relative flex py-4 hover:bg-yellow-200" value="datasheet">
+                      <TabsTrigger className="relative flex py-4 hover:text-blue-200" value="datasheet">
                         Data Sheet
                       </TabsTrigger>
-                      <TabsTrigger className="relative flex py-4 bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700" value="reviews">
+                      <TabsTrigger className="relative flex py-4 hover:text-blue-200" value="reviews">
                         Reviews (2)
                       </TabsTrigger>
                     </TabsList>
