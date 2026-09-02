@@ -150,11 +150,11 @@ export default function ProductPage() {
                                 </div>
                                 <div data-slot="card-content" className="px-6 z-10 flex flex-col gap-1 py-6">
                                     <div className="flex items-center justify-between font-semibold">
-                                        <h3 className="text-lg">Ayam Kampung Pejantan</h3><span className="text-2xl">Rp 140.000</span>
+                                        <h3 className="text-lg">Ayam Kampung Pejantan</h3><span className="text-2xl">Rp 80.000</span>
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <span className="text-muted-foreground">Ayam</span>
-                                        <div className="flex items-center justify-between gap-2"><span className="line-through">Rp 80.000</span><span className="text-sm text-green-600 dark:text-green-400"> 42% Off</span></div>
+                                        <div className="flex items-center justify-between gap-2"><span className="line-through">Rp 140.000</span><span className="text-sm text-green-600 dark:text-green-400"> 42% Off</span></div>
                                     </div>
                                 </div>
                             </div>
