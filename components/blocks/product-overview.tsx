@@ -8,8 +8,8 @@ export default function ProductOverviewBlock() {
                         <div>
                             <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">
                                 <div className="overflow-hidden" data-slot="carousel-content">
-                                    <div className="flex -ml-4" style="transform: translate3d(0px, 0px, 0px);">
-                                        <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-4" style="transform: translate3d(0px, 0px, 0px);">
+                                    <div className="flex -ml-4" style={{transform: translate3d(0px, 0px, 0px)}}>
+                                        <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-4" style={{transform: translate3d(0px, 0px, 0px)}}>
                                             <div className="h-142 overflow-hidden rounded-md bg-gray-100"><img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-5.png" alt="image-5" className="h-full w-full object-cover"></div>
                                         </div>
                                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-4">
