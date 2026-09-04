@@ -57,9 +57,9 @@ export default function ProductOverviewBlock() {
                                 </div>
                                 <div className="flex items-center gap-2.5">
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><a data-slot="breadcrumb-link" className="cn-breadcrumb-link" href="#">Menswear</a></li>
-                                    <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" className="cn-breadcrumb-separator"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" lucide="ChevronRightIcon" tabler="IconChevronRight" hugeicons="ArrowRight01Icon" phosphor="CaretRightIcon" remixicon="RiArrowRightSLine" className="remixicon cn-rtl-flip">
-                                            <path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path>
-                                        </svg></li>
+                                    <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" className="cn-breadcrumb-separator">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                                    </li>
                                 </div>
                                 <div className="flex items-center gap-2.5">
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" className="cn-breadcrumb-page">Classic leather jacket</span></li>
@@ -68,9 +68,9 @@ export default function ProductOverviewBlock() {
                         </nav>
                         <h1 className="text-3xl font-semibold">Classic Leather Jacket</h1>
                         <div className="flex w-fit items-center rounded-sm border px-2.5 py-1.5">
-                            <span className="me-2.5 flex items-center gap-1 border-e pe-2.5 text-sm"><span className="text-lg font-medium">4.3</span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" lucide="StarIcon" tabler="IconStar" hugeicons="StarIcon" phosphor="StarIcon" remixicon="RiStarFill" className="remixicon mb-0.5 size-4 fill-amber-500 stroke-transparent">
-                                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
-                                </svg></span><span className="text-muted-foreground">210<!-- --> Reviews</span>
+                            <span className="me-2.5 flex items-center gap-1 border-e pe-2.5 text-sm"><span className="text-lg font-medium">4.3</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+                            </span><span className="text-muted-foreground">210<!-- --> Reviews</span>
                         </div>
                         <div className="flex items-center gap-3">
                             <p className="text-3xl font-bold">$<!-- -->479.20</p>
