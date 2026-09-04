@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LucideProps } from 'lucide-react';
+import { ChevronRightIcon } from 'lucide-react';
 
 export default function ProductOverviewBlock() {
   return (
