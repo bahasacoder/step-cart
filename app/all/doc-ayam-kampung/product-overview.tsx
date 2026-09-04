@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function ProductOverviewBlock() {
   return (
      <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
