@@ -11,7 +11,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
-// import './styles.css';
+import './styles.css';
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
@@ -26,6 +26,93 @@ export default function ProductOverviewDua() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8 xl:gap-24">
                     <div className="flex flex-col gap-6">
                         <div>
+
+                          <Swiper
+        style={{
+          '--swiper-navigation-color': '#fff',
+          '--swiper-pagination-color': '#fff',
+        }}
+        loop={true}
+        spaceBetween={10}
+        navigation={true}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper2"
+      >
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-2.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-5.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-6.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-9.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
+        </SwiperSlide>
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        loop={true}
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-2.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-5.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-6.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-9.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
+        </SwiperSlide>
+      </Swiper>
+
+                          
                             <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">
                                 
                               <div className="overflow-hidden" data-slot="carousel-content">
@@ -77,6 +164,9 @@ export default function ProductOverviewDua() {
                                     <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" className="cn-breadcrumb-separator">
                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>                                      
                                     </li>
+                          
+                                
+                                
                                 </div>
                                 <div className="flex items-center gap-2.5">
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><a data-slot="breadcrumb-link" className="cn-breadcrumb-link" href="#">Menswear</a></li>
