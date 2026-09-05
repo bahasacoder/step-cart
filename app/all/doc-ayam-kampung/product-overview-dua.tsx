@@ -19,7 +19,7 @@ import './styles.css';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 export default function ProductOverviewDua() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null as any);
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
