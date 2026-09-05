@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Ling from "next/link"
-import ProductOverviewBlock from "./product-overview"
+import ProductOverviewDua from "./product-overview-dua"
 
 export default function DOCAyamKampungPage() {
   return (
