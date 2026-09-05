@@ -1,7 +1,24 @@
 import Image from "next/image";
 import { ChevronRight } from 'lucide-react';
 
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+
+// import './styles.css';
+
+// import required modules
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+
 export default function ProductOverviewBlock() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
        <section className="py-8 sm:py-16 lg:py-24">
@@ -10,7 +27,8 @@ export default function ProductOverviewBlock() {
                     <div className="flex flex-col gap-6">
                         <div>
                             <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">
-                                <div className="overflow-hidden" data-slot="carousel-content">
+                                
+                              <div className="overflow-hidden" data-slot="carousel-content">
                                     <div className="flex -ml-4" style={{transform: 'translate3d(0px, 0px, 0px)'}}>
                                         <div role="group" aria-roledescription="slide" data-slot="carousel-item" className="min-w-0 shrink-0 grow-0 basis-full pl-4" style={{transform: 'translate3d(0px, 0px, 0px)'}}>
                                             <div className="h-142 overflow-hidden rounded-md bg-gray-100"><Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-5.png" alt="image-5" className="h-full w-full object-cover" /></div>
@@ -26,10 +44,14 @@ export default function ProductOverviewBlock() {
                                               <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" alt="image-1" className="h-full w-full object-cover" />
                                             </div>
                                         </div>
+                                      
                                     </div>
                                 </div>
+                              
                             </div>
                         </div>
+
+                      
                         <div className="flex justify-between gap-6">
                             <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
                               <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-5.png" alt="image-5" width={100} height={100} />
@@ -45,14 +67,15 @@ export default function ProductOverviewBlock() {
                           </button>
                         </div>
                     </div>
+
+                  
                     <div className="space-y-6 py-5">
                         <nav aria-label="breadcrumb" data-slot="breadcrumb" className="cn-breadcrumb">
                             <ol data-slot="breadcrumb-list" className="cn-breadcrumb-list flex flex-wrap items-center wrap-break-word">
                                 <div className="flex items-center gap-2.5">
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><a data-slot="breadcrumb-link" className="cn-breadcrumb-link" href="#">Fashion</a></li>
                                     <li data-slot="breadcrumb-separator" role="presentation" aria-hidden="true" className="cn-breadcrumb-separator">
-                                       <ChevronRight />  
-                                      
+                                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>                                      
                                     </li>
                                 </div>
                                 <div className="flex items-center gap-2.5">
