@@ -28,8 +28,11 @@ export default function ProductOverviewDua() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8 xl:gap-24">
                     <div className="flex flex-col gap-6">
                         <div>
-
-                          <Swiper
+                            <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">
+                                
+                              <div className="overflow-hidden" data-slot="carousel-content">
+                                    <div className="flex -ml-4" style={{transform: 'translate3d(0px, 0px, 0px)'}}>
+                                       <Swiper
         
                                 loop={true}
                                 spaceBetween={10}
@@ -69,7 +72,16 @@ export default function ProductOverviewDua() {
                                   <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
                                 </SwiperSlide>
                               </Swiper>
-                              <Swiper
+                                      
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+
+                      
+                        <div className="flex justify-between gap-6">
+                             <Swiper
                                 onSwiper={setThumbsSwiper}
                                 loop={true}
                                 spaceBetween={10}
@@ -110,28 +122,6 @@ export default function ProductOverviewDua() {
                                   <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
                                 </SwiperSlide>
                               </Swiper>
-
-                                                  
-                            <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">
-                                
-                              
-                            </div>
-                        </div>
-
-                      
-                        <div className="flex justify-between gap-6">
-                            <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                              <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-5.png" alt="image-5" width={100} height={100} />
-                            </button>
-                          <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                            <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-2.png" alt="image-2" width={100} height={100} />
-                          </button>
-                          <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                            <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-3.png" alt="image-3"  width={100} height={100} />
-                          </button>
-                          <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                            <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" alt="image-1" className="h-31 w-full object-cover"  width={100} height={100}  />
-                          </button>
                         </div>
                     </div>
 
