@@ -38,7 +38,7 @@ export default function OverviewBlock() {
                                           className="mySwiper2"
                                         >
                                           <SwiperSlide>
-                                            <div className="h-142 overflow-hidden rounded-md bg-gray-100">
+                                            <div className="overflow-hidden rounded-md bg-gray-100">
                                                 <Image 
                                                   src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" 
                                                   alt="Descriptive text"
@@ -46,7 +46,7 @@ export default function OverviewBlock() {
                                                   height={285}
                                                   fill
                                                   // sizes="(max-width: 768px) 100vw, 50vw" // 3. Optimizes performance
-                                                  style={{ objectFit: 'contain' }} 
+                                                  style={{ objectFit: 'cover' }} 
                                                   />
                                               </div>
                                           </SwiperSlide>
