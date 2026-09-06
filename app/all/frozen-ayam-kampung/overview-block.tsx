@@ -44,9 +44,9 @@ export default function OverviewBlock() {
                                                   
                                                   src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" 
                                                   alt="Descriptive text"
-                                                  width={100}
-                                                  height={100}
-                                                                                      
+                                                  fill // 2. Tells the image to take up 100% of the parent
+                                                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // 3. Optimizes performance
+                                                  className="object-contain" // 4. Applies object-fit: contain via Tailwind
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide>
