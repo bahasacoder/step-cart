@@ -46,10 +46,7 @@ export default function OverviewBlock() {
                                                   alt="Descriptive text"
                                                   width={281}
                                                   height={285}
-                                                  fill
-                                                  // sizes="(max-width: 768px) 100vw, 50vw" // 3. Optimizes performance
-                                                  style={{ objectFit: 'cover' }} 
-                                                  
+                                                  fill                                                  
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide>
