@@ -29,10 +29,7 @@ export default function ProductOverviewDua() {
                     <div className="flex flex-col gap-6">
                         <div>
                             <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">                                
-                                    <div className="overflow-hidden" data-slot="carousel-content">
-                                          <div className="flex -ml-4" style={{transform: 'translate3d(0px, 0px, 0px)'}}>
-                                       
-                  
+                            
                                        <Swiper
                   
                                           loop={true}
@@ -114,10 +111,6 @@ export default function ProductOverviewDua() {
                                   <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
                                 </SwiperSlide>
                               </Swiper>       
-                                             </div>
-                        </div>
-
-                            
                             </div>
                         </div>
 
