@@ -42,7 +42,7 @@ export default function OverviewBlock() {
                                               src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" 
                                               alt="Descriptive text"
                                               width={281}
-                                              width={285}
+                                              height={285}
                                               fill
                                               // sizes="(max-width: 768px) 100vw, 50vw" // 3. Optimizes performance
                                               style={{ objectFit: 'contain' }} 
