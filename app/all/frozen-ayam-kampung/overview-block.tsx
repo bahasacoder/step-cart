@@ -40,10 +40,12 @@ export default function OverviewBlock() {
                                           <SwiperSlide>
                                            
 
-                                                <img 
+                                                <Image 
                                                   
                                                   src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" 
                                                   alt="Descriptive text"
+                                                  width={100}
+                                                  height={100}
                                                                                       
                                                   />
                                           </SwiperSlide>
