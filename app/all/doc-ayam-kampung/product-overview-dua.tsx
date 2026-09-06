@@ -30,52 +30,49 @@ export default function ProductOverviewDua() {
                         <div>
                             <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">
                                 
-                              <div className="overflow-hidden" data-slot="carousel-content">
-                                    <div className="flex -ml-4" style={{transform: 'translate3d(0px, 0px, 0px)'}}>
+                  
                                        <Swiper
-        
-                                loop={true}
-                                spaceBetween={10}
-                                navigation={true}
-                                thumbs={{ swiper: thumbsSwiper }}
-                                modules={[FreeMode, Navigation, Thumbs]}
-                                className="mySwiper2"
-                              >
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-1.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-2.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-3.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-4.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-5.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-6.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-7.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-8.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-9.jpg" />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                  <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
-                                </SwiperSlide>
-                              </Swiper>
-                                      
-                                    </div>
-                                </div>
-                              
+                  
+                                          loop={true}
+                                          spaceBetween={10}
+                                          navigation={true}
+                                          thumbs={{ swiper: thumbsSwiper }}
+                                          modules={[FreeMode, Navigation, Thumbs]}
+                                          className="mySwiper2"
+                                        >
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-1.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-2.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-3.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-4.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-5.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-6.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-7.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-8.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-9.jpg" />
+                                          </SwiperSlide>
+                                          <SwiperSlide>
+                                            <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
+                                          </SwiperSlide>
+                                        </Swiper>
+                                                
+                            
                             </div>
                         </div>
 
