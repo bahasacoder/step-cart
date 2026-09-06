@@ -112,23 +112,8 @@ export default function ProductOverviewDua() {
                                 </Swiper>  
                                                             
                             </div>
-                        </div>
-
-                      
-                        <div className="flex justify-between gap-6">
-                            <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                              <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-5.png" alt="image-5" width={100} height={100} />
-                            </button>
-                          <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                            <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-2.png" alt="image-2" width={100} height={100} />
-                          </button>
-                          <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                            <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-3.png" alt="image-3"  width={100} height={100} />
-                          </button>
-                          <button type="button" className="cursor-pointer overflow-hidden rounded-md transition-all duration-200">
-                            <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" alt="image-1" className="h-31 w-full object-cover"  width={100} height={100}  />
-                          </button>
-                        </div>
+                        </div>                  
+                       
                     </div>
 
                   
