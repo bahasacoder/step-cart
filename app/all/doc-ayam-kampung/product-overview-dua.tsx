@@ -71,14 +71,7 @@ export default function ProductOverviewDua() {
                                             <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
                                           </SwiperSlide>
                                         </Swiper>
-                                                
-                            
-                            </div>
-                        </div>
-
-                      
-                        <div className="flex justify-between gap-6">
-                             <Swiper
+                                         <Swiper
                                 onSwiper={setThumbsSwiper}
                                 loop={true}
                                 spaceBetween={10}
@@ -118,7 +111,14 @@ export default function ProductOverviewDua() {
                                 <SwiperSlide>
                                   <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
                                 </SwiperSlide>
-                              </Swiper>
+                              </Swiper>       
+                            
+                            </div>
+                        </div>
+
+                      
+                        <div className="flex justify-between gap-6">
+                             
                         </div>
                     </div>
 
