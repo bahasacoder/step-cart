@@ -40,34 +40,34 @@ export default function ProductOverviewDua() {
                                           className="mySwiper2"
                                         >
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-1.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-2.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-2.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-3.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-3.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-4.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-4.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-5.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-5.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-6.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-6.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-7.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-7.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-8.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-8.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-9.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-9.png" />
                                           </SwiperSlide>
                                           <SwiperSlide>
-                                            <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
+                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-12.png" />
                                           </SwiperSlide>
                                         </Swiper>
                                          <Swiper
