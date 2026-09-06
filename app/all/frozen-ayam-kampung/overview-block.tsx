@@ -38,7 +38,9 @@ export default function OverviewBlock() {
                                           className="mySwiper2"
                                         >
                                           <SwiperSlide>
-                                            <Image src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" 
+                                            <Image 
+                                              src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" 
+                                              alt="Descriptive text"
                                               width={281}
                                               width={285}
                                               fill
