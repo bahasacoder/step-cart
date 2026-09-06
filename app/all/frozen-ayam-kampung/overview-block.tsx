@@ -46,7 +46,7 @@ export default function OverviewBlock() {
                                                   alt="Descriptive text"
                                                   width={100}
                                                   height={100}
-                                                  className="object-contain, rounded-lg" // 4. Applies object-fit: contain via Tailwind
+                                                  className="object-contain" // 4. Applies object-fit: contain via Tailwind
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide>
