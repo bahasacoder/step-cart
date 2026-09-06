@@ -38,7 +38,7 @@ export default function OverviewBlock() {
                                           className="mySwiper2"
                                         >
                                           <SwiperSlide>
-                                            <div className="relative w-full h-auto overflow-hidden rounded-md bg-gray-100">
+                                           
 
                                                 <Image 
                                                   
