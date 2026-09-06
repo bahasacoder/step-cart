@@ -42,7 +42,7 @@ export default function OverviewBlock() {
 
                                                 <Image 
                                                   
-                                                  src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-1.png" 
+                                                  src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" 
                                                   alt="Descriptive text"
                                                   width={100}
                                                   height={100}
@@ -88,7 +88,7 @@ export default function OverviewBlock() {
                                       className="mySwiper"
                                     >
                                       <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-1.jpg" />
+                                        <img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" />
                                       </SwiperSlide>
                                       <SwiperSlide>
                                         <img src="https://swiperjs.com/demos/images/abstract-2.jpg" />
