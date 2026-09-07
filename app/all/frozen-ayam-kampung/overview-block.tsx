@@ -50,8 +50,8 @@ export default function OverviewBlock() {
                                                   src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" 
                                                   alt="Descriptive text" 
                                                   fill
-                                                  style={{ objectFit: 'cover' }}
-
+                                                  sizes="(max-width: 768px) 100vw, 50vw"
+                                                  style={{ objectFit: 'cover' }} 
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide>
