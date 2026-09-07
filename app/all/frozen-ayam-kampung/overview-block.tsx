@@ -89,7 +89,13 @@ export default function OverviewBlock() {
                                       className="mySwiper"
                                     >
                                       <SwiperSlide>
-                                        <img src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" />
+                                        <Image 
+                                          src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" 
+                                           alt="Descriptive thumbnails"
+                                            width={100}
+                                            height={100}
+                                          style={{ width: "7.375rem", height: "4rem"}}
+                                          />
                                       </SwiperSlide>
                                       <SwiperSlide>
                                         <img src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" />
