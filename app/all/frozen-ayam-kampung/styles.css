@@ -70,7 +70,7 @@
 }
 
 @media (width >= 40rem) {
-  .swiper-slide {
+  .mySwiper2 .swiper-slide {
     width: 31.25rem;
     height: 37.5rem;
   }
