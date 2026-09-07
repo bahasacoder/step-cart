@@ -12,8 +12,8 @@
   font-size: 18px;
   /* background: #444; */
   background-color: transparent;
-  max-width: 31.25rem;
-  max-height: 37.5rem;
+  min-width: 23.5rem;
+  min-height: 25.875rem;
   /* Center slide text vertically */
   display: flex;
   justify-content: center;
@@ -69,7 +69,10 @@
   object-fit: cover;
 }
 
-
+.swiper-thumb .swiper-slide img {
+   width: 7.375rem;
+   height: 4rem;
+}
 @media (width >= 40rem) {
   .swiper-slide {
     width: 31.25rem;
