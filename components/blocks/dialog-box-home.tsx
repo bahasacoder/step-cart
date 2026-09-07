@@ -20,11 +20,11 @@ export default function DialogBoxHome() {
              <DialogTitle></DialogTitle>
               <div className="relative flex flex-col gap-4 w-full max-h-[500px] mx-auto my-auto p-4">
                  <h1 className="w-2/3 md:w-full text-center text-lg md:text-5xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Bangun Website Anda, Bersama Kami!</h1>
-                  <div className="relative w-2/3 md:w-full flex justify-center items-center m-4 p-4">
+                  <div className="w-2/3 md:w-full flex justify-center items-center m-4 p-4">
                     <Image
                         src="/images/boxdialog906.jpg"
-                        width={100}
-                        height={100}
+                        width={500}
+                        height={500}
                         alt="Picture of the author"
                         fill
                         style={{ objectFit: 'contain' }}
