@@ -37,7 +37,7 @@ export default function OverviewBlock() {
                                           modules={[FreeMode, Navigation, Thumbs]}
                                           className="mySwiper2"
                                         >
-                                          <SwiperSlide className="bg-none" >                                        
+                                          <SwiperSlide className="bg-transparent size-1/2" >                                        
                                                 <Image                                                   
                                                   src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" 
                                                   alt="Descriptive text"
@@ -45,7 +45,7 @@ export default function OverviewBlock() {
                                                   height={100}
                                                   />
                                           </SwiperSlide>
-                                          <SwiperSlide>
+                                          <SwiperSlide className="bg-transparent size-1/2">
                                              <Image                                                   
                                                   src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" 
                                                   alt="Descriptive text"                                                  
