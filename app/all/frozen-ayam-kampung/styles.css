@@ -67,6 +67,10 @@
   object-fit: cover;
 }
 
+.mySwiper .swiper-thumbs .swiper-slide img {
+   width: 7.375rem;
+   height: 4rem;
+}
 
 @media (width >= 40rem) {
   .mySwiper2 .swiper-slide {
