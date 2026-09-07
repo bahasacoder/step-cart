@@ -69,7 +69,7 @@
   object-fit: cover;
 }
 
-.swiper-thumb .swiper-slide img {
+.swiper-thumb .swiper-slide {
    width: 7.375rem;
    height: 4rem;
 }
