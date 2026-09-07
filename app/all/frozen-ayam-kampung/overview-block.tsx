@@ -43,15 +43,15 @@ export default function OverviewBlock() {
                                                   alt="Descriptive text"
                                                   width={100}
                                                   height={100}
-                                                  style={{ objectFit: 'cover' }}
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide>
                                              <Image                                                   
                                                   src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" 
-                                                  alt="Descriptive text"
-                                                  width={100}
-                                                  height={100}
+                                                  alt="Descriptive text" 
+                                                  fill
+                                                  style={{ objectFit: 'cover' }}
+
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide>
