@@ -19,8 +19,8 @@ export default function DialogBoxHome() {
           <DialogContent className="sm:max-w-md">            
              <DialogTitle></DialogTitle>
               <div className="relative flex flex-col gap-4 w-full max-h-[500px] mx-auto my-auto p-4">
-                 <h1 className="w-2/3 md:w-full mx-0 text-center text-lg md:text-4xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Bangun Website Anda, Bersama Kami!</h1>
-                  <div className="relative w-full md:w-full flex justify-center items-center m-4 p-4">
+                 <h1 className="w-full mx-0 text-center text-lg md:text-4xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Bangun Website Anda, Bersama Kami!</h1>
+                  <div className="relative w-full md:w-full flex justify-center items-center m-2 p-2">
                     <Image
                         src="/images/boxdialog906.jpg"
                         width={500}
@@ -30,7 +30,7 @@ export default function DialogBoxHome() {
                         style={{ objectFit: 'contain', position: 'relative' }}
                       />
                   </div>   
-                <h2 className="w-2/3 md:w-full mx-0 text-center text-base md:text-2xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Kami Melayani Pembuatan Website UMKM</h2>
+                <h2 className="w-full mx-0 text-center text-base md:text-2xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Kami Melayani Pembuatan Website UMKM</h2>
                 </div>
           </DialogContent>
         </Dialog>
