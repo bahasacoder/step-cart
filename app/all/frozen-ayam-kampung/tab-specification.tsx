@@ -1,6 +1,7 @@
 export default function tabSpecification () {
 
   return (
+    <>
      <div className="ba b--lighter-gray br3 overflow-hidden">
         <div className="flex w-100" aria-label="Poultry cut: Drumsticks">
             <div className="f6 lh-copy self-stretch pa3" aria-hidden="true" style="width: 225px; min-width: 225px; background-color: rgb(248, 248, 248);">Poultry cut</div>
@@ -65,5 +66,6 @@ export default function tabSpecification () {
             </div>
         </div>
     </div>
+    </>
   )
 }
