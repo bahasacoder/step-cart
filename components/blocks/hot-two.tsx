@@ -7,7 +7,7 @@ export default function HotTwoProducts(){
 	        <h1 className="w-full text-2xl font-semibold sm:text-3xl lg:text-4xl text-center">New Hot Products</h1>
 	      </div>
 			 
-		    <div className="w-full flex sm:flex-col md:flex-row justify-between bg-zinc-50">
+		    <div className="w-full flex flex-col md:flex-row md-flex-wrap md:justify-between bg-zinc-50">
 		      
 		        <div className="flex w-full bg-yellow-100">
 		            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 bg-white">
