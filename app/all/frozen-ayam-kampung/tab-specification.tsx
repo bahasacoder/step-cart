@@ -9,7 +9,7 @@ export default function tabSpecification () {
                 <div className="b lh-copy">Drumsticks</div>
             </div>
         </div>
-        <hr aria-hidden="true" className="ld_Au">
+        <hr aria-hidden="true" className="ld_Au" />
     </div>
     </>
   )
