@@ -65,7 +65,7 @@ export default function tabSpecification () {
             <div className="bg-white flex-auto f6 pa3" aria-hidden="true">
                 <div className="b lh-copy">Unflavored</div>
             </div>
-        </div
+        </div>
     </div>
     </>
   )
