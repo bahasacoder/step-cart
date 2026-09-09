@@ -54,7 +54,6 @@ export default function QuantityInput({
 
   return (
     <div className="flex flex-col gap-2 w-44">
-      <Label htmlFor={id}>{label}</Label>
       <div className="flex items-center gap-1">
         <Button
           type="button"
