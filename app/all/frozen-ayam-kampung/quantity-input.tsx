@@ -15,7 +15,7 @@ interface QuantityInputProps {
   onChange?: (value: number) => void;
 }
 
-export function QuantityInput({
+export default function QuantityInput({
   id = "quantity",
   label = "Quantity",
   min = 0,
