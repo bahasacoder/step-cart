@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button"
 import TabDescription from "./tab-description";
 import TabDataSheet from "./tab-data-sheet";
 import TabReviews from "./tab-reviews";
-import TabSpecification from "./tabSpecification";
+import TabSpecification from "./tab-specification";
 import OverviewBlock from "./overview-block"
 
 export default function FrozenAyamKampungPage() {
