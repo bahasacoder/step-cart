@@ -46,24 +46,12 @@ export default function FrozenAyamKampungPage() {
                       <TabsTrigger className="relative flex py-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-blue-900" value="tabSpecification">
                         Specification
                       </TabsTrigger>
-                      <TabsTrigger className="relative flex py-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-blue-900" value="datasheet">
-                        Data Sheet
-                      </TabsTrigger>
-                      <TabsTrigger className="relative flex py-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-blue-900" value="reviews">
-                        Reviews (2)
-                      </TabsTrigger>
                     </TabsList>
                       <TabsContent className="" value="description">
                         <TabDescription />
                       </TabsContent>
                     <TabsContent className="" value="tabSpecification">
                         <TabSpecification />
-                      </TabsContent>
-                      <TabsContent className="" value="datasheet">
-                        <TabDataSheet />
-                      </TabsContent>
-                      <TabsContent className="" value="reviews">
-                        <TabReviews />
                       </TabsContent>
                   </Tabs>
               </div>         
