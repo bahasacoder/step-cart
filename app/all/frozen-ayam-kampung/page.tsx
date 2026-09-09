@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button"
 import TabDescription from "./tab-description";
 import TabDataSheet from "./tab-data-sheet";
 import TabReviews from "./tab-reviews";
+import TabSpecification from "./tabSpecification";
 import OverviewBlock from "./overview-block"
 
 export default function FrozenAyamKampungPage() {
@@ -42,6 +43,9 @@ export default function FrozenAyamKampungPage() {
                       <TabsTrigger className="relative flex py-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-blue-900" value="description">
                         Description
                       </TabsTrigger>
+                      <TabsTrigger className="relative flex py-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-blue-900" value="tabSpecification">
+                        Specification
+                      </TabsTrigger>
                       <TabsTrigger className="relative flex py-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:text-blue-900" value="datasheet">
                         Data Sheet
                       </TabsTrigger>
@@ -51,6 +55,9 @@ export default function FrozenAyamKampungPage() {
                     </TabsList>
                       <TabsContent className="" value="description">
                         <TabDescription />
+                      </TabsContent>
+                    <TabsContent className="" value="tabSpecification">
+                        <TabSpecification />
                       </TabsContent>
                       <TabsContent className="" value="datasheet">
                         <TabDataSheet />
