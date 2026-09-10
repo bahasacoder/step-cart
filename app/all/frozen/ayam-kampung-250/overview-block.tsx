@@ -145,7 +145,7 @@ export default function OverviewBlock() {
                               <label className="flex items-center gap-2 cursor-pointer group">
                                 <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
                                   {/* Inner dot for active state */}
-                                  <<Link href="/">div className="hidden size-2 rounded-full bg-white peer-checked:block" </Link>
+                                  <Link href="/"><div className="hidden size-2 rounded-full bg-white peer-checked:block" /> </Link>
                                 </div>
                                 <span className="text-sm font-medium text-slate-700">500 gr</span>
                               </label>
