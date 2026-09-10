@@ -45,7 +45,7 @@ export default function OverviewBlock() {
                                                   width={100}
                                                   height={100}
                                                   fill
-                                                  style={{ objectFit: 'cover', width: "33.75rem", height: "34rem"}}
+                                                  style={{ position: 'relative', objectFit: 'cover', width: "33.75rem", height: "34rem"}}
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide className="bg-transparent size-1/2">
@@ -55,7 +55,7 @@ export default function OverviewBlock() {
                                                   width={100}
                                                   height={100}
                                                   fill
-                                                  style={{ objectFit: 'cover', width: "33.75rem", height: "34rem"}}
+                                                  style={{ position: 'relative', objectFit: 'cover', width: "33.75rem", height: "34rem"}}
                                                   />
                                           </SwiperSlide>
                                         </Swiper>
