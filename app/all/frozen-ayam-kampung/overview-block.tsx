@@ -139,7 +139,7 @@ export default function OverviewBlock() {
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="green" 
+                                    value="250" 
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
@@ -154,7 +154,7 @@ export default function OverviewBlock() {
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="amber" 
+                                    value="500" 
                                     className="peer sr-only" 
                                     defaultChecked
                                   />
@@ -163,13 +163,13 @@ export default function OverviewBlock() {
                                 </div>
                                 <span className="text-sm font-medium text-slate-700">500 gr</span>
                               </label>
-                              {/* Option 3: Green / 750 gr */}
+                              {/* Option 3: Yellow / 750 gr */}
                               <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-green-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-green-600/50 peer-checked:ring-2 peer-checked:ring-green-600">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-yellow-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-yellow-600/50 peer-checked:ring-2 peer-checked:ring-yellow-600">
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="green" 
+                                    value="750" 
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
@@ -178,13 +178,13 @@ export default function OverviewBlock() {
                                 <span className="text-sm font-medium text-slate-700">750 gr</span>
                               </label>
                           
-                              {/* Option 4: Amber / 1000 gr */}
+                              {/* Option 4: lime / 1000 gr */}
                               <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-lime-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-lime-600/50 peer-checked:ring-2 peer-checked:ring-lime-600">
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="amber" 
+                                    value="1000" 
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
@@ -204,11 +204,11 @@ export default function OverviewBlock() {
                             </div>
                         </div>
                         <div className="flex gap-6">
-                            <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex gap-4 border-2 border-amber-300 p-4 rounded-md shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
+                            <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex gap-4 border-2 border-amber-300 p-2 rounded-md shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-shopping-cart-plus"><path d="M16 5h6"/><path d="M19 2v6"/><path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18"/><path d="M4.564 5H12"/><path d="M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
                                 Masukkan Keranjang</button><button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-secondary cn-button-size-lg grow">
                             </button>
-                            <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex gap-4 border-2 border-amber-300 p-4 rounded-md shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
+                            <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex gap-4 border-2 border-amber-300 p-2 rounded-md shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart-plus"><path d="m14.479 19.374-.971.939a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5a5.2 5.2 0 0 1-.219 1.49"/><path d="M15 15h6"/><path d="M18 12v6"/></svg>
                                 Beli Langsung
                           </button>
