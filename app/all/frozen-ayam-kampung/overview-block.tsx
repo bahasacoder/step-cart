@@ -127,14 +127,46 @@ export default function OverviewBlock() {
                         <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
                         <div className="flex items-center gap-6">
-                            <h4 className="text-lg font-semibold text-nowrap">Berat :</h4> 
-                            <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                               <label className="has-focus-visible:ring-ring/50 relative flex size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-green-600 bg-green-600"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_1cuslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-green" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-green" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="green" /><span className="inline-block">250 gr</span></label>
-                              <label className="has-focus-visible:ring-ring/50 relative flex size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-amber-600 bg-amber-600"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_1suslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-orange" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-orange" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="orange" /><span className="inline-block">500 gr</span></label>
-                              <label className="has-focus-visible:ring-ring/50 relative flex size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-gray-200 bg-gray-200"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_2cuslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-gray" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-gray" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="gray" /><span className="inline-block">750 gr</span></label>
-                              <label className="has-focus-visible:ring-ring/50 relative flex size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-blue-500 bg-blue-500"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_2suslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-blue" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-blue" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="blue" /><span className="inline-block">1000 gr</span></label>
+                            {/* Variant Label */}
+                            <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>
+                          
+                            {/* Radio Group Wrapper */}
+                            <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">
+                              
+                              {/* Option 1: Green / 250 gr */}
+                              <label className="flex items-center gap-2 cursor-pointer group">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-green-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-green-600/50 peer-checked:ring-2 peer-checked:ring-green-600">
+                                  <input 
+                                    type="radio" 
+                                    name="berat" 
+                                    value="green" 
+                                    className="peer sr-only" 
+                                    defaultChecked 
+                                  />
+                                  {/* Inner dot for active state */}
+                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
+                                </div>
+                                <span className="text-sm font-medium text-slate-700">250 gr</span>
+                              </label>
+                          
+                              {/* Option 2: Amber / 500 gr */}
+                              <label className="flex items-center gap-2 cursor-pointer group">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
+                                  <input 
+                                    type="radio" 
+                                    name="berat" 
+                                    value="amber" 
+                                    className="peer sr-only" 
+                                  />
+                                  {/* Inner dot for active state */}
+                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
+                                </div>
+                                <span className="text-sm font-medium text-slate-700">500 gr</span>
+                              </label>
+                          
                             </div>
-                        </div>
+                        </div>  
+                      
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
