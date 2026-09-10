@@ -1,4 +1,4 @@
-m,"use client"
+"use client"
 
 import Image from "next/image";
 import Link from "next/link";
@@ -126,76 +126,7 @@ export default function OverviewBlock() {
                         </div>
                         <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
-                        <div className="flex items-center gap-6">
-                            {/* Variant Label */}
-                            <h4 className="text-lg font-semibold whitespace-nowrap">Link :</h4>
-                          
-                            {/* Radio Group Wrapper */}
-                            <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">
-                              
-                              {/* Option 1: Green / 250 gr */}
-                              <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-green-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-green-600/50 peer-checked:ring-2 peer-checked:ring-green-600">
-                                  <input 
-                                    type="radio" 
-                                    name="berat" 
-                                    value="250" 
-                                    className="peer sr-only" 
-                                  />
-                                  {/* Inner dot for active state */}
-                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
-                                </div>
-                                <span className="text-sm font-medium text-slate-700">250 gr</span>
-                              </label>
-                          
-                              {/* Option 2: Amber / 500 gr */}
-                              <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
-                                  <input 
-                                    type="radio" 
-                                    name="berat" 
-                                    value="500" 
-                                    className="peer sr-only" 
-                                    defaultChecked
-                                  />
-                                  {/* Inner dot for active state */}
-                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
-                                </div>
-                                <span className="text-sm font-medium text-slate-700">500 gr</span>
-                              </label>
-                              {/* Option 3: Yellow / 750 gr */}
-                              <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-yellow-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-yellow-600/50 peer-checked:ring-2 peer-checked:ring-yellow-600">
-                                  <input 
-                                    type="radio" 
-                                    name="berat" 
-                                    value="750" 
-                                    className="peer sr-only" 
-                                  />
-                                  {/* Inner dot for active state */}
-                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
-                                </div>
-                                <span className="text-sm font-medium text-slate-700">750 gr</span>
-                              </label>
-                          
-                              {/* Option 4: lime / 1000 gr */}
-                              <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-lime-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-lime-600/50 peer-checked:ring-2 peer-checked:ring-lime-600">
-                                  <input 
-                                    type="radio" 
-                                    name="berat" 
-                                    value="1000" 
-                                    className="peer sr-only" 
-                                  />
-                                  {/* Inner dot for active state */}
-                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
-                                </div>
-                                <span className="text-sm font-medium text-slate-700">1000 gr</span>
-                              </label>
-
-                          
-                            </div>
-                        </div>  
+                        
                       
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
