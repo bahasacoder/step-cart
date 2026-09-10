@@ -6,7 +6,7 @@ export default function tabSpecification () {
         <div className="flex w-100" aria-label="Poultry cut: Drumsticks">
             <div className="f6 lh-copy self-stretch pa3" aria-hidden="true" style={{width: "225px", minWidth: "225px", backgroundColor: "rgb(248, 248, 248)"}}>Poultry cut</div>
             <div className="bg-white flex-auto f6 pa3" aria-hidden="true">
-                <div className="b lh-copy">Drumsticks</div>
+                <div className="b lh-copy">Karkas</div>
             </div>
         </div>
         <hr aria-hidden="true" className="ld_Au" />
@@ -14,7 +14,7 @@ export default function tabSpecification () {
         <div className="flex w-100" aria-label="Weight: 4 lb">
             <div className="f6 lh-copy self-stretch pa3" aria-hidden="true" style={{width: "225px", minWidth: "225px", backgroundColor: "rgb(248, 248, 248)"}}>Weight</div>
             <div className="bg-white flex-auto f6 pa3" aria-hidden="true">
-                <div className="b lh-copy">4 lb</div>
+                <div className="b lh-copy">250 - 1000 gr</div>
             </div>
         </div>
         <hr aria-hidden="true" className="ld_Au" />
@@ -35,28 +35,28 @@ export default function tabSpecification () {
         <div className="flex w-100" aria-label="Manufacturer: Tyson Foods">
             <div className="f6 lh-copy self-stretch pa3" aria-hidden="true" style={{width: "225px", minWidth: "225px", backgroundColor: "rgb(248, 248, 248)"}}>Manufacturer</div>
             <div className="bg-white flex-auto f6 pa3" aria-hidden="true">
-                <div className="b lh-copy">Tyson Foods</div>
+                <div className="b lh-copy">Pebe Farm Foods</div>
             </div>
         </div>
         <hr aria-hidden="true" className="ld_Au"/>
         <div className="flex w-100" aria-label="Food form: Whole">
             <div className="f6 lh-copy self-stretch pa3" aria-hidden="true" style={{width: "225px", minWidth: "225px", backgroundColor: "rgb(248, 248, 248)"}}>Food form</div>
             <div className="bg-white flex-auto f6 pa3" aria-hidden="true">
-                <div className="b lh-copy">Whole</div>
+                <div className="b lh-copy">Asli</div>
             </div>
         </div>
         <hr aria-hidden="true" className="ld_Au" />
         <div className="flex w-100" aria-label="Brand: Great Value">
             <div className="f6 lh-copy self-stretch pa3" aria-hidden="true" style={{width: "225px", minWidth: "225px", backgroundColor: "rgb(248, 248, 248)"}}>Brand</div>
             <div className="bg-white flex-auto f6 pa3" aria-hidden="true">
-                <div className="b lh-copy">Great Value</div>
+                <div className="b lh-copy">Pebe</div>
             </div>
         </div>
         <hr aria-hidden="true" className="ld_Au" />
         <div className="flex w-100" aria-label="Fresh &amp; frozen poultry type: Chicken">
             <div className="f6 lh-copy self-stretch pa3" aria-hidden="true" style={{width: "225px", minWidth: "225px", backgroundColor: "rgb(248, 248, 248)"}}>Fresh &amp; frozen poultry type</div>
             <div className="bg-white flex-auto f6 pa3" aria-hidden="true">
-                <div className="b lh-copy">Chicken</div>
+                <div className="b lh-copy">AKA</div>
             </div>
         </div>
         <hr aria-hidden="true" className="ld_Au" />
