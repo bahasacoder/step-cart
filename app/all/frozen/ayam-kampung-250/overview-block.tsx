@@ -152,7 +152,7 @@ export default function OverviewBlock() {
                                     <span className="text-sm font-medium text-slate-700">250 gr</span>
                                   </label>
                                </div>
-                                <div role="radiogroup" aria-label="Pilih Berat" className="flex flex-wrap justify-around items-center gap-4 w-full border-blue-200 rounded-md">   
+                                <div role="radiogroup" aria-label="Pilih Berat" className="flex flex-wrap justify-around items-center gap-4 w-full border-2 border-blue-200 rounded-md">   
                                   {/* Option 2: Amber / 500 gr */}
                                     <label className="flex items-center gap-2 cursor-pointer group">
                                       <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
