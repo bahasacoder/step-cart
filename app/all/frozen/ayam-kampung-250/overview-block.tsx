@@ -1,4 +1,4 @@
-"use client"
+m,"use client"
 
 import Image from "next/image";
 import Link from "next/link";
@@ -128,7 +128,7 @@ export default function OverviewBlock() {
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
                         <div className="flex items-center gap-6">
                             {/* Variant Label */}
-                            <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>
+                            <h4 className="text-lg font-semibold whitespace-nowrap">Link :</h4>
                           
                             {/* Radio Group Wrapper */}
                             <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">
@@ -203,7 +203,7 @@ export default function OverviewBlock() {
                               <QuantityInput />
                             </div>
                         </div>
-                        <div className="flex gap-6">
+                        <div className="flex flex-col md:flex-wrap gap-6">
                             <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex gap-4 border-2 border-blue-700 p-2 rounded-md hover:bg-blue-100 shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-shopping-cart-plus"><path d="M16 5h6"/><path d="M19 2v6"/><path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18"/><path d="M4.564 5H12"/><path d="M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
                                 Masukkan Keranjang</button><button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-secondary cn-button-size-lg grow">
