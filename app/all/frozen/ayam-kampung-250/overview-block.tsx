@@ -42,16 +42,16 @@ export default function OverviewBlock() {
                                                 <Image                                                   
                                                   src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" 
                                                   alt="Descriptive text"
-                                                  width={100}
-                                                  height={100}
+                                                  fill
+                                                  style={{ objectFit: 'cover' }}
                                                   />
                                           </SwiperSlide>
                                           <SwiperSlide className="bg-transparent size-1/2">
                                              <Image                                                   
                                                   src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" 
                                                   alt="Descriptive text"                                                  
-                                                  width={100}
-                                                  height={100}
+                                                  fill
+                                                  style={{ objectFit: 'cover' }}
                                                   />
                                           </SwiperSlide>
                                         </Swiper>
@@ -130,7 +130,7 @@ export default function OverviewBlock() {
                         
                       <div className="flex items-center gap-6">
                             {/* Variant Label */}
-                            <h4 className="text-lg font-semibold whitespace-nowrap">Link :</h4>                          
+                            <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>                          
                             {/* Radio Group Wrapper */}
                             <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">                              
                               {/* Option 1: Green / 250 gr */}
