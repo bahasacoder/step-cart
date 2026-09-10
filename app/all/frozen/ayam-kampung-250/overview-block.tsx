@@ -134,7 +134,7 @@ export default function OverviewBlock() {
                             {/* Variant Label */}
                             <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>                          
                             {/* Radio Group Wrapper */}                        
-                            <div role="radiogroup" aria-label="Pilih Berat" className="flex justify-start gap-4 w-full">
+                            <div role="radiogroup" aria-label="Pilih Berat" className="flex justify-start w-full">
                               <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">   
                                   {/* Option 1: Green / 250 gr */}
                                   <label className="flex items-center gap-2 cursor-pointer group">
