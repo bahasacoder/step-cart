@@ -147,7 +147,7 @@ export default function OverviewBlock() {
                                       />
                                       {/* Inner dot for active state */}
                                       <Link href="/"><div className="hidden size-2 rounded-full bg-white peer-checked:block" /> </Link>
-                                  
+                                    </div>
                                     <span className="text-sm font-medium text-slate-700">250 gr</span>
                                   </label>
                                </div>
