@@ -2,9 +2,8 @@ export default function tabDescription() {
   return (
       <>
                 <div className="tab-pane active" id="description">
-                    <p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.</p>
-                    <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  </div>
+                    <p>Karkas Ayam Kampung yang di klasifikasikan dengan 4 macam ukuran, mulai dari 250 gr level kecil, 500 gr level sedang, 750 gr level besar, 1000 gr (1 Kg) ayam kampung istimewa. </p>
+                    <p>Ayam Kampung Asli yang sudah dibersihkan sehingga sangat cocok untuk dipanggang maupun digoreng. Simpan dalam keadaan beku dan mentah</p>
       </>
     
   )
