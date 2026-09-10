@@ -26,7 +26,6 @@ export default function DialogBoxHome() {
                         width={500}
                         height={500}
                         alt="Picture of the author"
-                        fill
                         style={{ objectFit: 'contain', position: 'relative', textAlign:'center', margin: 'auto' }}
                       />
                   </div>   
