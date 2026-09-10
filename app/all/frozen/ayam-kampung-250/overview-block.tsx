@@ -134,7 +134,7 @@ export default function OverviewBlock() {
                             {/* Variant Label */}
                             <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>                          
                             {/* Radio Group Wrapper */}                        
-                            <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">
+                            <div role="radiogroup" aria-label="Pilih Berat" className="flex flex-start gap-4 w-full">
                               <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">   
                                   {/* Option 1: Green / 250 gr */}
                                   <label className="flex items-center gap-2 cursor-pointer group">
@@ -144,6 +144,7 @@ export default function OverviewBlock() {
                                         name="berat" 
                                         value="250" 
                                         className="peer sr-only" 
+                                        defaultChecked
                                       />
                                       {/* Inner dot for active state */}
                                       <Link href="/"><div className="hidden size-2 rounded-full bg-white peer-checked:block" /> </Link>
@@ -187,7 +188,7 @@ export default function OverviewBlock() {
                               <QuantityInput />
                             </div>
                         </div>
-                        <div className="w-full flex justify-between items-center gap-2">
+                        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-2">
                             <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button w-full md:w-[40%]  inline-flex gap-4 border-2 border-blue-200 p-2 rounded-md hover:bg-blue-100 shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-shopping-cart-plus"><path d="M16 5h6"/><path d="M19 2v6"/><path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18"/><path d="M4.564 5H12"/><path d="M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
                                 Masukkan Keranjang</button><button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-secondary cn-button-size-lg grow">
