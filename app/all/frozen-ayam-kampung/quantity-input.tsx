@@ -15,7 +15,7 @@ interface QuantityInputProps {
   onChange?: (value: number) => void;
 }
 
-export function QuantityInput({
+export default function QuantityInput({
   id = "quantity",
   label = "Quantity",
   min = 0,
@@ -54,7 +54,6 @@ export function QuantityInput({
 
   return (
     <div className="flex flex-col gap-2 w-44">
-      <Label htmlFor={id}>{label}</Label>
       <div className="flex items-center gap-1">
         <Button
           type="button"

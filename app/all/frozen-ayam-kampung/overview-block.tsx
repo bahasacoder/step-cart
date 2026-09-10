@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,7 +16,7 @@ import './styles.css';
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-
+import QuantityInput from "./quantity-input"
 export default function OverviewBlock() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null as any);
 
@@ -53,30 +54,6 @@ export default function OverviewBlock() {
                                                   height={100}
                                                   />
                                           </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-3.png" />
-                                          </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-4.png" />
-                                          </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-5.png" />
-                                          </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-6.png" />
-                                          </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-7.png" />
-                                          </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-8.png" />
-                                          </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-9.png" />
-                                          </SwiperSlide>
-                                          <SwiperSlide>
-                                            <img src="https://cdn.shadcnstudio.com/ss-assets/blocks/ecommerce/product-overview/image-12.png" />
-                                          </SwiperSlide>
                                         </Swiper>
                                          <Swiper
                                       onSwiper={setThumbsSwiper}
@@ -98,31 +75,13 @@ export default function OverviewBlock() {
                                           />
                                       </SwiperSlide>
                                       <SwiperSlide>
-                                        <img src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-3.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-4.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-5.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-6.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-7.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-8.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-9.jpg" />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <img src="https://swiperjs.com/demos/images/abstract-10.jpg" />
+                                        <Image
+                                          src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" 
+                                          alt="Descriptive thumbnails"
+                                          width={100}
+                                          height={100}
+                                          style={{ width: "7.375rem", height: "4rem"}}
+                                          />
                                       </SwiperSlide>
                                     </Swiper>       
                             </div>
@@ -162,44 +121,97 @@ export default function OverviewBlock() {
                             </span><span className="text-muted-foreground">210{/*<!-- -->*/} Reviews</span>
                         </div>
                         <div className="flex items-center gap-3">
-                            <p className="text-3xl font-bold">${/*<!-- -->*/}479.20</p>
-                            <span className="text-muted-foreground font-medium line-through">MRP ${/*<!-- -->*/}599.00</span><span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">20{/*<!-- -->*/}% Off</span>
+                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}50.000</p>
+                            <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}70.000</span><span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">30{/*<!-- -->*/}% Off</span>
                         </div>
                         <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
                         <div className="flex items-center gap-6">
-                            <h4 className="text-lg font-semibold text-nowrap">Jacket Color :</h4> 
-                            <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                                <label className="has-focus-visible:ring-ring/50 relative size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-black bg-black"><span data-checked="" role="radio" tabIndex={0} aria-checked="true" data-composite-item-active="" id="base-ui-_R_suslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-black" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"><span data-checked="" data-slot="radio-group-indicator" className="cn-radio-group-indicator"><span className="cn-radio-group-indicator-icon"></span></span></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-black" tabIndex={-1}  style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" checked value="black" />
-                                </label>
-                               <label className="has-focus-visible:ring-ring/50 relative size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-green-600 bg-green-600"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_1cuslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-green" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-green" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="green" /></label>
-                              <label className="has-focus-visible:ring-ring/50 relative size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-amber-600 bg-amber-600"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_1suslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-orange" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-orange" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="orange" /></label>
-                              <label className="has-focus-visible:ring-ring/50 relative size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-gray-200 bg-gray-200"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_2cuslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-gray" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-gray" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="gray" /></label>
-                              <label className="has-focus-visible:ring-ring/50 relative size-5 cursor-pointer rounded-full text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50 has-data-checked:outline-solid has-data-checked:outline has-data-checked:outline-offset-2 has-data-checked:outline-blue-500 bg-blue-500"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_2suslubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="color-radio-blue" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-blue" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="blue" /></label>
+                            {/* Variant Label */}
+                            <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>
+                          
+                            {/* Radio Group Wrapper */}
+                            <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">
+                              
+                              {/* Option 1: Green / 250 gr */}
+                              <label className="flex items-center gap-2 cursor-pointer group">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-green-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-green-600/50 peer-checked:ring-2 peer-checked:ring-green-600">
+                                  <input 
+                                    type="radio" 
+                                    name="berat" 
+                                    value="250" 
+                                    className="peer sr-only" 
+                                  />
+                                  {/* Inner dot for active state */}
+                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
+                                </div>
+                                <span className="text-sm font-medium text-slate-700">250 gr</span>
+                              </label>
+                          
+                              {/* Option 2: Amber / 500 gr */}
+                              <label className="flex items-center gap-2 cursor-pointer group">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
+                                  <input 
+                                    type="radio" 
+                                    name="berat" 
+                                    value="500" 
+                                    className="peer sr-only" 
+                                    defaultChecked
+                                  />
+                                  {/* Inner dot for active state */}
+                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
+                                </div>
+                                <span className="text-sm font-medium text-slate-700">500 gr</span>
+                              </label>
+                              {/* Option 3: Yellow / 750 gr */}
+                              <label className="flex items-center gap-2 cursor-pointer group">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-yellow-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-yellow-600/50 peer-checked:ring-2 peer-checked:ring-yellow-600">
+                                  <input 
+                                    type="radio" 
+                                    name="berat" 
+                                    value="750" 
+                                    className="peer sr-only" 
+                                  />
+                                  {/* Inner dot for active state */}
+                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
+                                </div>
+                                <span className="text-sm font-medium text-slate-700">750 gr</span>
+                              </label>
+                          
+                              {/* Option 4: lime / 1000 gr */}
+                              <label className="flex items-center gap-2 cursor-pointer group">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-lime-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-lime-600/50 peer-checked:ring-2 peer-checked:ring-lime-600">
+                                  <input 
+                                    type="radio" 
+                                    name="berat" 
+                                    value="1000" 
+                                    className="peer sr-only" 
+                                  />
+                                  {/* Inner dot for active state */}
+                                  <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
+                                </div>
+                                <span className="text-sm font-medium text-slate-700">1000 gr</span>
+                              </label>
+
+                          
                             </div>
-                        </div>
+                        </div>  
+                      
                         <div className="flex items-center gap-6">
-                            <h4 className="text-lg font-semibold text-nowrap">Jacket Size :</h4>
+                            <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                                <label className="border-input group has-data-checked:bg-primary has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative flex cursor-pointer flex-col items-center gap-3 rounded-md border px-2.5 py-1 text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_4t2slubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="size-radio-XS" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-XS" tabIndex={-1}style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="XS" />
-                                    <p className="text-foreground group-has-data-checked:text-primary-foreground pointer-events-none text-sm font-medium">XS</p>
-                                </label><label className="border-input group has-data-checked:bg-primary has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative flex cursor-pointer flex-col items-center gap-3 rounded-md border px-2.5 py-1 text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_5d2slubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="size-radio-S" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-S" tabIndex={-1}style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="S" />
-                                    <p className="text-foreground group-has-data-checked:text-primary-foreground pointer-events-none text-sm font-medium">S</p>
-                                </label><label className="border-input group has-data-checked:bg-primary has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative flex cursor-pointer flex-col items-center gap-3 rounded-md border px-2.5 py-1 text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_5t2slubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="size-radio-M" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-M" tabIndex={-1}style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="M" />
-                                    <p className="text-foreground group-has-data-checked:text-primary-foreground pointer-events-none text-sm font-medium">M</p>
-                                </label><label className="border-input group has-data-checked:bg-primary has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative flex cursor-pointer flex-col items-center gap-3 rounded-md border px-2.5 py-1 text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"><span data-checked="" role="radio" tabIndex={0} aria-checked="true" data-composite-item-active="" id="base-ui-_R_6d2slubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="size-radio-L" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"><span data-checked="" data-slot="radio-group-indicator" className="cn-radio-group-indicator"><span className="cn-radio-group-indicator-icon"></span></span></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-L" tabIndex={-1} style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" checked value="L" />
-                                    <p className="text-foreground group-has-data-checked:text-primary-foreground pointer-events-none text-sm font-medium">L</p>
-                                </label><label className="border-input group has-data-checked:bg-primary has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative flex cursor-pointer flex-col items-center gap-3 rounded-md border px-2.5 py-1 text-center shadow-xs transition-[color,box-shadow] outline-none has-focus-visible:ring-[3px] has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50"><span data-unchecked="" role="radio" tabIndex={-1} aria-checked="false" id="base-ui-_R_6t2slubsnpfiv9fiv5uj9b_" data-slot="radio-group-item" aria-label="size-radio-XL" className="cn-radio-group-item group/radio-group-item peer aspect-square shrink-0 border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 absolute inset-0 opacity-0"></span><input type="radio" id="_R_4lubsnpfiv9fiv5uj9b_-XL" tabIndex={-1}  style={{clipPath:"inset(50%)", overflow:"hidden", whiteSpace:"nowrap", border:0, padding:0, width:"1px", height:"1px", margin:"-1px", position:"fixed", top:0, left:0}} aria-hidden="true" value="XL" />
-                                    <p className="text-foreground group-has-data-checked:text-primary-foreground pointer-events-none text-sm font-medium">XL</p>
-                                </label>
+                              <QuantityInput />
                             </div>
                         </div>
                         <div className="flex gap-6">
-                            <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-shopping-cart"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
-                              Add to Cart</button><button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-secondary cn-button-size-lg grow">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
-                                Wish List</button>
+                            <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex gap-4 border-2 border-blue-700 p-2 rounded-md hover:bg-blue-100 shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-shopping-cart-plus"><path d="M16 5h6"/><path d="M19 2v6"/><path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18"/><path d="M4.564 5H12"/><path d="M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
+                                Masukkan Keranjang</button><button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-secondary cn-button-size-lg grow">
+                            </button>
+                            <button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex gap-4 border-2 border-blue-700 p-2 rounded-md hover:bg-blue-100 shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart-plus"><path d="m14.479 19.374-.971.939a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5a5.2 5.2 0 0 1-.219 1.49"/><path d="M15 15h6"/><path d="M18 12v6"/></svg>
+                                Beli Langsung
+                          </button>
                         </div>
                         <div className="rounded-md border *:not-last:border-b">
                             <div className="flex items-center gap-6 px-6 py-4">
