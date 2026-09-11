@@ -17,6 +17,7 @@ import './styles.css';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import QuantityInput from "./quantity-input"
+import CarouselSwiper from "./carousel-swiper"
 export default function OverviewBlock() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null as any);
 
@@ -27,70 +28,8 @@ export default function OverviewBlock() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8 xl:gap-24">
                     <div className="flex flex-col gap-6">
                         <div>
-                            <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">                                
-                            
-                                       <Swiper
-                  
-                                          loop={true}
-                                          spaceBetween={10}
-                                          navigation={true}
-                                          thumbs={{ swiper: thumbsSwiper }}
-                                          modules={[FreeMode, Navigation, Thumbs]}
-                                          className="mySwiper2"
-                                        >
-                                          <SwiperSlide className="bg-transparent size-1/2" >                                        
-                                                <Image                                                   
-                                                  src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" 
-                                                  alt="Descriptive text"
-                                                  width={100}
-                                                  height={100}
-                                                  fill
-                                                  style={{ position: 'relative', objectFit: 'cover', width: "33.75rem", height: "34rem"}}
-                                                  />
-                                          </SwiperSlide>
-                                          <SwiperSlide className="bg-transparent size-1/2">
-                                             <Image                                                   
-                                                  src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" 
-                                                  alt="Descriptive text"                                                
-                                                  width={100}
-                                                  height={100}
-                                                  fill
-                                                  style={{ position: 'relative', objectFit: 'cover', width: "33.75rem", height: "34rem"}}
-                                                  />
-                                          </SwiperSlide>
-                                        </Swiper>
-                                         <Swiper
-                                      onSwiper={setThumbsSwiper}
-                                      loop={true}
-                                      spaceBetween={10}
-                                      slidesPerView={4}
-                                      freeMode={true}
-                                      watchSlidesProgress={true}
-                                      modules={[FreeMode, Navigation, Thumbs]}
-                                      className="mySwiper"
-                                    >
-                                      <SwiperSlide>
-                                        <Image 
-                                          src="https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png" 
-                                          alt="Descriptive thumbnails"
-                                          width={100}
-                                          height={100}
-                                          style={{ width: "7.375rem", height: "4rem"}}
-                                          />
-                                      </SwiperSlide>
-                                      <SwiperSlide>
-                                        <Image
-                                          src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg" 
-                                          alt="Descriptive thumbnails"
-                                          width={100}
-                                          height={100}
-                                          style={{ width: "7.375rem", height: "4rem"}}
-                                          />
-                                      </SwiperSlide>
-                                    </Swiper>       
-                            </div>
-                        </div>
-                      
+                          <CarouselSwiper />
+                        </div>                      
                         <div className="flex justify-between gap-6">                             
                         </div>
                     </div>
