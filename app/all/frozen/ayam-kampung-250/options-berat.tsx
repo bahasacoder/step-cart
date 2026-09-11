@@ -17,7 +17,6 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                     type="radio" 
                                     name="berat" 
                                     value="30000" 
-                                    checked={selectedHarga === '30000'}
                                     onChange={(e) => onValueChangeHarga(e.target.value)} 
                                     className="peer sr-only" 
                                   />
@@ -33,7 +32,6 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                     type="radio" 
                                     name="berat" 
                                     value="55000" 
-                                    checked={selectedHarga === '55000'}
                                     onChange={(e) => onValueChangeHarga(e.target.value)} 
                                     className="peer sr-only" 
                                     defaultChecked
@@ -50,7 +48,6 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                     type="radio" 
                                     name="berat" 
                                     value="75000" 
-                                    checked={selectedHarga === '75000'}
                                     onChange={(e) => onValueChangeHarga(e.target.value)} 
                                     className="peer sr-only" 
                                   />
@@ -66,7 +63,6 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                     type="radio" 
                                     name="berat" 
                                     value="90000"                                     
-                                    checked={selectedHarga === '90000'}
                                     onChange={(e) => onValueChangeHarga(e.target.value)} 
                                     className="peer sr-only" 
                                   />
