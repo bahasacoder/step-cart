@@ -6,16 +6,21 @@ interface OptionsBeratProps {
   onChangeHarga: (value: number) => void; 
 }
 
-export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
+export default function OptionsBerat() {
   const [selectedValue, setSelectedValue] = useState('55000')
 
   const onValueChangeHarga = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(e.target.value)
-    onChangeHarga(e)
+    // onChangeHarga(e)
+    // { onChangeHarga }: OptionsBeratProps
   }
 
   
   return (
+    <>
+              <div style={{ marginTop: '20px', fontSize: '18px' }}>
+                You have selected: <strong>{selectedValue}</strong>
+              </div>
                    <div className="flex items-center gap-6">
                             {/* Variant Label */}
                             <h4 className="text-lg font-semibold whitespace-nowrap">Link :</h4>                          
@@ -88,5 +93,6 @@ export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
                               </label>                          
                             </div>
                         </div>  
+                    </>
   )
 }
