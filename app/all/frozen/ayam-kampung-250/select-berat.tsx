@@ -1,4 +1,4 @@
-export default function LinkBerat() {
+export default function SelectBerat() {
   
   return (
                    <div className="flex items-center gap-6">
@@ -12,7 +12,7 @@ export default function LinkBerat() {
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="250" 
+                                    value="30000" 
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
@@ -26,7 +26,7 @@ export default function LinkBerat() {
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="500" 
+                                    value="55000" 
                                     className="peer sr-only" 
                                     defaultChecked
                                   />
@@ -41,7 +41,7 @@ export default function LinkBerat() {
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="750" 
+                                    value="75000" 
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
@@ -55,7 +55,7 @@ export default function LinkBerat() {
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="1000" 
+                                    value="90000" 
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
