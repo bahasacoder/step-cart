@@ -1,3 +1,21 @@
+"use client"
+
+import Image from "next/image";
+import Link from "next/link";
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+
+import './styles.css';
+// import required modules
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+
 export default function CarouselSwiper() {
   return (  
       <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">                                
