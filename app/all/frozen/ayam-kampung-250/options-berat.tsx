@@ -6,11 +6,18 @@ interface OptionsBeratProps {
   onValueChangeHarga: (value: number) => void; 
 }
 
-export default function OptionsBerat({ onValueChangeHarga }: OptionsBeratProps) {
-  const [selectedValue, setSelectedValue] = useState('option1')
+export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
+  const [selectedValue, setSelectedValue] = useState('55000')
 
+   const isButtonSelected = (value) => {
+        if (selected === value) {
+            return true;
+        }
+    };
+  
   const onValueChangeHarga = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(e.target.value)
+    onChangeHarga(e)
   }
 
   
@@ -27,7 +34,7 @@ export default function OptionsBerat({ onValueChangeHarga }: OptionsBeratProps) 
                                     type="radio" 
                                     name="berat" 
                                     value="30000"
-                                    checked={selectedValue === '30000'}
+                                    checked={isButtonSelected('30000')}
                                     onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                   />
@@ -43,7 +50,7 @@ export default function OptionsBerat({ onValueChangeHarga }: OptionsBeratProps) 
                                     type="radio" 
                                     name="berat" 
                                     value="55000" 
-                                    checked={selectedValue === '55000'}
+                                    checked={isButtonSelected('55000')}
                                     onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                     defaultChecked
@@ -60,7 +67,7 @@ export default function OptionsBerat({ onValueChangeHarga }: OptionsBeratProps) 
                                     type="radio" 
                                     name="berat" 
                                     value="75000" 
-                                    checked={selectedValue === '75000'}
+                                    checked={isButtonSelected('75000')}
                                     onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                   />
@@ -76,7 +83,7 @@ export default function OptionsBerat({ onValueChangeHarga }: OptionsBeratProps) 
                                     type="radio" 
                                     name="berat" 
                                     value="90000"
-                                    checked={selectedValue === '90000'}
+                                    checked={isButtonSelected('90000')}
                                     onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                   />
