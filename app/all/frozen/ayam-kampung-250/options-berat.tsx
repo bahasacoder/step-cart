@@ -1,4 +1,4 @@
-export default function SelectBerat() {
+export default function OptionsBerat() {
   
   return (
                    <div className="flex items-center gap-6">
