@@ -10,6 +10,10 @@ import OptionsBerat from "./options-berat"
 //  onValueChangeHarga={setInputHarga}
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState('');
+    // 1. Define the callback function that accepts data from the child
+  const handleDataFromChild = (data) => {
+    setInputHarga(data);
+  };
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
@@ -59,7 +63,7 @@ export default function OverviewBlock() {
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
 
                         
-                       <OptionsBerat />
+                       <OptionsBerat onValueChangeHarga={handleDataFromChild} />
                       
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
