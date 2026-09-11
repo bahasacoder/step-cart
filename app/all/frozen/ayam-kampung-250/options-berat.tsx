@@ -2,15 +2,8 @@
 import React, { useState } from 'react';
 //function RadioButtonGroup() {
 
-export default function OptionsBerat({ onValueChangeHarga }) {
-    // 1. Initialize state to hold the selected radio button value
-    const [selectedHarga, setSelectedHarga] = useState('55000');
+export default function OptionsBerat({ onValueChangeHarga: number }) {
   
-    // 2. Handler function that triggers whenever a radio button is clicked
-    const handleChangeHarga = (event) => {
-      setSelectedHarga(event.target.harga);
-    };
-
   return (
                    <div className="flex items-center gap-6">
                             {/* Variant Label */}
