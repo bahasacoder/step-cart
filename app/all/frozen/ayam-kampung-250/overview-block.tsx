@@ -11,7 +11,7 @@ import OptionsBerat from "./options-berat"
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState('');
     // 1. Define the callback function that accepts data from the child
-  const handleDataFromChild = (data) => {
+  const handleDataFromChild = (data: number) => {
     setInputHarga(data);
   };
 
