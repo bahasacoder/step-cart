@@ -9,7 +9,7 @@ interface OptionsBeratProps {
 export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
   const [selectedValue, setSelectedValue] = useState('55000')
 
-   const isButtonSelected = (value) => {
+   const isButtonSelected = (value: any) => {
         if (selected === value) {
             return true;
         }
