@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 //function RadioButtonGroup() {
 
-export default function OptionsBerat({ onValueChangeHarga: number }) {
+export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarga: number } ) {
   
   return (
                    <div className="flex items-center gap-6">
