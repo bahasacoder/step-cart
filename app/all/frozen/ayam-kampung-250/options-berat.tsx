@@ -10,8 +10,9 @@ export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
   const [selectedValue, setSelectedValue] = useState('55000')
 
   const onValueChangeHarga = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const numericValue = Number(e.target.value);
     setSelectedValue(e.target.value)
-    onChangeHarga(selectedValue)
+    onChangeHarga(numericValue)
     // { onChangeHarga }: OptionsBeratProps
   }
 
