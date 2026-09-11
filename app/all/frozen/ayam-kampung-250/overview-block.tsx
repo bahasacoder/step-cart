@@ -7,7 +7,6 @@ import React, { useRef, useState } from 'react';
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
 export default function OverviewBlock() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null as any);
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
