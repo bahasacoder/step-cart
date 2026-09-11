@@ -17,6 +17,8 @@ import './styles.css';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 export default function CarouselSwiper() {
+    const [thumbsSwiper, setThumbsSwiper] = useState(null as any);
+
   return (  
       <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">                                
                                        <Swiper                  
