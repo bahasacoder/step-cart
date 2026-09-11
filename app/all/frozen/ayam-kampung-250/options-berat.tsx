@@ -3,6 +3,12 @@ import React, { useState } from 'react';
 //function RadioButtonGroup() {
 
 export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarga: number } ) {
+  const [selectedValue, setSelectedValue] = useState('option1')
+
+  const onValueChangeHarga = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(e.target.value)
+  }
+
   
   return (
                    <div className="flex items-center gap-6">
@@ -16,8 +22,9 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="30000" 
-                                    onChange={(e) => onValueChangeHarga(e.target.value)} 
+                                    value="30000"
+                                    checked={selectedValue === '30000'}
+                                    onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
@@ -32,7 +39,8 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                     type="radio" 
                                     name="berat" 
                                     value="55000" 
-                                    onChange={(e) => onValueChangeHarga(e.target.value)} 
+                                    checked={selectedValue === '55000'}
+                                    onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                     defaultChecked
                                   />
@@ -48,7 +56,8 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                     type="radio" 
                                     name="berat" 
                                     value="75000" 
-                                    onChange={(e) => onValueChangeHarga(e.target.value)} 
+                                    checked={selectedValue === '75000'}
+                                    onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
@@ -62,8 +71,9 @@ export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarg
                                   <input 
                                     type="radio" 
                                     name="berat" 
-                                    value="90000"                                     
-                                    onChange={(e) => onValueChangeHarga(e.target.value)} 
+                                    value="90000"
+                                    checked={selectedValue === '90000'}
+                                    onChange={onValueChangeHarga}
                                     className="peer sr-only" 
                                   />
                                   {/* Inner dot for active state */}
