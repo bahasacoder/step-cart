@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 //function RadioButtonGroup() {
 
 interface OptionsBeratProps {
-  onValueChangeHarga: (value: number) => void; 
+  onChangeHarga: (value: number) => void; 
 }
 
-export default function OptionsBerat({ onChangeHarga }) {
+export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
   const [selectedValue, setSelectedValue] = useState('55000')
 
    const isButtonSelected = (value) => {
