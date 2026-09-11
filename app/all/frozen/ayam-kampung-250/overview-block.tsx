@@ -7,6 +7,7 @@ import React, { useRef, useState } from 'react';
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
 export default function OverviewBlock() {
+    const [inputHarga, setInputHarga] = useState('');
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
@@ -49,64 +50,14 @@ export default function OverviewBlock() {
                             </span><span className="text-muted-foreground">210{/*<!-- -->*/} Reviews</span>
                         </div>
                         <div className="flex items-center gap-3">
-                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}30.000</p>
+                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}30.000</p><p>{inputHarga}</p>
                             <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}45.000</span><span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">30{/*<!-- -->*/}% Off</span>
                         </div>
                         <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
 
                         
-                      <div className="flex items-center gap-6">
-                            {/* Variant Label */}
-                            <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>                          
-                            {/* Radio Group Wrapper */}                        
-                            <div role="radiogroup" aria-label="Pilih Berat" className="flex justify-start w-full">
-                              <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">   
-                                  {/* Option 1: Green / 250 gr */}
-                                  <label className="flex items-center gap-2 cursor-pointer group">
-                                    <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
-                                      <input 
-                                        type="radio" 
-                                        name="berat" 
-                                        value="250" 
-                                        className="peer sr-only" 
-                                        defaultChecked
-                                      />
-                                      {/* Inner dot for active state */}
-                                      <Link href="/"><div className="hidden size-2 rounded-full bg-white peer-checked:block" /> </Link>
-                                    </div>
-                                    <span className="text-sm font-medium text-slate-700">250 gr</span>
-                                  </label>
-                               </div>
-                                <div role="radiogroup" aria-label="Pilih Berat" className="flex flex-wrap justify-around items-center gap-4 w-full border-2 border-blue-200 rounded-md">   
-                                  {/* Option 2: Amber / 500 gr */}
-                                    <label className="flex items-center gap-2 cursor-pointer group">
-                                      <div className="relative flex size-5 items-center justify-center rounded-full bg-amber-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-amber-600/50 peer-checked:ring-2 peer-checked:ring-amber-600">
-                                        {/* Inner dot for active state */}
-                                        <Link href="/"><div className="hidden size-2 rounded-full bg-white peer-checked:block" /></Link>
-                                      </div>
-                                      <span className="text-sm font-medium text-slate-700">750 gr</span>
-                                    </label>                          
-                                    {/* Option 3: Yellow / 750 gr */}
-                                    <label className="flex items-center gap-2 cursor-pointer group">
-                                      <div className="relative flex size-5 items-center justify-center rounded-full bg-yellow-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-yellow-600/50 peer-checked:ring-2 peer-checked:ring-yellow-600">
-                                        {/* Inner dot for active state */}
-                                        <Link href="/"><div className="hidden size-2 rounded-full bg-white peer-checked:block" /></Link>
-                                      </div>
-                                      <span className="text-sm font-medium text-slate-700">750 gr</span>
-                                    </label>                          
-                                    {/* Option 4: lime / 1000 gr */}
-                                    <label className="flex items-center gap-2 cursor-pointer group">
-                                      <div className="relative flex size-5 items-center justify-center rounded-full bg-lime-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-lime-600/50 peer-checked:ring-2 peer-checked:ring-lime-600">
-                                        {/* Inner dot for active state */}
-                                        <Link href="/"><div className="hidden size-2 rounded-full bg-white peer-checked:block" /></Link>
-                                      </div>
-                                      <span className="text-sm font-medium text-slate-700">1000 gr</span>
-                                    </label>                          
-
-                                </div>
-                               </div>
-                        </div>  
+                       <OptionsBerat onValueChangeHarga={setInputHarga} />
                       
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
