@@ -6,6 +6,8 @@ import React, { useRef, useState } from 'react';
 
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
+import OptionsBerat from "./options-berat"
+//  onValueChangeHarga={setInputHarga}
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState('');
 
@@ -57,7 +59,7 @@ export default function OverviewBlock() {
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
 
                         
-                       <OptionsBerat onValueChangeHarga={setInputHarga} />
+                       <OptionsBerat />
                       
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
