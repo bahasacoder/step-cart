@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 //function RadioButtonGroup() {
 
-export default function OptionsBerat({ onValueChangeHarga }: { onValueChangeHarga: number } ) {
+interface OptionsBeratProps {
+  onValueChangeHarga: (value: number) => void; 
+}
+
+export default function OptionsBerat({ onValueChangeHarga }: OptionsBeratProps) {
   const [selectedValue, setSelectedValue] = useState('option1')
 
   const onValueChangeHarga = (e: React.ChangeEvent<HTMLInputElement>) => {
