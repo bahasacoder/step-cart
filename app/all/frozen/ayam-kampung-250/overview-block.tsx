@@ -9,7 +9,8 @@ import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
 //  onValueChangeHarga={setInputHarga}
 export default function OverviewBlock() {
-    const [inputHarga, setInputHarga] = useState('');
+    const [inputHarga, setInputHarga] = useState<number | null>(null);
+
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
