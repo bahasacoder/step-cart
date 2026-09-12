@@ -6,8 +6,9 @@ interface OptionsBeratProps {
   onChangeHarga: (value: number) => void; 
 }
 
-export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
-  const [selectedValue, setSelectedValue] = useState('55000')
+export default function OptionsBerat({ onChangeHarga, selectedValue }: OptionsBeratProps) {
+  const [selectedValue, setSelectedValue] = useState('55000');
+  
 
   const onValueChangeHarga = (e: React.ChangeEvent<HTMLInputElement>) => {
     const numericValue = Number(e.target.value);
