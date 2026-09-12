@@ -23,7 +23,7 @@ export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
     <>
                    <div className="flex items-center gap-6">
                             {/* Variant Label */}
-                            <h4 className="text-lg font-semibold whitespace-nowrap">Link :</h4>                          
+                            <h4 className="text-lg font-semibold whitespace-nowrap">Berat :</h4>                          
                             {/* Radio Group Wrapper */}
                             <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">                              
                               {/* Option 1: blue / 250 gr */}
