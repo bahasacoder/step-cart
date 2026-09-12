@@ -17,7 +17,25 @@ export default function OverviewBlock() {
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
-    setDiskonHarga(numericValue * 0.30)
+    //setDiskonHarga(numericValue * getDiskonHarga)
+    switch (numericValue) {
+      case '35000':
+        return setDiskonHarga(numericValue * 0.00);
+        default:
+      case '55000':
+        return setDiskonHarga(numericValue * 0.00);
+        default:
+     case '75000':
+        return setDiskonHarga(numericValue * 0.30);
+        default:
+      case '90000':
+        return setDiskonHarga(numericValue * 0.30);
+        break;
+        default:
+      // Opsional: Berikan nilai default jika harga tidak ada yang cocok
+      setDiskonHarga(0);
+      break;
+  } // <-- Menutup switch
   };
 
   return (
