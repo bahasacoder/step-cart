@@ -17,7 +17,7 @@ export default function OverviewBlock() {
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
-    setDiskonHarga(numericValue * 30/100)
+    setDiskonHarga(numericValue * 0.30)
   };
 
   return (
