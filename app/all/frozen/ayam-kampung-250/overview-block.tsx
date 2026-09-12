@@ -19,16 +19,17 @@ export default function OverviewBlock() {
     setInputHarga(numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
     switch (numericValue) {
-      case '35000':
+      case 35000:
+        diskon = 0.00
+        return setDiskonHarga(numericValue * diskon);
+        break;
+      case 55000:
         return setDiskonHarga(numericValue * 0.00);
         break;
-      case '55000':
-        return setDiskonHarga(numericValue * 0.00);
-        break;
-     case '75000':
+     case 75000:
         return setDiskonHarga(numericValue * 0.30);
         break;
-      case '90000':
+      case 90000:
         return setDiskonHarga(numericValue * 0.30);
         break;
     default:
