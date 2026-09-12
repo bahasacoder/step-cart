@@ -10,7 +10,7 @@ import OptionsBerat from "./options-berat"
 //  onValueChangeHarga={setInputHarga}
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
-    const [diskonHarga, setDiskonHarga] = useState<number | null>(0); //(null)
+    const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     //const [realValue, setRealValue] = useState()
  
 
