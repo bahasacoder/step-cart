@@ -41,10 +41,11 @@ export default function OverviewBlock() {
       setDiskonHarga(0);
       break;
   } // <-- Menutup switch
+      
+  const totalHarga = inputHarga - diskonHarga;
   };
 
 
-  const totalHarga = inputHarga - diskonHarga;
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
