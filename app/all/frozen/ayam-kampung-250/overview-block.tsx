@@ -9,7 +9,7 @@ import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
 //  onValueChangeHarga={setInputHarga}
 export default function OverviewBlock() {
-    const [inputHarga, setInputHarga] = useState<number | null>(null);
+    const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
     const [diskonHarga, setDiskonHarga] = useState<number | null>(null);
     //const [realValue, setRealValue] = useState()
  
@@ -17,7 +17,7 @@ export default function OverviewBlock() {
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
-    setDiskonHarga(numericValue * 30)
+    setDiskonHarga(numericValue * 30/100)
   };
 
   return (
@@ -68,7 +68,7 @@ export default function OverviewBlock() {
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
 
                         
-                       <OptionsBerat onChangeHarga={handleDataFromChild} />
+                       <OptionsBerat onChangeHarga={handleDataFromChild} selectedValue={} />
                       
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
