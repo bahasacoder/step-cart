@@ -21,17 +21,17 @@ export default function OverviewBlock() {
     switch (numericValue) {
       case '35000':
         return setDiskonHarga(numericValue * 0.00);
-        default:
+        break;
       case '55000':
         return setDiskonHarga(numericValue * 0.00);
-        default:
+        break;
      case '75000':
         return setDiskonHarga(numericValue * 0.30);
-        default:
+        break;
       case '90000':
         return setDiskonHarga(numericValue * 0.30);
         break;
-        default:
+    default:
       // Opsional: Berikan nilai default jika harga tidak ada yang cocok
       setDiskonHarga(0);
       break;
