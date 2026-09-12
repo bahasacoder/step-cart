@@ -11,7 +11,7 @@ import OptionsBerat from "./options-berat"
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
-    const [totalHarga, setTotalHarga] = useState<number>(0);
+    const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
     //const [realValue, setRealValue] = useState()
  
@@ -59,9 +59,10 @@ export default function OverviewBlock() {
       break;
   } // <-- Menutup switch
       
-  setTotalHarga(inputHarga - diskonHarga);
+  //setTotalHarga(inputHarga - diskonHarga);
+      
   };
-
+const totalHargaJadi = inputHarga - diskonHarga;
 
 
   return (
@@ -105,7 +106,7 @@ export default function OverviewBlock() {
                             </span><span className="text-muted-foreground">210{/*<!-- -->*/} Reviews</span>
                         </div>
                         <div className="flex items-center gap-3">
-                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{totalHarga}</p>
+                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{totalHargaJadi}</p>
                             <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}{inputHarga}</span>
                             <span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">
                                 {diskonValue*100}{/*<!-- -->*/}% Off
