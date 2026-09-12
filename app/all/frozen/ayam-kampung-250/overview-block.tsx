@@ -13,8 +13,7 @@ export default function OverviewBlock() {
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
-    //const [realValue, setRealValue] = useState()
- 
+    //const [realValue, setRealValue] = useState() 
 
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
