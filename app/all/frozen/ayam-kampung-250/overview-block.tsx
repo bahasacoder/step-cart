@@ -24,23 +24,38 @@ export default function OverviewBlock() {
     switch (numericValue) {
       case 35000:
         diskon = 0.00
-        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
+         return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
         break;
       case 55000:
         diskon = 0.00
-        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
         break;
      case 75000:
         diskon = 0.25
-        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
         break;
       case 90000:
         diskon = 0.30
-        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
         break;
     default:
       // Opsional: Berikan nilai default jika harga tidak ada yang cocok
-      setDiskonValue(0); setDiskonHarga(0);
+      return (() => {
+            setDiskonValue(0);
+            setDiskonHarga(0);
+          })();
       break;
   } // <-- Menutup switch
       
