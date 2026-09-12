@@ -43,9 +43,8 @@ export default function OverviewBlock() {
   } // <-- Menutup switch
   };
 
-    const hargaAwal = parseFloat(inputHarga) || 0;
-  const nominalDiskon = parseFloat(diskonHarga) || 0;
-  const totalHarga = hargaAwal - nominalDiskon;
+
+  const totalHarga = inputHarga - diskonHarga;
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
