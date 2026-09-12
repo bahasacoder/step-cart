@@ -11,6 +11,7 @@ import OptionsBerat from "./options-berat"
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
+    const [totalHarga, setTotalHarga] = useState<number>(0);
     //const [realValue, setRealValue] = useState()
  
 
@@ -42,7 +43,7 @@ export default function OverviewBlock() {
       break;
   } // <-- Menutup switch
       
-  const totalHarga = inputHarga - diskonHarga;
+  setTotalHarga(inputHarga - diskonHarga);
   };
 
 
