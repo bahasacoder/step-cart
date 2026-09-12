@@ -10,12 +10,14 @@ import OptionsBerat from "./options-berat"
 //  onValueChangeHarga={setInputHarga}
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState<number | null>(null);
+    const [DiskonHarga, setDiskonHarga] = useState<number | null>(null);
     //const [realValue, setRealValue] = useState()
-    const [realValue, setRealValue] = useState(() => Number(inputHarga) * 30 || 0);
+ 
 
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
+    setDiskonHarga(numericValue * 30)
   };
 
   return (
@@ -59,7 +61,7 @@ export default function OverviewBlock() {
                             </span><span className="text-muted-foreground">210{/*<!-- -->*/} Reviews</span>
                         </div>
                         <div className="flex items-center gap-3">
-                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}30.000</p><p>{inputHarga} - {realValue}</p>
+                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}30.000</p><p>{inputHarga} - {DiskonHarga}</p>
                             <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}45.000</span><span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">30{/*<!-- -->*/}% Off</span>
                         </div>
                         <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
