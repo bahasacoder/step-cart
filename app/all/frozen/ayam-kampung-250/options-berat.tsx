@@ -14,6 +14,7 @@ export default function OptionsBerat({ onChangeHarga, selectedValue }: OptionsBe
     const numericValue = Number(e.target.value);
     setSelectedValue(e.target.value)
     onChangeHarga(numericValue)
+    // onChangeHarga(numericValue, selectedValue)
     // { onChangeHarga }: OptionsBeratProps
   }
 
