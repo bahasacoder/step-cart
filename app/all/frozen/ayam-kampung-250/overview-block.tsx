@@ -3,6 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from 'react';
+import { useSelector, useDispatch  } from "react-redux";
+
+import type { RootState, AppDispatch } from "@/lib/store";
+import { addToCart } from "@/features/keranjangSlice";
+import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
@@ -98,7 +103,7 @@ const totalHargaJadi = inputHarga - diskonHarga;
                                 </div>
                             </ol>
                         </nav>
-                        <h1 className="text-3xl font-semibold">Ayam Kampung Frozen</h1>
+                        <h1 className="text-3xl font-semibold" id="">Ayam Kampung Frozen</h1>
                         <div className="flex w-fit items-center rounded-sm border px-2.5 py-1.5">
                             <span className="me-2.5 flex items-center gap-1 border-e pe-2.5 text-sm"><span className="text-lg font-medium">4.3</span>
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
@@ -106,7 +111,9 @@ const totalHargaJadi = inputHarga - diskonHarga;
                         </div>
                         <div className="flex items-center gap-3">
                             <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{totalHargaJadi}</p>
-                            <span className="text-muted-foreground font-medium line-through">Rp {/*<!-- -->*/}{inputHarga}</span>
+                            <span className="text-muted-foreground font-medium line-through">Rp {/*<!-- -->*/}
+                                { diskonValue > 0 && {inputHarga} }
+                            </span>
                             <span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">
                                 {diskonValue*100}{/*<!-- -->*/}% Off
                             </span>
