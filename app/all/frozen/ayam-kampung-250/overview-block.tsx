@@ -12,6 +12,7 @@ export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number>(0);
+    const [diskonValue, setDiskonValue] = useState<number>(0);
     //const [realValue, setRealValue] = useState()
  
 
@@ -23,23 +24,23 @@ export default function OverviewBlock() {
     switch (numericValue) {
       case 35000:
         diskon = 0.00
-        return setDiskonHarga(numericValue * diskon);
+        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
         break;
       case 55000:
         diskon = 0.00
-        return setDiskonHarga(numericValue * diskon);
+        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
         break;
      case 75000:
         diskon = 0.25
-        return setDiskonHarga(numericValue * diskon);
+        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
         break;
       case 90000:
         diskon = 0.30
-        return setDiskonHarga(numericValue * diskon);
+        return ( setDiskonValue(diskon); setDiskonHarga(numericValue * diskon); )
         break;
     default:
       // Opsional: Berikan nilai default jika harga tidak ada yang cocok
-      setDiskonHarga(0);
+      setDiskonValue(0); setDiskonHarga(0);
       break;
   } // <-- Menutup switch
       
@@ -90,7 +91,10 @@ export default function OverviewBlock() {
                         </div>
                         <div className="flex items-center gap-3">
                             <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{totalHarga}</p>
-                            <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}{inputHarga}</span><span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">{diskon*100}{/*<!-- -->*/}% Off</span>
+                            <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}{inputHarga}</span>
+                            <span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">
+                                {diskonValue*100}{/*<!-- -->*/}% Off
+                            </span>
                         </div>
                         <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
