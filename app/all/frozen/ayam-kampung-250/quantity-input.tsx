@@ -23,6 +23,7 @@ export default function QuantityInput({
   step = 1,
   initialValue = 1,
   onChange,
+  sendValueToParent
 }: QuantityInputProps) {
   const [value, setValue] = React.useState<number>(initialValue);
 
@@ -40,6 +41,7 @@ export default function QuantityInput({
     if (!isNaN(num)) {
       updateValue(num);
     }
+    sendValueToParent(num);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
