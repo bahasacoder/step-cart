@@ -25,13 +25,16 @@ export default function OverviewBlock() {
         return setDiskonHarga(numericValue * diskon);
         break;
       case 55000:
-        return setDiskonHarga(numericValue * 0.00);
+        diskon = 0.00
+        return setDiskonHarga(numericValue * diskon);
         break;
      case 75000:
-        return setDiskonHarga(numericValue * 0.30);
+        diskon = 0.25
+        return setDiskonHarga(numericValue * diskon);
         break;
       case 90000:
-        return setDiskonHarga(numericValue * 0.30);
+        diskon = 0.30
+        return setDiskonHarga(numericValue * diskon);
         break;
     default:
       // Opsional: Berikan nilai default jika harga tidak ada yang cocok
