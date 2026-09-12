@@ -43,6 +43,10 @@ export default function OverviewBlock() {
   } // <-- Menutup switch
   };
 
+    const hargaAwal = parseFloat(inputHarga) || 0;
+  const nominalDiskon = parseFloat(diskonHarga) || 0;
+  const totalHarga = hargaAwal - nominalDiskon;
+
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
        <section className="py-8 sm:py-16 lg:py-24">
@@ -84,8 +88,8 @@ export default function OverviewBlock() {
                             </span><span className="text-muted-foreground">210{/*<!-- -->*/} Reviews</span>
                         </div>
                         <div className="flex items-center gap-3">
-                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{inputHarga-diskonHarga}</p><p>{inputHarga}</p>
-                            <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}45.000</span><span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">{diskon*100}{/*<!-- -->*/}% Off</span>
+                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{totalHarga}</p>
+                            <span className="text-muted-foreground font-medium line-through">Rp ${/*<!-- -->*/}{inputHarga}</span><span data-slot="badge" data-variant="default" className="cn-badge group/badge focus-visible:border-ring aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex w-fit shrink-0 items-center justify-center overflow-hidden whitespace-nowrap focus-visible:ring-[3px] [&amp;&gt;svg]:pointer-events-none cn-badge-variant-default border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&amp;]:hover:bg-green-600/5 dark:[a&amp;]:hover:bg-green-400/5">{diskon*100}{/*<!-- -->*/}% Off</span>
                         </div>
                         <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
