@@ -11,7 +11,7 @@ import OptionsBerat from "./options-berat"
 export default function OverviewBlock() {
     const [inputHarga, setInputHarga] = useState<number | null>(null);
     //const [realValue, setRealValue] = useState()
-    const realValue = Number(inputHarga) * 30 || 0;
+    const [realValue, setRealValue] = useState(() => Number(inputHarga) * 30 || 0);
 
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
