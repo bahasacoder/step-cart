@@ -18,8 +18,11 @@ export default function OverviewBlock() {
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
-    //const [realValue, setRealValue] = useState() 
+    const [childValue, setChildValue] = useState('');
 
+    const handleValueFromChild = (value) => {
+        setChildValue(value);
+      };
     // 1. Define the callback function that accepts data from the child
   const handleDataFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
@@ -130,7 +133,7 @@ const totalHargaJadi = inputHarga - diskonHarga;
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                              <QuantityInput />
+                              <QuantityInput sendValueToParent={handleValueFromChild}/>
                             </div>
                         </div>
                         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-2">
