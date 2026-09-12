@@ -18,6 +18,7 @@ export default function OverviewBlock() {
   const handleDataFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
+    let diskon: number = 0;
     switch (numericValue) {
       case 35000:
         diskon = 0.00
