@@ -113,7 +113,7 @@ const totalHargaJadi = inputHarga - diskonHarga;
                             <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{totalHargaJadi}</p>
                             <span className="text-muted-foreground font-medium line-through">
                                 { diskonValue > 0 ? 
-                                    'Rp <!-- -->'
+                                    'Rp <!-- -->' +
                                         inputHarga : '' 
                                 }
                             </span>
