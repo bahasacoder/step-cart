@@ -62,9 +62,9 @@ export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
                                 </div>
                                 <span className="text-sm font-medium text-slate-700">500 gr</span>
                               </label>
-                              {/* Option 3: Yellow / 750 gr */}
+                              {/* Option 3: purple / 750 gr */}
                               <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-yellow-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-yellow-600/50 peer-checked:ring-2 peer-checked:ring-yellow-600">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-purple-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-purple-600/50 peer-checked:ring-2 peer-checked:ring-purple-600">
                                   <input 
                                     type="radio" 
                                     name="berat" 
