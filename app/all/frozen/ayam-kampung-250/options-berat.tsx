@@ -21,17 +21,14 @@ export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
   
   return (
     <>
-              <div style={{ marginTop: '20px', fontSize: '18px' }}>
-                You have selected: <strong>{selectedValue}</strong>
-              </div>
                    <div className="flex items-center gap-6">
                             {/* Variant Label */}
                             <h4 className="text-lg font-semibold whitespace-nowrap">Link :</h4>                          
                             {/* Radio Group Wrapper */}
                             <div role="radiogroup" aria-label="Pilih Berat" className="flex items-center gap-4 w-full">                              
-                              {/* Option 1: Green / 250 gr */}
+                              {/* Option 1: blue / 250 gr */}
                               <label className="flex items-center gap-2 cursor-pointer group">
-                                <div className="relative flex size-5 items-center justify-center rounded-full bg-green-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-green-600/50 peer-checked:ring-2 peer-checked:ring-green-600">
+                                <div className="relative flex size-5 items-center justify-center rounded-full bg-blue-600 shadow-xs transition-all ring-offset-2 group-hover:ring-2 group-hover:ring-blue-600/50 peer-checked:ring-2 peer-checked:ring-blue-600">
                                   <input 
                                     type="radio" 
                                     name="berat" 
