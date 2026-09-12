@@ -6,7 +6,7 @@ interface OptionsBeratProps {
   onChangeHarga: (value: number) => void; 
 }
 
-export default function OptionsBerat({ onChangeHarga, selectedValue }: OptionsBeratProps) {
+export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
   const [selectedValue, setSelectedValue] = useState('55000');
   
 
