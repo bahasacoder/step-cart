@@ -20,7 +20,7 @@ export default function OverviewBlock() {
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState('');
 
-    const handleValueFromChild = (value) => {
+    const handleValueFromChild = (value: any) => {
         setChildValue(value);
       };
     // 1. Define the callback function that accepts data from the child
