@@ -72,6 +72,14 @@ export default function OverviewBlock() {
   };
 const totalHargaJadi = inputHarga - diskonHarga;
 
+     const dispatch = useDispatch<AppDispatch>();
+     // const { totalQuantity } = useSelector((state: RootState) => state.cart);
+    const totalQuantity = useAppSelector((state: RootState) => state.keranjang.sendValueToParent); //
+    // const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
+    
+    const handleAddToCart = ({idPaket, totalHargaJadi, sendValueToParent, onChangeHarga}: any) => {
+      dispatch(addToCart(idPaket, totalHargaJadi, sendValueToParent, onChangeHarga ));
+    };
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
