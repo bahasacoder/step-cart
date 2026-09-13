@@ -133,7 +133,7 @@ const totalHargaJadi = inputHarga - diskonHarga;
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                              <QuantityInput onChange={handleValueFromChild}/>
+                              <QuantityInput sendValueToParent={handleValueFromChild}/>
                             </div>
                         </div>
                         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-2">
