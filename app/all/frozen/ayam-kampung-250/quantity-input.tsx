@@ -13,6 +13,7 @@ interface QuantityInputProps {
   step?: number;
   initialValue?: number;
   onChange?: (value: number) => void;
+  sendValueToParent: (value: number) => void;
 }
 
 export default function QuantityInput({
@@ -23,7 +24,7 @@ export default function QuantityInput({
   step = 1,
   initialValue = 1,
   onChange,
-  sendValueToParent
+  sendValueToParent,
 }: QuantityInputProps) {
   const [value, setValue] = React.useState<number>(initialValue);
 
