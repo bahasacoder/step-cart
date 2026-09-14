@@ -32,7 +32,6 @@ export default function OverviewBlock() {
     interface ProductState {
           inputHarga: number | null;
           diskonHarga: number | null;
-          totalHarga: number | null;
           diskonValue: number;
           childValue: number;
           idPaket: string;
@@ -42,7 +41,6 @@ export default function OverviewBlock() {
     const [productState, setProductState] = useState<ProductState>({
       inputHarga: inputHarga,
       diskonHarga: diskonHarga,
-      totalHarga: totalHarga,
       diskonValue: diskonValue,
       childValue: childValue,
       idPaket: idPaket,
