@@ -13,7 +13,7 @@ interface QuantityInputProps {
   step?: number;
   initialValue?: number;
   onChange?: (value: number) => void;
-  sendValueToParent: (value: number) => void;
+  onValueChange: (value: number) => void;
 }
 
 export default function QuantityInput({
@@ -24,14 +24,14 @@ export default function QuantityInput({
   step = 1,
   initialValue = 1,
   onChange,
-  sendValueToParent,
+  onValueChange,
 }: QuantityInputProps) {
   const [value, setValue] = React.useState<number>(initialValue);
 
   const updateValue = (newValue: number) => {
     const clamped = Math.min(Math.max(newValue, min), max);
     setValue(clamped);
-    onChange?.(clamped);
+    onValueChange?.(clamped);
   };
 
   const increment = () => updateValue(value + step);
@@ -42,7 +42,8 @@ export default function QuantityInput({
     if (!isNaN(num)) {
       updateValue(num);
     }
-    sendValueToParent(num);
+    // sendValueToParent(num);
+    // onValueChange(num);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
