@@ -109,7 +109,8 @@ export default function OverviewBlock() {
     // const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
     
     const handleAddToCart = (productState: any) => {
-      dispatch(addToCart(productState));
+       // dispatch(addToCart(productState));
+      console.log('Product added to cart:');
     };
 
   return (
