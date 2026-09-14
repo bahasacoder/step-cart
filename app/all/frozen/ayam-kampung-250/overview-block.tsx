@@ -13,13 +13,35 @@ import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
 //  onValueChangeHarga={setInputHarga}
+
 export default function OverviewBlock() {
+    
     const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState('');
     const [idPaket, setIdPaket] = useState('ay211');
+    const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
+    const totalHargaJadi = inputHarga - diskonHarga;
+    interface ProductState {
+          inputHarga: number | null;
+          diskonHarga: number | null;
+          totalHarga: number | null;
+          diskonValue: number;
+          childValue: string;
+          idPaket: string;
+          totalHargaJadi: number;
+        }
+
+    const [productState, setProductState] = useState<ProductState>({
+      inputHarga: inputHarga,
+      diskonHarga: diskonHarga,
+      totalHarga: totalHarga,
+      diskonValue: diskonValue,
+      childValue: childValue,
+      totalHargaJadi: totalHargaJadi,
+    });
 
     const handleValueFromChild = (value: any) => {
         setChildValue(value);
@@ -70,15 +92,22 @@ export default function OverviewBlock() {
   //setTotalHarga(inputHarga - diskonHarga);
       
   };
-const totalHargaJadi = inputHarga - diskonHarga;
+    const handleChange = (e) => {
+          //const { name, value } = e.target;
+          
+          setProduct({
+            ...product,
+            [name]: value // Mengubah properti berdasarkan atribut 'name' pada tag input
+          });
+        };
 
      const dispatch = useDispatch<AppDispatch>();
      // const { totalQuantity } = useSelector((state: RootState) => state.cart);
-    const totalQuantity = useAppSelector((state: RootState) => state.keranjang.sendValueToParent); //
+    // const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity); //
     // const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
     
-    const handleAddToCart = ({idPaket, totalHargaJadi, sendValueToParent, onChangeHarga}: any) => {
-      dispatch(addToCart(idPaket, totalHargaJadi, sendValueToParent, onChangeHarga ));
+    const handleAddToCart = (product: any) => {
+      dispatch(addToCart(product));
     };
 
   return (
