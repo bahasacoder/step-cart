@@ -40,6 +40,7 @@ export default function OverviewBlock() {
       totalHarga: totalHarga,
       diskonValue: diskonValue,
       childValue: childValue,
+      idPaket: idPaket,
       totalHargaJadi: totalHargaJadi,
     });
 
