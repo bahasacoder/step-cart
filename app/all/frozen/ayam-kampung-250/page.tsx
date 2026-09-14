@@ -25,7 +25,7 @@ import TabReviews from "./tab-reviews";
 import TabSpecification from "./tab-specification";
 import OverviewBlock from "./overview-block"
 
-export default function FrozenAyamKampungPage() {
+export default function AyamKampungDuaLimaPage() {
   const [quantity, setQuantity] = useState(5);
   const [selectedOption, setSelectedOption] = useState("0");
   
