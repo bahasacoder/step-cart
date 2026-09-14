@@ -52,7 +52,6 @@ export default function OptionsBerat({ onChangeHarga }: OptionsBeratProps) {
                                     checked={selectedValue === '55000'}
                                     onChange={onValueChangeHarga}
                                     className="peer sr-only" 
-                                    defaultChecked
                                   />
                                   {/* Inner dot for active state */}
                                   <div className="hidden size-2 rounded-full bg-white peer-checked:block" />
