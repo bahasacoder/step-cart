@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from "react-redux";
 
 import type { RootState, AppDispatch } from "@/lib/store";
@@ -23,7 +23,12 @@ export default function OverviewBlock() {
     const [childValue, setChildValue] = useState('');
     const [idPaket, setIdPaket] = useState('ay211');
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
-    const totalHargaJadi = inputHarga - diskonHarga;
+    const totalHargaItem = inputHarga - diskonHarga;
+    const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+    // Sinkronisasi state jika nilai dasar berubah
+    useEffect(() => {
+      setTotalHargaJadi(inputHarga - diskonHarga);
+    }, [inputHarga, diskonHarga]);
     interface ProductState {
           inputHarga: number | null;
           diskonHarga: number | null;
@@ -89,8 +94,6 @@ export default function OverviewBlock() {
           })();
       break;
   } // <-- Menutup switch
-      
-  //setTotalHarga(inputHarga - diskonHarga);
       
   };
     /*
