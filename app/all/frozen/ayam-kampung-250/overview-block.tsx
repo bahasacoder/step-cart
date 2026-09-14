@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from "react-redux";
 
 import type { RootState, AppDispatch } from "@/lib/store";
@@ -20,10 +20,15 @@ export default function OverviewBlock() {
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
-    const [childValue, setChildValue] = useState('');
+    const [childValue, setChildValue] = useState(null);
     const [idPaket, setIdPaket] = useState('ay211');
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
-    const totalHargaJadi = inputHarga - diskonHarga;
+    const totalHargaItem = inputHarga - diskonHarga;
+    const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+    // Sinkronisasi state jika nilai dasar berubah
+    useEffect(() => {
+      setTotalHargaJadi(inputHarga - diskonHarga);
+    }, [inputHarga, diskonHarga]);
     interface ProductState {
           inputHarga: number | null;
           diskonHarga: number | null;
@@ -90,28 +95,37 @@ export default function OverviewBlock() {
       break;
   } // <-- Menutup switch
       
-  //setTotalHarga(inputHarga - diskonHarga);
-      
   };
-    /*
-    const handleChange = (e: any) => {
-          //const { name, value } = e.target;
-          
-          setProduct({
-            ...product,
-            [name]: value // Mengubah properti berdasarkan atribut 'name' pada tag input
-          });
-        };
-    */
+  
      const dispatch = useDispatch<AppDispatch>();
      // const { totalQuantity } = useSelector((state: RootState) => state.cart);
     // const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity); //
     // const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
     
-    const handleAddToCart = (productState: any) => {
+    
+    const handleAddToCart = (currentProduct: any) => {
+      setProductState((prevState: any) => ({
+        ...prevState,
+        inputHarga: inputHarga,
+        diskonHarga: diskonHarga,
+        diskonValue: diskonValue,
+        childValue: childValue,
+        idPaket: idPaket,
+        totalHargaJadi: totalHargaJadi,
+      }));
       // dispatch(addToCart(productState));
-      console.log('Product added to cart:');
+      console.log('Product added to cart:', { 
+        ...currentProduct,
+        inputHarga,
+        diskonHarga,
+        totalHarga,
+        diskonValue,
+        childValue,
+        idPaket,
+        totalHargaJadi,
+       });
     };
+
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
@@ -174,7 +188,7 @@ export default function OverviewBlock() {
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                              <QuantityInput sendValueToParent={handleValueFromChild}/>
+                              <QuantityInput onValueChange={handleValueFromChild}/>
                             </div>
                         </div>
                         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-2">

@@ -24,10 +24,12 @@ export default function CarouselSwiper() {
       <div className="relative w-full" role="region" aria-roledescription="carousel" data-slot="carousel">                                
                                        <Swiper                  
                                           loop={true}
-                                          spaceBetween={10}
+                                          spaceBetween={0}
                                           navigation={true}
                                           thumbs={{ swiper: thumbsSwiper }}
                                           modules={[FreeMode, Navigation, Thumbs]}
+                                          slidesPerView={1}
+                                          slidesPerGroup={1}
                                           className="mySwiper2"
                                         >
                                           <SwiperSlide className="bg-transparent size-1/2" >                                        
