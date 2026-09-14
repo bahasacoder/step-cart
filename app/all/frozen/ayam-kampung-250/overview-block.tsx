@@ -13,13 +13,36 @@ import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
 //  onValueChangeHarga={setInputHarga}
+
 export default function OverviewBlock() {
+    
     const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState('');
     const [idPaket, setIdPaket] = useState('ay211');
+    const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
+    const totalHargaJadi = inputHarga - diskonHarga;
+    interface ProductState {
+          inputHarga: number | null;
+          diskonHarga: number | null;
+          totalHarga: number | null;
+          diskonValue: number;
+          childValue: string;
+          idPaket: string;
+          totalHargaJadi: number;
+        }
+
+    const [productState, setProductState] = useState<ProductState>({
+      inputHarga: inputHarga,
+      diskonHarga: diskonHarga,
+      totalHarga: totalHarga,
+      diskonValue: diskonValue,
+      childValue: childValue,
+      idPaket: idPaket,
+      totalHargaJadi: totalHargaJadi,
+    });
 
     const handleValueFromChild = (value: any) => {
         setChildValue(value);
@@ -70,15 +93,23 @@ export default function OverviewBlock() {
   //setTotalHarga(inputHarga - diskonHarga);
       
   };
-const totalHargaJadi = inputHarga - diskonHarga;
-
+    /*
+    const handleChange = (e: any) => {
+          //const { name, value } = e.target;
+          
+          setProduct({
+            ...product,
+            [name]: value // Mengubah properti berdasarkan atribut 'name' pada tag input
+          });
+        };
+    */
      const dispatch = useDispatch<AppDispatch>();
      // const { totalQuantity } = useSelector((state: RootState) => state.cart);
-    const totalQuantity = useAppSelector((state: RootState) => state.keranjang.sendValueToParent); //
+    // const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity); //
     // const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
     
-    const handleAddToCart = ({idPaket, totalHargaJadi, sendValueToParent, onChangeHarga}: any) => {
-      dispatch(addToCart(idPaket, totalHargaJadi, sendValueToParent, onChangeHarga ));
+    const handleAddToCart = (productState: any) => {
+      dispatch(addToCart(productState));
     };
 
   return (
@@ -147,7 +178,7 @@ const totalHargaJadi = inputHarga - diskonHarga;
                         </div>
                         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-2">
                             <button 
-                                onClick={() => handleAddToCart(idPaket, totalHargaJadi, sendValueToParent, onChangeHarga)}
+                                onClick={() => handleAddToCart(productState)}
                                 type="button" tabIndex={0} data-slot="button" className="cn-button group/button w-full md:w-[40%]  inline-flex gap-4 border-2 border-blue-200 p-2 rounded-md hover:bg-blue-100 shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg grow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart-plus"><path d="M16 5h6"/><path d="M19 2v6"/><path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18"/><path d="M4.564 5H12"/><path d="M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
                                 Masukkan Keranjang</button><button type="button" tabIndex={0} data-slot="button" className="cn-button group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-secondary cn-button-size-lg grow">
