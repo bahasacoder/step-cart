@@ -93,6 +93,7 @@ export default function OverviewBlock() {
   //setTotalHarga(inputHarga - diskonHarga);
       
   };
+    /*
     const handleChange = (e: any) => {
           //const { name, value } = e.target;
           
@@ -101,7 +102,7 @@ export default function OverviewBlock() {
             [name]: value // Mengubah properti berdasarkan atribut 'name' pada tag input
           });
         };
-
+    */
      const dispatch = useDispatch<AppDispatch>();
      // const { totalQuantity } = useSelector((state: RootState) => state.cart);
     // const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity); //
