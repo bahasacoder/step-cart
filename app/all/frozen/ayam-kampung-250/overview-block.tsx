@@ -20,7 +20,7 @@ export default function OverviewBlock() {
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
-    const [childValue, setChildValue] = useState(null);
+    const [childValue, setChildValue] = useState(0);
     const [idPaket, setIdPaket] = useState('ay211');
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
     const totalHargaItem = inputHarga - diskonHarga;
@@ -34,7 +34,7 @@ export default function OverviewBlock() {
           diskonHarga: number | null;
           totalHarga: number | null;
           diskonValue: number;
-          childValue: string;
+          childValue: number;
           idPaket: string;
           totalHargaJadi: number;
         }
@@ -49,12 +49,14 @@ export default function OverviewBlock() {
       totalHargaJadi: totalHargaJadi,
     });
 
-    const handleValueFromChild = (value: any) => {
+    const handleValueFromChild = (value: number) => {
         setChildValue(value);
+        console.log('Received value from child:', value);
       };
     // 1. Define the callback function that accepts data from the child
-  const handleDataFromChild = (numericValue: number) => {
+  const handleHargaFromChild = (numericValue: number) => {
     setInputHarga(numericValue);
+    console.log('Received harga from child:', numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
     let diskon: number = 0;
     switch (numericValue) {
@@ -183,7 +185,7 @@ export default function OverviewBlock() {
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
 
                         
-                       <OptionsBerat onChangeHarga={handleDataFromChild} />
+                       <OptionsBerat onChangeHarga={handleHargaFromChild} />
                       
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
