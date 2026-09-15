@@ -22,7 +22,7 @@ const rootPersistConfig = {
  
 const rootReducer = combineReducers({
   cart: cartReducer,
-  keranjang: keranjangReducer
+  // keranjang: keranjangReducer
 })
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
 
