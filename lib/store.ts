@@ -12,8 +12,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import cartReducer from "@/features/cartSlice";
-import keranjangReducer from "@/features/keranjangSlice";
+import cartReducer from './features/cart/cartSlice';
+import productReducer from './features/products/productSlice';
 
 const rootPersistConfig = {
   key: 'root',
