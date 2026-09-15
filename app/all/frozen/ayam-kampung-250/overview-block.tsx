@@ -31,6 +31,11 @@ export default function OverviewBlock() {
     useEffect(() => {
       setTotalHargaJadi(inputHarga - diskonHarga);
     }, [inputHarga, diskonHarga]);
+    interface Product {
+          id: string; // Ensure this matches everywhere (either both string or both number)
+          name: string;
+          price: number;
+        }
     interface ProductState {
           inputHarga: number | null;
           diskonHarga: number | null;
