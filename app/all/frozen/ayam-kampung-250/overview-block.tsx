@@ -6,8 +6,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from "react-redux";
 
 import type { RootState, AppDispatch } from "@/lib/store";
-import { addToCart } from "@/features/keranjangSlice";
-import { useAppSelector, useAppDispatch } from "@/lib/hooks";
+
+import { Product } from '@/lib/features/products/productSlice';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { addToCart } from '@/lib/features/cart/cartSlice';
 
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
@@ -97,10 +99,9 @@ export default function OverviewBlock() {
       
   };
   
-     const dispatch = useDispatch<AppDispatch>();
-     // const { totalQuantity } = useSelector((state: RootState) => state.cart);
-    // const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity); //
-    // const totalAmount =  useAppSelector((state: RootState) => state.keranjang.totalAmount)
+     const dispatch = useDispatch<AppDispatch>();    
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const itemInCart = cartItems.find((item) => item.product.id === product.id);
     
     
     const handleAddToCart = (currentProduct: any) => {
@@ -123,6 +124,7 @@ export default function OverviewBlock() {
         idPaket,
         totalHargaJadi,
        });
+        dispatch(addToCart(productState));
     };
 
 
