@@ -18,7 +18,7 @@ interface CartItem {
 export function ProductCard({ product }: ProductCardProps) {
   const dispatch = useAppDispatch();
     const cartItems = useAppSelector((state) => state.cart.items);
-  const itemInCart = cartItems.find((item: CartItem) => item.product.id === product.id);
+  // const itemInCart = cartItems.find((item: CartItem) => item.product.id === product.id);
 
   return (
     <div className={styles.card}>
