@@ -5,7 +5,7 @@ import { Cart } from '@/components/Cart';
 import { Header } from '@/components/Header';
 import styles from './page.module.css';
 
-export default function Home() {
+export default function ShoppPage() {
   return (
     <div>
       <Header />
