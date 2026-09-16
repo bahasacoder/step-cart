@@ -22,16 +22,10 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        <img src={product.image} alt={product.name} className={styles.image} />
-        {!product.inStock && <div className={styles.outOfStock}>Out of Stock</div>}
+        Image
       </div>
       <div className={styles.content}>
-        <h3 className={styles.name}>{product.name}</h3>
-        <p className={styles.category}>{product.category}</p>
-        <p className={styles.description}>{product.description}</p>
-        <div className={styles.footer}>
-          <div className={styles.price}>${product.price.toFixed(2)}</div>
-          {itemInCart && <span className={styles.inCart}>✓ {itemInCart.quantity} in cart</span>}
+        header
         </div>
         <button
           onClick={handleAddToCart}
