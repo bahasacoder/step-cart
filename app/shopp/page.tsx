@@ -11,10 +11,10 @@ export default function ShoppPage() {
       <Header />
       <div className={styles.container}>
         <div className={styles.mainContent}>
-          ProductList 
+          <ProductList />
         </div>
         <aside className={styles.sidebar}>
-          Cart
+          {/* Cart */}
         </aside>
       </div>
     </div>
