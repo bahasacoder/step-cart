@@ -5,7 +5,7 @@ import { clearCart, removeFromCart, updateQuantity } from '@/lib/features/cart/c
 import { CartItem as CartItemComponent } from './CartItem';
 import styles from './Cart.module.css';
 
-export default function Cart() {
+export function Cart() {
   const dispatch = useAppDispatch();
   const { items, totalItems, totalPrice } = useAppSelector((state) => state.cart);
 
