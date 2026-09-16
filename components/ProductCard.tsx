@@ -26,7 +26,7 @@ export function ProductCard({ product }: ProductCardProps) {
       </div>
       <div className={styles.content}>
         header
-        </div>
+      </div>
         <button
           onClick={handleAddToCart}
           disabled={!product.inStock}
@@ -34,7 +34,6 @@ export function ProductCard({ product }: ProductCardProps) {
         >
           Add to Cart
         </button>
-      </div>
     </div>
   );
 }
