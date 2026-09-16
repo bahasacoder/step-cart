@@ -106,7 +106,7 @@ export default function OverviewBlock() {
   
      const dispatch = useDispatch<AppDispatch>();    
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
-  const itemInCart = cartItems.find((item) => item.product.id === product.id);
+  // const itemInCart = cartItems.find((item) => item.product.id === product.id);
     
     
     const handleAddToCart = (currentProduct: any) => {
