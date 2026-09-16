@@ -1,6 +1,6 @@
 'use client';
 
-import type { RootState, AppDispatch } from './store';
+import type { RootState, AppDispatch } from '@/lib/store';
 import { Product } from '@/lib/features/products/productSlice';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { addToCart } from '@/lib/features/cart/cartSlice';
