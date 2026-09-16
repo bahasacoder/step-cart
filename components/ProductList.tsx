@@ -4,7 +4,7 @@ import { useAppSelector } from '@/lib/hooks';
 import { ProductCard } from './ProductCard';
 import styles from './ProductList.module.css';
 
-export default function ProductList() {
+export function ProductList() {
   const products = useAppSelector((state) => state.products.products);
 
   return (
