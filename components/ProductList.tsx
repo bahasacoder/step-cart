@@ -2,7 +2,6 @@
 
 import { useAppSelector } from '@/lib/hooks';
 import { ProductCard } from './ProductCard';
-import { Product } from '@/lib/features/products/productSlice';
 import styles from './ProductList.module.css';
 
 export function ProductList() {
