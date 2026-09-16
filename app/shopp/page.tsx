@@ -14,7 +14,7 @@ export default function ShoppPage() {
           ProductList 
         </div>
         <aside className={styles.sidebar}>
-          <Cart />
+          Cart
         </aside>
       </div>
     </div>
