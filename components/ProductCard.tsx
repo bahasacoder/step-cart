@@ -11,6 +11,8 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const dispatch = useAppDispatch();
+    const cartItems = useAppSelector((state) => state.cart.items);
+
 
   return (
     <div className={styles.card}>
