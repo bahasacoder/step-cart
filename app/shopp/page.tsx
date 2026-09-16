@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <div className={styles.container}>
         <div className={styles.mainContent}>
-          ProductList 
+          <ProductList /> 
         </div>
         <aside className={styles.sidebar}>
           Cart 
