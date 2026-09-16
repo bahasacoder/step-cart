@@ -27,13 +27,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className={styles.content}>
         header
       </div>
-        <button
-          onClick={handleAddToCart}
-          disabled={!product.inStock}
-          className={`${styles.addButton} primary`}
-        >
-          Add to Cart
-        </button>
+        
     </div>
   );
 }
