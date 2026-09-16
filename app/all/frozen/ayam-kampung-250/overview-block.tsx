@@ -129,7 +129,7 @@ export default function OverviewBlock() {
         idPaket,
         totalHargaJadi,
        });
-        dispatch(addToCart(productState));
+        // dispatch(addToCart(productState));
     };
 
 
