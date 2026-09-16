@@ -12,7 +12,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const dispatch = useAppDispatch();
     const cartItems = useAppSelector((state) => state.cart.items);
-
+  const itemInCart = cartItems.find((item) => item.product.id === product.id);
 
   return (
     <div className={styles.card}>
