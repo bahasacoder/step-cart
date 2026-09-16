@@ -11,9 +11,7 @@ export function ProductList() {
     <div className={styles.productList}>
       <h1 className={styles.title}>Products</h1>
       <div className={styles.grid}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        Products  map
       </div>
     </div>
   );
