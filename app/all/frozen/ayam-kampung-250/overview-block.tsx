@@ -110,8 +110,8 @@ export default function OverviewBlock() {
     
     
     const handleAddToCart = (currentProduct: any) => {
-      setProductState((prevState: any) => ({
-        ...prevState,
+      setProductState((prevState: any) => (...prevState, {
+        
         inputHarga: inputHarga,
         diskonHarga: diskonHarga,
         diskonValue: diskonValue,
@@ -120,15 +120,7 @@ export default function OverviewBlock() {
         totalHargaJadi: totalHargaJadi,
       }));
       // dispatch(addToCart(productState));
-      console.log('Product added to cart:', { 
-        ...currentProduct,
-        inputHarga,
-        diskonHarga,
-        diskonValue,
-        childValue,
-        idPaket,
-        totalHargaJadi,
-       });
+      console.log('Product added to cart:', productState);
         // dispatch(addToCart(productState));
     };
 
