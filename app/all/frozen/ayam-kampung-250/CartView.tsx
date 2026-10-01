@@ -1,15 +1,15 @@
 "use client"
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItemFromCart, clearCart } from '@/lib/features/pebe/pebeCartSlice';
+import { removeItemFromCart, clearCart } from '@/lib/features/cart/cartSlice';
 import './CartView.css'; // Optional: for basic styling
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 
 const CartView = () => {
   const cartItems = useAppSelector((state) => state.pebeCart.items);
   console.log('Cart items View:', cartItems);
-  const totalQuantity = useAppSelector((state) => state.pebeCart.totalQuantity);
-  const totalAmount = useAppSelector((state) => state.pebeCart.totalAmount);
+  const totalQuantity = useAppSelector((state) => state.cart.totalItems );
+  const totalAmount = useAppSelector((state) => state.cart.totalPrice );
   const dispatch = useAppDispatch();
 
   return (
