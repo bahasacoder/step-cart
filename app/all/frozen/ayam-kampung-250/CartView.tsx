@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItemFromCart, clearCart } from '@/lib/features/cart/cartSlice';
+import { removeFromCart, updateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import './CartView.css'; // Optional: for basic styling
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 
