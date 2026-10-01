@@ -6,7 +6,7 @@ import { removeFromCart, updateQuantity, clearCart } from '@/lib/features/cart/c
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 
 const CartView = () => {
-  const cartItems = useAppSelector((state) => state.pebeCart.items);
+  const cartItems = useAppSelector((state) => state.cart.items);
   console.log('Cart items View:', cartItems);
   const totalQuantity = useAppSelector((state) => state.cart.totalItems );
   const totalAmount = useAppSelector((state) => state.cart.totalPrice );
