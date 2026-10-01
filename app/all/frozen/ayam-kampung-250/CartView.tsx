@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
-import './CartView.css'; // Optional: for basic styling
+// import './CartView.css'; // Optional: for basic styling
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 
 const CartView = () => {
