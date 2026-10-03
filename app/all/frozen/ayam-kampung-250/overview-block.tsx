@@ -27,6 +27,10 @@ export default function OverviewBlock() {
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
     const totalHargaItem = inputHarga - diskonHarga;
     const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+    const [productName, setProductName] = useState('Ayam Kampung Frozen');
+    const [productImage, setProductImage] = useState('url-to-image');
+    //const [itemProduct, setItemProduct] = useState([]);
+    const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
       setTotalHargaJadi(inputHarga - diskonHarga);
@@ -36,7 +40,9 @@ export default function OverviewBlock() {
           name: string;
           price: number;
         }
-    interface ProductState {
+    interface ProductState {      
+          productName: string;
+          productImage: string;
           inputHarga: number | null;
           diskonHarga: number | null;
           diskonValue: number;
@@ -46,6 +52,8 @@ export default function OverviewBlock() {
         }
 
     const [productState, setProductState] = useState<ProductState>({
+      productName: productName, // Replace with actual product name
+      productImage: productImage, // Replace with actual image URL or path
       inputHarga: inputHarga,
       diskonHarga: diskonHarga,
       diskonValue: diskonValue,
@@ -53,6 +61,7 @@ export default function OverviewBlock() {
       idPaket: idPaket,
       totalHargaJadi: totalHargaJadi,
     });
+
 
     const handleValueFromChild = (value: number) => {
         setChildValue(value);
@@ -111,7 +120,9 @@ export default function OverviewBlock() {
     
     const handleAddToCart = (currentProduct: any) => {
       const nextProductState: ProductState = {
-        inputHarga: inputHarga,
+        productName: productName,
+        productImage: productImage,
+        inputHarga:  Number(inputHarga),
         diskonHarga: diskonHarga,
         diskonValue: diskonValue,
         childValue: childValue,
@@ -123,7 +134,16 @@ export default function OverviewBlock() {
         ...prevState,
         ...nextProductState,
       }));
+      let found = itemProduct.find(ips => ips.inputHarga === Number(inputHarga) && ips.childValue === childValue); // returns null
+      setItemProduct((prevItemProduct: any) => [...prevItemProduct,{
+         ...nextProductState,
+      }]);
+      const newItemProduct = [...itemProduct, nextProductState]; // Cara lebih singkat untuk menggabungkan array
+      setItemProduct(newItemProduct);
 
+      // console.log('handleGetItemProduct', itemProduct); // menampilkan state lama, karena setState bersifat asynchronous
+      //  Gunakan variabel salinan untuk melihat hasil instan
+      console.log('handleGetItemProduct (Updated):', newItemProduct); 
       console.log('Product added to cart:', nextProductState);
       // dispatch(addToCart(nextProductState));
     };
