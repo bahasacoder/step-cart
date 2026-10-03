@@ -1,7 +1,7 @@
 'use client';
 
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
-import { clearCart, removeFromCart, updateQuantity } from '@/lib/features/cart/cartSlice';
+import { clearCart, removeItemFromCart, updateQuantity } from '@/lib/features/cart/cartSlice';
 import { CartItem as CartItemComponent } from './CartItem';
 import styles from './Cart.module.css';
 
@@ -39,7 +39,7 @@ export function Cart() {
               <CartItemComponent
                 key={item.product.id}
                 item={item}
-                onRemove={() => dispatch(removeFromCart(item.product.id))}
+                onRemove={() => dispatch(removeItemFromCart(item.product.id))}
                 onUpdateQuantity={(quantity) =>
                   dispatch(updateQuantity({ productId: item.product.id, quantity }))
                 }
