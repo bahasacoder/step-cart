@@ -125,16 +125,12 @@ export default function OverviewBlock() {
         inputHarga:  Number(inputHarga),
         diskonHarga: diskonHarga,
         diskonValue: diskonValue,
-        childValue: childValue,
+        childValue: Number(childValue),
         idPaket: idPaket,
         totalHargaJadi: totalHargaJadi,
       };
 
-      setProductState((prevState) => ({
-        ...prevState,
-        ...nextProductState,
-      }));
-      let found = itemProduct.find(ips => ips.inputHarga === Number(inputHarga) && ips.childValue === childValue); // returns null
+      let found = itemProduct.find(ips => ips.inputHarga === Number(inputHarga) && ips.childValue === Number(childValue)); // returns null
       setItemProduct((prevItemProduct: any) => [...prevItemProduct,{
          ...nextProductState,
       }]);
@@ -145,7 +141,7 @@ export default function OverviewBlock() {
       //  Gunakan variabel salinan untuk melihat hasil instan
       console.log('handleGetItemProduct (Updated):', newItemProduct); 
       console.log('Product added to cart:', nextProductState);
-      // dispatch(addToCart(nextProductState));
+      dispatch(addToCart(nextProductState));
     };
 
 
