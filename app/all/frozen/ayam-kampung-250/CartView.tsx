@@ -38,7 +38,7 @@ const [value, setValue] = useState({
   // Handle perubahan nilai dari tombol + dan -
   
   
-  const handleQuantityChange = (e) => {
+  const handleQuantityChange = (e: any) => {
     // dispatch(updateQuantity({ productId, quantity: newQuantity }));
     const num = Number(e.target.value);
     if (!isNaN(num)) {
