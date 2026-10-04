@@ -9,20 +9,6 @@ import Link from "next/link";
 import CartListItem from "./CartListItem";
 
 export default function CartDialogBox() {
-  
-const [value, setValue] = useState({
-    quantity: 1, 
-  });
-  
-  const updateValue = (newValue: number) => {
-    const clamped = Math.min(Math.max(newValue));
-    setValue({ quantity: clamped });
-    // onValueChange?.(clamped);
-  };
-
-  const increment = () => updateValue(value.quantity + 1);
-  const decrement = () => updateValue(value.quantity - 1);
-
   const cartItems = useAppSelector((state) => state.cart.items) || [];
   console.log('Cart items View:', cartItems);
   const totalQuantity = useAppSelector((state) => state.cart.totalItems );
@@ -59,7 +45,7 @@ const [value, setValue] = useState({
                   <CartListItem 
                     key={item.idList}
                     item={item}
-                    onRemove={() => dispatch(removeFromCart(item.idList))}
+                    onRemove={() => dispatch(removeItemFromCart(item.idList))}
                     onUpdateQuantity={(quantity) =>
                       dispatch(updateQuantity({ listId: item.idList, quantity }))
                     }  
