@@ -57,11 +57,11 @@ const [value, setValue] = useState({
 
               return (
                   <CartListItem 
-                    key={item.idOrder}
+                    key={item.idList}
                     item={item}
-                    onRemove={() => dispatch(removeFromCart(item.idOrder))}
+                    onRemove={() => dispatch(removeFromCart(item.idList))}
                     onUpdateQuantity={(quantity) =>
-                      dispatch(updateQuantity({ productId: item.idOrder, quantity }))
+                      dispatch(updateQuantity({ listId: item.idList, quantity }))
                     }  
                   />
               );
