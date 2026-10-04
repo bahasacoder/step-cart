@@ -7,7 +7,7 @@ import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CartRootPage() {
+export default function CartDialogBox() {
   
 const [value, setValue] = useState({
     quantity: 1, 
@@ -33,6 +33,16 @@ const [value, setValue] = useState({
     return itemWithName.name ?? itemWithName.title ?? itemWithName.product?.name ?? itemWithName.product?.title ?? `Item #${item.id}`;
   };
 
+  
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // dispatch(updateQuantity({ productId, quantity: newQuantity }));
+    const num = Number(e.target.value);
+    if (!isNaN(num)) {
+      updateValue(num);
+    }
+   }
+
+  
   return (
     <div>
       {cartItems.length === 0 ? (
