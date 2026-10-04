@@ -37,7 +37,7 @@ export default function CartDialogBox() {
                   <CartListItem 
                     key={item.idList || index}
                     item={item}
-                    onRemove={() => dispatch(removeItemFromCart(item.idList))}
+                    onRemove={() => dispatch(removeItemFromCart(item.idList || ''))}
                     onUpdateQuantity={(quantity) =>
                       dispatch(updateQuantity({ listId: item.idList, quantity }))
                     }  
