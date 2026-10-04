@@ -20,16 +20,6 @@ export default function CartDialogBox() {
     return itemWithName.name ?? itemWithName.title ?? itemWithName.product?.name ?? itemWithName.product?.title ?? `Item #${item.id}`;
   };
 
-  
-  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // dispatch(updateQuantity({ productId, quantity: newQuantity }));
-    const num = Number(e.target.value);
-    if (!isNaN(num)) {
-      updateValue(num);
-    }
-   }
-
-  
   return (
     <div>
       {cartItems.length === 0 ? (
