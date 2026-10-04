@@ -38,7 +38,7 @@ const [value, setValue] = useState({
   // Handle perubahan nilai dari tombol + dan -
   
   
-  const handleQuantityChange = (e: any) => {
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // dispatch(updateQuantity({ productId, quantity: newQuantity }));
     const num = Number(e.target.value);
     if (!isNaN(num)) {
@@ -93,7 +93,7 @@ const [value, setValue] = useState({
                                                 <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z" data-original="#000000" data-editor-id="44"></path>
                                             </svg>
                                           </button>
-                                          <span className="mx-3" data-editor-id="45"><input type="number" value={item.childValue || value.quantity} onChange={(e) => handleQuantityChange(item.idOrder, Number(e.target.value) || 1)} step={1}/></span>
+                                          <span className="mx-3" data-editor-id="45"><input type="number" value={item.childValue || value.quantity} onChange={handleQuantityChange} step={1}/></span>
                                           <button type="button" aria-label="Increase quantity" className="cursor-pointer focus:outline-none focus-visible:ring-2
                                             focus-visible:ring-blue-500 rounded" data-editor-id="46"
                                             onClick={increment}>
