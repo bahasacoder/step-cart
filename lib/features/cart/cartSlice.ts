@@ -7,7 +7,7 @@ interface Product {
   [key: string]: unknown;
 }
 
-interface CartItem {
+export interface CartItem {
   id: string | number;
   item: Product;
   product: Product;
