@@ -15,30 +15,12 @@ interface CartItemProps {
 }
 
 export default function CartListItem({ item, onRemove, onUpdateQuantity }: CartItemProps) {
- const { product, quantity } = item; 
-const [value, setValue] = useState({
-    quantity: 1, 
-  });
-  
-  const updateValue = (newValue: number) => {
-    const clamped = Math.min(Math.max(newValue));
-    setValue({ quantity: clamped });
-    // onValueChange?.(clamped);
-  };
-
-  const increment = () => updateValue(value.quantity + 1);
-  const decrement = () => updateValue(value.quantity - 1);
-
+  // const { product, quantity } = item; 
   const cartItems = useAppSelector((state) => state.cart.items) || [];
   console.log('Cart items View:', cartItems);
   const totalQuantity = useAppSelector((state) => state.cart.totalItems );
   const totalAmount = useAppSelector((state) => state.cart.totalPrice );
   const dispatch = useAppDispatch();
-
-  const getItemName = (item: any) => {
-    const itemWithName = item as { id?: string | number; name?: string; title?: string; product?: { name?: string; title?: string }; productName?: { name?: string; title?: string } };
-    return itemWithName.name ?? itemWithName.title ?? itemWithName.product?.name ?? itemWithName.product?.title ?? `Item #${item.id}`;
-  };
 
   /*
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
