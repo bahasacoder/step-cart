@@ -6,8 +6,9 @@ import CartDialogBox from "./CartDialogBox";
 
 export default function CartRootPage() {
   return (
-    <div>
-       <h2>Shopping Cart</h2>
+    <div className="w-full">
+      <h2 className="text-2xl">Shopping Cart</h2>
       <CartDialogBox />
-      </div>
+     </div>
   )
+}
