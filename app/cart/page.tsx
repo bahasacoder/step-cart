@@ -1,0 +1,12 @@
+'use client';
+
+import Image from "next/image";
+import Link from "next/link";
+import CartDialogBox from "./CartDialogBox";
+
+export default function CartRootPage() {
+  return (
+    <div>
+      <CartDialogBox />
+      </div>
+  )
