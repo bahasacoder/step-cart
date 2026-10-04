@@ -32,6 +32,8 @@ export default function CartDialogBox() {
               const lineTotal = (Number((item as { price?: number }).price) || 0) * (Number(item.quantity) || 0);
 
               return (
+                <>                  
+                  <p>{item.idList}</p>
                   <CartListItem 
                     key={item.idList || index}
                     item={item}
@@ -40,7 +42,7 @@ export default function CartDialogBox() {
                       dispatch(updateQuantity({ listId: item.idList, quantity }))
                     }  
                   />
-                  <p>{item.idList}</p>
+                </>
               );
             })}
             
