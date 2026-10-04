@@ -82,7 +82,14 @@ const cartSlice = createSlice({
     },
     removeOneItemFromCart(){},
     removeItemFromCart: (state: CartState, action: PayloadAction<string>) => {
+      console.log('item.idList 1 : ', item.idList)
       state.items = state.items.filter((item) => item.idList !== action.payload);
+      console.log('item.idList 2 : ', item.idList)
+       // 2. Hitung ulang total harga berdasarkan item yang tersisa
+      // state.totalPrice = state.items.reduce(
+      //   (total, item) => total + item.price * item.quantity, 
+      //   0
+      // );
       const totals = calculateTotals(state.items);
       state.totalItems = totals.totalItems;
       state.totalPrice = totals.totalPrice;
