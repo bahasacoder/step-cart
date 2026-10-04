@@ -1,7 +1,7 @@
 'use client';
 
 // import { CartItem as CartItemType } from '@/lib/features/cart/cartSlice';
-import type CartItem from '@/lib/features/cart/cartSlice';
+import CartItem from '@/lib/features/cart/cartSlice';
 import styles from './CartItem.module.css';
 
 interface CartItemProps {
