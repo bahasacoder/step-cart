@@ -1,13 +1,36 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from '@/lib/features/products/productSlice';
 
-export interface CartItem {
+interface Product {
+  id: number;
+  name?: string;
+  price?: number;
+  [key: string]: unknown;
+}
+
+interface CartItem {
+  id: string | number;
+  item: Product;
   product: Product;
   quantity: number;
-}
+
+  idPaket?: string | number;
+  idOrder?: string;
+  productName?: string;
+  productImage?: string;
+  inputHarga?: number;
+  diskonHarga?: number;
+  diskonValue?: number;
+  childValue?: number;
+  totalHargaJadi?: number;
+}    
 
 interface CartState {
   items: CartItem[];
+  totalItems: number;
+  totalPrice: number;
+}
+
+interface CartTotals {
   totalItems: number;
   totalPrice: number;
 }
@@ -18,47 +41,60 @@ const initialState: CartState = {
   totalPrice: 0,
 };
 
-const calculateTotals = (items: CartItem[]) => {
-  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = parseFloat(
-    items
-      .reduce((sum, item) => sum + item.product.price * item.quantity, 0)
-      .toFixed(2)
-  );
-  return { totalItems, totalPrice };
+const calculateTotals = (items: CartItem[]): CartTotals => {
+  // const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+  // const totalPrice = parseFloat(
+  //   items
+  //     .reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+  //     .toFixed(2)
+  // );
+  // return { totalItems, totalPrice };
+  return { totalItems: 0, totalPrice: 0 };
 };
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Product>) => {
+    addItemToCart: (state: CartState, action: PayloadAction<Product>) => {
       const newItem = action.payload;
-      const existingItem = state.items.find((item) => item.product.id === newItem.id);
-      if (!existingItem) {
-        state.items.push({
-          product: newItem,
-          quantity: 1,
-        });
-      } else {
-        existingItem.quantity += 1;
+      console.log('Adding item to cart:', newItem);
+      if (!state.items) {
+        state.items = [];
       }
+      const existingItem = state.items.find((item) => item.idPaket === newItem.idPaket);
+      if (!existingItem) {
+        state.items.push(newItem as unknown as CartItem);
+        //      console.log('existingItem', existingItem?.productName);
+
+      }
+      else {
+         state.items.push( newItem as unknown as CartItem);
+      }
+            console.log('read object', state.items.map((item) => item.idPaket));
+
+      const totals = calculateTotals(state.items);
+      // state.totalItems = totals.totalItems;
+      // state.totalPrice = totals.totalPrice;
+    },
+    AddOneItemFromCart(){
+      // idOrder, quantity
+    },
+    removeOneItemFromCart(){},
+    removeItemFromCart: (state: CartState, action: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
       const totals = calculateTotals(state.items);
       state.totalItems = totals.totalItems;
       state.totalPrice = totals.totalPrice;
-      
     },
-    removeItemFromCart: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter((item) => item.product.id !== action.payload);
-      const totals = calculateTotals(state.items);
-      state.totalItems = totals.totalItems;
-      state.totalPrice = totals.totalPrice;
-    },
-    updateQuantity: (state, action: PayloadAction<{ productId: number; quantity: number }>) => {
-      const item = state.items.find((item) => item.product.id === action.payload.productId);
+    updateQuantity: (
+      state: CartState,
+      action: PayloadAction<{ productId: number; quantity: number }>,
+    ) => {
+      const item = state.items.find((item) => item.id === action.payload.productId);
       if (item) {
         if (action.payload.quantity <= 0) {
-          state.items = state.items.filter((item) => item.product.id !== action.payload.productId);
+          state.items = state.items.filter((item) => item.id !== action.payload.productId);
         } else {
           item.quantity = action.payload.quantity;
         }
@@ -67,7 +103,7 @@ const cartSlice = createSlice({
       state.totalItems = totals.totalItems;
       state.totalPrice = totals.totalPrice;
     },
-    clearCart: (state) => {
+    clearCart: (state: CartState) => {
       state.items = [];
       state.totalItems = 0;
       state.totalPrice = 0;
@@ -75,5 +111,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeItemFromCart, updateQuantity, clearCart } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, updateQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
