@@ -40,6 +40,7 @@ export default function CartDialogBox() {
                       dispatch(updateQuantity({ listId: item.idList, quantity }))
                     }  
                   />
+                  <p>{item.idList}</p>
               );
             })}
             
