@@ -64,7 +64,7 @@ const [value, setValue] = useState({
               const lineTotal = (Number((item as { price?: number }).price) || 0) * (Number(item.quantity) || 0);
 
               return (
-                  <li className="flex items-center gap-4" key={item.idOrder || index}>
+                  <li className="flex items-center gap-4" key={item.idList || index}>
                       <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&amp;fit=crop&amp;q=80&amp;w=1160" alt="" className="size-16 rounded-sm object-cover" />
 
                       <div>
