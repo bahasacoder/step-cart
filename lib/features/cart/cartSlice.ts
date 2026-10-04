@@ -14,7 +14,7 @@ export interface CartItem {
   quantity: number;
 
   idPaket?: string | number;
-  idOrder?: string;
+  idList?: string;
   productName?: string;
   productImage?: string;
   inputHarga?: number;
