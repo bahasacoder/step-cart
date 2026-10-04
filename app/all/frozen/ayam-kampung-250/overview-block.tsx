@@ -9,7 +9,7 @@ import type { RootState, AppDispatch } from "@/lib/store";
 
 import { Product } from '@/lib/features/products/productSlice';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { addToCart } from '@/lib/features/cart/cartSlice';
+import { addItemToCart } from '@/lib/features/cart/cartSlice';
 
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
@@ -24,6 +24,7 @@ export default function OverviewBlock() {
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState(1);
     const [idPaket, setIdPaket] = useState('ay211');
+    const [idOrder, setIdOrder] = useState<string | null>(null);
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
     const totalHargaItem = inputHarga - diskonHarga;
     const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
@@ -35,11 +36,6 @@ export default function OverviewBlock() {
     useEffect(() => {
       setTotalHargaJadi(inputHarga - diskonHarga);
     }, [inputHarga, diskonHarga]);
-    interface Product {
-          id: string; // Ensure this matches everywhere (either both string or both number)
-          name: string;
-          price: number;
-        }
     interface ProductState {      
           productName: string;
           productImage: string;
@@ -47,8 +43,10 @@ export default function OverviewBlock() {
           diskonHarga: number | null;
           diskonValue: number;
           childValue: number;
+          quantity: number;
           idPaket: string;
           totalHargaJadi: number;
+          idOrder: string | null;
         }
 
     const [productState, setProductState] = useState<ProductState>({
@@ -58,8 +56,10 @@ export default function OverviewBlock() {
       diskonHarga: diskonHarga,
       diskonValue: diskonValue,
       childValue: childValue,
+      quantity: childValue, // Assuming quantity is the same as childValue
       idPaket: idPaket,
       totalHargaJadi: totalHargaJadi,
+      idOrder: idOrder,
     });
 
 
@@ -113,35 +113,49 @@ export default function OverviewBlock() {
       
   };
   
-     const dispatch = useDispatch<AppDispatch>();    
+  function Str_Random(  length: number) {
+      let result = '';
+      const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      
+      // Loop to generate characters for the specified length
+      for (let i = 0; i < length; i++) {
+          const randomInd = Math.floor(Math.random() * characters.length);
+          result += characters.charAt(randomInd);
+      }
+      return result;
+  }
+
+  const dispatch = useDispatch<AppDispatch>();    
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
   // const itemInCart = cartItems.find((item) => item.product.id === product.id);
     
     
     const handleAddToCart = (currentProduct: any) => {
+      setIdOrder(Str_Random(4));
       const nextProductState: ProductState = {
         productName: productName,
         productImage: productImage,
-        inputHarga:  Number(inputHarga),
+        inputHarga: Number(inputHarga),
         diskonHarga: diskonHarga,
         diskonValue: diskonValue,
         childValue: Number(childValue),
+        quantity: Number(childValue),
         idPaket: idPaket,
         totalHargaJadi: totalHargaJadi,
+        idOrder: idOrder,
       };
 
-      let found = itemProduct.find(ips => ips.inputHarga === Number(inputHarga) && ips.childValue === Number(childValue)); // returns null
-      setItemProduct((prevItemProduct: any) => [...prevItemProduct,{
-         ...nextProductState,
-      }]);
-      const newItemProduct = [...itemProduct, nextProductState]; // Cara lebih singkat untuk menggabungkan array
+      const newItemProduct = [...itemProduct, nextProductState];
       setItemProduct(newItemProduct);
 
-      // console.log('handleGetItemProduct', itemProduct); // menampilkan state lama, karena setState bersifat asynchronous
-      //  Gunakan variabel salinan untuk melihat hasil instan
-      console.log('handleGetItemProduct (Updated):', newItemProduct); 
+      const cartProduct = {
+        ...nextProductState,
+        id: Number(nextProductState.idPaket),
+      } as Parameters<typeof addItemToCart>[0];
+
+      console.log('handleGetItemProduct (Updated):', newItemProduct);
       console.log('Product added to cart:', nextProductState);
-      dispatch(addToCart(nextProductState));
+      dispatch(addItemToCart(cartProduct));
     };
 
 
