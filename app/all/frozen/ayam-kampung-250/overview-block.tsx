@@ -150,8 +150,7 @@ export default function OverviewBlock() {
 
       const cartProduct = {
         ...nextProductState,
-        // id: Number(nextProductState.idPaket),
-          id: idList,
+        id: Number(nextProductState.idList),
       } as Parameters<typeof addItemToCart>[0];
 
       console.log('handleGetItemProduct (Updated):', newItemProduct);
