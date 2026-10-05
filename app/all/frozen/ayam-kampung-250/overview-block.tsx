@@ -155,6 +155,8 @@ export default function OverviewBlock() {
 
       console.log('handleGetItemProduct (Updated):', newItemProduct);
       console.log('Product added to cart:', nextProductState);
+        console.log('addItemToCart', cartProduct)
+        console.log('idList', idList)
       dispatch(addItemToCart(cartProduct));
     };
 
