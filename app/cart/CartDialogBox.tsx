@@ -9,6 +9,15 @@ import Link from "next/link";
 import CartListItem from "./CartListItem";
 
 export default function CartDialogBox() {
+    const dispatch = useAppDispatch();
+  const { items, totalItems, totalPrice } = useAppSelector((state) => state.cart);
+
+  const handleClearCart = () => {
+    if (confirm('Are you sure you want to clear the cart?')) {
+      dispatch(clearCart());
+    }
+  };
+
   const cartItems = useAppSelector((state) => state.cart.items) || [];
   console.log('Cart items View:', cartItems);
   const totalQuantity = useAppSelector((state) => state.cart.totalItems );
