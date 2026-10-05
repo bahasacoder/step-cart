@@ -24,7 +24,7 @@ export default function OverviewBlock() {
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState(1);
     const [idPaket, setIdPaket] = useState('ay211');
-    const [idList, setIdList] = useState<string>();
+    const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
     const totalHargaItem = inputHarga - diskonHarga;
     const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
@@ -131,7 +131,7 @@ export default function OverviewBlock() {
     
     
     const handleAddToCart = (currentProduct: any) => {
-      setIdList(Str_Random(4));
+     // setIdList(Str_Random(4));
       const nextProductState: ProductState = {
         productName: productName,
         productImage: productImage,
