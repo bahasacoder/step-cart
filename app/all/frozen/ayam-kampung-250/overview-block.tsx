@@ -24,7 +24,7 @@ export default function OverviewBlock() {
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState(1);
     const [idPaket, setIdPaket] = useState('ay211');
-    const [idList, setIdList] = useState<string | null>(null);
+    const [idList, setIdList] = useState<string>(null);
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
     const totalHargaItem = inputHarga - diskonHarga;
     const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
@@ -46,7 +46,7 @@ export default function OverviewBlock() {
           quantity: number;
           idPaket: string;
           totalHargaJadi: number;
-          idList: string | null;
+          idList: string;
         }
 
     const [productState, setProductState] = useState<ProductState>({
@@ -150,7 +150,8 @@ export default function OverviewBlock() {
 
       const cartProduct = {
         ...nextProductState,
-        id: Number(nextProductState.idPaket),
+        // id: Number(nextProductState.idPaket),
+          id: idList,
       } as Parameters<typeof addItemToCart>[0];
 
       console.log('handleGetItemProduct (Updated):', newItemProduct);
