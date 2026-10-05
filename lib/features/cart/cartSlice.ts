@@ -96,7 +96,7 @@ const cartSlice = createSlice({
     },
     updateQuantity: (
       state: CartState,
-      action: PayloadAction<{ idList: number; quantity: number }>,
+      action: PayloadAction<{ idList: string; quantity: number }>,
     ) => {
       const item = state.items.find((item) => item.id === action.payload.idList);
       if (item) {
