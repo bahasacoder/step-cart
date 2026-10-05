@@ -98,7 +98,7 @@ const cartSlice = createSlice({
       state: CartState,
       action: PayloadAction<{ idList: string; quantity: number }>,
     ) => {
-      const item = state.items.find((item) => item.id === action.payload.idList);
+      const item = state.items.find((item) => item.idList === action.payload.idList);
       if (item) {
         if (action.payload.quantity <= 0) {
           state.items = state.items.filter((item) => item.id !== action.payload.idList);
