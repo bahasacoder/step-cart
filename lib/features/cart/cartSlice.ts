@@ -96,12 +96,12 @@ const cartSlice = createSlice({
     },
     updateQuantity: (
       state: CartState,
-      action: PayloadAction<{ productId: number; quantity: number }>,
+      action: PayloadAction<{ idList: number; quantity: number }>,
     ) => {
-      const item = state.items.find((item) => item.id === action.payload.productId);
+      const item = state.items.find((item) => item.id === action.payload.idList);
       if (item) {
         if (action.payload.quantity <= 0) {
-          state.items = state.items.filter((item) => item.id !== action.payload.productId);
+          state.items = state.items.filter((item) => item.id !== action.payload.idList);
         } else {
           item.quantity = action.payload.quantity;
         }
