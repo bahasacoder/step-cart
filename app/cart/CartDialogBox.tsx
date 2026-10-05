@@ -22,7 +22,6 @@ export default function CartDialogBox() {
   console.log('Cart items View:', cartItems);
   const totalQuantity = useAppSelector((state) => state.cart.totalItems );
   const totalAmount = useAppSelector((state) => state.cart.totalPrice );
-  const dispatch = useAppDispatch();
 
   const getItemName = (item: any) => {
     const itemWithName = item as { id?: string | number; name?: string; title?: string; product?: { name?: string; title?: string }; productName?: { name?: string; title?: string } };
