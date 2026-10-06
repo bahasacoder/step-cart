@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItemFromCart, updateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
+import { removeListItemFromCart, removeItemFromCart, updateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export default function CartDialogBox() {
   };
 
   const cartItems = useAppSelector((state) => state.cart.items) || [];
-  console.log('Cart items View:', cartItems);
+  console.log('Cart Dialog Box:', cartItems);
   const totalQuantity = useAppSelector((state) => state.cart.totalItems );
   const totalAmount = useAppSelector((state) => state.cart.totalPrice );
 
@@ -40,17 +40,16 @@ export default function CartDialogBox() {
               const lineTotal = (Number((item as { price?: number }).price) || 0) * (Number(item.quantity) || 0);
 
               return (
-                <>                  
+                <li key={item.idList || index}>
                   <p>{item.idList}</p>
-                  <CartListItem 
-                    key={item.idList || index}
+                  <CartListItem
                     item={item}
-                    onRemove={() => dispatch(removeItemFromCart(item.idList || ''))}
+                    onRemove={() => dispatch(removeListItemFromCart(item.idList || ''))}
                     onUpdateQuantity={(quantity) =>
-                      dispatch(updateQuantity({ item.idList, quantity }))
-                    }  
+                      dispatch(updateQuantity({ idList: item.idList ?? '', quantity }))
+                    }
                   />
-                </>
+                </li>
               );
             })}
             
