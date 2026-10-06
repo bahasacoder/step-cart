@@ -131,7 +131,7 @@ export default function OverviewBlock() {
     
     
     const handleAddToCart = (currentProduct: any) => {
-     // setIdList(Str_Random(4));
+     setIdList(Str_Random(4));
       const nextProductState: ProductState = {
         productName: productName,
         productImage: productImage,
@@ -142,7 +142,7 @@ export default function OverviewBlock() {
         quantity: Number(childValue),
         idPaket: idPaket,
         totalHargaJadi: totalHargaJadi,
-        idList: idList,
+        idList: Str_Random(4), // Generate a new random idList for each product added to the cart
       };
 
       const newItemProduct = [...itemProduct, nextProductState];
