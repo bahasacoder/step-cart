@@ -81,13 +81,17 @@ const cartSlice = createSlice({
       // idOrder, quantity
     },
     removeOneItemFromCart(){},
-    removeItemFromCart: (state: CartState, action: PayloadAction<string>) => {
-      console.log('item.idList 1 : ', item.idList)
+    removeListItemFromCart(state: CartState, action: PayloadAction<string>) {
+      console.log('Removing item with idList:', action.payload);
       state.items = state.items.filter((item) => item.idList !== action.payload);
-      console.log('item.idList 2 : ', item.idList)
-       // 2. Hitung ulang total harga berdasarkan item yang tersisa
+    },
+    removeItemFromCart: (state: CartState, action: PayloadAction<string>) => {
+      console.log('Removing item with idList:', action.payload);
+      state.items = state.items.filter((item) => item.idList !== action.payload);
+
+      // 2. Hitung ulang total harga berdasarkan item yang tersisa
       // state.totalPrice = state.items.reduce(
-      //   (total, item) => total + item.price * item.quantity, 
+      //   (total, item) => total + item.price * item.quantity,
       //   0
       // );
       const totals = calculateTotals(state.items);
@@ -118,5 +122,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart, removeItemFromCart, addOneItemFromCart, removeOneItemFromCart, updateQuantity, clearCart } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, addOneItemFromCart, removeOneItemFromCart, removeListItemFromCart, updateQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
