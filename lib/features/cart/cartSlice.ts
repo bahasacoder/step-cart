@@ -81,10 +81,12 @@ const cartSlice = createSlice({
       // idOrder, quantity
     },
     removeOneItemFromCart(){},
+    
     removeListItemFromCart(state: CartState, action: PayloadAction<string>) {
       console.log('Removing item with idList:', action.payload);
       state.items = state.items.filter((item) => item.idList !== action.payload);
     },
+
     removeItemFromCart: (state: CartState, action: PayloadAction<string>) => {
       console.log('Removing item with idList:', action.payload);
       state.items = state.items.filter((item) => item.idList !== action.payload);
@@ -122,5 +124,9 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart, removeItemFromCart, addOneItemFromCart, removeOneItemFromCart, removeListItemFromCart, updateQuantity, clearCart } = cartSlice.actions;
+export const { 
+  addItemToCart, removeItemFromCart, 
+  addOneItemFromCart, removeOneItemFromCart, 
+  removeListItemFromCart, updateQuantity, 
+  clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
