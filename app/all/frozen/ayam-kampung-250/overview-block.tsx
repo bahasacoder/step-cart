@@ -14,6 +14,7 @@ import { addItemToCart } from '@/lib/features/cart/cartSlice';
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
+import CartCardDialog from "./cart-card";
 //  onValueChangeHarga={setInputHarga}
 
 export default function OverviewBlock() {
@@ -176,7 +177,7 @@ export default function OverviewBlock() {
 
                   
                     <div className="space-y-6 py-5">
-                        <nav aria-label="breadcrumb" data-slot="breadcrumb" className="cn-breadcrumb">
+                        <nav aria-label="breadcrumb" data-slot="breadcrumb" className="cn-breadcrumb flex flex-wrap items-center gap-2.5 text-sm text-muted-foreground justify-between">
                             <ol data-slot="breadcrumb-list" className="cn-breadcrumb-list flex flex-wrap items-center wrap-break-word">
                                 <div className="flex items-center gap-2.5">
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><a data-slot="breadcrumb-link" className="cn-breadcrumb-link" href="#">Daging</a></li>
@@ -194,6 +195,9 @@ export default function OverviewBlock() {
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" className="cn-breadcrumb-page">Frozen</span></li>
                                 </div>
                             </ol>
+                            <div>
+                              <CartCardDialog />
+                            </div>
                         </nav>
                         <h1 className="text-3xl font-semibold" id={'AyamKampungFrozen766'}>Ayam Kampung Frozen</h1>
                         <div className="flex w-fit items-center rounded-sm border px-2.5 py-1.5">
