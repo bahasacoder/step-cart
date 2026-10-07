@@ -128,8 +128,8 @@ export default function OverviewBlock() {
 
   const dispatch = useDispatch<AppDispatch>();    
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
-  // const itemInCart = cartItems.find((item) => item.product.id === product.id);
-    
+
+  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
     
     const handleAddToCart = (currentProduct: any) => {
      setIdList(Str_Random(4));
@@ -195,8 +195,11 @@ export default function OverviewBlock() {
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><span data-slot="breadcrumb-page" role="link" aria-disabled="true" aria-current="page" className="cn-breadcrumb-page">Frozen</span></li>
                                 </div>
                             </ol>
-                            <div>
+                            <div className="flex items-center gap-2.5">
                               <CartCardDialog />
+                              <span className="bg-primary text-primary-foreground rounded-full px-2 py-1 text-sm font-bold">
+                                {totalItemsCount}
+                              </span>
                             </div>
                         </nav>
                         <h1 className="text-3xl font-semibold" id={'AyamKampungFrozen766'}>Ayam Kampung Frozen</h1>
