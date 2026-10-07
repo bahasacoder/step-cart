@@ -42,14 +42,13 @@ const initialState: CartState = {
 };
 
 const calculateTotals = (items: CartItem[]): CartTotals => {
-  // const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  // const totalPrice = parseFloat(
-  //   items
-  //     .reduce((sum, item) => sum + item.product.price * item.quantity, 0)
-  //     .toFixed(2)
-  // );
-  // return { totalItems, totalPrice };
-  return { totalItems: 0, totalPrice: 0 };
+   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+   const totalPrice = parseFloat(
+     items
+      .reduce((sum, item) => sum + (item.inputHarga ?? 0) * item.quantity, 0)
+       .toFixed(2)
+   );
+  return { totalItems, totalPrice };
 };
 
 const cartSlice = createSlice({
@@ -77,11 +76,6 @@ const cartSlice = createSlice({
       // state.totalItems = totals.totalItems;
       // state.totalPrice = totals.totalPrice;
     },
-    addOneItemFromCart(){
-      // idOrder, quantity
-    },
-    removeOneItemFromCart(){},
-    
     removeListItemFromCart(state: CartState, action: PayloadAction<string>) {
       console.log('Removing item with idList:', action.payload);
       state.items = state.items.filter((item) => item.idList !== action.payload);
@@ -100,7 +94,7 @@ const cartSlice = createSlice({
       state.totalItems = totals.totalItems;
       state.totalPrice = totals.totalPrice;
     },
-    updateQuantity: (
+    onUpdateQuantity: (
       state: CartState,
       action: PayloadAction<{ idList: string; quantity: number }>,
     ) => {
@@ -111,6 +105,39 @@ const cartSlice = createSlice({
         } else {
           item.quantity = action.payload.quantity;
         }
+      }
+      const totals = calculateTotals(state.items);
+      state.totalItems = totals.totalItems;
+      state.totalPrice = totals.totalPrice;
+    },    
+    decreaseQuantity: (state: CartState, action: PayloadAction<string>) => {
+      const item = state.items.find((item) => item.idList === action.payload);
+      console.log('Decreasing diklik:', action.payload);
+      console.log('Decreasing quantity:', item?.quantity);
+      // if (item && item.quantity > 1) {
+      //   item.quantity -= 1;
+      // } else if (item && item.quantity === 1) {
+      //   state.items = state.items.filter((item) => item.idList !== action.payload);
+      // }
+      if (item) {
+        if (item.quantity === 1) {
+          // Jika kuantitas tersisa 1, hapus item dari keranjang belanja
+          state.items = state.items.filter((item) => item.idList !== action.payload);
+        } else {
+          // Jika kuantitas lebih dari 1, kurangi 1
+          item.quantity--;
+        }
+      }
+      const totals = calculateTotals(state.items);
+      state.totalItems = totals.totalItems;
+      state.totalPrice = totals.totalPrice;
+    },
+    increaseQuantity: (state: CartState, action: PayloadAction<string>) => {
+      const item = state.items.find((item) => item.idList === action.payload);
+      console.log('Increasing diklik:', action.payload);
+       console.log('Increasing quantity:', item?.quantity);
+      if (item) {
+        item.quantity += 1;
       }
       const totals = calculateTotals(state.items);
       state.totalItems = totals.totalItems;
@@ -126,7 +153,7 @@ const cartSlice = createSlice({
 
 export const { 
   addItemToCart, removeItemFromCart, 
-  addOneItemFromCart, removeOneItemFromCart, 
-  removeListItemFromCart, updateQuantity, 
+  removeListItemFromCart, onUpdateQuantity, 
+  increaseQuantity, decreaseQuantity,
   clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
