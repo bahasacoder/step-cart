@@ -24,7 +24,6 @@ import TabDataSheet from "./tab-data-sheet";
 import TabReviews from "./tab-reviews";
 import TabSpecification from "./tab-specification";
 import OverviewBlock from "./overview-block"
-import CartView from "./CartView"
 
 export default function AyamKampungDuaLimaPage() {
   const [quantity, setQuantity] = useState(5);
@@ -37,7 +36,6 @@ export default function AyamKampungDuaLimaPage() {
 
        {/* Product Tabs */}
             <div className="row">
-              <CartView />
               <div className="col-sm-12">
                  <Tabs className="w-full flex flex-col gap-3" defaultValue="description">
                     <TabsList className="w-full flex p-4" variant="line">
