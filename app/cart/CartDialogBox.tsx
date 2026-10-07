@@ -9,7 +9,7 @@ import Link from "next/link";
 import CartListItem from "./CartListItem";
 
 export default function CartDialogBox() {
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const { items, totalItems, totalPrice } = useAppSelector((state) => state.cart);
 
   const handleClearCart = () => {
@@ -60,7 +60,8 @@ export default function CartDialogBox() {
                   />
                 </li>
               );
-            })}
+            }
+            )}
             
           </ul>
           <p>Total Items: {totalItemsCount}</p>
