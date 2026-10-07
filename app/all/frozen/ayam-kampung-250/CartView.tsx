@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItemFromCart, updateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
+import { removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 // import './CartView.css'; // Optional: for basic styling
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 
