@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeListItemFromCart, removeItemFromCart, updateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
+import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import Image from "next/image";
 import Link from "next/link";
@@ -20,8 +20,12 @@ export default function CartDialogBox() {
 
   const cartItems = useAppSelector((state) => state.cart.items) || [];
   console.log('Cart Dialog Box:', cartItems);
-  const totalQuantity = useAppSelector((state) => state.cart.totalItems );
-  const totalAmount = useAppSelector((state) => state.cart.totalPrice );
+
+  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
+  const totalPriceSum = cartItems.reduce((total, item) => total + ((item.inputHarga || 0) * (item.quantity || 0)), 0);
+  const totalHargaDiskon = cartItems.reduce((total, item) => total + (item.diskonHarga || 0) * (item.quantity || 0), 0);
+  const totalPayable = totalPriceSum - totalHargaDiskon;
+
 
   const getItemName = (item: any) => {
     const itemWithName = item as { id?: string | number; name?: string; title?: string; product?: { name?: string; title?: string }; productName?: { name?: string; title?: string } };
@@ -38,10 +42,9 @@ export default function CartDialogBox() {
             {cartItems.map((item, index) => {
               const itemId = Number((item as { id?: string | number }).id);
               const lineTotal = (Number((item as { price?: number }).price) || 0) * (Number(item.quantity) || 0);
-
+              
               return (
                 <li key={item.idList || index}>
-                  <p>{item.idList}</p>
                   <CartListItem
                     item={item}
                     onRemove={() => {
@@ -49,18 +52,26 @@ export default function CartDialogBox() {
                         dispatch(removeListItemFromCart(item.idList));
                       }
                     }}
-                    onUpdateQuantity={(quantity) =>
-                      dispatch(updateQuantity({ idList: item.idList ?? '', quantity }))
-                    }
+                    onUpdateQuantity={() => {
+                      if (item.idList !== undefined) {
+                        dispatch(onUpdateQuantity({ idList: item.idList, quantity: item.quantity }));
+                      }
+                    }}
                   />
                 </li>
               );
             })}
             
           </ul>
-          <p>Total Items: {totalQuantity}</p>
-          <p>Total Amount: ${totalAmount}</p>
-          <button onClick={() => dispatch(clearCart())}>Clear Cart</button>
+          <p>Total Items: {totalItemsCount}</p>
+          <p>Total Amount: ${totalPriceSum.toFixed(2)}</p>
+          <p>Total Discount: ${totalHargaDiskon.toFixed(2)}</p>
+          <p>Total Payable: ${totalPayable.toFixed(2)}</p>
+          
+          <Link href="/checkout">
+            <button>Proceed to Checkout</button>
+          </Link>
+          <button onClick={handleClearCart}>Clear Cart</button>
         </>
       )}
         
