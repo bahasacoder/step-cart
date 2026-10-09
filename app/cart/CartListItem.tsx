@@ -5,16 +5,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { CartItem as CartItemType } from '@/lib/features/cart/cartSlice';
 import { removeItemFromCart, onUpdateQuantity, increaseQuantity, decreaseQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
+import { Checkbox } from "@/components/ui/checkbox";
+import  styles from "./CartListItem.module.css";
+
 import Image from "next/image";
-import Link from "next/link";
+import Link from "next/link"; 
 
 interface CartItemProps {
   item: CartItemType;
   onRemove: () => void;
   onUpdateQuantity: (quantity: number) => void;
+  onChecked: (item: CartItemType, checked: boolean) => void;
 }
 
-export default function CartListItem({ item, onRemove, onUpdateQuantity }: CartItemProps) {
+export default function CartListItem({ item, onRemove, onUpdateQuantity, onChecked }: CartItemProps) {
   // const { product, quantity } = item; 
   const cartItems = useAppSelector((state) => state.cart.items) || [];
   console.log('Cart List Items View:', cartItems);
@@ -26,21 +30,51 @@ export default function CartListItem({ item, onRemove, onUpdateQuantity }: CartI
   const totalPrice = unitPrice * itemQuantity;
   const totalHargaItem = Number(item.totalHargaJadi ?? 0) * Number(item.quantity ?? 0);
   const totalHargaDiskon = Number(item.diskonHarga ?? 0) * Number(item.quantity ?? 0);
-
-  /*
-  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // dispatch(updateQuantity({ productId, quantity: newQuantity }));
-    const num = Number(e.target.value);
-   }
-   */
-
   
-  return (    
-                  <div className="flex items-center gap-4 py-2">
-                      <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&amp;fit=crop&amp;q=80&amp;w=1160" alt="" className="size-16 rounded-sm object-cover" />
+  const [checkedItem, setCheckedItem] = useState<string[]>([]);
 
-                      <div>
-                        <h3 className="text-sm text-gray-900">{item.productName} {item.idList}</h3>
+  // Handler ketika status checkbox berubah
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      // Jika dicentang, tambahkan nilai baru ke dalam array state
+      setCheckedItem((prevItems) => [...prevItems, value]);
+      onChecked(item, true); // Panggil callback onChecked dengan nilai true
+    } else {
+      // Jika centang dilepas, hapus nilai tersebut dari array state menggunakan filter
+      setCheckedItem((prevItems) => prevItems.filter((item) => item !== value));
+      onChecked(item, false); // Panggil callback onChecked dengan nilai false
+    }
+  };
+  
+ 
+  return (    
+    <>    
+      
+
+    {/* --------- */}
+                <div className="flex gap-6 border-t pt-7 pb-4 max-sm:flex-col sm:items-center">
+                    <div className="flex items-center gap-4">                    
+                      <div className="block">
+                        <label className={styles["liquid-checkbox"]}>
+                            <input 
+                              type="checkbox" 
+                              value={item.idList}
+                              checked={item.idList !== undefined && checkedItem.includes(item.idList)}
+                              onChange={handleCheckboxChange}
+                            />
+                            <div className={styles["checkbox-box"]}>
+                              <svg viewBox="0 0 24 24" className={styles["checkmark"]}>
+                                <path d="M4.5 12.75l6 6 9-13.5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                          </label>
+                      </div>
+                      <div className="size-25">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&amp;fit=crop&amp;q=80&amp;w=1160" alt="" className="size-16 rounded-sm object-cover" />
+                      </div>
+                      <div className="flex w-full flex-col gap-1">
+                        <h3 className="text-lg text-gray-900">{item.productName} {item.idList}</h3>
 
                         <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
                           <div>
@@ -54,7 +88,9 @@ export default function CartListItem({ item, onRemove, onUpdateQuantity }: CartI
                           </div>
                         </dl>
                       </div>
-
+                    </div>
+                    
+                    <div className="flex items-center gap-4">    
                       <div className="flex flex-1 items-center justify-evenly gap-2">
                         <div className="flex items-center px-2.5 py-1.5 border border-slate-300 text-slate-900 text-xs rounded-md dark:border-neutral-700 dark:text-slate-50 dark:bg-neutral-800" data-editor-id="41">
                                           <button type="button" aria-label="Decrease quantity" className="cursor-pointer focus:outline-none focus-visible:ring-2
@@ -89,19 +125,24 @@ export default function CartListItem({ item, onRemove, onUpdateQuantity }: CartI
                                             </svg>
                                           </button>
                         </div>
-                        <div className="text-right">
-                          <p className="text-sm font-medium text-gray-900">Total Bayar: {totalHargaItem.toFixed(2)}</p>
-                          <p className="text-xs text-gray-600">Total Harga: {(itemQuantity * unitPrice).toFixed(2)}</p>
-                        </div>
-
-                        <button className="text-gray-600 transition hover:text-red-600" onClick={onRemove}>
-                          <span className="sr-only">Remove item</span>
-
-                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path>
-                          </svg>
-                        </button>
                       </div>
                     </div>
-              )
+
+                    <div className="flex items-center gap-4">    
+                          <div className="text-right flex flex-col gap-1">
+                            <p className="text-sm font-medium text-gray-900">Bayar : {totalHargaItem.toFixed(2)}</p>
+                            <p className="text-xs text-gray-600">Harga : {(itemQuantity * unitPrice).toFixed(2)}</p>
+                          </div>
+
+                          <button className="text-gray-600 transition hover:text-red-600" onClick={onRemove}>
+                            <span className="sr-only">Remove item</span>
+
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path>
+                            </svg>
+                          </button>
+                    </div>
+                </div>
+    </>
+ )
 }
