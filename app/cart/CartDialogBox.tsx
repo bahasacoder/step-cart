@@ -2,13 +2,17 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
+import { addItemToCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button"
 import CartListItem from "./CartListItem";
 
 export default function CartDialogBox() {
+    const [checkedItems, setCheckedItems] = useState<string[]>([]);
+
   const dispatch = useAppDispatch();
   const { items, totalItems, totalPrice } = useAppSelector((state) => state.cart);
 
@@ -32,50 +36,177 @@ export default function CartDialogBox() {
     return itemWithName.name ?? itemWithName.title ?? itemWithName.product?.name ?? itemWithName.product?.title ?? `Item #${item.id}`;
   };
 
+  const handleMergerItem = () => {
+    // Implement the logic to merge items in the cart
+    console.log('Merging items in the cart...');
+  }
+  const handleProceedToCheckout = (checkedItems: string[]) => {
+    // Implement the logic to proceed to checkout
+    console.log('Proceeding to checkout...', checkedItems);
+    const selectedItems = checkedItems.join(', ');
+    alert(`Proceeding to checkout with the following items: ${selectedItems}`);
+    cartItems
+      .filter((item) => item.idList !== undefined && checkedItems.includes(String(item.idList)))
+      .forEach((item) => dispatch(addItemToCheckout({ ...item, id: Number(item.id) })));
+  };
+
   return (
-    <div>
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <>
-          <ul>
-            {cartItems.map((item, index) => {
-              const itemId = Number((item as { id?: string | number }).id);
-              const lineTotal = (Number((item as { price?: number }).price) || 0) * (Number(item.quantity) || 0);
-              
-              return (
-                <li key={item.idList || index}>
-                  <CartListItem
-                    item={item}
-                    onRemove={() => {
-                      if (item.idList !== undefined) {
-                        dispatch(removeListItemFromCart(item.idList));
-                      }
-                    }}
-                    onUpdateQuantity={() => {
-                      if (item.idList !== undefined) {
-                        dispatch(onUpdateQuantity({ idList: item.idList, quantity: item.quantity }));
-                      }
-                    }}
-                  />
-                </li>
-              );
-            }
-            )}
-            
-          </ul>
-          <p>Total Items: {totalItemsCount}</p>
-          <p>Total Amount: ${totalPriceSum.toFixed(2)}</p>
-          <p>Total Discount: ${totalHargaDiskon.toFixed(2)}</p>
-          <p>Total Payable: ${totalPayable.toFixed(2)}</p>
-          
-          <Link href="/checkout">
-            <button>Proceed to Checkout</button>
-          </Link>
-          <button onClick={handleClearCart}>Clear Cart</button>
-        </>
-      )}
-        
-      </div>
+    <div className="h-full w-full">
+      <section className="py-8 sm:py-16 lg:py-24">
+        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+    {/* ------ */}
+            <div className=" w-full space-y-3 px-6 lg:col-span-2">
+              <div className="flex w-full items-center justify-between">
+                <h2 className="text-2xl font-semibold">Your Cart</h2>
+                <div className="flex flex-row gap-3 text-lg text-gray-800">
+                    <p>{totalItemsCount}</p>
+                    <p>Items in cart</p>
+                </div>
+              </div>
+              {cartItems.length === 0 ? (
+                <p>Your cart is empty.</p>
+              ) : (
+                <>
+                  <ul>
+                    {cartItems.map((item, index) => {
+                      const itemId = Number((item as { id?: string | number }).id);
+                      const lineTotal = (Number((item as { price?: number }).price) || 0) * (Number(item.quantity) || 0);
+                      
+                      return (
+                        <li key={item.idList || index}>
+                          <CartListItem
+                            item={item}
+                            onRemove={() => {
+                              if (item.idList !== undefined) {
+                                dispatch(removeListItemFromCart(item.idList));
+                              }
+                            }}
+                            onUpdateQuantity={() => {
+                              if (item.idList !== undefined) {
+                                dispatch(onUpdateQuantity({ idList: item.idList, quantity: item.quantity }));
+                              }
+                            }}
+                            onChecked={(item, checked) => {
+                              if (item.idList === undefined) return;
+                              const id = item.idList as string;                              
+                              setCheckedItems((prevChecked) => {
+                                if (checked) {
+                                  return prevChecked.includes(id) ? prevChecked : [...prevChecked, id];
+                                } 
+                                return prevChecked.filter((itemId) => itemId !== id);
+                              });
+                            }}
+                          />
+                        </li>
+                      );
+                    }
+                    )}
+                    
+                  </ul> 
+                  <p>Total Payable: ${totalPayable.toFixed(2)}</p>
+                  <div style={{ background: '#f4f4f4', padding: '15px', borderRadius: '5px' }}>
+                    <strong>Isi Array Saat Ini:</strong>
+                    <p>{checkedItems.join(', ')}</p>
+                    <pre>{JSON.stringify(checkedItems, null, 2)}</pre>
+                    <p>Total Item Terpilih: {checkedItems.length}</p>
+                  </div>
+                  
+                  
+                    <button onClick={() => handleProceedToCheckout(checkedItems)}>Proceed to Checkout</button>
+                  
+                  <button onClick={handleClearCart}>Clear Cart</button>
+                </>
+              )}
+                
+          </div>
+    {/* ------ */}
+               <div className="space-y-6 rounded-lg border bg-green-50 p-6 shadow-sm">
+                  <div
+                                data-slot="card"
+                                data-size="default"
+                                className="cn-card group/card flex flex-col w-full max-w-md text-base shadow-none ring-0"
+                            >
+                                <div
+                                    data-slot="card-header"
+                                    className="cn-card-header group/card-header @container/card-header grid auto-rows-min items-start has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto]"
+                                    >
+                                        <div data-slot="card-title" className="cn-card-title cn-font-heading text-xl font-semibold">
+                                            Price Details
+                                        </div>
+                                </div>
+                                    <div data-slot="card-content" className="cn-card-content space-y-5">
+                                        <div
+                                            data-orientation="horizontal"
+                                            role="separator"
+                                            aria-orientation="horizontal"
+                                            data-slot="separator"
+                                            className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"
+                                        ></div>
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-muted-foreground">Total Items : </span>
+                                            <span className="font-medium">{totalItemsCount}</span>
+                                        </div>
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-muted-foreground">Total Amount : </span>
+                                            <span className="font-medium">${totalPriceSum.toFixed(2)}</span>
+                                        </div>
+                                        
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-muted-foreground">Discount : </span>
+                                            <span className="font-medium">{totalHargaDiskon.toFixed(2)}</span>
+                                        </div>                                        
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-muted-foreground">Pajak : </span>
+                                            <span className="font-medium">00.00</span>
+                                        </div>
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-muted-foreground">Shipping</span>
+                                            <span className="font-medium">Free Delivery</span>
+                                        </div>
+                                        <div
+                                            data-orientation="horizontal"
+                                            role="separator"
+                                            aria-orientation="horizontal"
+                                            data-slot="separator"
+                                            className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"
+                                        ></div>
+                                        <div className="flex items-center justify-between text-lg font-semibold">
+                                            <span>Total</span>
+                                            <span>
+                                            {(totalPriceSum - totalHargaDiskon).toFixed(2)}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div data-slot="card-content" className="cn-card-content flex flex-col items-start gap-3.5">
+                                        <div className="flex w-full flex-col gap-3.5 mx-auto">
+                                              <Button variant="default" className="rounded-full">
+                                                Checkout
+                                              </Button>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <p>We Accept:</p>
+                                            <div className="flex items-center gap-4">
+                                                <img src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/visa.png" alt="Visa" className="h-4" />
+                                                <img
+                                                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/paypal-icon.png"
+                                                    alt="PayPal"
+                                                    className="h-4"
+                                                />
+                                                <img
+                                                    src="https://cdn.shadcnstudio.com/ss-assets/brand-logo/master.png"
+                                                    alt="Mastercard"
+                                                    className="h-4"
+                                                />
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                </div>
+          </div>
+        </div>
+      </section>
+       
+    </div>
   )
 }
