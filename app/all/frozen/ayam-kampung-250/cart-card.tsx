@@ -77,11 +77,12 @@ export default function CartCardDialog() {
                                                     dispatch(removeListItemFromCart(item.idList));
                                                   }
                                                 }}
-                                                onUpdateQuantity={() => {
+                                                onUpdateQuantity={(nextQuantity) => {
                                                   if (item.idList !== undefined) {
-                                                    dispatch(onUpdateQuantity({ idList: item.idList, quantity: item.quantity }));
+                                                    dispatch(onUpdateQuantity({ idList: item.idList, quantity: nextQuantity ?? item.quantity }));
                                                   }
                                                 }}
+                                                onChecked={() => {}}
                                               />
                           </div>
                         );
