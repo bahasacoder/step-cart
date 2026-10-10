@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface CheckedItem {
   idList: string,
+  name?: string;
+  price?: number;
   idPaket?: string | number;
   productName?: string;
   productImage?: string;
@@ -16,20 +18,24 @@ interface CheckedItemsState {
   items: CheckedItem[];
   totalItems: number;
   totalPrice: number;
+  totalDiscount: number;
+  checkoutId: string; // Tambahkan properti untuk menyimpan ID Checkout
 }
 
 interface CheckoutTotals {
   totalItems: number;
   totalPrice: number;
-  totalDiscount: number;
-  
+  totalDiscount: number;  
 }
 
 const initialState: CheckedItemsState = {
   items: [],
   totalItems: 0,
   totalPrice: 0,
+  totalDiscount: 0,
+  checkoutId: '',
 };
+
 
 const calculateTotals = (items: CheckedItem[]): CheckoutTotals => {
   const totalItems = items.reduce((sum, item) => sum + (item.quatity ?? 0), 0);
@@ -83,8 +89,17 @@ const checkoutSlice = createSlice({
         state.items = state.items.filter((item) => item.idList !== idListToRemove);
       }
 
+      // Otomatis perbarui ID Checkout setiap kali item berkurang
+      state.checkoutId = generateSliceCheckoutId(state.items);
+
       console.log('read checkout', state.items?.map((item) => item.idList) || []);
     },
+
+    clearCheckout: (state) => {
+      state.items = [];
+      state.checkoutId = ''; // Kosongkan ID saat transaksi selesai
+    },
+
     addListToCheckeds: (state: CheckedItemsState, action: PayloadAction<string>) => {
       console.log(action.payload);
       return state;
@@ -96,5 +111,13 @@ const checkoutSlice = createSlice({
   },
 });
 
-export const { addListToCheckout, removeListFromCheckout, addListToCheckeds, canceListToCheckeds } = checkoutSlice.actions;
+// Helper fungsi internal di dalam file slice untuk membuat ID secara konsisten
+const generateSliceCheckoutId = (items: CheckedItem[]): string => {
+  if (!items || items.length === 0) return '';
+  const sortedIds = items.map((item) => item.idList).sort();
+  const timestamp = Date.now().toString().slice(-4);
+  return `CHK-${timestamp}-${sortedIds.join('-')}`;
+};
+
+export const { addListToCheckout,  removeListFromCheckout, clearCheckout, addListToCheckeds, canceListToCheckeds } = checkoutSlice.actions;
 export default checkoutSlice.reducer;
