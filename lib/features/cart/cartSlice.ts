@@ -70,7 +70,7 @@ const cartSlice = createSlice({
       else {
          state.items.push( newItem as unknown as CartItem);
       }
-            console.log('read object', state.items.map((item) => item.idPaket));
+     console.log('read addcart', state.items.map((item) => item.idPaket));
 
       const totals = calculateTotals(state.items);
       // state.totalItems = totals.totalItems;
