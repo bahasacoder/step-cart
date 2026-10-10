@@ -71,7 +71,7 @@ export default function CartDialogBox() {
         (item) => item.idList !== undefined && itemsChecked.includes(String(item.idList))
       );
       // pecah id checkbox menjadi tersendiri
-      const daftarList = [];
+      const daftarListChecked = [];
 
       // PERBAIKAN: Mengubah <= menjadi < dan menyamakan nama variabel itemChecked
       for (let i = 0; i < itemsChecked.length; i++) {
@@ -84,10 +84,10 @@ export default function CartDialogBox() {
           status: "Aktif"
         };
         // Masukkan objek ke dalam array
-        daftarList.push(listBaru);
+        daftarListChecked.push(listBaru);
       }
 
-      console.log('daftarList', daftarList);
+      console.log('daftarList', daftarListChecked);
 
       // console.log('pisah Item Checked', pisahItemChecked)
       // let jumpic = ''
@@ -104,7 +104,8 @@ export default function CartDialogBox() {
       const getItemsChecked = [...itemChecked, ...itemsChecked];
       setNewItemsChecked(getItemsChecked);
       console.log('itemsChecked', itemsChecked, checkoutItems);
-      dispatch(addListToCheckout(checkoutItems as any));
+      // dispatch(addListToCheckout(checkoutItems as any)); daftarListChecked
+      dispatch(addListToCheckout(daftarListChecked as any)); 
     } else {
       alert('Please select at least one item to proceed to checkout.');
     }
