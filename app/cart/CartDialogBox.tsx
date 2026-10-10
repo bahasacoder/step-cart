@@ -3,15 +3,32 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
-import { addItemToCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addListToCheckout } from '@/lib/features/checkout/checkoutSlice';
 import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import CartListItem from "./CartListItem";
+import { useRouter } from 'next/navigation';
 
 export default function CartDialogBox() {
-    const [checkedItems, setCheckedItems] = useState<string[]>([]);
+    const router = useRouter();
+    const [itemChecked, setItemChecked] = useState<string[]>([]);
+    const [itemsChecked, setItemsChecked] = useState<string[]>([]);
+    const [newItemsChecked, setNewItemsChecked] = useState<string[]>([]);
+    const [idCheckout, setIdCheckout] = useState(() => Str_Random(3));
+  
+    function Str_Random(length: number) {
+      let result = '';
+      const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      
+      // Loop to generate characters for the specified length
+      for (let i = 0; i < length; i++) {
+          const randomInd = Math.floor(Math.random() * characters.length);
+          result += characters.charAt(randomInd);
+      }
+      return result;
+  }
 
   const dispatch = useAppDispatch();
   const { items, totalItems, totalPrice } = useAppSelector((state) => state.cart);
@@ -40,14 +57,57 @@ export default function CartDialogBox() {
     // Implement the logic to merge items in the cart
     console.log('Merging items in the cart...');
   }
-  const handleProceedToCheckout = (checkedItems: string[]) => {
-    // Implement the logic to proceed to checkout
-    console.log('Proceeding to checkout...', checkedItems);
-    const selectedItems = checkedItems.join(', ');
-    alert(`Proceeding to checkout with the following items: ${selectedItems}`);
-    cartItems
-      .filter((item) => item.idList !== undefined && checkedItems.includes(String(item.idList)))
-      .forEach((item) => dispatch(addItemToCheckout({ ...item, id: Number(item.id) })));
+  const handleProceedToCheckout = (itemsChecked: string[]) => {
+    if (itemsChecked.length > 0) {
+      // Implement the logic to proceed to checkout
+      console.log('Proceeding to checkout...', itemsChecked);
+      const selectedItems = itemsChecked.join(', ');
+      console.log(Array.isArray(itemsChecked));
+
+      alert(`Proceeding to checkout with the following items: ${selectedItems}`);
+
+      setIdCheckout('CK-'+ Str_Random(3))
+      const checkoutItems = cartItems.filter(
+        (item) => item.idList !== undefined && itemsChecked.includes(String(item.idList))
+      );
+      // pecah id checkbox menjadi tersendiri
+      const daftarList = [];
+
+      // PERBAIKAN: Mengubah <= menjadi < dan menyamakan nama variabel itemChecked
+      for (let i = 0; i < itemsChecked.length; i++) {
+        // Buat objek baru di setiap putaran
+        const listBaru = {
+          id: i + 1,
+          nama: `List Ke-${i + 1}`, // Diubah ke i + 1 agar nama mulai dari "List Ke-1"
+          idList: itemsChecked[i],    // Mengambil nilai dari array ('sddsf', dll)
+          idCheckout: idCheckout,
+          status: "Aktif"
+        };
+        // Masukkan objek ke dalam array
+        daftarList.push(listBaru);
+      }
+
+      console.log('daftarList', daftarList);
+
+      // console.log('pisah Item Checked', pisahItemChecked)
+      // let jumpic = ''
+      // for (let i = 0; i < pisahItemChecked.length; i++) {        
+      //   console.log('pisah[i]', pisahItemChecked[i].concat(idCheckout));
+      // }
+      // const newItemChecked = itemsChecked.concat(idCheckout)
+      // console.log('proses newItemChecked', newItemChecked);
+
+      const checkedLists = {}
+      // cartItems
+      //   .filter((item) => item.idList !== undefined && itemsChecked.includes(String(item.idList)))
+      //   .forEach((item) => dispatch(addItemToCheckout({ ...item, id: Number(item.id) })));
+      const getItemsChecked = [...itemChecked, ...itemsChecked];
+      setNewItemsChecked(getItemsChecked);
+      console.log('itemsChecked', itemsChecked, checkoutItems);
+      dispatch(addListToCheckout(checkoutItems as any));
+    } else {
+      alert('Please select at least one item to proceed to checkout.');
+    }
   };
 
   return (
@@ -90,7 +150,7 @@ export default function CartDialogBox() {
                             onChecked={(item, checked) => {
                               if (item.idList === undefined) return;
                               const id = item.idList as string;                              
-                              setCheckedItems((prevChecked) => {
+                              setItemsChecked((prevChecked) => {
                                 if (checked) {
                                   return prevChecked.includes(id) ? prevChecked : [...prevChecked, id];
                                 } 
@@ -107,15 +167,16 @@ export default function CartDialogBox() {
                   <p>Total Payable: ${totalPayable.toFixed(2)}</p>
                   <div style={{ background: '#f4f4f4', padding: '15px', borderRadius: '5px' }}>
                     <strong>Isi Array Saat Ini:</strong>
-                    <p>{checkedItems.join(', ')}</p>
-                    <pre>{JSON.stringify(checkedItems, null, 2)}</pre>
-                    <p>Total Item Terpilih: {checkedItems.length}</p>
+                    <p>{itemsChecked.join(', ')}</p>
+                    <pre>{JSON.stringify(itemsChecked, null, 2)}</pre>
+                    <p>Total Item Terpilih: {itemsChecked.length}</p>
                   </div>
                   
                   
-                    <button onClick={() => handleProceedToCheckout(checkedItems)}>Proceed to Checkout</button>
+                    <button onClick={() => handleProceedToCheckout(itemsChecked)}>Proceed to Checkout</button>
                   
                   <button onClick={handleClearCart}>Clear Cart</button>
+                  <button onClick={() => router.refresh()}>Refresh</button>
                 </>
               )}
                 
@@ -180,7 +241,10 @@ export default function CartDialogBox() {
                                     </div>
                                     <div data-slot="card-content" className="cn-card-content flex flex-col items-start gap-3.5">
                                         <div className="flex w-full flex-col gap-3.5 mx-auto">
-                                              <Button variant="default" className="rounded-full">
+                                              <Button 
+                                                variant="default" className="rounded-full"
+                                                onClick={() => handleProceedToCheckout(itemsChecked)}
+                                              >
                                                 Checkout
                                               </Button>
                                         </div>
