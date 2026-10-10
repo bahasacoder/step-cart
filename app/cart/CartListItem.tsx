@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CartItem as CartItemType } from '@/lib/features/cart/cartSlice';
 import { removeItemFromCart, onUpdateQuantity, increaseQuantity, decreaseQuantity, clearCart } from '@/lib/features/cart/cartSlice';
+import { addListToCheckeds, canceListToCheckeds, addListToCheckout } from '@/lib/features/checkout/checkoutSlice'
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { Checkbox } from "@/components/ui/checkbox";
 import  styles from "./CartListItem.module.css";
@@ -30,23 +31,26 @@ export default function CartListItem({ item, onRemove, onUpdateQuantity, onCheck
   const totalPrice = unitPrice * itemQuantity;
   const totalHargaItem = Number(item.totalHargaJadi ?? 0) * Number(item.quantity ?? 0);
   const totalHargaDiskon = Number(item.diskonHarga ?? 0) * Number(item.quantity ?? 0);
-  
   const [checkedItem, setCheckedItem] = useState<string[]>([]);
 
   // Handler ketika status checkbox berubah
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
+
     if (checked) {
-      // Jika dicentang, tambahkan nilai baru ke dalam array state
-      setCheckedItem((prevItems) => [...prevItems, value]);
-      onChecked(item, true); // Panggil callback onChecked dengan nilai true
+      setCheckedItem((prevItems) => {
+        if (prevItems.includes(value)) return prevItems;
+        return [...prevItems, value];
+      });
+      onChecked(item, true);
+      // if (item.idList !== undefined) dispatch(addListToCheckeds(item.idList));
     } else {
-      // Jika centang dilepas, hapus nilai tersebut dari array state menggunakan filter
-      setCheckedItem((prevItems) => prevItems.filter((item) => item !== value));
-      onChecked(item, false); // Panggil callback onChecked dengan nilai false
+      setCheckedItem((prevItems) => prevItems.filter((checkedId) => checkedId !== value));
+      onChecked(item, false);
+      // if (item.idList !== undefined) dispatch(canceListToCheckeds(item.idList));
     }
   };
-  
+  //const [disableChecked, setDiasbleChecked] = useState(false);
  
   return (    
     <>    
