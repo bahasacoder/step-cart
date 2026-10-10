@@ -16,7 +16,7 @@ export default function CartDialogBox() {
     const [itemChecked, setItemChecked] = useState<string[]>([]);
     const [itemsChecked, setItemsChecked] = useState<string[]>([]);
     const [newItemsChecked, setNewItemsChecked] = useState<string[]>([]);
-    const [idCheckout, setIdCheckout] = useState(() => Str_Random(3));
+    const [idCheckout, setIdCheckout] = useState<string>('');
   
     function Str_Random(length: number) {
       let result = '';
@@ -66,7 +66,8 @@ export default function CartDialogBox() {
 
       alert(`Proceeding to checkout with the following items: ${selectedItems}`);
 
-      setIdCheckout(`CK-${Str_Random(3)}`)
+      const newCheckoutId = `CK-${Str_Random(3)}`;
+      setIdCheckout(newCheckoutId);
       const checkoutItems = cartItems.filter(
         (item) => item.idList !== undefined && itemsChecked.includes(String(item.idList))
       );
@@ -80,14 +81,14 @@ export default function CartDialogBox() {
           id: i + 1,
           nama: `List Ke-${i + 1}`, // Diubah ke i + 1 agar nama mulai dari "List Ke-1"
           idList: itemsChecked[i],    // Mengambil nilai dari array ('sddsf', dll)
-          idCheckout: idCheckout,
+          idCheckout: newCheckoutId,
           status: "Aktif"
         };
         // Masukkan objek ke dalam array
         daftarListChecked.push(listBaru);
       }
 
-      console.log('daftarList', daftarListChecked);
+      console.log('daftarList Dialog', daftarListChecked);
 
       // console.log('pisah Item Checked', pisahItemChecked)
       // let jumpic = ''
