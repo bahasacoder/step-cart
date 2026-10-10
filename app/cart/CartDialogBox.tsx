@@ -66,7 +66,7 @@ export default function CartDialogBox() {
 
       alert(`Proceeding to checkout with the following items: ${selectedItems}`);
 
-      setIdCheckout('CK-'+ Str_Random(3))
+      setIdCheckout(`CK-${Str_Random(3)}`)
       const checkoutItems = cartItems.filter(
         (item) => item.idList !== undefined && itemsChecked.includes(String(item.idList))
       );
