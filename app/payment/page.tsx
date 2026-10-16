@@ -22,17 +22,17 @@ export default function PaymentPage() {
             border-2 border-muted bg-background p-0 shadow-sm transition-all duration-200
             data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground
             hover:border-primary/50"
-            >Enter Info</TabsTrigger>
-          <TabsTrigger value="payment" className="z-10 flex flex-col justify-center items-center w-12 h-12 rounded-full border-2 border-muted bg-background p-0 shadow-sm transition-all duration-200
+            >Info Pesanan</TabsTrigger>
+          <TabsTrigger value="checkout" className="z-10 flex flex-col justify-center items-center w-12 h-12 rounded-full border-2 border-muted bg-background p-0 shadow-sm transition-all duration-200
             data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground
-            hover:border-primary/50">Payment</TabsTrigger>
+            hover:border-primary/50">Checkout</TabsTrigger>
           <TabsTrigger value="confirmation" className="z-10 flex flex-col justify-center items-center w-12 h-12 rounded-full border-2 border-muted bg-background p-0 shadow-sm transition-all duration-200
             data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground
             hover:border-primary/50">Confirmation</TabsTrigger>
         </TabsList>
         <div className="w-full bg-green-100 m-4 p-4">
           <TabsContent value="enter_info"><EnterInfoTabs /></TabsContent>
-          <TabsContent value="payment"><PaymentTabs /></TabsContent>
+          <TabsContent value="checkout"><PaymentTabs /></TabsContent>
           <TabsContent value="confirmation">Change your password here.</TabsContent>
         </div>
     </Tabs>
