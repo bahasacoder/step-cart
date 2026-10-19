@@ -20,7 +20,7 @@ export default function OverviewBlock() {
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
-    const [childValue, setChildValue] = useState(0);
+    const [childValue, setChildValue] = useState(1);
     const [idPaket, setIdPaket] = useState('ay211');
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
     const totalHargaItem = inputHarga - diskonHarga;
@@ -120,7 +120,6 @@ export default function OverviewBlock() {
         ...currentProduct,
         inputHarga,
         diskonHarga,
-        totalHarga,
         diskonValue,
         childValue,
         idPaket,

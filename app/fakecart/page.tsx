@@ -5,7 +5,6 @@ export default function FakeCartPage() {
   return (
     <div>
         <CartShop />
-
     </div>
   )
 }

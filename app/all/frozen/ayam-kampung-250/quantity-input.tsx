@@ -31,7 +31,7 @@ export default function QuantityInput({
   const updateValue = (newValue: number) => {
     const clamped = Math.min(Math.max(newValue, min), max);
     setValue(clamped);
-    onChange?.(clamped);
+    onValueChange?.(clamped);
   };
 
   const increment = () => updateValue(value + step);
@@ -43,7 +43,7 @@ export default function QuantityInput({
       updateValue(num);
     }
     // sendValueToParent(num);
-    onValueChange(num);
+    // onValueChange(num);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

@@ -1,6 +1,7 @@
 // /app/store/cartSlice.js
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useEffect, useState } from "react";
+
 type item = {
   id: string | number; // Use the actual type of 'id'
   image: string;    
