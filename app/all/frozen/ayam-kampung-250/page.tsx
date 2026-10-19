@@ -24,6 +24,7 @@ import TabDataSheet from "./tab-data-sheet";
 import TabReviews from "./tab-reviews";
 import TabSpecification from "./tab-specification";
 import OverviewBlock from "./overview-block"
+import CartCardDialog from "./cart-card"
 
 export default function AyamKampungDuaLimaPage() {
   const [quantity, setQuantity] = useState(5);
@@ -56,7 +57,7 @@ export default function AyamKampungDuaLimaPage() {
               </div>         
             </div>
             
-            
+       <CartCardDialog />     
     </main>
   );
 }

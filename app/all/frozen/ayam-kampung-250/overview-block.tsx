@@ -6,12 +6,15 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from "react-redux";
 
 import type { RootState, AppDispatch } from "@/lib/store";
-import { addToCart } from "@/features/keranjangSlice";
-import { useAppSelector, useAppDispatch } from "@/lib/hooks";
+
+import { Product } from '@/lib/features/products/productSlice';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { addItemToCart } from '@/lib/features/cart/cartSlice';
 
 import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
+import CartCardDialog from "./cart-card";
 //  onValueChangeHarga={setInputHarga}
 
 export default function OverviewBlock() {
@@ -22,33 +25,58 @@ export default function OverviewBlock() {
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState(1);
     const [idPaket, setIdPaket] = useState('ay211');
+    const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
     const totalHargaItem = inputHarga - diskonHarga;
     const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+<<<<<<< HEAD
+=======
+    const [productName, setProductName] = useState('Ayam Kampung Frozen');
+    const [productImage, setProductImage] = useState('url-to-image');
+    //const [itemProduct, setItemProduct] = useState([]);
+    const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
+>>>>>>> 203ed9c9d00574ff03c4fa67e492101697c9b0f0
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
       setTotalHargaJadi(inputHarga - diskonHarga);
     }, [inputHarga, diskonHarga]);
+<<<<<<< HEAD
     interface ProductState {
+=======
+    interface ProductState {      
+          productName: string;
+          productImage: string;
+>>>>>>> 203ed9c9d00574ff03c4fa67e492101697c9b0f0
           inputHarga: number | null;
           diskonHarga: number | null;
-          totalHarga: number | null;
           diskonValue: number;
           childValue: number;
+<<<<<<< HEAD
+=======
+          quantity: number;
+>>>>>>> 203ed9c9d00574ff03c4fa67e492101697c9b0f0
           idPaket: string;
           totalHargaJadi: number;
+          idList: string;
         }
 
     const [productState, setProductState] = useState<ProductState>({
+      productName: productName, // Replace with actual product name
+      productImage: productImage, // Replace with actual image URL or path
       inputHarga: inputHarga,
       diskonHarga: diskonHarga,
-      totalHarga: totalHarga,
       diskonValue: diskonValue,
       childValue: childValue,
+      quantity: childValue, // Assuming quantity is the same as childValue
       idPaket: idPaket,
       totalHargaJadi: totalHargaJadi,
+      idList: idList,
     });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 203ed9c9d00574ff03c4fa67e492101697c9b0f0
     const handleValueFromChild = (value: number) => {
         setChildValue(value);
         console.log('Received value from child:', value);
@@ -99,6 +127,7 @@ export default function OverviewBlock() {
       
   };
   
+<<<<<<< HEAD
      const dispatch = useDispatch<AppDispatch>();
      // const { totalQuantity } = useSelector((state: RootState) => state.cart);
     // const totalQuantity = useAppSelector((state: RootState) => state.keranjang.totalQuantity); //
@@ -125,6 +154,53 @@ export default function OverviewBlock() {
         idPaket,
         totalHargaJadi,
        });
+=======
+  function Str_Random(  length: number) {
+      let result = '';
+      const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      
+      // Loop to generate characters for the specified length
+      for (let i = 0; i < length; i++) {
+          const randomInd = Math.floor(Math.random() * characters.length);
+          result += characters.charAt(randomInd);
+      }
+      return result;
+  }
+
+  const dispatch = useDispatch<AppDispatch>();    
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+
+  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
+    
+    const handleAddToCart = (currentProduct: any) => {
+     setIdList(Str_Random(4));
+      const nextProductState: ProductState = {
+        productName: productName,
+        productImage: productImage,
+        inputHarga: Number(inputHarga),
+        diskonHarga: diskonHarga,
+        diskonValue: diskonValue,
+        childValue: Number(childValue),
+        quantity: Number(childValue),
+        idPaket: idPaket,
+        totalHargaJadi: totalHargaJadi,
+        idList: Str_Random(4), // Generate a new random idList for each product added to the cart
+      };
+
+      const newItemProduct = [...itemProduct, nextProductState];
+      setItemProduct(newItemProduct);
+
+      const cartProduct = {
+        ...nextProductState,
+        id: Number(nextProductState.idList),
+      } as Parameters<typeof addItemToCart>[0];
+
+      console.log('handleGetItemProduct (Updated):', newItemProduct);
+      console.log('Product added to cart:', nextProductState);
+        console.log('addItemToCart', cartProduct)
+        console.log('idList', idList)
+      dispatch(addItemToCart(cartProduct));
+>>>>>>> 203ed9c9d00574ff03c4fa67e492101697c9b0f0
     };
 
 
@@ -143,7 +219,7 @@ export default function OverviewBlock() {
 
                   
                     <div className="space-y-6 py-5">
-                        <nav aria-label="breadcrumb" data-slot="breadcrumb" className="cn-breadcrumb">
+                        <nav aria-label="breadcrumb" data-slot="breadcrumb" className="cn-breadcrumb flex flex-wrap items-center gap-2.5 text-sm text-muted-foreground justify-between">
                             <ol data-slot="breadcrumb-list" className="cn-breadcrumb-list flex flex-wrap items-center wrap-break-word">
                                 <div className="flex items-center gap-2.5">
                                     <li data-slot="breadcrumb-item" className="cn-breadcrumb-item inline-flex items-center"><a data-slot="breadcrumb-link" className="cn-breadcrumb-link" href="#">Daging</a></li>
@@ -190,6 +266,16 @@ export default function OverviewBlock() {
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
                               <QuantityInput onValueChange={handleValueFromChild}/>
+<<<<<<< HEAD
+=======
+                            </div>
+                            
+                            <div className="flex items-center gap-2.5">
+                              <CartCardDialog />
+                              <span className="bg-primary text-primary-foreground rounded-full px-2 py-1 text-sm font-bold">
+                                {totalItemsCount}
+                              </span>
+>>>>>>> 203ed9c9d00574ff03c4fa67e492101697c9b0f0
                             </div>
                         </div>
                         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-2">
