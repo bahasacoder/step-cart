@@ -40,10 +40,14 @@ interface DiscountableProduct {
 
 export default function CartResumeItems({ itemsChecked: initialItemsChecked }: CheckedItemListProps) {
     const [itemChecked, setItemChecked] = useState<string[]>([]);
+    const [selectedShippingPrice, setSelectedShippingPrice] = useState('0');
     // const [itemsChecked, setItemsChecked] = useState<string[]>(() =>
     //   initialItemsChecked.map((item) => item.idList)
     // );
-    
+    const handleChange = (event: any) => {
+      setSelectedShippingPrice(event.target.value);
+    };
+
     // const cartItems = useAppSelector((state) => state.cart.items) || [];
     const totalCheckedCount = initialItemsChecked.length;
     // Fungsi A: Menyaring produk berdasarkan array ID target
@@ -88,7 +92,9 @@ export default function CartResumeItems({ itemsChecked: initialItemsChecked }: C
   const totalPayableChecked = totalHargaChecked - totalDiskonChecked;
   const biayaPajak = 0;
   const biayaLayanan = 0;
-  const totalNetHarga = totalHargaCheckList - totalDiskonChecked - biayaPajak - biayaLayanan;
+  const biayaPengiriman = Number(selectedShippingPrice) || 0;
+  const totalNetHarga = totalHargaCheckList - totalDiskonChecked + biayaPajak + biayaLayanan + biayaPengiriman ;
+
     
   return (
                <div className="space-y-6 rounded-lg border bg-green-50 p-6 shadow-sm">
@@ -135,9 +141,21 @@ export default function CartResumeItems({ itemsChecked: initialItemsChecked }: C
                                             <span className="font-medium">{biayaLayanan.toFixed(2)}</span>
                                         </div>
                                         <div className="flex items-center justify-between">
-                                            <span className="text-muted-foreground">Shipping</span>
-                                            <span className="font-medium">Free Delivery</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pinned preview-icon"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 01-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0112 0"/><path d="M4.474 15h-.197a1 1 0 00-.969.753l-1.097 4.35a1.5 1.5 0 001.444 1.898L20.344 22a1.5 1.5 0 001.446-1.897l-1.098-4.35a1 1 0 00-.969-.753h-.197"/><circle cx="12" cy="8" r="2"/></svg>
+                                            <div className='relative flex items-center gap-2'>
+                                                <span className="text-muted-foreground Shipping">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pinned preview-icon"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 01-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0112 0"/><path d="M4.474 15h-.197a1 1 0 00-.969.753l-1.097 4.35a1.5 1.5 0 001.444 1.898L20.344 22a1.5 1.5 0 001.446-1.897l-1.098-4.35a1 1 0 00-.969-.753h-.197"/><circle cx="12" cy="8" r="2"/></svg>
+                                                </span>
+                                                <span className="inline-block font-medium">
+                                                  <select id="biaya_kirim" value={selectedShippingPrice} onChange={handleChange}
+                                                    className="block w-full px-3 py-0 bg-neutral-secondary-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
+                                                  >
+                                                    <option>Pilih Pengiriman</option>
+                                                    <option value="1000">Ambil Sendiri</option>
+                                                    <option value="5000">Jauh Dekat</option>
+                                                  </select>
+                                                </span>
+                                              </div>
+                                              <span className="font-medium">{biayaPengiriman}</span> 
                                         </div>
                                         <div
                                             data-orientation="horizontal"
