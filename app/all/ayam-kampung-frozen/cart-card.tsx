@@ -25,7 +25,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import CartListItem from '@/app/cart/CartListItem';
+// import CartListItem from '@/app/cart/CartListItem';
+import CartListItem from '@/components/pages/cart/CartListItem';
 
 export default function CartCardDialog() {
   const dispatch = useAppDispatch();
@@ -41,8 +42,8 @@ export default function CartCardDialog() {
     console.log('Cart Dialog Box:', cartItems);
   
   const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
-  const totalPriceSum = cartItems.reduce((total, item) => total + ((item.inputHarga || 0) * (item.quantity || 0)), 0);
-  const totalHargaDiskon = cartItems.reduce((total, item) => total + (item.diskonHarga || 0) * (item.quantity || 0), 0);
+  const totalPriceSum = cartItems.reduce((total, item) => total + ((item.hargaItem || 0) * (item.quantity || 0)), 0);
+  const totalHargaDiskon = cartItems.reduce((total, item) => total + (item.hargaDiskon || 0) * (item.quantity || 0), 0);
   const totalPayable = totalPriceSum - totalHargaDiskon;
   
   
