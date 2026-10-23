@@ -17,11 +17,12 @@ export interface CartItem {
   idList?: string;
   productName?: string;
   productImage?: string;
-  inputHarga?: number;
-  diskonHarga?: number;
-  diskonValue?: number;
+  hargaItem?: number;
+  hargaDiskon?: number;
+  nilaiDiskon?: number;
   childValue?: number;
-  totalHargaJadi?: number;
+  totalHargaJadi?: number; //
+  totalHargaList?: number;
 }    
 
 interface CartState {
@@ -45,7 +46,7 @@ const calculateTotals = (items: CartItem[]): CartTotals => {
    const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
    const totalPrice = parseFloat(
      items
-      .reduce((sum, item) => sum + (item.inputHarga ?? 0) * item.quantity, 0)
+      .reduce((sum, item) => sum + (item.hargaItem ?? 0) * item.quantity, 0)
        .toFixed(2)
    );
   return { totalItems, totalPrice };
