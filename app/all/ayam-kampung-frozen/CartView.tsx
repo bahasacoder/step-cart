@@ -73,12 +73,12 @@ const [value, setValue] = useState({
                         <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
                           <div>
                             <dt className="inline">Kemasan:</dt>
-                            <dd className="inline">{item.inputHarga}</dd>
+                            <dd className="inline">{item.hargaItem}</dd>
                           </div>
 
                           <div>
                             <dt className="inline">Diskon:</dt>
-                            <dd className="inline">{item.diskonHarga}</dd>
+                            <dd className="inline">{item.hargaDiskon}</dd>
                           </div>
                         </dl>
                       </div>
