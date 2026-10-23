@@ -7,7 +7,6 @@ import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart
 import { useRouter } from 'next/navigation';
 import CartListItems from "./cart-list-items";
 import CartResumeItems from "./cart-resume-items";
-import CartDialogKiri from './CartDialogKiri';
 // import CheckedItemList from './CheckedItemList'; // Impor komponen anak
 
 export default function ViewCartPage() {
