@@ -180,7 +180,7 @@ export default function CartResumeItems({ itemsChecked: initialItemsChecked }: C
         } as any));
 
         // Navigasi ke halaman checkout
-        router.push('/beli-saja');
+        router.push('/order');
         
       } else {
         alert('Please select at least one item to proceed to checkout.');
