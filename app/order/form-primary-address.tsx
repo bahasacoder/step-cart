@@ -42,6 +42,7 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
     const dispatch = useAppDispatch();
     
       // Mengambil data dari Redux store
+      const { isRegistered, idCustomer } = useAppSelector((state) => state.customer);
       const truePrimaryAddress = useAppSelector((state) => state.address);
 
    //  const [region, setRegion] = useState("")
