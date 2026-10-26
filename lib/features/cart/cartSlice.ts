@@ -12,7 +12,7 @@ export interface CartItem {
   item: Product;
   product: Product;
   quantity: number;
-
+  stock: number;
   idPaket?: string | number;
   idList?: string;
   productName?: string;
