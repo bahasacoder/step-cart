@@ -8,9 +8,6 @@ import { addListToCheckeds, removeListFromCheckout, clearCheckout } from '@/lib/
 // import { createInvoice } from '@/redux/slices/invoiceSlice'; 
 // import { createInvoice } from '@/lib/features/invoice/invoiceSlice';
 import { postInvoice } from '@/lib/features/invoice/invoiceSlice';
-
-
-
 import { RootState } from "@/lib/store";
 import {
   Accordion,
@@ -25,7 +22,6 @@ import FormPrimaryAddress from "./form-primary-address";
 import FormSecondaryAddress from "./form-secondary-address";
 import YourOrderInfo from "./your-order-info";
 import PaymentMethods from "./payment-methods";
-import AddCustomerForm from "./form-add-customer"
 import ShippingMethods from "./shipping-methods";
 
 export default function BeliSajaPage() {
