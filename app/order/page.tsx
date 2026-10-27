@@ -5,6 +5,12 @@ import Link from "next/link";
 import { User, CreditCard, CheckCircle2, Form } from "lucide-react"
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { addListToCheckeds, removeListFromCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice';
+// import { createInvoice } from '@/redux/slices/invoiceSlice'; 
+// import { createInvoice } from '@/lib/features/invoice/invoiceSlice';
+import { postInvoice } from '@/lib/features/invoice/invoiceSlice';
+
+
+
 import { RootState } from "@/lib/store";
 import {
   Accordion,
@@ -19,6 +25,7 @@ import FormPrimaryAddress from "./form-primary-address";
 import FormSecondaryAddress from "./form-secondary-address";
 import YourOrderInfo from "./your-order-info";
 import PaymentMethods from "./payment-methods";
+import AddCustomerForm from "./form-add-customer"
 import ShippingMethods from "./shipping-methods";
 
 export default function BeliSajaPage() {
@@ -40,6 +47,7 @@ export default function BeliSajaPage() {
     );
   };
 
+
   const steps = [
     { id: 1, name: 'Cart Summary', description: 'Review your items', accordionContent: 'your_order'},
     { id: 2, name: 'Shipping Details', description: 'Where to deliver', accordionContent: 'customer_info' },
@@ -47,7 +55,52 @@ export default function BeliSajaPage() {
     { id: 4, name: 'Confirmation', description: 'Receipt & tracking', accordionContent: 'confirmation_details' },
   ];
 
+  // const handleBuatInvoice = () => {
+  //   // itemOrder: [{"idList":"list-11101", "productImage": "url_image", "productName":"nama produk", "quantity": 3, "hargaItem":2000, "totalHargaList": 6000,},{}]
+  //   // customer: [{"idCustomer":"12je24983e", "uniqueName":"nama unik anda", "firsName": "Nama Depan Anda"m "lastName":"nama  belakang anda"},{}]
+  //   // sutTotal: "6000",
+  //   //  pajak: "300"
+  //   // layanan: 100
+  //   // ship: 200
+  //   // totalInvoice: 9000
+  //   // payment: qris
+  // }
+   const handleBuatInvoice = () => {
+    // 1. Satukan data ke dalam satu objek payload yang valid
+    const invoicePayload = {
+      // Pastikan data itemOrder & customer sudah berwujud array/objek asli (bukan sekadar komentar)
+      itemOrder: [
+        {
+          idList: "list-11101", 
+          productImage: "url_image", 
+          productName: "nama produk", 
+          quantity: 3, 
+          hargaItem: 2000, 
+          totalHargaList: 6000
+        }
+      ],
+      customer: { // Jika hanya 1 customer, sebaiknya gunakan objek, bukan array
+        idCustomer: "12je24983e", 
+        uniqueName: "nama unik anda", 
+        firstName: "Nama Depan Anda", // Memperbaiki typo 'firsName' & 'm'
+        lastName: "nama belakang anda"
+      },
+      subTotal: 6000, // Memperbaiki typo 'sutTotal' & ubah string ke number agar konsisten
+      pajak: 300,    // Menambahkan titik dua (:) yang hilang
+      layanan: 100,  // Menambahkan titik dua (:) yang hilang
+      ship: 200,     // Menambahkan titik dua (:) yang hilang
+      totalInvoice: 9000,
+      payment: "qris", // Memberikan tanda kutip karena ini adalah nilai string,
+      status: "belum bayar",
+    };
 
+    // 2. Kirim data ke Redux menggunakan dispatch
+    //dispatch(createInvoice(invoicePayload));
+    const createInvoiceAction = postInvoice as unknown as (
+      payload: typeof invoicePayload
+    ) => ReturnType<typeof postInvoice>;
+    dispatch(createInvoiceAction(invoicePayload));
+  };
 
   return (
     <>
@@ -172,7 +225,12 @@ export default function BeliSajaPage() {
           </Accordion>     
     </div>
     <div className="w-full flex justify-center gap-2 mx-auto p-8">
-      <Button variant="secondary" className="bg-blue-400 hover:scale-105 hover:border-2 hover:border-blue-600">Buat Pesanan</Button>
+      <Button 
+        variant="secondary" className="bg-blue-400 hover:scale-105 hover:border-2 hover:border-blue-600"
+         onClick={handleBuatInvoice}
+      >
+        Buat Pesanan
+      </Button>
     </div>
     
     </>
