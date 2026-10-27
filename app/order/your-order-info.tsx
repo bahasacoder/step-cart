@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { addListToCheckeds, removeListFromCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice'; // Sesuaikan dengan jalur file Anda
 import { RootState } from "@/lib/store";
-import { useRouter } from 'next/navigation';
 
 interface CheckoutItem {
   idList?: string | number;
@@ -26,8 +25,6 @@ type CheckoutList = CheckoutItem[];
 export default function YourOrderInfo() {
 
     const dispatch = useDispatch();
-    const router = useRouter();
-
       const [couponCode, setCouponCode] = useState('');
     // 1. Ambil data biayaPengiriman dari checkoutSlice
 const biayaPengirimanFromStore = useAppSelector((state) => state.checkout.biayaPengiriman) ?? 0;
@@ -160,7 +157,6 @@ const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Bool
                                     <button 
                                         type="button"
                                         className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900 active:scale-98"
-                                        onClick={() => router.push('/cart')}
                                     >
                                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
