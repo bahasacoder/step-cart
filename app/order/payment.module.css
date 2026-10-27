@@ -1,0 +1,109 @@
+.cb-chips {
+  width: min(100%, 420px);
+  padding: 20px;
+  border-radius: 18px;
+  background: #fff;
+  color: #1e293b;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+}
+.cb-chips__set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+}
+.cb-chips__set legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+.cb-chips__chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .15s, color .15s, border-color .15s;
+}
+.cb-chips__chip:hover {
+  border-color: #64748b;
+}
+.cb-chips__chip input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.cb-chips__chip span::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 10px;
+  margin-right: 0;
+  background: currentColor;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
+  vertical-align: 0;
+}
+.cb-chips__chip:has(input:checked) {
+  border-color: #1e293b;
+  background: #1e293b;
+  color: #fff;
+}
+.cb-chips__chip:has(input:checked) span::before {
+  width: 11px;
+  margin-right: 6px;
+}
+.cb-chips__chip:has(input:focus-visible) {
+  outline: 3px solid #0284c7;
+  outline-offset: 2px;
+}
+.cb-chips__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cb-chips__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 2px;
+  border-top: 1px solid #eef2f7;
+  font-size: 15px;
+}
+.cb-chips__list span {
+  flex: none;
+  color: #475569;
+  font-size: 13px;
+}
+.cb-chips:has(.cb-chips__set input:checked) .cb-chips__list li {
+  display: none;
+}
+.cb-chips:has(input[value="thai"]:checked) li[data-cuisine="thai"],
+.cb-chips:has(input[value="italian"]:checked) li[data-cuisine="italian"],
+.cb-chips:has(input[value="mexican"]:checked) li[data-cuisine="mexican"],
+.cb-chips:has(input[value="japanese"]:checked) li[data-cuisine="japanese"] {
+  display: flex;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cb-chips__chip span::before {
+    transition: width .15s ease, margin-right .15s ease;
+  }
+}
+@media (forced-colors: active) {
+  .cb-chips__chip:has(input:checked) { border-color: Highlight; background: Highlight; color: HighlightText; }
+}
