@@ -11,8 +11,9 @@ export interface CheckedItem {
   hargaDiskon?: number;
   totalDiscount?: number;
   nilaiDiskon?: number;
-  quantity?: number;
-  totalHargaList?: number; // list item
+  quantity?: number;  
+  totalHargaItem?: number; // hargaItem*Quantity
+  totalHargaList?: number; // list item (hargaItem-hargaDiskon)*Quantity
   totalHargaBayar?: number; // totalPayable
   idSeller: string | 'pebe';
   id: string;
