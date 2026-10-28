@@ -7,6 +7,7 @@ import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart
 import { useRouter } from 'next/navigation';
 import CartListItems from "./cart-list-items";
 import CartResumeItems from "./cart-resume-items";
+import CartDialogKiri from './CartDialogKiri';
 // import CheckedItemList from './CheckedItemList'; // Impor komponen anak
 
 export default function ViewCartPage() {
@@ -80,6 +81,7 @@ export default function ViewCartPage() {
     const resultsChecked = findMultipleCheckeds(cartItems, arrayIdChecked).map((item) => ({
       ...item,
       id: String(item.id),
+      idCheckout,
       hargaItem: item.hargaItem ?? 0,
       productName: item.productName ?? getItemName(item),
       totalHargaList: item.totalHargaList ?? 0,
