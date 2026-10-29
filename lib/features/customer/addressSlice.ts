@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // 1. Definisikan tipe data untuk state alamat primary
 export interface PrimaryAddressState {
     id: string;
+    idCustomer: string ;
     idAddressPrimary: string;
     uniqueName: string;
     firstNamePrimary: string;
@@ -37,6 +38,7 @@ export interface SecondaryAddressState {
 // 2. Buat Initial State dengan explicit type
 const initialPrimaryAddressState: PrimaryAddressState = {
   id: '',
+  idCustomer: '',
   idAddressPrimary: '',
   uniqueName: '',
   firstNamePrimary: '',
