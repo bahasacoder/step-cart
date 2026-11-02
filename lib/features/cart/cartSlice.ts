@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // 1. Impor thunk postInvoice dari invoiceSlice
-import { postInvoice } from '../../features/invoice/invoiceSlice'; 
+import { setInvoices } from '../../features/invoice/invoiceSlice';
 
 interface Product {
   id: number;
@@ -157,7 +157,7 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // Ketika proses postInvoice berhasil di backend, kosongkan keranjang secara otomatis
-      .addCase(postInvoice.fulfilled, (state) => {
+      .addCase(setInvoices, (state) => {
         state.items = [];   // state.cartItems = [];
         state.totalItems = 0;
         console.log('Keranjang otomatis dikosongkan karena invoice sukses dibuat!');
