@@ -76,6 +76,11 @@ const combinedInitialState = {
   ...initialSecondaryAddressState,
 };
 
+interface AddressSliceState {
+  primaryList: PrimaryAddressState[];
+  secondaryList: SecondaryAddressState[]; // 👈 Alamat sekunder berkumpul di sini
+}
+
 export const addressSlice = createSlice({
     name: 'address',
     initialState: combinedInitialState,
