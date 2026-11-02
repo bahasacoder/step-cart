@@ -1,57 +1,62 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+// 1. Pastikan struktur tipe data didefinisikan dengan jelas
+interface InvoiceItem {
+  id: string;
+  idCustomer: string;
+  invoiceNumber: string;
+  invoiceDate: string;
+  expireDate: string;
+  items: any[]; // Ganti 'any' dengan tipe data yang sesuai jika ada struktur khusus untuk item
+  totalAmount: number;
+  // Tambahkan properti lainnya sesuai kebutuhan data Anda
+  [key: string]: unknown; // Mengizinkan properti dinamis tambahan
+} 
 
-// 1. Definisikan thunk untuk operasi POST ke API
-export const postInvoice = createAsyncThunk(
-  'invoice/postInvoice',
-  async (invoiceData, { rejectWithValue }) => {
-    try {
-      const response = await fetch('https://kamu.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // 'Authorization': `Bearer ${token}` // Buka jika butuh token auth
-        },
-        body: JSON.stringify(invoiceData),
-      });
+interface InvoiceState {
+  invoices: InvoiceItem[];
+}
 
-      if (!response.ok) {
-        throw new Error('Gagal membuat invoice di server');
-      }
-
-      const data = await response.json();
-      return data; // Ini akan menjadi action.payload jika sukses
-    } catch (error) {
-      return rejectWithValue(error instanceof Error ? error.message : String(error));
-    }
-  }
-);
-
-const initialState = {
-  invoices: [] as unknown[],
-  loading: false,
-  error: null as string | null,
+// 2. Terapkan tipe data pada initialState
+const initialState: InvoiceState = {
+  invoices: [],
 };
+
 
 const invoiceSlice = createSlice({
   name: 'invoice',
   initialState,
-  reducers: {},
-  // 2. Tangani siklus hidup (lifecycle) dari request async di extraReducers
-  extraReducers: (builder) => {
-    builder
-      .addCase(postInvoice.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(postInvoice.fulfilled, (state, action) => {
-        state.loading = false;
-        state.invoices.push(action.payload); // Simpan respon sukses backend ke state
-      })
-      .addCase(postInvoice.rejected, (state, action) => {
-        state.loading = false;
-        state.error = String(action.payload ?? action.error.message ?? 'Gagal membuat invoice'); // Simpan pesan eror jika gagal
-      });
+  reducers: {
+    // ✨ PERBAIKAN PADA REDUCER PUSH:
+    addInvoice: (state, action: PayloadAction<InvoiceItem>) => {
+      // Pastikan state.invoices selalu berupa array sebelum di-push (safety guard)
+      if (Array.isArray(state.invoices)) {
+        state.invoices.push(action.payload);
+      } else {
+        // Jika karena suatu alasan state rusak/berubah menjadi non-array, reset menjadi array baru
+        state.invoices = [action.payload];
+      }
+    },
+     // Reducer pelengkap untuk reset/mengisi banyak data sekaligus
+    setInvoices: (state, action: PayloadAction<InvoiceItem[]>) => {
+      state.invoices = Array.isArray(action.payload) ? action.payload : [];
+    },
+
+    postInvoice: (state, action: PayloadAction<InvoiceItem>) => {
+      state.invoices.push(action.payload);
+    },
+    // Fungsi untuk memperbarui atau set ulang seluruh list invoice (misal setelah fetch API)
+    setInvoicesxx: (state, action: PayloadAction<InvoiceItem[]>) => {
+      state.invoices = action.payload;
+    },
+    // Fungsi untuk menghapus invoice berdasarkan ID
+    deleteInvoice: (state, action: PayloadAction<string>) => {
+      state.invoices = state.invoices.filter(item => item.id !== action.payload);
+    }
   },
 });
 
+// Export action untuk digunakan di komponen (dispatch)
+export const { addInvoice, setInvoices, deleteInvoice } = invoiceSlice.actions;
+
+// Export reducer untuk didaftarkan di configureStore
 export default invoiceSlice.reducer;
