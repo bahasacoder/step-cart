@@ -63,7 +63,6 @@ export default function FormSecondaryAddress() {
             postCode: "",
             region: ""
         });
-
         
         const [idAddressPrimary, setIdAddressPrimary] = useState<string>(getAddressPrimary.idAddressPrimary,)
         const [idAddressSecondary, setIdAddressSecondary] = useState<string>("")
@@ -77,6 +76,7 @@ export default function FormSecondaryAddress() {
         const [kecamatanSecondary, setKecamatanSecondary] = useState<string>("")
         const [kabupatenSecondary, setKabupatenSecondary] = useState<string>("")
         const [postCodeSecondary, setPostCodeSecondary] = useState<string>("")
+        const [isSavedSecondary, setIsSavedSecondary] = useState<boolean>(false);
         // 3. State untuk status checkbox
         const [isSameAddress, setIsSameAddress] = useState(false);
     
@@ -114,6 +114,7 @@ export default function FormSecondaryAddress() {
             if (fieldName === "kecamatanSecondary") setKecamatanSecondary(value)
             if (fieldName === "kabupatenSecondary") setKabupatenSecondary(value)
             if (fieldName === "postCodeSecondary") setPostCodeSecondary(value)
+            if (fieldName === "regionSecondary") setRegionSecondary(value)
         }
 
 
@@ -140,7 +141,7 @@ export default function FormSecondaryAddress() {
     
             // 2. Simpan data langsung ke store Redux
             dispatch(saveSecondaryAddress(addressPayload));
-            
+            setIsSavedSecondary(true);  
             console.log("Data alamat Secondary berhasil disimpan ke Redux!", addressPayload);
             console.log("id Primary Addres", idAddressPrimary)
         }
@@ -175,7 +176,7 @@ export default function FormSecondaryAddress() {
             dispatch(saveSecondaryAddress(addressPayload));
             
             console.log("Data alamat Primary berhasil disalin ke Redux!", addressPayload);
-            console.log("id Primary Addres", idAddressPrimary)
+            console.log("id Primary Addres", getAddressPrimary)
             
             } else {
             return false;
@@ -434,7 +435,7 @@ export default function FormSecondaryAddress() {
                                                                 Provinsi / Region State
                                                                 </label>
                                                                 <input
-                                                                id=""
+                                                                id="regionState"
                                                                 type="text"                                                                
                                                                 name="regionSecondary"
                                                                 value={regionSecondary}
@@ -451,6 +452,7 @@ export default function FormSecondaryAddress() {
                                             </div>
                                             
                                             <div className="flex justify-end mt-4">
+                                            {!isSameAddress && (
                                                 <button
                                                 type="submit"
                                                 tabIndex={0}
@@ -459,9 +461,28 @@ export default function FormSecondaryAddress() {
                                                     whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none 
                                                     disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 cn-button-variant-default cn-button-size-lg
                                                     bg-blue-800 py-2 px-8 rounded-full text-white font-medium"
+                                                
                                                 >
                                                 Save
-                                                </button>
+                                                </button>)
+                                            }
+                                            {isSavedSecondary && (
+                                                <svg 
+                                                    xmlns="http://www.w3.org/2000/svg" 
+                                                    width="24" 
+                                                    height="24" 
+                                                    viewBox="0 0 24 24" 
+                                                    fill="none" 
+                                                    stroke="currentColor" 
+                                                    strokeWidth="2" 
+                                                    strokeLinecap="round" 
+                                                    strokeLinejoin="round" 
+                                                    className="lucide lucide-thumbs-up preview-icon"
+                                                >
+                                                    <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>
+                                                    <path d="M7 10v12"/>
+                                                </svg>
+                                                )}
                                             </div>
                                         </form>
                                         </div>

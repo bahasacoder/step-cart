@@ -6,14 +6,14 @@ import { addListToCheckeds, removeListFromCheckout, clearCheckout } from '@/lib/
 import { RootState } from "@/lib/store";
 import { useRouter } from 'next/navigation';
 
-interface CheckoutItem {
+export interface CheckoutItem {
   idList?: string | number;
   idCheckout?: string | number;
   productName?: string;
     productImage?: string;
-
     hargaItem?: string | number;
-    hargaDiskon?: string | number;
+    hargaDiskon?: string | number;    
+    totalHargaItem?: string | number; // hargaItem*Quantity
     totalHargaList?: string | number;
   diskonHarga?: number;
   totalHargaJadi?: number;
@@ -23,7 +23,14 @@ interface CheckoutItem {
 
 type CheckoutList = CheckoutItem[];
 
-export default function YourOrderInfo() {
+interface FormProps {
+  setBiayaPengiriman: React.Dispatch<React.SetStateAction<number>>;
+}
+interface YourOrderInfoProps {
+  onSelectionChange?: (selectedIds: Array<string | number>) => void;
+}
+
+export default function YourOrderInfo({ onSelectionChange }: YourOrderInfoProps) {
 
     const dispatch = useDispatch();
     const router = useRouter();
@@ -39,8 +46,8 @@ const [biayaPengiriman, setBiayaPengiriman] = useState<number>(() => {
     return Number(biayaPengirimanFromStore);
 });
 
-// 2. Ambil juga biayaLayanan jika ada di slice yang sama (atau berikan default 0)
-const biayaLayanan = useAppSelector((state) => state.checkout.biayaLayanan) ?? 0;
+    // 2. Ambil juga biayaLayanan jika ada di slice yang sama (atau berikan default 0)
+    const biayaLayanan = useAppSelector((state) => state.checkout.biayaLayanan) ?? 0;
       // 1. Ambil data items dari Redux Store (default ke array kosong jika null/undefined)
         const checkedItems = (useAppSelector((state: RootState) => state.checkout.items) ?? []) as unknown[];
         const getItemsCart = (useAppSelector((state: RootState) => state.cart.items) ?? []) as unknown as CheckoutItem[];      
@@ -48,11 +55,12 @@ const biayaLayanan = useAppSelector((state) => state.checkout.biayaLayanan) ?? 0
             const checkoutGroups: CheckoutItem[] = checkedItems.flatMap((group) => 
                 Array.isArray(group) ? group : [group]
             );
-                        const checkedItemsStringify: string[] = checkoutGroups.map((chites: CheckoutItem): string => JSON.stringify(chites));
+        const checkedItemsStringify: string[] = checkoutGroups.map((chites: CheckoutItem): string => JSON.stringify(chites));
             
-const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Boolean);
+  
+    const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Boolean);
 
-            const getListItemCheckout: CheckoutItem[] = getIdListItemCheck
+    const getListItemCheckout: CheckoutItem[] = getIdListItemCheck
               .map((gilic) => getItemsCart.find((gisfy) => (gisfy as CheckoutItem).idList === gilic))
               .filter((item): item is CheckoutItem => Boolean(item));
         // 1. Dapatkan daftar idList yang di-check (tanpa stringify/parse yang berat)
@@ -120,7 +128,12 @@ const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Bool
         localStorage.setItem('user_shipping_price', value); // Menyimpan permanen ke browser
         setBiayaPengiriman(Number(value))
     };
-    
+    function useCheckoutData() {  
+        return {
+        setBiayaPengiriman, 
+        biayaPengiriman
+    };
+}
     //const totalPayable = totalHargaCart - totalHargaDiskon + biayaPengiriman + biayaLayanan
     
     // 3. Hitung total yang harus dibayar dengan proteksi nilai default
@@ -193,6 +206,7 @@ const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Bool
                                                 return(
                                                                     <div key={getlic?.idList || index} className="flex items-center justify-between gap-4">
                                                                         <div className="flex h-full items-center gap-4">
+                                                                            
                                                                             <img
                                                                                 src={getlic?.productImage}
                                                                                 alt="Red cap"

@@ -11,13 +11,12 @@ import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import styles from './payment.module.css'
 
-export default function PaymentMethods() {
-    const id = useId()
-    const [selectedCuisine, setSelectedCuisine] = useState('');
+interface PaymentMethodsProps {
+    selectedPayment: string;
+    onPaymentChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-    const handleCuisineChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedCuisine(event.target.value);
-    };
+export default function PaymentMethods({ selectedPayment, onPaymentChange }: PaymentMethodsProps) {
 
     return (
         <>
@@ -36,8 +35,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="ovo" 
                                             value="ovo" 
-                                            checked={selectedCuisine === 'ovo'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'ovo'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>OVO</span>
                                     </label>
@@ -46,8 +45,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="gopay" 
                                             value="gopay" 
-                                            checked={selectedCuisine === 'gopay'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'gopay'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>GOPAY</span>
                                     </label>
@@ -56,8 +55,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="dana" 
                                             value="dana" 
-                                            checked={selectedCuisine === 'dana'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'dana'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>DANA</span>
                                     </label>
@@ -66,8 +65,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="qris" 
                                             value="qris" 
-                                            checked={selectedCuisine === 'qris'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'qris'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>QRIS</span>
                                     </label>
@@ -85,8 +84,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="bri" 
                                             value="bri" 
-                                            checked={selectedCuisine === 'bri'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'bri'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>BRI</span>
                                     </label>
@@ -95,8 +94,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="bca" 
                                             value="bca" 
-                                            checked={selectedCuisine === 'bca'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'bca'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>BCA</span>
                                     </label>
@@ -105,8 +104,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="bsi" 
                                             value="bsi" 
-                                            checked={selectedCuisine === 'bsi'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'bsi'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>BSI</span>
                                     </label>
@@ -115,8 +114,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="bni" 
                                             value="bni" 
-                                            checked={selectedCuisine === 'bni'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'bni'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>BNI</span>
                                     </label>
@@ -134,8 +133,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="indomaret" 
                                             value="indomaret" 
-                                            checked={selectedCuisine === 'indomaret'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'indomaret'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>Indomaret</span>
                                     </label>
@@ -144,8 +143,8 @@ export default function PaymentMethods() {
                                             type="radio" 
                                             name="alfamart" 
                                             value="alfamart" 
-                                            checked={selectedCuisine === 'alfamart'} 
-                                            onChange={handleCuisineChange} 
+                                            checked={selectedPayment === 'alfamart'} 
+                                            onChange={onPaymentChange} 
                                         />
                                         <span>Alfamart</span>
                                     </label>
