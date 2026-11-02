@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// 1. Definisikan Interface Berdasarkan Properti yang Anda Berikan
 export interface CheckedItem {
   idItem?: string | number;
-  idCheckout: string,
-  idList: string,
+  idCheckout: string;
+  idList: string;
   productName?: string;
   productImage?: string;
   namaItem?: string;
@@ -12,25 +13,50 @@ export interface CheckedItem {
   totalDiscount?: number;
   nilaiDiskon?: number;
   quantity?: number;  
-  totalHargaItem?: number; // hargaItem*Quantity
-  totalHargaList?: number; // list item (hargaItem-hargaDiskon)*Quantity
+  totalHargaItem?: number; // hargaItem * Quantity
+  totalHargaList?: number; // (hargaItem - hargaDiskon) * Quantity
   totalHargaBayar?: number; // totalPayable
   idSeller: string | 'pebe';
   id: string;
-  status:string;
-} 
-interface CheckedItemsState {
+  status: string;
+}
+ 
+// 2. Definisikan Interface untuk Initial State Redux
+interface CheckoutState {
   items: CheckedItem[];
   totalItems: number;
   totalPrice: number;
+  summary: {
+    grandTotalItem: number;
+    grandTotalList: number;
+    grandTotalBayar: number;
+  };
   totalDiscount: number;
   totalDelivery:number;
   totalPayable: number;
   biayaPajak: number;
-  biayaLayanan: number;
+  biayaLayanan: number; // admin fee
   biayaPengiriman: number;
-  checkoutId: string; // Tambahkan properti untuk menyimpan ID Checkout
+  idCheckout: string; 
 }
+
+const initialState: CheckoutState = {
+  items: [],
+  totalItems: 0,
+  totalPrice: 0,
+  summary: {
+    grandTotalItem: 0,
+    grandTotalList: 0,
+    grandTotalBayar: 0,
+  },
+  totalDiscount: 0,
+  totalDelivery: 0,
+  totalPayable: 0,
+  biayaPajak: 0,
+  biayaLayanan: 0,
+  biayaPengiriman: 0,
+  idCheckout: '',
+};
 
 interface CheckoutTotals {
   totalItems: number;
@@ -38,19 +64,64 @@ interface CheckoutTotals {
   totalDiscount: number;  
 }
 
-const initialState: CheckedItemsState = {
-  items: [],
-  totalItems: 0,
-  totalPrice: 0,
-  totalDiscount: 0,
-  totalDelivery: 0,
-  totalPayable: 0,
-  biayaPajak: 0,
-  biayaLayanan: 0,
-  biayaPengiriman: 0,
-  checkoutId: '',
+// Fungsi pembantu (helper) untuk menghitung ulang kalkulasi matematika total harga
+const recalculateTotals = (item: CheckedItem) => {
+  const qty = item.quantity ?? 1;
+  const harga = item.hargaItem ?? 0;
+  const diskon = item.hargaDiskon ?? 0;
+
+  item.totalHargaItem = harga * qty;
+  item.totalHargaList = (harga - diskon) * qty;
+  item.totalHargaBayar = item.totalHargaList; // Atur sesuai skema hitungan Anda
 };
 
+// 2. ✨ Perbaikan Fungsi updateSummary agar Sinkron dengan Root State Baru Anda
+const updateSummary = (state: CheckoutState) => {
+  if (!state.summary) {
+    state.summary = {
+      grandTotalItem: 0,
+      grandTotalList: 0,
+      grandTotalBayar: 0,
+    };
+  }
+
+  // A. Hitung akumulasi dari list array items
+  state.summary.grandTotalItem = state.items.reduce((sum, item) => sum + (item.totalHargaItem ?? 0), 0);
+  state.summary.grandTotalList = state.items.reduce((sum, item) => sum + (item.totalHargaList ?? 0), 0);
+  state.summary.grandTotalBayar = state.items.reduce((sum, item) => sum + (item.totalHargaBayar ?? 0), 0);
+
+  // B. Sinkronisasi ID Checkout utama dari item pertama yang dimasukkan
+  if (state.items.length > 0) {
+    state.idCheckout = state.items[0].idCheckout;
+    // Ambil akumulasi diskon produk
+    state.totalDiscount = state.items.reduce((sum, item) => sum + ((item.hargaDiskon ?? 0) * (item.quantity ?? 1)), 0);
+  } else {
+    state.idCheckout = '';
+    state.totalDiscount = 0;
+  }
+
+  // C. (Opsional) Tentukan nilai default biaya tambahan jika belum diset dari UI
+  if (state.items.length > 0) {
+    state.biayaLayanan = 2000; // Contoh: Admin fee flat Rp 2.000
+    state.biayaPajak = Math.round(state.summary.grandTotalBayar * 0.11); // Contoh: PPN 11%
+    // state.biayaPengiriman diatur dinamis nanti lewat action kurir
+  } else {
+    state.biayaLayanan = 0;
+    state.biayaPajak = 0;
+    state.biayaPengiriman = 0;
+  }
+
+  // D. Hitung TOTAL AKHIR yang harus dibayar (grandTotalBayar + biaya-biaya)
+  state.totalPayable = 
+    state.summary.grandTotalBayar + 
+    state.biayaPajak + 
+    state.biayaLayanan + 
+    state.biayaPengiriman;
+    
+  state.totalDelivery = state.biayaPengiriman;
+};
+
+// ===
 
 const calculateTotals = (items: CheckedItem[]): CheckoutTotals => {
   const totalItems = items.reduce((sum, item) => sum + (item.quantity ?? 0), 0);
@@ -67,50 +138,69 @@ const calculateTotals = (items: CheckedItem[]): CheckoutTotals => {
 };
 
 const checkoutSlice = createSlice({
-  name: 'checkout',
+  name: 'checkedItems',
   initialState,
   reducers: {
-    addListToCheckout: (state, action: PayloadAction<{
-      idCheckout: string;
-      items: any[];
-      summary?: { biayaPajak: number; biayaLayanan: number; biayaPengiriman: number; totalItemsChecked?: number }
-    }>) => {
-      // Menggunakan fallback (?? 0) dan optional chaining (?. ) sebagai pengaman dari nilai undefined
-      state.checkoutId = action.payload.idCheckout;
-      state.items = action.payload.items;
-      state.biayaPajak = action.payload.summary?.biayaPajak ?? 0;
-      state.biayaLayanan = action.payload.summary?.biayaLayanan ?? 0;
-      state.biayaPengiriman = action.payload.summary?.biayaPengiriman ?? 0;
-    },
-    removeListFromCheckout: (state: CheckedItemsState, action: PayloadAction<string | number>) => {
-      // Payload cukup berupa idList dari item yang ingin dihapus (bisa string atau number)
-      const idListToRemove = action.payload; 
-      console.log('Removing item from checkout:', idListToRemove);
+    // Menambahkan item baru ke dalam daftar checkout
+   addItemToCheckout: (state, action: PayloadAction<{
+        items: CheckedItem[];
+        biayaPengiriman: number;
+        biayaPajak: number;
+        biayaLayanan: number;
+        idCheckout: string;
+      }>) => {
+        const { items, biayaPengiriman, biayaPajak, biayaLayanan, idCheckout } = action.payload;
+        
+        state.idCheckout = idCheckout;
+        state.biayaPengiriman = biayaPengiriman;
+        state.biayaPajak = biayaPajak;
+        state.biayaLayanan = biayaLayanan;
+        
+        // Masukkan items dan hitung otomatis total matematikanya
+        state.items = items.map((item) => {
+          const newItem = { ...item, idCheckout };
+          recalculateTotals(newItem); // Memastikan totalHargaItem & totalHargaBayar terhitung
+          return newItem;
+        });
 
-      if (state.items) {
-        // Saring array untuk menyisakan item yang ID-nya TIDAK COCOK dengan idListToRemove
-        state.items = state.items.filter((item) => item.idList !== idListToRemove);
+        // Hitung akumulasi grand total akhir
+        updateSummary(state);
+    },
+
+    // Aksi tambahan untuk mengubah biaya pengiriman saat user memilih kurir
+    updateShippingCost: (state, action: PayloadAction<number>) => {
+      state.biayaPengiriman = action.payload;
+      updateSummary(state); // Hitung ulang totalPayable otomatis
+    },
+    // Memperbarui kuantitas (Quantity) item secara dinamis
+    updateItemQuantity: (state, action: PayloadAction<{ idList: string; quantity: number }>) => {
+      const { idList, quantity } = action.payload;
+      const targetItem = state.items.find(item => item.idList === idList);
+      
+      if (targetItem && quantity > 0) {
+        targetItem.quantity = quantity;
+        recalculateTotals(targetItem); // Hitung ulang harga item ini
+        updateSummary(state);          // Hitung ulang ringkasan belanja keseluruhan
       }
-
-      // Otomatis perbarui ID Checkout setiap kali item berkurang
-      state.checkoutId = generateSliceCheckoutId(state.items);
-
-      console.log('read checkout', state.items?.map((item) => item.idList) || []);
     },
 
+    // Menghapus satu item dari daftar checkout berdasarkan idList
+    removeItemFromCheckout: (state, action: PayloadAction<string>) => {
+      state.items = state.items.filter(item => item.idList !== action.payload);
+      updateSummary(state);
+    },
+
+    // Mengosongkan seluruh isi checkout (Dipanggil setelah buat invoice sukses)
     clearCheckout: (state) => {
       state.items = [];
-      state.checkoutId = ''; // Kosongkan ID saat transaksi selesai
-    },
-
-    addListToCheckeds: (state: CheckedItemsState, action: PayloadAction<string>) => {
-      console.log(action.payload);
-      return state;
-    },
-    canceListToCheckeds: (state: CheckedItemsState, action: PayloadAction<string>) => {
-      console.log(action.payload);
-      return state;
-    },
+      state.totalItems = 0;
+      state.totalPrice = 0;
+      state.summary = {
+        grandTotalItem: 0,
+        grandTotalList: 0,
+        grandTotalBayar: 0,
+      };
+    }
   },
 });
 
@@ -122,5 +212,12 @@ const generateSliceCheckoutId = (items: CheckedItem[]): string => {
   return `CHK-${timestamp}-${sortedIds.join('-')}`;
 };
 
-export const { addListToCheckout,  removeListFromCheckout, clearCheckout, addListToCheckeds, canceListToCheckeds } = checkoutSlice.actions;
+// 4. Ekspor Actions dan Reducer
+export const { 
+  addItemToCheckout, 
+  updateItemQuantity, 
+  removeItemFromCheckout, 
+  clearCheckout 
+} = checkoutSlice.actions;
+
 export default checkoutSlice.reducer;
