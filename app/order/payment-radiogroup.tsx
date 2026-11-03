@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { User, CreditCard, CheckCircle2, Form } from "lucide-react"
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
-import { addListToCheckeds, removeListFromCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addItemToCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice';
 import { RootState } from "@/lib/store";
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
