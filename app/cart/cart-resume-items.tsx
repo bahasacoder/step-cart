@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';;
 import type { RootState, AppDispatch } from "@/lib/store";
-import { addListToCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addItemToCheckout } from '@/lib/features/checkout/checkoutSlice';
 import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import Image from "next/image";
 import Link from "next/link";
@@ -169,18 +169,24 @@ const handleProceedToCheckout = (itemsChecked: string[]) => {
     console.log('itemsChecked info:', itemsChecked, checkoutItems);
 
     // 3. ✨ FIX: Kirim payload ke Redux menggunakan newCheckoutId
-    dispatch(addListToCheckout({
-      idCheckout: newCheckoutId, // Menggunakan variabel lokal agar tidak undefined
-      items: daftarListChecked,
-      summary: {
-        biayaPengiriman: biayaPengirimanValue,
-        biayaPajak: biayaPajakValue,
-        biayaLayanan: biayaLayananValue
-      }
-    } as any));
+    //addListToCheckout
+    const checkoutPayload = {
+      items: checkoutItems.map((item) => ({
+        ...item,
+        idCheckout: newCheckoutId, // Gunakan variabel lokal yang pasti ada nilainya
+      })),
+      biayaPengiriman: biayaPengirimanValue,
+      biayaPajak: biayaPajakValue,
+      biayaLayanan: biayaLayananValue
+    };
+    dispatch(addItemToCheckout(checkoutPayload as any)); // Gunakan 'as any' untuk menghindari error tipe data 
 
     // Navigasi ke halaman checkout
-    router.push('/beli-saja');
+    //router.push('/order');
+    console.log('Navigating to checkout with ID:', newCheckoutId);
+    console.log('Checkout Payload:', checkoutPayload);
+    // const checkoutUrl = `/order?checkoutId=${newCheckoutId}`;
+    // router.push(checkoutUrl);
     
   } else {
     alert('Please select at least one item to proceed to checkout.');
