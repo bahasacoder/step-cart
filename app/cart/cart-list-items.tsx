@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
-import { addListToCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addItemToCheckout } from '@/lib/features/checkout/checkoutSlice';
 import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 
 import CartListItem from "./CartListItem";
@@ -89,7 +89,7 @@ export default function CartListItems({ items, totalItems, subTotal, totalDiscou
       setNewItemsChecked(getItemsChecked);
       console.log('itemsChecked', itemsChecked, checkoutItems);
       // dispatch(addListToCheckout(checkoutItems as any)); daftarListChecked
-      dispatch(addListToCheckout(daftarListChecked as any)); 
+      dispatch(addItemToCheckout(daftarListChecked as any)); 
     } else {
       alert('Please select at least one item to proceed to checkout.');
     }
