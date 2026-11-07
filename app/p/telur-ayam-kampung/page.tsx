@@ -17,7 +17,23 @@ export default function TelurAyamKampungPage() {
 
   return (
      <div className="flex flex-col min-h-screen bg-stone-50">
-         <h1>Telur Ayam Kampung</h1>
+         {/* BREADCRUMB NAVIGATION */}
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <nav className="flex space-x-2 text-xs font-medium tracking-wide uppercase text-stone-400">
+            <a href="#" className="hover:text-amber-800">Beranda</a>
+            <span>/</span>
+            <a href="#" className="hover:text-amber-800">Katalog Organik</a>
+            <span>/</span>
+            <span className="text-stone-700">Detail Produk</span>
+        </nav>
+    </div>
+
+    {/* MAIN PRODUCT VIEW SECTION */}
+    <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* LEFT: PRODUCT IMAGES GALLERY */}
+        </div>
+    </main>
 
     </div>
 
