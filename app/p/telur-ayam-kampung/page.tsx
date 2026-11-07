@@ -166,7 +166,7 @@ export default function TelurAyamKampungPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* LEFT: PRODUCT IMAGES GALLERY */}
-            <ImageBlock />
+            
 
             {/* RIGHT: PRODUCT INFO & E-COMMERCE FORM */}
             <div className="lg:col-span-6 space-y-6">
@@ -183,11 +183,7 @@ export default function TelurAyamKampungPage() {
                 </div>
 
                 {/* Price Area */}
-                <HargaItem
-                    hargaItem={hargaItem}
-                    nilaiDiskon={nilaiDiskon}
-                    hargaDiskon={hargaDiskon}
-                />
+              
                 
                 {/* Short Description */}
                 <p className="text-sm text-stone-600 font-light leading-relaxed">
@@ -198,13 +194,11 @@ export default function TelurAyamKampungPage() {
                 <form onSubmit={(event) => { event.preventDefault(); }} className="space-y-6 pt-4 border-t border-stone-200">
                     
                     {/* Form Field 1: Opsi Paket Ukuran */}
-                    <OptionsKemasan
-                        onChangeHarga={handleHargaFromPacket}
-                    />
+                   
 
                     {/* Form Field 2: Kuantitas & Tombol Tambah Keranjang */}
                     <div className="flex flex-col sm:flex-row gap-4 items-end sm:items-center justify-between">
-                        <QuantityInput onQuantityChange={handleQuantityChange} /> 
+                        {/* Quantity Input */}
 
                         <div className="flex items-center space-x-6">
                             {/* Ikon Keranjang Belanja Belanja (Statik / UI) */}
