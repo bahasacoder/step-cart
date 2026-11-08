@@ -46,14 +46,14 @@ export default function OverviewBlock() {
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
     const totalHargaItem = hargaItem * childValue; // hargaItem * Quantity
-    const [hargaList, setHargaList] = useState(() => Str_Random(4));
+    const [hargaList, setHargaList] = useState(0); // (hargaItem*Quantity) - hargaDiskon
     const [productName, setProductName] = useState('Ayam Kampung Frozen');
     const [productImage, setProductImage] = useState('url-to-image');
     //const [itemProduct, setItemProduct] = useState([]);
     const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
-      setTotalHargaList(hargaItem - hargaDiskon);
+      setHargaList(hargaItem - hargaDiskon);
     }, [hargaItem, hargaDiskon]);
 
     const [productState, setProductState] = useState<ProductState>({
@@ -65,7 +65,7 @@ export default function OverviewBlock() {
       childValue,
       quantity: childValue, // Assuming quantity is the same as childValue
       idPaket,
-      totalHargaList,
+      hargaList,
       idList: idList,
     });
 
@@ -76,7 +76,7 @@ export default function OverviewBlock() {
       };
     // 1. Define the callback function that accepts data from the child
   const handleHargaFromChild = (numericValue: number) => {
-    setInputHarga(numericValue);
+    sethargaItem(numericValue);
     console.log('Received harga from child:', numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
     let diskon: number = 0;
