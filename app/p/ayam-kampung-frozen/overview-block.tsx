@@ -38,9 +38,9 @@ export default function OverviewBlock() {
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
             
     const [hargaItem, setHargaItem] = useState<number>(55000)//useState<number | null>(null);
-    const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
+    const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
-    const [diskonValue, setDiskonValue] = useState<number>(0);
+    const [nilaiDiskon, setNilaiDiskon] = useState<number>(0);
     const [childValue, setChildValue] = useState(1); //Quantity
     const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
@@ -53,8 +53,8 @@ export default function OverviewBlock() {
     const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
-      setTotalHargaList(inputHarga - diskonHarga);
-    }, [inputHarga, diskonHarga]);
+      setTotalHargaList(hargaItem - hargaDiskon);
+    }, [hargaItem, hargaDiskon]);
 
     const [productState, setProductState] = useState<ProductState>({
       productName, // Replace with actual product name
