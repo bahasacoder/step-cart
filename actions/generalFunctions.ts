@@ -8,4 +8,4 @@ export function Str_Random(length: number) {
             result += characters.charAt(randomInd);
         }
         return result;
-    }
+}
