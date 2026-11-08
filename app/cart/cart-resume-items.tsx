@@ -17,7 +17,7 @@ interface CheckedItem {
   idList: string;
   idCheckout: string;
   productName: string;
-  hargaList: number | string;
+  hargaList: number;
   hargaItem: number;
   hargaDiskon?: number;
   quantity?: number;
