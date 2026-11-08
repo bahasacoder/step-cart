@@ -49,7 +49,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
     const totalHargaItem = hargaItem * childValue; // hargaItem * Quantity
-    const [hargaList, setHargaList] = useState(0); // (hargaItem*Quantity) - hargaDiskon
+    const [hargaList, setHargaList] = useState(0); // (hargaItem - hargaDiskon)*Quantity
     const [productName, setProductName] = useState('Ayam Kampung Frozen');
     const [productImage, setProductImage] = useState('url-to-image');
     //const [itemProduct, setItemProduct] = useState([]);
@@ -123,7 +123,36 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
       } // <-- Menutup switch          
   };
 
+ const handleAddToCart = (currentProduct: any) => {
+     setIdList(Str_Random(4));
+      const nextProductState: ProductState = {
+        productName,
+        productImage,
+        hargaItem: Number(hargaItem),
+        hargaDiskon,
+        nilaiDiskon,
+        childValue: Number(childValue),
+        quantity: Number(childValue),
+        idItem,
+        totalHargaItem: totalHargaItem,
+          hargaList,
+        idList: Str_Random(4), // Generate a new random idList for each product added to the cart
+      };
 
+      const newItemProduct = [...itemProduct, nextProductState];
+      setItemProduct(newItemProduct);
+
+      const cartProduct = {
+        ...nextProductState,
+        id: Number(nextProductState.idList),
+      } as Parameters<typeof addItemToCart>[0];
+
+      console.log('handleGetItemProduct (Updated):', newItemProduct);
+      console.log('Product added to cart:', nextProductState);
+        console.log('addItemToCart', cartProduct)
+        console.log('idList', idList)
+      dispatch(addItemToCart(cartProduct));
+    };
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
