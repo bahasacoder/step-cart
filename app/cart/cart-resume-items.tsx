@@ -17,7 +17,7 @@ interface CheckedItem {
   idList: string;
   idCheckout: string;
   productName: string;
-  totalHargaList: number | string;
+  hargaList: number | string;
   hargaItem: number;
   hargaDiskon?: number;
   quantity?: number;
@@ -116,7 +116,7 @@ export default function CartResumeItems({ itemsChecked: initialItemsChecked }: C
     return total + ((item.hargaDiskon || 0) * (item.quantity || 0));
   }, 0);
   const totalHargaChecked = initialItemsChecked.reduce((total, item) => {
-    return total + ((Number(item.totalHargaList) || 0) * (item.quantity || 0));
+    return total + ((Number(item.hargaList) || 0) * (item.quantity || 0));
   }, 0);
 
   // Hasil akhir yang harus dibayar untuk item yang dicentang
