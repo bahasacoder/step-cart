@@ -16,7 +16,7 @@ import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
 // import CartCardDialog from "./cart-card";
 import CartDialog from '@/components/pages/cart/cart-dialog';
-
+import { Str_Random } from "@/actions/generealFunctions.ts"
 //  onValueChangeHarga={setInputHarga}
 
 export default function OverviewBlock() {
@@ -27,6 +27,95 @@ export default function OverviewBlock() {
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState(1);
     const [idPaket, setIdPaket] = useState('ay211');
+    const [idList, setIdList] = useState(() => Str_Random(4));
+    const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
+    const totalHargaItem = inputHarga - diskonHarga;
+    const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+    const [productName, setProductName] = useState('Ayam Kampung Frozen');
+    const [productImage, setProductImage] = useState('url-to-image');
+    //const [itemProduct, setItemProduct] = useState([]);
+    const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
+    // Sinkronisasi state jika nilai dasar berubah
+    useEffect(() => {
+      setTotalHargaJadi(inputHarga - diskonHarga);
+    }, [inputHarga, diskonHarga]);
+    interface ProductState {      
+          productName: string;
+          productImage: string;
+          inputHarga: number | null;
+          diskonHarga: number | null;
+          diskonValue: number;
+          childValue: number;
+          quantity: number;
+          idPaket: string;
+          totalHargaJadi: number;
+          idList: string;
+        }
+
+    const [productState, setProductState] = useState<ProductState>({
+      productName: productName, // Replace with actual product name
+      productImage: productImage, // Replace with actual image URL or path
+      inputHarga: inputHarga,
+      diskonHarga: diskonHarga,
+      diskonValue: diskonValue,
+      childValue: childValue,
+      quantity: childValue, // Assuming quantity is the same as childValue
+      idPaket: idPaket,
+      totalHargaJadi: totalHargaJadi,
+      idList: idList,
+    });
+
+
+    const handleValueFromChild = (value: number) => {
+        setChildValue(value);
+        console.log('Received value from child:', value);
+      };
+    // 1. Define the callback function that accepts data from the child
+  const handleHargaFromChild = (numericValue: number) => {
+    setInputHarga(numericValue);
+    console.log('Received harga from child:', numericValue);
+    //setDiskonHarga(numericValue * getDiskonHarga)
+    let diskon: number = 0;
+    switch (numericValue) {
+      case 35000:
+        diskon = 0.00
+         return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+      case 55000:
+        diskon = 0.00
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+     case 75000:
+        diskon = 0.25
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+      case 90000:
+        diskon = 0.30
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+    default:
+      // Opsional: Berikan nilai default jika harga tidak ada yang cocok
+      return (() => {
+            setDiskonValue(0);
+            setDiskonHarga(0);
+          })();
+      break;
+  } // <-- Menutup switch
+      
+  };
+  
    
 
   return (
