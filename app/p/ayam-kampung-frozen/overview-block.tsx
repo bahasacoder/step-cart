@@ -19,6 +19,19 @@ import CartDialog from '@/components/pages/cart/cart-dialog';
 import { Str_Random } from "@/actions/generalFunctions"
 //  onValueChangeHarga={setInputHarga}
 
+    interface ProductState {      
+          productName: string;
+          productImage: string;
+          inputHarga: number | null;
+          diskonHarga: number | null;
+          diskonValue: number;
+          childValue: number;
+          quantity: number;
+          idPaket: string;
+          totalHargaJadi: number;
+          idList: string;
+        }
+
 export default function OverviewBlock() {
     
     const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
@@ -40,19 +53,6 @@ export default function OverviewBlock() {
       setTotalHargaJadi(inputHarga - diskonHarga);
     }, [inputHarga, diskonHarga]);
 
-    interface ProductState {      
-          productName: string;
-          productImage: string;
-          inputHarga: number | null;
-          diskonHarga: number | null;
-          diskonValue: number;
-          childValue: number;
-          quantity: number;
-          idPaket: string;
-          totalHargaJadi: number;
-          idList: string;
-        }
-
     const [productState, setProductState] = useState<ProductState>({
       productName: productName, // Replace with actual product name
       productImage: productImage, // Replace with actual image URL or path
@@ -71,6 +71,51 @@ export default function OverviewBlock() {
         setChildValue(value);
         console.log('Received value from child:', value);
       };
+    // 1. Define the callback function that accepts data from the child
+  const handleHargaFromChild = (numericValue: number) => {
+    setInputHarga(numericValue);
+    console.log('Received harga from child:', numericValue);
+    //setDiskonHarga(numericValue * getDiskonHarga)
+    let diskon: number = 0;
+    switch (numericValue) {
+      case 35000:
+        diskon = 0.00
+         return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+      case 55000:
+        diskon = 0.00
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+     case 75000:
+        diskon = 0.25
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+      case 90000:
+        diskon = 0.30
+        return (() => {
+            setDiskonValue(diskon);
+            setDiskonHarga(numericValue * diskon);
+          })();
+        break;
+    default:
+          // Opsional: Berikan nilai default jika harga tidak ada yang cocok
+          return (() => {
+                setDiskonValue(0);
+                setDiskonHarga(0);
+              })();
+          break;
+      } // <-- Menutup switch
+          
+  };
     
 
   return (
