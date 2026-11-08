@@ -74,6 +74,7 @@ export default function OverviewBlock() {
         setChildValue(value);
         console.log('Received value from child:', value);
       };
+  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
 
 
   return (
