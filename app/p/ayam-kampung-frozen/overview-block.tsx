@@ -39,6 +39,7 @@ export default function OverviewBlock() {
     useEffect(() => {
       setTotalHargaJadi(inputHarga - diskonHarga);
     }, [inputHarga, diskonHarga]);
+
     interface ProductState {      
           productName: string;
           productImage: string;
@@ -70,56 +71,7 @@ export default function OverviewBlock() {
         setChildValue(value);
         console.log('Received value from child:', value);
       };
-    // 1. Define the callback function that accepts data from the child
-  const handleHargaFromChild = (numericValue: number) => {
-    setInputHarga(numericValue);
-    console.log('Received harga from child:', numericValue);
-    //setDiskonHarga(numericValue * getDiskonHarga)
-    let diskon: number = 0;
-    switch (numericValue) {
-      case 35000:
-        diskon = 0.00
-         return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
-          })();
-        break;
-      case 55000:
-        diskon = 0.00
-        return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
-          })();
-        break;
-     case 75000:
-        diskon = 0.25
-        return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
-          })();
-        break;
-      case 90000:
-        diskon = 0.30
-        return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
-          })();
-        break;
-    default:
-      // Opsional: Berikan nilai default jika harga tidak ada yang cocok
-      return (() => {
-            setDiskonValue(0);
-            setDiskonHarga(0);
-          })();
-      break;
-  } // <-- Menutup switch  
-  };
-
- const dispatch = useDispatch<AppDispatch>();    
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
-
-  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
-   
+    
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
