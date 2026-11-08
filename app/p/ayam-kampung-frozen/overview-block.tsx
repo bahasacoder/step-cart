@@ -40,7 +40,6 @@ export default function OverviewBlock() {
             
     const [hargaItem, setHargaItem] = useState<number>(55000)//useState<number | null>(null);
     const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
-    const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [nilaiDiskon, setNilaiDiskon] = useState<number>(0);
     const [childValue, setChildValue] = useState(1); //Quantity
     const [idItem, setIdItem] = useState('ay211');
@@ -60,9 +59,9 @@ export default function OverviewBlock() {
     const [productState, setProductState] = useState<ProductState>({
       productName, // Replace with actual product name
       productImage, // Replace with actual image URL or path
-      inputHarga,
-      diskonHarga,
-      diskonValue,
+      hargaItem,
+      hargaDiskon,
+      nilaiDiskon,
       childValue,
       quantity: childValue, // Assuming quantity is the same as childValue
       idPaket,
@@ -85,36 +84,36 @@ export default function OverviewBlock() {
       case 35000:
         diskon = 0.00
          return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 55000:
         diskon = 0.00
         return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
           })();
         break;
      case 75000:
         diskon = 0.25
         return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 90000:
         diskon = 0.30
         return (() => {
-            setDiskonValue(diskon);
-            setDiskonHarga(numericValue * diskon);
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
           })();
         break;
     default:
           // Opsional: Berikan nilai default jika harga tidak ada yang cocok
           return (() => {
-                setDiskonValue(0);
-                setDiskonHarga(0);
+                setNilaiDiskon(0);
+                setHargaDiskon(0);
               })();
           break;
       } // <-- Menutup switch          
