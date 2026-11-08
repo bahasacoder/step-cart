@@ -113,13 +113,13 @@ export default function TelurAyamKampungPage() {
                 </div>
 
                 {/* Price Area */}
-                {/* 
+                
                 <HargaItem
                     hargaItem={hargaItem}
                     nilaiDiskon={nilaiDiskon}
                     hargaDiskon={hargaDiskon}
                 />
-                */}
+                
                 {/* Short Description */}
                 <p className="text-sm text-stone-600 font-light leading-relaxed">
                     Dihasilkan langsung dari sistem peternakan berkelanjutan (*free-range*) tanpa kurungan stres. Kaya akan kandungan Omega-3 alami, vitamin esensial, serta memiliki warna kuning telur oranye pekat yang khas. Higienis dan disortir langsung menggunakan tangan demi kualitas masakan terbaik.
