@@ -33,24 +33,27 @@ import { Str_Random } from "@/actions/generalFunctions"
         }
 
 export default function OverviewBlock() {
-    
-    const [inputHarga, setInputHarga] = useState<number>(55000)//useState<number | null>(null);
+  const dispatch = useAppDispatch(); // Menggunakan useAppDispatch ter-typing bawaan hooks Anda
+  // const dispatch = useDispatch<AppDispatch>();
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+            
+    const [hargaItem, setHargaItem] = useState<number>(55000)//useState<number | null>(null);
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
     const [childValue, setChildValue] = useState(1);
-    const [idPaket, setIdPaket] = useState('ay211');
+    const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
-    const [product, setProduct] = useState({ id: '', nama: '', kemasan: '', jumlah: '', harga: '' });
-    const totalHargaItem = inputHarga - diskonHarga;
-    const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+    const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
+    const totalHargaItem = inputHarga * childValue; // hargaItem * Quantity
+    const [hargaList, setHargaList] = useState(() => Str_Random(4));
     const [productName, setProductName] = useState('Ayam Kampung Frozen');
     const [productImage, setProductImage] = useState('url-to-image');
     //const [itemProduct, setItemProduct] = useState([]);
     const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
-      setTotalHargaJadi(inputHarga - diskonHarga);
+      setTotalHargaList(inputHarga - diskonHarga);
     }, [inputHarga, diskonHarga]);
 
     const [productState, setProductState] = useState<ProductState>({
@@ -115,8 +118,6 @@ export default function OverviewBlock() {
           break;
       } // <-- Menutup switch          
   };
-  const dispatch = useDispatch<AppDispatch>();    
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
   const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
     
@@ -128,7 +129,7 @@ export default function OverviewBlock() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8 xl:gap-24">
                      <div className="flex flex-col gap-6">
                         <div>
-                          CarouselSwiper
+                          CarouselSwiper 1
                         </div>                      
                         <div className="flex justify-between gap-6"> </div>
                     </div>
