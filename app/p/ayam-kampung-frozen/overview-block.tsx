@@ -119,38 +119,6 @@ export default function OverviewBlock() {
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
   const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
-    
-    const handleAddToCart = (currentProduct: any) => {
-     setIdList(Str_Random(4));
-      const nextProductState: ProductState = {
-        productName: productName,
-        productImage: productImage,
-        inputHarga: Number(inputHarga),
-        diskonHarga: diskonHarga,
-        diskonValue: diskonValue,
-        childValue: Number(childValue),
-        quantity: Number(childValue),
-        idPaket: idPaket,
-        totalHargaJadi: totalHargaJadi,
-        idList: Str_Random(4), // Generate a new random idList for each product added to the cart
-      };
-
-      const newItemProduct = [...itemProduct, nextProductState];
-      setItemProduct(newItemProduct);
-
-      const cartProduct = {
-        ...nextProductState,
-        id: Number(nextProductState.idList),
-      } as Parameters<typeof addItemToCart>[0];
-
-      console.log('handleGetItemProduct (Updated):', newItemProduct);
-      console.log('Product added to cart:', nextProductState);
-        console.log('addItemToCart', cartProduct)
-        console.log('idList', idList)
-      dispatch(addItemToCart(cartProduct));
-    };
-
-  
    
 
   return (
