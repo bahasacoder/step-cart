@@ -13,7 +13,26 @@ import QuantityInput from './quantity-button';
 export default function TelurAyamKampungPage() {
     const dispatch = useAppDispatch();
     const cartItems = useAppSelector((state: RootState) => state.cart.items);
-    //
+    const [mainProductImage, setMainProductImage] = useState("image_hu8mgj.png");
+    const [packetOption, setPacketOptions] = useState("");
+    const [hargaItem, setHargaItem] = useState<number>(15000)
+    const [nilaiDiskon, setNilaiDiskonState] = useState<number>(0);
+    const setNilaiDiskon = (diskon: number): void => {
+        setNilaiDiskonState(diskon);
+    };
+    const [diskonHarga, setDiskonHarga] = useState<number>(0);
+    const [paketValue, setpaketValue] = useState<number>(0);
+    const [hargaDiskon, setHargaDiskon] = useState<number>(0);
+    const [quantityValue, setQuantityValue] = useState<number>(1);
+    const [itemProduct, setItemProduct] = useState<any[]>([]);
+    const [idList, setIdList] = useState("");
+    const [productName, setProductName] = useState('Telur Ayam Kampung');
+    const [productImage, setProductImage] = useState('https://iili.io/nwIvykG.jpg');
+    const [idKemasan, setIdKemasan] = useState('teyeka01');
+
+    const totalHargaItem = hargaItem - hargaDiskon;
+    const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+
 
   return (
      <div className="flex flex-col min-h-screen bg-stone-50">
