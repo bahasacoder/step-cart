@@ -10,8 +10,8 @@ import type { RootState, AppDispatch } from "@/lib/store";
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { addItemToCart } from '@/lib/features/cart/cartSlice';
 
-import QuantityInput from "./quantity-input"
 import CarouselSwiper from "./carousel-swiper"
+import QuantityInput from "./quantity-input"
 import OptionsBerat from "./options-berat"
 // import CartCardDialog from "./cart-card";
 import CartDialog from '@/components/pages/cart/cart-dialog';
@@ -161,7 +161,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8 xl:gap-24">
                      <div className="flex flex-col gap-6">
                         <div>
-                          CarouselSwiper 1
+                          <CarouselSwiper />
                         </div>                      
                         <div className="flex justify-between gap-6"> </div>
                     </div>
