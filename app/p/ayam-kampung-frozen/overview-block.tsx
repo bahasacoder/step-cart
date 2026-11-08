@@ -74,7 +74,52 @@ export default function OverviewBlock() {
         setChildValue(value);
         console.log('Received value from child:', value);
       };
-  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
+  
+    // 1. Define the callback function that accepts data from the child
+  const handleHargaFromChild = (numericValue: number) => {
+    setHargaItem(numericValue);
+    console.log('Received harga from child:', numericValue);
+    //setDiskonHarga(numericValue * getDiskonHarga)
+    let diskon: number = 0;
+    switch (numericValue) {
+      case 35000:
+        diskon = 0.00
+         return (() => {
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
+          })();
+        break;
+      case 55000:
+        diskon = 0.00
+        return (() => {
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
+          })();
+        break;
+     case 75000:
+        diskon = 0.25
+        return (() => {
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
+          })();
+        break;
+      case 90000:
+        diskon = 0.30
+        return (() => {
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
+          })();
+        break;
+    default:
+          // Opsional: Berikan nilai default jika harga tidak ada yang cocok
+          return (() => {
+                setNilaiDiskon(0);
+                setHargaDiskon(0);
+              })();
+          break;
+      } // <-- Menutup switch          
+  };
+
 
 
   return (
