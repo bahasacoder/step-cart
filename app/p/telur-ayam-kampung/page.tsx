@@ -106,7 +106,11 @@ export default function TelurAyamKampungPage() {
       useEffect(() => {
         setTotalHargaJadi(hargaItem - diskonHarga);
       }, [hargaItem, diskonHarga]);
-
+    const totalItemsCount = cartItems.reduce(
+        (total: number, item: (typeof cartItems)[number]) => total + (item.quantity || 0),
+        0,
+    );
+    
   return (
      <div className="flex flex-col min-h-screen bg-stone-50">
          {/* BREADCRUMB NAVIGATION */}
