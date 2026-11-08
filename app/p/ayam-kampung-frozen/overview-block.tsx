@@ -59,12 +59,13 @@ export default function OverviewBlock() {
     const [productState, setProductState] = useState<ProductState>({
       productName, // Replace with actual product name
       productImage, // Replace with actual image URL or path
+      idItem,
       hargaItem,
       hargaDiskon,
       nilaiDiskon,
       childValue,
       quantity: childValue, // Assuming quantity is the same as childValue
-      idItem,
+      totalHargaItem,
       hargaList,
       idList: idList,
     });
