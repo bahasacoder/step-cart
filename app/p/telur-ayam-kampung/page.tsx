@@ -70,9 +70,9 @@ export default function TelurAyamKampungPage() {
         console.log("Harga Diskon (Nominal) : ", hasilPotonganHarga);
          const hasilPotongan = harga * diskon;
          // Update state di induk
-            setHargaItem(harga);
-            setNilaiDiskon(diskon);
-            setHargaDiskon(hasilPotongan);
+            // setHargaItem(harga);
+            // setNilaiDiskon(diskon);
+            // setHargaDiskon(hasilPotongan);
     };
     const handleQuantityChange = (value: number) => {
         setQuantityValue(value);
@@ -106,9 +106,10 @@ export default function TelurAyamKampungPage() {
       useEffect(() => {
         setTotalHargaJadi(hargaItem - diskonHarga);
       }, [hargaItem, diskonHarga]);
-    const totalItemsCount = cartItems.reduce(
-        (total: number, item: (typeof cartItems)[number]) => total + (item.quantity || 0),
-        0,
+    // Ganti kode totalItemsCount Anda dengan baris aman ini:
+    const totalItemsCount = (cartItems || []).reduce(
+        (total: number, item: any) => total + (item.quantity || 0),
+        0
     );
     
   return (
