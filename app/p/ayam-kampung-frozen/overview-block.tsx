@@ -16,7 +16,7 @@ import CarouselSwiper from "./carousel-swiper"
 import OptionsBerat from "./options-berat"
 // import CartCardDialog from "./cart-card";
 import CartDialog from '@/components/pages/cart/cart-dialog';
-import { Str_Random } from "@/actions/generealFunctions.ts"
+import { Str_Random } from "@/actions/generalFunctions"
 //  onValueChangeHarga={setInputHarga}
 
 export default function OverviewBlock() {
