@@ -34,6 +34,7 @@ export default function AyamKampungDuaLimaPage() {
     <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
 
       <h1>Ayam Kampung Frozen</h1>
+        <OverviewBlock />
     </main>
   );
 }
