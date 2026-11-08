@@ -25,7 +25,7 @@ export interface CartItem {
   nilaiDiskon?: number;
   childValue?: number;
   totalHargaItem?: number; // hargaItem*Qty
-  totalHargaList?: number; // (hargaItem-hargaDiskon) * Qty
+  hargaList?: number; // (hargaItem-hargaDiskon) * Qty
 }    
 
 interface CartState {
