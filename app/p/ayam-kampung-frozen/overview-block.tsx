@@ -19,7 +19,7 @@ import CartDialog from '@/components/pages/cart/cart-dialog';
 import { Str_Random } from "@/actions/generalFunctions"
 //  onValueChangeHarga={setInputHarga}
 
-    interface ProductState {      
+interface ProductState {      
           productName: string;
           productImage: string;
           inputHarga: number | null;
@@ -41,7 +41,7 @@ export default function OverviewBlock() {
     const [diskonHarga, setDiskonHarga] = useState<number>(0); //  | null > (null)
     const [totalHarga, setTotalHarga] = useState<number| null > (null);
     const [diskonValue, setDiskonValue] = useState<number>(0);
-    const [childValue, setChildValue] = useState(1);
+    const [childValue, setChildValue] = useState(1); //Quantity
     const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
@@ -57,15 +57,15 @@ export default function OverviewBlock() {
     }, [inputHarga, diskonHarga]);
 
     const [productState, setProductState] = useState<ProductState>({
-      productName: productName, // Replace with actual product name
-      productImage: productImage, // Replace with actual image URL or path
-      inputHarga: inputHarga,
-      diskonHarga: diskonHarga,
-      diskonValue: diskonValue,
-      childValue: childValue,
+      productName, // Replace with actual product name
+      productImage, // Replace with actual image URL or path
+      inputHarga,
+      diskonHarga,
+      diskonValue,
+      childValue,
       quantity: childValue, // Assuming quantity is the same as childValue
-      idPaket: idPaket,
-      totalHargaJadi: totalHargaJadi,
+      idPaket,
+      totalHargaList,
       idList: idList,
     });
 
