@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import type { RootState, AppDispatch } from "@/lib/store";
 import { addItemToCart } from '@/lib/features/cart/cartSlice';
-
 import ImageBlock from "./images-kiri";
 import OptionsKemasan from "./kemasan";
 import HargaItem from './harga-item';
@@ -79,6 +78,71 @@ export default function TelurAyamKampungPage() {
         setQuantityValue(value);
         console.log('Handle quantity :', value);
     };
+    /* ------ */
+
+   // Fungsi pembantu untuk membuat string acak sepanjang X karakter
+  const generateRandomStr = (length: number) => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  };
+
+
+  function Str_Random(  length: number) {
+      let result = '';
+      const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+      
+      // Loop to generate characters for the specified length
+      for (let i = 0; i < length; i++) {
+          const randomInd = Math.floor(Math.random() * characters.length);
+          result += characters.charAt(randomInd);
+      }
+      return result;
+    }
+    // Sinkronisasi state jika nilai dasar berubah
+      useEffect(() => {
+        setTotalHargaJadi(hargaItem - diskonHarga);
+      }, [hargaItem, diskonHarga]);
+
+    const handleAddToCart = () => {
+            // 1. Buat ID unik untuk item saat ini
+            const newIdList = `List-${Str_Random(4)}`;
+            const newId = `${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
+            
+            // Simpan ke state lokal untuk item saat ini jika dibutuhkan komponen lain
+            setIdList(newIdList);
+            
+        // 2. Susun objek state produk baru
+        const nextProductItemState = {
+            id: newId,
+            idProduct: generateRandomStr(8),
+            idList: newIdList, // Menggunakan ID yang baru saja dibuat di atas
+            productName,
+            productImage,
+            hargaItem,
+            hargaDiskon,
+            nilaiDiskon, 
+            quantity: quantityValue,
+            idItem: generateRandomStr(16),
+            totalHargaList: (hargaItem - hargaDiskon) * quantityValue,
+        };
+           // 3. Update state array produk lokal
+        const newItemProduct = [...itemProduct, nextProductItemState];
+        setItemProduct(newItemProduct);
+        // 4. Kirim data ke Redux Store
+        dispatch(addItemToCart(nextProductItemState as unknown as Parameters<typeof addItemToCart>[0]));
+        console.log('nextProductItemState Add : ', nextProductItemState);
+            // ✨ FIX UTAMA: OTOMATIS REFRESH IDLIST UNTUK KLIK BERIKUTNYA
+            const freshIdList = `List-${Str_Random(4)}`;
+            setIdList(freshIdList); 
+        };
+    const totalItemsCount = cartItems.reduce(
+        (total: number, item: (typeof cartItems)[number]) => total + (item.quantity || 0),
+        0,
+    );
 
   return (
      <div className="flex flex-col min-h-screen bg-stone-50">
@@ -144,7 +208,7 @@ export default function TelurAyamKampungPage() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                 </svg>
                                 <span className="absolute top-0 right-0 bg-amber-800 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
-                                    {/* {totalItemsCount} */}
+                                    {totalItemsCount}
                                 </span>
                             </button>
                         </div>
