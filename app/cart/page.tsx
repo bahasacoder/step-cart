@@ -83,7 +83,7 @@ export default function ViewCartPage() {
       idCheckout,
       hargaItem: item.hargaItem ?? 0,
       productName: item.productName ?? getItemName(item),
-      totalHargaList: item.totalHargaList ?? 0,
+      HargaList: item.hargaList ?? 0,
     }));
 
   return (
