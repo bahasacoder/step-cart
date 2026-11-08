@@ -111,7 +111,6 @@ export default function TelurAyamKampungPage() {
         (total: number, item: any) => total + (item.quantity || 0),
         0
     );
-
     
     const handleAddToCart = () => {
             // 1. Buat ID unik untuk item saat ini
@@ -220,7 +219,7 @@ export default function TelurAyamKampungPage() {
                     <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4">
                         {/*  onClick={handleAddToCart} */}
                         <button 
-                           
+                            onClick={handleAddToCart}
                             type="button" 
                             className="w-full md:w-[48%] inline-flex gap-4 border-2 border-amber-800 text-amber-800 bg-transparent p-3 rounded-md hover:bg-amber-50 shrink-0 items-center justify-center font-medium transition-all outline-none select-none"
                         >
