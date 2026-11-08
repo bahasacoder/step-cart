@@ -71,13 +71,6 @@ export default function OverviewBlock() {
     });
 
 
-    const handleValueFromChild = (value: number) => {
-        setChildValue(value);
-        console.log('Received value from child:', value);
-      };
-
-  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
-    
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
