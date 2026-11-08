@@ -48,6 +48,78 @@ export default function TelurAyamKampungPage() {
                 </div>
 
                 {/* Price Area */}
+                {/* 
+                <HargaItem
+                    hargaItem={hargaItem}
+                    nilaiDiskon={nilaiDiskon}
+                    hargaDiskon={hargaDiskon}
+                />
+                */}
+                {/* Short Description */}
+                <p className="text-sm text-stone-600 font-light leading-relaxed">
+                    Dihasilkan langsung dari sistem peternakan berkelanjutan (*free-range*) tanpa kurungan stres. Kaya akan kandungan Omega-3 alami, vitamin esensial, serta memiliki warna kuning telur oranye pekat yang khas. Higienis dan disortir langsung menggunakan tangan demi kualitas masakan terbaik.
+                </p>
+
+                {/* E-COMMERCE FORM INTERACTION */}
+                <form onSubmit={(event) => { event.preventDefault(); }} className="space-y-6 pt-4 border-t border-stone-200">
+                    
+                    {/* Form Field 1: Opsi Paket Ukuran */}
+                    {/*
+                    <OptionsKemasan
+                        onChangeHarga={handleHargaFromPacket}
+                    />
+                    */}
+
+                    {/* Form Field 2: Kuantitas & Tombol Tambah Keranjang */}
+                    <div className="flex flex-col sm:flex-row gap-4 items-end sm:items-center justify-between">
+                        {/* Quantity Product*/}
+                        {/* <QuantityInput onQuantityChange={handleQuantityChange} />  */}
+
+                        <div className="flex items-center space-x-6">
+                            {/* Ikon Keranjang Belanja Belanja (Statik / UI) */}
+                            <button type="button" className="relative p-2 text-stone-700 hover:text-amber-800 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                </svg>
+                                <span className="absolute top-0 right-0 bg-amber-800 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                                    {/* {totalItemsCount} */}
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    {/* Tombol Masukkan Keranjang & Aksi Belanja */}
+                    <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4">
+                        {/*  onClick={handleAddToCart} */}
+                        <button 
+                           
+                            type="button" 
+                            className="w-full md:w-[48%] inline-flex gap-4 border-2 border-amber-800 text-amber-800 bg-transparent p-3 rounded-md hover:bg-amber-50 shrink-0 items-center justify-center font-medium transition-all outline-none select-none"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-cart-plus">
+                                <path d="M16 5h6"/><path d="M19 2v6"/><path d="m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18"/><path d="M4.564 5H12"/><path d="M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/>
+                            </svg>
+                            Masukkan Keranjang
+                        </button>
+                        
+                        <button 
+                            type="submit" 
+                            className="w-full md:w-[48%] inline-flex gap-4 bg-amber-800 text-white p-3 rounded-md hover:bg-amber-900 shrink-0 items-center justify-center font-medium transition-all outline-none select-none"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-heart-plus">
+                                <path d="m14.479 19.374-.971.939a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5a5.2 5.2 0 0 1-.219 1.49"/><path d="M15 15h6"/><path d="M18 12v6"/>
+                            </svg>
+                            Beli Langsung
+                        </button>
+                    </div>
+
+                    {/* Form Opsi Pengiriman */}
+                    <div className="flex flex-col sm:flex-row gap-2 pt-2 border-t border-stone-100">
+                        <p className="text-xs font-semibold text-stone-500 uppercase tracking-wider">Opsi Pengiriman:</p>
+                        <p className="text-xs text-stone-600">Kurir Instan & Same Day Terbuka Khusus Wilayah Jabodetabek</p>
+                    </div>
+                    
+                </form>
             </div>
             
         </div>
