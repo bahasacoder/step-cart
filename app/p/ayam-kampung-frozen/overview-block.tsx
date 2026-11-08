@@ -22,13 +22,14 @@ import { Str_Random } from "@/actions/generalFunctions"
 interface ProductState {      
           productName: string;
           productImage: string;
-          inputHarga: number | null;
-          diskonHarga: number | null;
-          diskonValue: number;
+          hargaItem: number | null;
+          hargaDiskon: number | null;
+          nilaiDiskon: number;
           childValue: number;
           quantity: number;
-          idPaket: string;
-          totalHargaJadi: number;
+          idItem: string;
+          totalHargaItem: number;
+          hargaList:number;
           idList: string;
         }
 
