@@ -64,7 +64,7 @@ export default function OverviewBlock() {
       nilaiDiskon,
       childValue,
       quantity: childValue, // Assuming quantity is the same as childValue
-      idPaket,
+      idItem,
       hargaList,
       idList: idList,
     });
