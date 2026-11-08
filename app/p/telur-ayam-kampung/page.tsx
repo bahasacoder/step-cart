@@ -127,13 +127,10 @@ export default function TelurAyamKampungPage() {
 
                 {/* E-COMMERCE FORM INTERACTION */}
                 <form onSubmit={(event) => { event.preventDefault(); }} className="space-y-6 pt-4 border-t border-stone-200">
-                    
                     {/* Form Field 1: Opsi Paket Ukuran */}
-                    {/*
                     <OptionsKemasan
                         onChangeHarga={handleHargaFromPacket}
                     />
-                    */}
 
                     {/* Form Field 2: Kuantitas & Tombol Tambah Keranjang */}
                     <div className="flex flex-col sm:flex-row gap-4 items-end sm:items-center justify-between">
