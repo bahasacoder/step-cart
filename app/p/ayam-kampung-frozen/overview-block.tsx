@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState, useEffect } from 'react';
 import { useSelector, useDispatch  } from "react-redux";
-
 import type { RootState, AppDispatch } from "@/lib/store";
 
 // import { Product } from '@/lib/features/products/productSlice';
@@ -34,9 +33,13 @@ interface ProductState {
         }
 
 export default function OverviewBlock() {
-  const dispatch = useAppDispatch(); // Menggunakan useAppDispatch ter-typing bawaan hooks Anda
+const dispatch = useAppDispatch(); // Menggunakan useAppDispatch ter-typing bawaan hooks Anda
   // const dispatch = useDispatch<AppDispatch>();
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+const cartItems = useAppSelector((state: RootState) => state.cart.items);
+ const totalItemsCount = (cartItems || []).reduce(
+    (total: number, item: any) => total + (item.quantity || 0), 
+    0
+  );
             
     const [hargaItem, setHargaItem] = useState<number>(55000)//useState<number | null>(null);
     const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
