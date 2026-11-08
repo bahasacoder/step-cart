@@ -70,6 +70,10 @@ export default function OverviewBlock() {
       idList: idList,
     });
 
+    const handleValueFromChild = (value: number) => {
+        setChildValue(value);
+        console.log('Received value from child:', value);
+      };
 
 
   return (
