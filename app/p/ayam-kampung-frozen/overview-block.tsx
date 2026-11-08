@@ -113,9 +113,12 @@ export default function OverviewBlock() {
                 setDiskonHarga(0);
               })();
           break;
-      } // <-- Menutup switch
-          
+      } // <-- Menutup switch          
   };
+  const dispatch = useDispatch<AppDispatch>();    
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+
+  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
     
 
   return (
