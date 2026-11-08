@@ -112,9 +112,44 @@ export default function OverviewBlock() {
             setDiskonHarga(0);
           })();
       break;
-  } // <-- Menutup switch
-      
+  } // <-- Menutup switch  
   };
+
+ const dispatch = useDispatch<AppDispatch>();    
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+
+  const totalItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
+    
+    const handleAddToCart = (currentProduct: any) => {
+     setIdList(Str_Random(4));
+      const nextProductState: ProductState = {
+        productName: productName,
+        productImage: productImage,
+        inputHarga: Number(inputHarga),
+        diskonHarga: diskonHarga,
+        diskonValue: diskonValue,
+        childValue: Number(childValue),
+        quantity: Number(childValue),
+        idPaket: idPaket,
+        totalHargaJadi: totalHargaJadi,
+        idList: Str_Random(4), // Generate a new random idList for each product added to the cart
+      };
+
+      const newItemProduct = [...itemProduct, nextProductState];
+      setItemProduct(newItemProduct);
+
+      const cartProduct = {
+        ...nextProductState,
+        id: Number(nextProductState.idList),
+      } as Parameters<typeof addItemToCart>[0];
+
+      console.log('handleGetItemProduct (Updated):', newItemProduct);
+      console.log('Product added to cart:', nextProductState);
+        console.log('addItemToCart', cartProduct)
+        console.log('idList', idList)
+      dispatch(addItemToCart(cartProduct));
+    };
+
   
    
 
@@ -123,10 +158,14 @@ export default function OverviewBlock() {
        <section className="py-8 sm:py-16 lg:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8 xl:gap-24">
-                    <div>
-                        <h1>Overview</h1>
-                    
+                     <div className="flex flex-col gap-6">
+                        <div>
+                          <CarouselSwiper />
+                        </div>                      
+                        <div className="flex justify-between gap-6"> </div>
                     </div>
+
+                    
                 </div>
             </div>
         </section>
