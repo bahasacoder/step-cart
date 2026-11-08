@@ -11,7 +11,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import CartListItem from "./CartListItem";
 import { useRouter } from 'next/navigation';
-import { Str_Random } from '../actions/generalFunctions';
+import { Str_Random } from '@/actions/generalFunctions';
 
 interface CheckedItem {
   idList: string;
