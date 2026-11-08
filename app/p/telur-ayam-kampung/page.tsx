@@ -32,7 +32,53 @@ export default function TelurAyamKampungPage() {
 
     const totalHargaItem = hargaItem - hargaDiskon;
     const [totalHargaJadi, setTotalHargaJadi] = useState<number>(totalHargaItem);
+    const handleHargaFromPacket = (hargaPaket: number) => {
+        // 1. Simpan harga item ke dalam state
+        setHargaItem(hargaPaket);
+        console.log("Harga Paket : ", hargaPaket);
 
+        const harga = Number(hargaPaket);
+        let diskon: number = 0;
+
+        // 2. Gunakan switch hanya untuk menentukan persentase diskon
+        switch (harga) {
+            case 3000:
+            diskon = 0.01;
+            break;
+            case 15000:
+            diskon = 0.02;
+            break;
+            case 30000:
+            diskon = 0.03;
+            break;
+            case 50000:
+            diskon = 0.04;
+            break;
+            default:
+            diskon = 0;
+            break;
+        }
+
+        // 3. Hitung nominal diskon ke dalam variabel lokal
+        const hasilPotonganHarga = harga * diskon;
+
+        // 4. Perbarui semua state sekaligus di akhir fungsi (Tanpa IIFE/Return bersarang)
+        setNilaiDiskon(diskon);
+        setHargaDiskon(hasilPotonganHarga);
+
+        // 5. PERBAIKAN LOG: Tampilkan variabel lokal agar nilainya langsung terlihat (bukan dari state)
+        console.log("Persentase Diskon : ", diskon);
+        console.log("Harga Diskon (Nominal) : ", hasilPotonganHarga);
+         const hasilPotongan = harga * diskon;
+         // Update state di induk
+            setHargaItem(harga);
+            setNilaiDiskon(diskon);
+            setHargaDiskon(hasilPotongan);
+    };
+    const handleQuantityChange = (value: number) => {
+        setQuantityValue(value);
+        console.log('Handle quantity :', value);
+    };
 
   return (
      <div className="flex flex-col min-h-screen bg-stone-50">
