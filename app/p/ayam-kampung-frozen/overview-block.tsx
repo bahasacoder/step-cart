@@ -194,7 +194,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                         <div className="flex items-center gap-3">
                             <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{totalHargaItem}</p>
                             <span className="text-muted-foreground font-medium line-through">
-                                { diskonValue > 0 ? 
+                                { nilaiDiskon > 0 ? 
                                     'Rp ' +
                                         hargaItem : '' 
                                 }
