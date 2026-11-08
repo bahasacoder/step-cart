@@ -15,7 +15,7 @@ export default function pageDua() {
 
 
 return (
-  
+  <>
        {/* Product Tabs */}
             <div className="row">
               <div className="col-sm-12">
@@ -37,7 +37,7 @@ return (
                   </Tabs>
               </div>         
             </div>
-
+</>
   
 )
 
