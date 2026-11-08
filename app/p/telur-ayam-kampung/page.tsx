@@ -107,43 +107,6 @@ export default function TelurAyamKampungPage() {
         setTotalHargaJadi(hargaItem - diskonHarga);
       }, [hargaItem, diskonHarga]);
 
-    const handleAddToCart = () => {
-            // 1. Buat ID unik untuk item saat ini
-            const newIdList = `List-${Str_Random(4)}`;
-            const newId = `${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
-            
-            // Simpan ke state lokal untuk item saat ini jika dibutuhkan komponen lain
-            setIdList(newIdList);
-            
-        // 2. Susun objek state produk baru
-        const nextProductItemState = {
-            id: newId,
-            idProduct: generateRandomStr(8),
-            idList: newIdList, // Menggunakan ID yang baru saja dibuat di atas
-            productName,
-            productImage,
-            hargaItem,
-            hargaDiskon,
-            nilaiDiskon, 
-            quantity: quantityValue,
-            idItem: generateRandomStr(16),
-            totalHargaList: (hargaItem - hargaDiskon) * quantityValue,
-        };
-           // 3. Update state array produk lokal
-        const newItemProduct = [...itemProduct, nextProductItemState];
-        setItemProduct(newItemProduct);
-        // 4. Kirim data ke Redux Store
-        dispatch(addItemToCart(nextProductItemState as unknown as Parameters<typeof addItemToCart>[0]));
-        console.log('nextProductItemState Add : ', nextProductItemState);
-            // ✨ FIX UTAMA: OTOMATIS REFRESH IDLIST UNTUK KLIK BERIKUTNYA
-            const freshIdList = `List-${Str_Random(4)}`;
-            setIdList(freshIdList); 
-        };
-    const totalItemsCount = cartItems.reduce(
-        (total: number, item: (typeof cartItems)[number]) => total + (item.quantity || 0),
-        0,
-    );
-
   return (
      <div className="flex flex-col min-h-screen bg-stone-50">
          {/* BREADCRUMB NAVIGATION */}
