@@ -160,7 +160,7 @@ export default function OverviewBlock() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8 xl:gap-24">
                      <div className="flex flex-col gap-6">
                         <div>
-                          <CarouselSwiper />
+                          CarouselSwiper
                         </div>                      
                         <div className="flex justify-between gap-6"> </div>
                     </div>
