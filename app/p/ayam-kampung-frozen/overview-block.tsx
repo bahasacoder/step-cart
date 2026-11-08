@@ -45,7 +45,7 @@ export default function OverviewBlock() {
     const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
-    const totalHargaItem = inputHarga * childValue; // hargaItem * Quantity
+    const totalHargaItem = hargaItem * childValue; // hargaItem * Quantity
     const [hargaList, setHargaList] = useState(() => Str_Random(4));
     const [productName, setProductName] = useState('Ayam Kampung Frozen');
     const [productImage, setProductImage] = useState('url-to-image');
