@@ -1,0 +1,98 @@
+{
+  "products": [
+    {
+      "idProduct": "PROD-d336f8b3-7b58-417f-9cf0-872038daba02",
+      "productName": "Telur Ayam Kampung",
+      "productSlug": "telur-ayam-kampung",
+      "productImage": "telur-ayam-kampung.jpg",
+      "category": "daging, meat",
+      "teaser": "",
+      "descriptions: "",
+      "specification" : "",
+      "productItems": [
+        {
+           "idItem": "ITEM-2f6eb91f",
+            "namaItem": "1 butir",
+            "imageItem": "running-40.jpg",
+            "size": "1 butir",
+            "unit": "peket",
+            "netto": "1"
+            "dimensi": "5cm x 5cm x 5cm",
+            "hargaItem": 800000,
+            "hargaDiskon": 720000,
+            "nilaiDiskon": "10%",
+            "stokBarang": 15
+        },
+      ]
+    },
+    {
+      "idProduct": "PROD-5fd3f354-fa58-4466-b413-a9006c2d5728",
+      "productName": "Ayam-Kampung-Frozen",
+      "productImage": "ayam-kampung-frozen.jpg",
+      "category": "daging, meat"
+    },
+    {
+      "idProduct": "PROD-13aeebd4-c18d-4817-9fc1-a27e4ffd2da9",
+      "productName": "Himel RCBO",
+      "productImage": "himel-rcbo.jpg",
+      "category": "Alat, Listrik"
+    }
+  ],
+  "productItems": [
+    {
+      "idProduct": "PROD-d336f8b3-7b58-417f-9cf0-872038daba02",
+      "idItem": "ITEM-001A",
+      "NamaItem": "Sepatu Running Ultra - Size 40",
+      "ImageItem": "running-40.jpg",
+      "Size": "40",
+      "Hargaitem": 800000,
+      "HargaDiskon": 720000,
+      "NilaiDiskon": "10%",
+      "stokBarang": 15
+    },
+    {
+      "idProduct": "PROD-001",
+      "idItem": "ITEM-001B",
+      "NamaItem": "Sepatu Running Ultra - Size 41",
+      "ImageItem": "running-41.jpg",
+      "Size": "41",
+      "Hargaitem": 800000,
+      "HargaDiskon": 720000,
+      "NilaiDiskon": "10%",
+      "stokBarang": 8
+    },
+    {
+      "idProduct": "PROD-002",
+      "idItem": "ITEM-002A",
+      "NamaItem": "Kemeja Flanel Slimfit - M",
+      "ImageItem": "flanel-m.jpg",
+      "Size": "M",
+      "Hargaitem": 250000,
+      "HargaDiskon": 250000,
+      "NilaiDiskon": "0%",
+      "stokBarang": 20
+    },
+    {
+      "idProduct": "PROD-002",
+      "idItem": "ITEM-002B",
+      "NamaItem": "Kemeja Flanel Slimfit - L",
+      "ImageItem": "flanel-l.jpg",
+      "Size": "L",
+      "Hargaitem": 250000,
+      "HargaDiskon": 200000,
+      "NilaiDiskon": "Rp 50.000",
+      "stokBarang": 5
+    },
+    {
+      "idProduct": "PROD-003",
+      "idItem": "ITEM-003A",
+      "NamaItem": "T-Shirt Polos Cotton - XL",
+      "ImageItem": "tshirt-xl.jpg",
+      "Size": "XL",
+      "Hargaitem": 100000,
+      "HargaDiskon": 850000,
+      "NilaiDiskon": "15%",
+      "stokBarang": 50
+    }
+  ]
+}
