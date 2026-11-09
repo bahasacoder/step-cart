@@ -40,15 +40,16 @@ interface ProductItemState {
           hargaDiskon: number | null;
           nilaiDiskon: number;
           quantity: number;
-          totalHargaList: number;
+          hargaList: number;
   }
 
 export default function ProductDetailHimelRCBOPage() {
   const dispatch = useAppDispatch(); 
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
-  const totalItemsCount = cartItems.reduce(
-    (total: number, item: (typeof cartItems)[number]) => total + (item.quantity || 0),
-    0,
+   // FIX UTAMA: Fallback array kosong mencegah error reduksi di sisi SSR/Next.js
+  const totalItemsCount = (cartItems || []).reduce(
+    (total: number, item: any) => total + (item.quantity || 0),
+    0
   );
   const min = 1;
   const max = 49;
@@ -62,8 +63,17 @@ export default function ProductDetailHimelRCBOPage() {
   const [idList, setIdList] = useState('');
   const [quantityValue, setQuantityValue] = useState<number>(1);
   const totalHargaItem = hargaItem*quantityValue;
-  const [totalHargaList, setTotalHargaList] = useState<number>((hargaItem-hargaDiskon)*quantityValue);  
+  const [hargaList, sethargaList] = useState<number>((hargaItem-hargaDiskon)*quantityValue);  
   const [itemProduct, setItemProduct] = useState<any[]>([]);
+   const [selectedAmpere, setSelectedAmpere] = useState<string>('6');
+  // Sinkronisasi total harga list secara aman dan otomatis
+  useEffect(() => {
+    setTotalHargaList((hargaItem - hargaDiskon) * quantityValue);
+  }, [hargaItem, hargaDiskon, quantityValue]);
+  // Penanganan Hydration Safe untuk ID Awal di sisi Client
+  useEffect(() => {
+    setIdList(`List-${Str_Random(4)}`);
+  }, []);
   
   const spesifikasiData = [
     { label: 'Merek', nilai: 'Himel' },
@@ -84,40 +94,38 @@ export default function ProductDetailHimelRCBOPage() {
     // Hasil log yang terjamin akurat di konsol browser
     console.log('Quantity Value Aktual:', clamped);
   };
-
   // 3. Handler Tombol Tambah (+)
   function increment(): void {
     // Ambil nilai terbaru (current) lalu kirim ke fungsi pusat
     updateQuantityValue(value + 1);
   }
-
   // 4. Handler Tombol Kurang (-)
   function decrement(): void {
     // Ambil nilai terbaru (current) lalu kirim ke fungsi pusat
     updateQuantityValue(value - 1);
   }
-
   // 5. Handler Ketik Manual di Input
-  function handleQuantityChange(event: React.ChangeEvent<HTMLInputElement>): void {
+  const handleQuantityInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const num = Number(event.target.value);
-    
-    // Proteksi: Hanya jalankan jika input berupa angka valid
     if (!isNaN(num)) {
       updateQuantityValue(num);
     }
-  }
+  };
 
   
-  function onChangeHarga(event: React.ChangeEvent<HTMLInputElement>): void {
+  function onChangeHargahandleAmpereChange = (ampere: string) => {
     const hargaByAmpere: Record<string, number> = {
       '6': 150000,
       '10': 170000,
       '16': 190000,
     };
-    const harga = hargaByAmpere[event.currentTarget.value];
-    if (harga !== undefined) {
-      setHargaItem(harga);
-    }
+  const harga = hargaByAmpere[ampere];
+      if (harga !== undefined) {
+        setHargaItem(harga);
+        setSelectedAmpere(ampere);
+        console.log('Change Harga Aktual:', harga);
+      }
+    };
     console.log('Change Harga : ', hargaItem)
   }
   const d = new Date();
@@ -150,7 +158,7 @@ export default function ProductDetailHimelRCBOPage() {
           nilaiDiskon, 
           quantity: quantityValue,
           idItem: Str_Random(16),
-          totalHargaList: (hargaItem - hargaDiskon) * quantityValue,
+          hargaList: (hargaItem - hargaDiskon) * quantityValue,
         };
       const newItemProduct = [...itemProduct, nextProductItemState];
       setItemProduct(newItemProduct);
