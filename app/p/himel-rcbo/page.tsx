@@ -192,39 +192,64 @@ export default function ProductDetailHimelRCBOPage() {
           
           {/* LEFT COLUMN: PRODUCT IMAGES */}
           <div className="space-y-4 md:sticky md:top-24">
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex justify-center items-center overflow-hidden">
-              {/* Anda bisa mengganti src ini dengan component <Image /> Next.js jika aset lokal sudah terdaftar */}
-             <div className="relative w-full aspect-[21/9] sm:aspect-[2.4/1] rounded-xl overflow-hidden group">
-                <Image 
-                  src="https://iili.io/nNdJLzP.jpg" 
-                  alt="Himel RCBO HDB3LE C6" 
-                  fill
-                  priority
-                  className="object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-3">
-              <div className="bg-white p-3 rounded-xl border border-red-500 cursor-pointer">
-                <div className="aspect-square bg-gray-50 rounded-lg">
-                    <Image 
-                    src="https://iili.io/nNdJimB.jpg" 
-                    alt="Himel RCBO HDB3LE C6" 
+              {/* AREA DISPLAY GAMBAR UTAMA */}
+              <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="relative w-full aspect-[21/9] sm:aspect-[2.4/1] rounded-xl overflow-hidden group">
+                  <Image 
+                    src="https://iili.io/nNdJLzP.jpg" 
+                    alt="Himel RCBO HDB3LE C6 Banner" 
+                    fill
+                    priority
+                    sizes="(max-w-7xl) 100vw, 800px"
+                    className="object-contain transition-transform duration-300 group-hover:scale-105"
                   />
+                </div>
+              </div>
+            
+              {/* AREA GRID THUMBNAIL (GAMBAR PENDUKUNG) */}
+              <div className="grid grid-cols-3 gap-3">
+                
+                {/* Thumbnail 1 (Aktif / Border Merah) */}
+                <button type="button" className="bg-white p-2 rounded-xl border border-red-500 cursor-pointer overflow-hidden focus:outline-none">
+                  <div className="relative w-full aspect-square bg-gray-50 rounded-lg overflow-hidden">
+                    <Image 
+                      src="https://iili.io/nNdJimB.jpg" 
+                      alt="Himel RCBO HDB3LE C6 Banner Putih" 
+                      fill
+                      sizes="(max-w-md) 33vw, 150px"
+                      className="object-contain p-1"
+                    />
                   </div>
-              </div>
-              <div className="bg-white p-3 rounded-xl border border-gray-100 hover:border-gray-300 cursor-pointer">
-                <div className="aspect-square bg-gray-50 rounded-lg">
-                  <img src="https://iili.io/nNdJ65Q.jpg" alt="image bb508b0"/>
-                </div>
-              </div>
-              <div className="bg-white p-3 rounded-xl border border-gray-100 hover:border-gray-300 cursor-pointer">
-                <div className="aspect-square bg-gray-50 rounded-lg">
-                  <img src="https://iili.io/nNdJZLF.jpg" alt="20261016 182130 copy" />
-                </div>
+                </button>
+            
+                {/* Thumbnail 2 */}
+                <button type="button" className="bg-white p-2 rounded-xl border border-gray-100 hover:border-gray-300 cursor-pointer overflow-hidden focus:outline-none">
+                  <div className="relative w-full aspect-square bg-gray-50 rounded-lg overflow-hidden">
+                    <Image 
+                      src="https://iili.io/nNdJ65Q.jpg" 
+                      alt="Himel RCBO HDB3LE Tampak Depan" 
+                      fill
+                      sizes="(max-w-md) 33vw, 150px"
+                      className="object-contain p-1"
+                    />
+                  </div>
+                </button>
+            
+                {/* Thumbnail 3 */}
+                <button type="button" className="bg-white p-2 rounded-xl border border-gray-100 hover:border-gray-300 cursor-pointer overflow-hidden focus:outline-none">
+                  <div className="relative w-full aspect-square bg-gray-50 rounded-lg overflow-hidden">
+                    <Image 
+                      src="https://iili.io/nNdJZLF.jpg" 
+                      alt="Himel RCBO HDB3LE Sudut Fisik" 
+                      fill
+                      sizes="(max-w-md) 33vw, 150px"
+                      className="object-contain p-1"
+                    />
+                  </div>
+                </button>
+            
               </div>
             </div>
-          </div>
 
           {/* RIGHT COLUMN: PRODUCT INFO & ORDER */}
           <div className="space-y-6">
