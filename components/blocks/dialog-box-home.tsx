@@ -30,7 +30,7 @@ export default function DialogBoxHome() {
                       />
                   </div>   
                 <h2 className="w-full mx-0 text-center text-base md:text-2xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Kami Melayani Pembuatan Website UMKM 
-                  <span className="ml-2 text-red-900">Mulai Rp.0</span></h2>
+                  <span className="mx-2 text-rose-900">Mulai Rp.0 !</span></h2>
                 </div>
           </DialogContent>
         </Dialog>
