@@ -208,8 +208,15 @@ export default function ProductDetailHimelRCBOPage() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-white p-3 rounded-xl border border-red-500 cursor-pointer">
                 <div className="aspect-square bg-gray-50 rounded-lg">
-                  <img src="https://iili.io/nNdJimB.jpg" alt="image be7eab9d" />
-                </div>
+                    <Image 
+                    src="https://iili.io/nNdJimB.jpg" 
+                    alt="Himel RCBO HDB3LE C6" 
+                    fill
+                    sizes="(max-w-7xl) 100vw, 1200px"
+                    priority
+                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                  </div>
               </div>
               <div className="bg-white p-3 rounded-xl border border-gray-100 hover:border-gray-300 cursor-pointer">
                 <div className="aspect-square bg-gray-50 rounded-lg">
