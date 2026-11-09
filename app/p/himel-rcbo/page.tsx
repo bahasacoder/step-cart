@@ -210,7 +210,6 @@ export default function ProductDetailHimelRCBOPage() {
                     <Image 
                     src="https://iili.io/nNdJimB.jpg" 
                     alt="Himel RCBO HDB3LE C6" 
-                    fill
                   />
                   </div>
               </div>
