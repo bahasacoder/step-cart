@@ -346,7 +346,7 @@ export default function ProductDetailHimelRCBOPage() {
                     max={max}
                     placeholder="1"
                     value={value}
-                    onChange={handleQuantityChange}
+                    onChange={handleQuantityInputChange}
                 />
                 <button
                     className="h-8 w-8 px-2 flex items-center bg-slate-800 rounded hover:bg-slate-700"
