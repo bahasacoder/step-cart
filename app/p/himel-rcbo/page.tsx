@@ -1,4 +1,6 @@
 'use client';
+import Image from "next/image";
+import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import type { RootState } from "@/lib/store";
@@ -192,11 +194,16 @@ export default function ProductDetailHimelRCBOPage() {
           <div className="space-y-4 md:sticky md:top-24">
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex justify-center items-center overflow-hidden">
               {/* Anda bisa mengganti src ini dengan component <Image /> Next.js jika aset lokal sudah terdaftar */}
-              <img 
-                src="https://iili.io/nNdJLzP.jpg" 
-                alt="Himel RCBO HDB3LE C6" 
-                className="w-full h-auto object-contain rounded-xl hover:scale-105 transition duration-300"
-              />
+             <div className="relative w-full aspect-[21/9] sm:aspect-[2.4/1] rounded-xl overflow-hidden group">
+                <Image 
+                  src="https://iili.io/nNdJLzP.jpg" 
+                  alt="Himel RCBO HDB3LE C6" 
+                  fill
+                  sizes="(max-w-7xl) 100vw, 1200px"
+                  priority
+                  className="object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
             </div>
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-white p-3 rounded-xl border border-red-500 cursor-pointer">
