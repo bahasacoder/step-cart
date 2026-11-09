@@ -137,7 +137,7 @@ export default function ProductDetailHimelRCBOPage() {
 
     const nextProductItemState = {
           id: newId,
-          idProduct: generateRandomStr(8),
+          idProduct: Str_Random(8),
           idList: newIdList,
           productName,
           productImage,
