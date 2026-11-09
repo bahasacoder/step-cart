@@ -150,6 +150,10 @@ export default function ProductDetailHimelRCBOPage() {
     setIdList(freshIdList); 
     alert('Produk berhasil dimasukkan ke keranjang belanja.');
   }
+  // Fungsi penanganan klik tombol beli untuk mencatat analytics atau redirect
+  const handleMarketplaceClick = (platform: string) => {
+    console.log(`Pengguna menuju ke marketplace: ${platform}`);
+  };
 
   return (
     <>
