@@ -145,7 +145,7 @@ export default function ProductDetailHimelRCBOPage() {
           hargaDiskon,
           nilaiDiskon, 
           quantity: quantityValue,
-          idItem: generateRandomStr(16),
+          idItem: Str_Random(16),
           totalHargaList: (hargaItem - hargaDiskon) * quantityValue,
         };
       const newItemProduct = [...itemProduct, nextProductItemState];
