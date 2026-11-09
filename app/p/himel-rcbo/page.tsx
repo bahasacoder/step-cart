@@ -60,6 +60,18 @@ export default function ProductDetailHimelRCBOPage() {
   const totalHargaItem = hargaItem*quantityValue;
   const [totalHargaList, setTotalHargaList] = useState<number>((hargaItem-hargaDiskon)*quantityValue);  
   const [itemProduct, setItemProduct] = useState<any[]>([]);
+  
+  const spesifikasiData = [
+    { label: 'Merek', nilai: 'Himel' },
+    { label: 'Tipe Seri', nilai: 'HDB3LE (RCBO)' },
+    { label: 'Kapasitas Arus', nilai: '6 Ampere (C6)' },
+    { label: 'Jumlah Kutub (Poles)', nilai: '2P (Phase + Neutral)' },
+    { label: 'Sensitivitas Kebocoran', nilai: '30 mA (Aman untuk Manusia)' },
+    { label: 'Breaking Capacity', nilai: '6000A / 6 kA' },
+    { label: 'Tegangan Operasional', nilai: '240V ~ AC (50/60Hz)' },
+    { label: 'Sertifikasi Patokan', nilai: 'SNI, IEC/EN 61009-1' },
+  ];
+
 
   return (
     <>
