@@ -27,7 +27,7 @@
       "specification": "Suhu penyimpanan -18 Derajat Celcius",
       "productItems": [
         { "idItem": "ITEM-fe264eb2", "namaItem": "250 Gram", "imageItem": "running-40.jpg", "size": "250 gr", "unit": "Gram", "netto": "250", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 30000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
-        { "idItem": "ITEM-beb2df10", "namaItem": "500 Gram", "imageItem": "running-40.jpg", "size": "500 gr", "unit": "Gram", "netto": "500", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 50000, "hargaDiskon": 0, "nilaiDiskon: 0, "stokItem": 15 },
+        { "idItem": "ITEM-beb2df10", "namaItem": "500 Gram", "imageItem": "running-40.jpg", "size": "500 gr", "unit": "Gram", "netto": "500", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 50000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
         { "idItem": "ITEM-c24df728", "namaItem": "750 Gram", "imageItem": "running-40.jpg", "size": "750 gr", "unit": "Gram", "netto": "750", "dimensi": "20cm x 20cm x 20cm", "hargaItem": 75000, "hargaDiskon": 15000, "nilaiDiskon": 20, "stokItem": 15 },
         { "idItem": "ITEM-d24df704", "namaItem": "1000 Gram", "imageItem": "running-40.jpg", "size": "1000 gr", "unit": "Gram", "netto": "1000", "dimensi": "20cm x 20cm x 20cm", "hargaItem": 100000, "hargaDiskon": 20000, "nilaiDiskon": 20, "stokItem": 15 }
       ]
