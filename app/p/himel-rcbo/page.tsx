@@ -125,7 +125,47 @@ export default function ProductDetailHimelRCBOPage() {
                     String(d.getMinutes()).padStart(2, '0') +
                     String(d.getSeconds()).padStart(2, '0');
                
+                  
+  function handleAddToCart(event: any): void {
+    event.preventDefault();
+     // 1. Buat ID unik untuk item saat ini
+    const newIdList = `List-${Str_Random(4)}`;
+    const newId = `${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
+    
+    // Simpan ke state lokal untuk item saat ini jika dibutuhkan komponen lain
+    setIdList(newIdList);
 
+    const nextProductItemState = {
+          id: newId,
+          idProduct: generateRandomStr(8),
+          idList: newIdList,
+          productName,
+          productImage,
+          hargaItem,
+          hargaDiskon,
+          nilaiDiskon, 
+          quantity: quantityValue,
+          idItem: generateRandomStr(16),
+          totalHargaList: (hargaItem - hargaDiskon) * quantityValue,
+        };
+      const newItemProduct = [...itemProduct, nextProductItemState];
+      setItemProduct(newItemProduct);
+    
+      const cartProduct = {
+                  ...nextProductItemState,
+                  id: Date.now(),
+      } as Parameters<typeof addItemToCart>[0];
+      console.log('handleGetItemProduct (Updated):', newItemProduct);
+                console.log('Product added to cart:', nextProductItemState);
+                  console.log('addItemToCart', cartProduct)
+                              console.log('quantity', quantityValue)
+                dispatch(addItemToCart(nextProductItemState as unknown as Parameters<typeof addItemToCart>[0])); // cartProductk
+                
+       // ✨ FIX UTAMA: OTOMATIS REFRESH IDLIST UNTUK KLIK BERIKUTNYA
+      const freshIdList = `List-${Str_Random(4)}`;
+      setIdList(freshIdList); 
+  }
+  
 
 
   return (
