@@ -113,13 +113,13 @@ export default function ProductDetailHimelRCBOPage() {
   };
 
   
-  function onChangeHargahandleAmpereChange = (ampere: string) => {
+   function onChangeHarga(event: React.ChangeEvent<HTMLInputElement>): void {
     const hargaByAmpere: Record<string, number> = {
       '6': 150000,
       '10': 170000,
       '16': 190000,
     };
-  const harga = hargaByAmpere[ampere];
+  const harga = hargaByAmpere[event.currentTarget.value];
       if (harga !== undefined) {
         setHargaItem(harga);
         setSelectedAmpere(ampere);
