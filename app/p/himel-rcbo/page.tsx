@@ -154,8 +154,33 @@ export default function ProductDetailHimelRCBOPage() {
   return (
     <>
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans antialiased">
-          {/* NAVIGATION BAR */}
           <h1>Himel RCBO Page</h1>
+       {/* NAVIGATION BAR */}
+      <nav className="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-black tracking-wider text-red-600">HIMEL</span>
+            <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded font-mono font-semibold">
+              AUTHORIZED PARTNER
+            </span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="#spesifikasi" className="text-sm font-medium text-gray-600 hover:text-red-600 transition">
+              Spesifikasi
+            </a>
+            <a href="#fitur" className="text-sm font-medium text-gray-600 hover:text-red-600 transition">
+              Fitur
+            </a>
+            <a 
+              href="#beli" 
+              className="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md shadow-red-200"
+            >
+              Beli Sekarang
+            </a>
+          </div>
+        </div>
+      </nav>
+
     
           {/* FOOTER */}
     
