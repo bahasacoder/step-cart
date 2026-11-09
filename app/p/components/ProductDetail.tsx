@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Product, ProductItem } from "@/data/products";
+import { Product, ProductItem } from "../data/products";
 
 interface ProductDetailProps {
   product: Product;
