@@ -199,7 +199,6 @@ export default function ProductDetailHimelRCBOPage() {
                   src="https://iili.io/nNdJLzP.jpg" 
                   alt="Himel RCBO HDB3LE C6" 
                   fill
-                  sizes="(max-w-7xl) 100vw, 1200px"
                   priority
                   className="object-contain transition-transform duration-300 group-hover:scale-105"
                 />
@@ -212,7 +211,6 @@ export default function ProductDetailHimelRCBOPage() {
                     src="https://iili.io/nNdJimB.jpg" 
                     alt="Himel RCBO HDB3LE C6" 
                     fill
-                    sizes="(max-w-7xl) 100vw, 1200px"
                     priority
                     className="object-contain transition-transform duration-300 group-hover:scale-105"
                   />
