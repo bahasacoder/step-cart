@@ -103,6 +103,29 @@ export default function ProductDetailHimelRCBOPage() {
     }
   }
 
+  
+  function onChangeHarga(event: React.ChangeEvent<HTMLInputElement>): void {
+    const hargaByAmpere: Record<string, number> = {
+      '6': 150000,
+      '10': 170000,
+      '16': 190000,
+    };
+    const harga = hargaByAmpere[event.currentTarget.value];
+    if (harga !== undefined) {
+      setHargaItem(harga);
+    }
+    console.log('Change Harga : ', hargaItem)
+  }
+  const d = new Date();
+  // Membuat format YYYYMMDD-HHMMSS
+  const exactTime = d.getFullYear() +
+                    String(d.getMonth() + 1).padStart(2, '0') +
+                    String(d.getDate()).padStart(2, '0') + "-" +
+                    String(d.getHours()).padStart(2, '0') +
+                    String(d.getMinutes()).padStart(2, '0') +
+                    String(d.getSeconds()).padStart(2, '0');
+               
+
 
 
   return (
