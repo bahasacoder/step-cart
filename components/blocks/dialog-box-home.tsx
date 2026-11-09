@@ -29,7 +29,8 @@ export default function DialogBoxHome() {
                         style={{ objectFit: 'contain', position: 'relative', textAlign:'center', margin: 'auto' }}
                       />
                   </div>   
-                <h2 className="w-full mx-0 text-center text-base md:text-2xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Kami Melayani Pembuatan Website UMKM</h2>
+                <h2 className="w-full mx-0 text-center text-base md:text-2xl font-bold tracking-normal transition-all duration-300 ease-in-out hover:scale-110 hover:text-blue-700 hover:font-bold hover:tracking-wider">Kami Melayani Pembuatan Website UMKM 
+                  <span className="text-red">Mulai Rp.0</span></h2>
                 </div>
           </DialogContent>
         </Dialog>
