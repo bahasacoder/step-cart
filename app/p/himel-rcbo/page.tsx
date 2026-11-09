@@ -72,6 +72,38 @@ export default function ProductDetailHimelRCBOPage() {
     { label: 'Sertifikasi Patokan', nilai: 'SNI, IEC/EN 61009-1' },
   ];
 
+   const updateQuantityValue = (newValue: number) => {
+    // Memastikan nilai tidak kurang dari min dan tidak lebih dari max
+    const clamped = Math.min(Math.max(newValue, min), max);
+    setValue(clamped);
+    setQuantityValue(clamped);
+    // Hasil log yang terjamin akurat di konsol browser
+    console.log('Quantity Value Aktual:', clamped);
+  };
+
+  // 3. Handler Tombol Tambah (+)
+  function increment(): void {
+    // Ambil nilai terbaru (current) lalu kirim ke fungsi pusat
+    updateQuantityValue(value + 1);
+  }
+
+  // 4. Handler Tombol Kurang (-)
+  function decrement(): void {
+    // Ambil nilai terbaru (current) lalu kirim ke fungsi pusat
+    updateQuantityValue(value - 1);
+  }
+
+  // 5. Handler Ketik Manual di Input
+  function handleQuantityChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    const num = Number(event.target.value);
+    
+    // Proteksi: Hanya jalankan jika input berupa angka valid
+    if (!isNaN(num)) {
+      updateQuantityValue(num);
+    }
+  }
+
+
 
   return (
     <>
