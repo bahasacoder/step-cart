@@ -46,6 +46,10 @@ interface ProductItemState {
 export default function ProductDetailHimelRCBOPage() {
   const dispatch = useAppDispatch(); 
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  const totalItemsCount = cartItems.reduce(
+    (total: number, item: (typeof cartItems)[number]) => total + (item.quantity || 0),
+    0,
+  );
   const min = 1;
   const max = 49;
   const [productName, setProductName] = useState('RCBO Himel HDB3LE');
