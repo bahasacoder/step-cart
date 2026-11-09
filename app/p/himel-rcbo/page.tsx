@@ -211,8 +211,6 @@ export default function ProductDetailHimelRCBOPage() {
                     src="https://iili.io/nNdJimB.jpg" 
                     alt="Himel RCBO HDB3LE C6" 
                     fill
-                    priority
-                    className="object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                   </div>
               </div>
