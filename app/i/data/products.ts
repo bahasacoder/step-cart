@@ -18,7 +18,8 @@ export interface Product {
   productName: string;
   productSlug: string;
   productImage: string;
-  category: string[]; // Tambahkan tanda kurung siku [] untuk menandakan Array  teaser: string;
+  category: string[]; // Tambahkan tanda kurung siku [] untuk menandakan Array  
+  teaser: string;
   descriptions: string;
   specification: string;
   productItems: ProductItem[];
