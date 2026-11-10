@@ -18,8 +18,7 @@ export interface Product {
   productName: string;
   productSlug: string;
   productImage: string;
-  category: string;
-  teaser: string;
+  category: string[]; // Tambahkan tanda kurung siku [] untuk menandakan Array  teaser: string;
   descriptions: string;
   specification: string;
   productItems: ProductItem[];
@@ -28,4 +27,8 @@ export interface Product {
 // 2. Import langsung dari properti "products" di dalam JSON
 import dataJson from "@/db/database.json";
 
-export const productsData: Product[] = dataJson.products;
+// export const productsData: Product[] = dataJson.products;
+export const productsData: Product[] = dataJson.products.map(product => ({
+  ...product,
+  // Menggabungkan array kategori menjadi satu string dipisahkan koma (misal: "elektronik, gadget")
+  category: product.categ
