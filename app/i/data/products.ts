@@ -31,4 +31,5 @@ import dataJson from "@/db/database.json";
 export const productsData: Product[] = dataJson.products.map(product => ({
   ...product,
   // Menggabungkan array kategori menjadi satu string dipisahkan koma (misal: "elektronik, gadget")
-  category: product.categ
+  category: product.category.join(", ") 
+}));
