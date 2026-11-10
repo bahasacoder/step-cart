@@ -5,15 +5,15 @@
       "productName": "Telur Ayam Kampung",
       "productSlug": "telur-ayam-kampung",
       "productImage": "telur-ayam-kampung.jpg",
-      "category": "daging, meat",
+      "category": ["daging", "meat"],
       "teaser": "Dihasilkan langsung dari sistem peternakan berkelanjutan (*free-range*) tanpa kurungan stres. Kaya akan kandungan Omega-3 alami, vitamin esensial, serta memiliki warna kuning telur oranye pekat yang khas. Higienis dan disortir langsung menggunakan tangan demi kualitas masakan terbaik.",
       "descriptions": "Telur berkualitas premium langsung dari peternakan.",
       "specification": "Isi bervariasi, Kemasan aman",
       "productItems": [
-        { "idItem": "ITEM-2f6eb901", "namaItem": "1 butir", "imageItem": "running-40.jpg", "size": "1 butir", "unit": "paket", "netto": "1", "dimensi": "5cm x 5cm x 5cm", "hargaItem": 3000, "hargaDiskon": 300, "nilaiDiskon": 10, "stokItem": 15 },
-        { "idItem": "ITEM-bf6eb902", "namaItem": "6 butir", "imageItem": "running-40.jpg", "size": "6 butir", "unit": "paket", "netto": "6", "dimensi": "15cm x 15cm x 5cm", "hargaItem": 15000, "hargaDiskon": 1500, "nilaiDiskon": 10, "stokItem": 15 },
-        { "idItem": "ITEM-cf6eb903", "namaItem": "12 butir", "imageItem": "running-40.jpg", "size": "12 butir", "unit": "paket", "netto": "12", "dimensi": "20cm x 20cm x 5cm", "hargaItem": 30000, "hargaDiskon": 3000, "nilaiDiskon": 10, "stokItem": 15 },
-        { "idItem": "ITEM-df6eb904", "namaItem": "24 butir", "imageItem": "running-40.jpg", "size": "24 butir", "unit": "paket", "netto": "24", "dimensi": "25cm x 25cm x 5cm", "hargaItem": 50000, "hargaDiskon": 5000, "nilaiDiskon": 10, "stokItem": 15 }
+        { "idItem": "ITEM-2f6eb901", "namaItem": "1 butir", "imageItem": "running-40.jpg", "size": "1 butir", "unit": "butir", "netto": "1", "dimensi": "5cm x 5cm x 5cm", "hargaItem": 3000, "hargaDiskon": 300, "nilaiDiskon": 10, "stokItem": 15 },
+        { "idItem": "ITEM-bf6eb902", "namaItem": "6 butir", "imageItem": "running-40.jpg", "size": "6 butir", "unit": " butir", "netto": "6", "dimensi": "15cm x 15cm x 5cm", "hargaItem": 15000, "hargaDiskon": 1500, "nilaiDiskon": 10, "stokItem": 15 },
+        { "idItem": "ITEM-cf6eb903", "namaItem": "12 butir", "imageItem": "running-40.jpg", "size": "12 butir", "unit": "butir", "netto": "12", "dimensi": "20cm x 20cm x 5cm", "hargaItem": 30000, "hargaDiskon": 3000, "nilaiDiskon": 10, "stokItem": 15 },
+        { "idItem": "ITEM-df6eb904", "namaItem": "24 butir", "imageItem": "running-40.jpg", "size": "24 butir", "unit": "butir", "netto": "24", "dimensi": "25cm x 25cm x 5cm", "hargaItem": 50000, "hargaDiskon": 5000, "nilaiDiskon": 10, "stokItem": 15 }
       ]
     },
     {
@@ -21,7 +21,7 @@
       "productName": "Ayam Kampung Frozen",
       "productSlug": "ayam-kampung-frozen",
       "productImage": "ayam-kampung-frozen.jpg",
-      "category": "daging, meat",
+      "category": ["daging", "meat"],
       "teaser": "Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.",
       "descriptions": "Daging beku segar tanpa bahan pengawet.",
       "specification": "Suhu penyimpanan -18 Derajat Celcius",
@@ -37,7 +37,7 @@
       "productName": "Himel RCBO 1P+N",
       "productSlug": "himel-rcbo-1pn",
       "productImage": "himel-rcbo.jpg",
-      "category": "Alat, Listrik",
+      "category": ["Alat", "Listrik"],
       "teaser": "Perlindungan optimal untuk instalasi listrik rumah Anda terhadap beban lebih dan kebocoran arus listrik.",
       "descriptions": "Komponen listrik bersertifikasi internasional.",
       "specification": "Tipe: RCBO, Kutub: 1P+N",
