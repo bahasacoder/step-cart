@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import ProductDetailClient from "./ProductDetailClient";
 
 // 1. Definisikan tipe data struktur objek
 interface ProductItem {
@@ -27,7 +28,7 @@ interface Product {
   productItems: ProductItem[];
 }
 
-// 2. Seluruh Database Produk Anda
+// 2. Database Produk Anda
 const allProducts: Product[] = [
   {
     "idProduct": "PROD-d336f8b3-7b58-417f-9cf0-872038daba02",
@@ -78,8 +79,12 @@ const allProducts: Product[] = [
   }
 ];
 
-// 3. Import Client Component Interaktif untuk area detail varian dan harga
-import ProductDetailClient from "./ProductDetailClient";
+// 3. Fungsi SSG untuk membuat route statis saat proses build dijalankan
+export async function generateStaticParams() {
+  return allProducts.map((product) => ({
+    slug: product.productSlug,
+  }));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -88,12 +93,10 @@ interface PageProps {
 export default async function ProductDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
   
-  // Mencari data produk berdasarkan slug di URL
   const product = allProducts.find(
     (p) => p.productSlug === resolvedParams.slug
   );
 
-  // Jika slug tidak ditemukan di database, arahkan otomatis ke halaman 404
   if (!product) {
     notFound();
   }
