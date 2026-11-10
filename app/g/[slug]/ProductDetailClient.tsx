@@ -172,7 +172,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
               onClick={() => alert(`Berhasil menambahkan ${quantity}x [${product.productName} - Varian: ${selectedItem.namaItem}] ke keranjang!`)}
               className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold text-sm px-8 py-3 rounded-lg shadow-sm transition-all focus:outline-none"
             >
-              Beli Sekarang
+              Add to Cart
             </button>
           </div>
         </div>
