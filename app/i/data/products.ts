@@ -18,7 +18,7 @@ export interface Product {
   productName: string;
   productSlug: string;
   productImage: string;
-  category: string[]; // Tambahkan tanda kurung siku [] untuk menandakan Array  
+  category: string; // tanda kurung siku [] untuk menandakan Array  
   teaser: string;
   descriptions: string;
   specification: string;
@@ -31,6 +31,6 @@ import dataJson from "@/db/database.json";
 // export const productsData: Product[] = dataJson.products;
 export const productsData: Product[] = dataJson.products.map(product => ({
   ...product,
-  // Menggabungkan array kategori menjadi satu string dipisahkan koma (misal: "elektronik, gadget")
-  category: product.category.join(", ") 
+  // Mengubah string tunggal menjadi array dengan satu elemen, misal: "elektronik" -> ["elektronik"]
+  category: [product.category] 
 }));
