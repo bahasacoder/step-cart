@@ -1,4 +1,4 @@
-// 1. Definisikan tipe data (jika belum ada di file terpisah)
+// 1. Definisikan tipe data
 export interface ProductItem {
   idItem: string;
   namaItem: string;
@@ -18,7 +18,7 @@ export interface Product {
   productName: string;
   productSlug: string;
   productImage: string;
-  category: string; // tanda kurung siku [] untuk menandakan Array  
+  category: string[]; // <-- Tambahkan [] di sini agar menjadi array
   teaser: string;
   descriptions: string;
   specification: string;
@@ -28,9 +28,11 @@ export interface Product {
 // 2. Import langsung dari properti "products" di dalam JSON
 import dataJson from "@/db/database.json";
 
-// export const productsData: Product[] = dataJson.products;
 export const productsData: Product[] = dataJson.products.map(product => ({
   ...product,
-  // Mengubah string tunggal menjadi array dengan satu elemen, misal: "elektronik" -> ["elektronik"]
-  category: [product.category] 
+  // Cek jika category di JSON sudah berupa array, gunakan langsung. 
+  // Jika masih string tunggal, bungkus ke dalam array [].
+  category: Array.isArray(product.category) 
+    ? product.category 
+    : [product.category] 
 }));
