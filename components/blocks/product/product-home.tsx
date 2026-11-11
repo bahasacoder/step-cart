@@ -185,10 +185,7 @@ export default function ProductPage() {
                             </div>
                           </div>
 
-
-                                
-                          
-                        
+            
             <div className="border-primary/10 relative flex border-t border-b"><br /></div>
         </section>
     </main>
