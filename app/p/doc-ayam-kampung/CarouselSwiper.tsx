@@ -44,21 +44,20 @@ export default function CarouselSwiper() {
             thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2 mb-3"
+        className="mySwiper2 mb-3 rounded-lg overflow-hidden"
       >
         {SLIDES.map((slide, index) => (
-          <SwiperSlide
-            key={index}
-            className="bg-transparent flex items-center justify-center"
-          >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              width={540}
-              height={544}
-              priority={index === 0}
-              className="object-cover w-[33.75rem] h-[34rem] rounded-md"
-            />
+          <SwiperSlide key={index}>
+            <div className="relative w-full aspect-square bg-slate-100/80 rounded-lg overflow-hidden">
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={index === 0}
+                sizes="(max-width: 640px) 100vw, 540px"
+                className="object-contain p-2"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -68,7 +67,12 @@ export default function CarouselSwiper() {
         onSwiper={setThumbsSwiper}
         loop={false}
         spaceBetween={10}
-        slidesPerView={4}
+        slidesPerView={3}
+        breakpoints={{
+          480: {
+            slidesPerView: 4,
+          },
+        }}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
@@ -76,13 +80,15 @@ export default function CarouselSwiper() {
       >
         {SLIDES.map((slide, index) => (
           <SwiperSlide key={index} className="cursor-pointer">
-            <Image
-              src={slide.src}
-              alt={`${slide.alt} thumbnail`}
-              width={118}
-              height={64}
-              className="object-cover w-[7.375rem] h-[4rem] rounded"
-            />
+            <div className="relative w-full aspect-[4/3] bg-slate-100/80 rounded-md overflow-hidden border border-transparent hover:border-slate-300 transition-colors">
+              <Image
+                src={slide.src}
+                alt={`${slide.alt} thumbnail`}
+                fill
+                sizes="(max-width: 640px) 33vw, 130px"
+                className="object-contain p-1"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
