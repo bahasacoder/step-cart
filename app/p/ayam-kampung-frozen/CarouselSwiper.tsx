@@ -73,7 +73,7 @@ export default function CarouselSwiper() {
           ref={setPrevEl}
           type="button"
           aria-label="Previous slide"
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex size-9 items-center justify-center rounded-full bg-white/85 text-slate-800 shadow-md backdrop-blur-xs transition-all hover:bg-white hover:scale-105 disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex size-9 items-center justify-center rounded-full bg-white/45 text-slate-800 shadow-md backdrop-blur-xs transition-all hover:bg-white hover:scale-105 disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
         >
           <svg
             xmlns="http://w3.org"
@@ -95,7 +95,7 @@ export default function CarouselSwiper() {
           ref={setNextEl}
           type="button"
           aria-label="Next slide"
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex size-9 items-center justify-center rounded-full bg-white/85 text-slate-800 shadow-md backdrop-blur-xs transition-all hover:bg-white hover:scale-105 disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex size-9 items-center justify-center rounded-full bg-white/45 text-slate-800 shadow-md backdrop-blur-xs transition-all hover:bg-white hover:scale-105 disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
         >
           <svg
             xmlns="http://w3.org"
