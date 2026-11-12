@@ -10,9 +10,8 @@ export default function AyamKampungDuaLimaPage() {
   
   return (
     <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-
-      <h1>Ayam Kampung Frozen</h1>
         <OverviewBlock />
+    {/* Tabs Spesicifaiton , description , review */}
     </div>
   );
 }
