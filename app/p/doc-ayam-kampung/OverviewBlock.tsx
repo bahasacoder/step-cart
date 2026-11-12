@@ -12,8 +12,8 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { addItemToCart } from '@/lib/features/cart/cartSlice';
 
 import CarouselSwiper from "./CarouselSwiper"
-import QuantityInput from "./QuantityInput"
 import OptionsBerat from "./OptionsBerat"
+import QuantityInput from "./QuantityInput"
 // import CartCardDialog from "./cart-card";
 import CartDialog from './cart-dialog';
 import { Str_Random } from "@/actions/generalFunctions"
