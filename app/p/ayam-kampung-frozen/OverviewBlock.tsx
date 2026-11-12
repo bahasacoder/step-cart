@@ -14,7 +14,7 @@ import CarouselSwiper from "./CarouselSwiper"
 import QuantityInput from "./QuantityInput"
 import OptionsBerat from "./OptionsBerat"
 // import CartCardDialog from "./cart-card";
-import CartDialog from '@/components/pages/cart/CartDialog';
+import CartDialog from './CartDialog';
 import { Str_Random } from "@/actions/generalFunctions"
 //  onValueChangeHarga={setInputHarga}
 
