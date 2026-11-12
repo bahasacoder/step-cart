@@ -216,9 +216,6 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                             
                             <div className="flex items-center gap-2.5">
                               <CartDialog />
-                              <span className="bg-primary text-primary-foreground rounded-full px-2 py-1 text-sm font-bold">
-                                {totalItemsCount}
-                              </span>
                             </div>
                         </div>
                         <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-2">
