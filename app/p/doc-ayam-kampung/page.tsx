@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button"
-import OverviewBlock from "./overview-block"
+import OverviewBlock from "./OverviewBlock"
 
 export default function docAyamKampungPage() {
   const [quantity, setQuantity] = useState(5);
