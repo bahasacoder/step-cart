@@ -14,7 +14,6 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 
 import {
@@ -105,9 +104,9 @@ export default function CartDialog() {
           <Card className="flex flex-col flex-1 min-h-0 border-0 rounded-none shadow-none overflow-hidden">
             <CardHeader className="border-b px-6 py-4 flex-shrink-0">
               <DialogHeader>
-                <CardTitle asChild>
-                  <DialogTitle>Your Cart</DialogTitle>
-                </CardTitle>
+                <DialogTitle className="text-lg font-semibold leading-none tracking-tight">
+                  Your Cart
+                </DialogTitle>
                 <DialogDescription className="sr-only">
                   Review your selected items and proceed to checkout.
                 </DialogDescription>
