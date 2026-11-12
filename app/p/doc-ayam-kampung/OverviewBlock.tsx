@@ -11,11 +11,11 @@ import type { RootState, AppDispatch } from "@/lib/store";
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { addItemToCart } from '@/lib/features/cart/cartSlice';
 
-import CarouselSwiper from "./carousel-swiper"
-import QuantityInput from "./quantity-input"
-import OptionsBerat from "./options-berat"
+import CarouselSwiper from "./CarouselSwiper"
+import QuantityInput from "./QuantityInput"
+import OptionsBerat from "./OptionsBerat"
 // import CartCardDialog from "./cart-card";
-import CartDialog from '@/components/pages/cart/cart-dialog';
+import CartDialog from './cart-dialog';
 import { Str_Random } from "@/actions/generalFunctions"
 //  onValueChangeHarga={setInputHarga}
 
