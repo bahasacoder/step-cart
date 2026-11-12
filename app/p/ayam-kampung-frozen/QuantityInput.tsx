@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import { Button } from "@/components/ui/button";
@@ -8,29 +8,47 @@ import { Label } from "@/components/ui/label";
 interface QuantityInputProps {
   id?: string;
   label?: string;
+  showLabel?: boolean;
   min?: number;
   max?: number;
   step?: number;
   initialValue?: number;
   onChange?: (value: number) => void;
-  onValueChange: (value: number) => void;
+  onValueChange?: (value: number) => void;
 }
 
 export default function QuantityInput({
   id = "quantity",
   label = "Quantity",
-  min = 0,
+  showLabel = false,
+  min = 1,
   max = Infinity,
   step = 1,
   initialValue = 1,
   onChange,
   onValueChange,
 }: QuantityInputProps) {
-  const [value, setValue] = React.useState<number>(initialValue);
+  const clamp = React.useCallback(
+    (num: number) => Math.min(Math.max(num, min), max),
+    [min, max]
+  );
+
+  const [value, setValue] = React.useState<number>(() => clamp(initialValue));
+  const [inputValue, setInputValue] = React.useState<string>(() =>
+    String(clamp(initialValue))
+  );
+
+  React.useEffect(() => {
+    const next = clamp(initialValue);
+    setValue(next);
+    setInputValue(String(next));
+  }, [initialValue, clamp]);
 
   const updateValue = (newValue: number) => {
-    const clamped = Math.min(Math.max(newValue, min), max);
+    const clamped = clamp(newValue);
     setValue(clamped);
+    setInputValue(String(clamped));
+    onChange?.(clamped);
     onValueChange?.(clamped);
   };
 
@@ -38,12 +56,27 @@ export default function QuantityInput({
   const decrement = () => updateValue(value - step);
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const num = Number(e.target.value);
-    if (!isNaN(num)) {
-      updateValue(num);
+    const raw = e.target.value;
+    setInputValue(raw);
+
+    if (raw.trim() === "") return;
+
+    const num = Number(raw);
+    if (!Number.isNaN(num)) {
+      const clamped = clamp(num);
+      setValue(clamped);
+      onChange?.(clamped);
+      onValueChange?.(clamped);
     }
-    // sendValueToParent(num);
-    // onValueChange(num);
+  };
+
+  const handleBlur = () => {
+    const parsed = Number(inputValue);
+    if (inputValue.trim() === "" || Number.isNaN(parsed)) {
+      updateValue(min);
+    } else {
+      updateValue(parsed);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -58,6 +91,11 @@ export default function QuantityInput({
 
   return (
     <div className="flex flex-col gap-2 w-44">
+      {showLabel && (
+        <Label htmlFor={id} className="text-sm font-medium">
+          {label}
+        </Label>
+      )}
       <div className="flex items-center gap-1">
         <Button
           type="button"
@@ -72,12 +110,14 @@ export default function QuantityInput({
         <Input
           id={id}
           type="number"
-          value={value}
+          aria-label={label}
+          value={inputValue}
           onChange={handleQuantityChange}
+          onBlur={handleBlur}
           onKeyDown={handleKeyDown}
-          className="text-center"
+          className="text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           min={min}
-          max={max}
+          max={Number.isFinite(max) ? max : undefined}
           step={step}
         />
         <Button
