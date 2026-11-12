@@ -1,13 +1,17 @@
-import Image from "next/image";
-import Ling from "next/link"
-import ProductOverviewDua from "./product-overview-dua"
+"use client"
+import { useState } from "react";
 
-export default function DOCAyamKampungPage() {
+import { Button } from "@/components/ui/button"
+import OverviewBlock from "./overview-block"
+
+export default function docAyamKampungPage() {
+  const [quantity, setQuantity] = useState(5);
+  const [selectedOption, setSelectedOption] = useState("0");
+  
   return (
-    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Welcome to My DOC Ayam Kampung</h1>
-      <p>This is a basic home page.</p>
-      <ProductOverviewDua />
-    </main>
+    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+        <OverviewBlock />
+    {/* Tabs Spesicifaiton , description , review */}
+    </div>
   );
 }
