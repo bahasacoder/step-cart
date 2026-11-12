@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import OverviewBlock from "./overview-block"
 
-export default function AyamKampungDuaLimaPage() {
+export default function AyamKampungFrozenPage() {
   const [quantity, setQuantity] = useState(5);
   const [selectedOption, setSelectedOption] = useState("0");
   
