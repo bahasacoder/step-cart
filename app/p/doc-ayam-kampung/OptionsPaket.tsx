@@ -41,11 +41,11 @@ const PAKET_OPTIONS = [
 export default function OptionsPaket({
   onChangeHarga,
   defaultValue = "55000",
-}: OptionsBeratProps) {
+}: OptionsPaketProps) {
   const [selectedValue, setSelectedValue] = useState<string>(defaultValue);
 
   useEffect(() => {
-    const initialOption = BERAT_OPTIONS.find(
+    const initialOption = PAKET_OPTIONS.find(
       (opt) => opt.value === defaultValue
     );
     if (initialOption) {
