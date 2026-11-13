@@ -95,7 +95,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         break;
       case 55000:
         diskon = 0.00;
-          stokTersedia = 6;  
+          stok = 6;  
         break;
      case 75000:
         diskon = 0.20
