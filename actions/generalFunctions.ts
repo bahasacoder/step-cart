@@ -10,9 +10,13 @@ export function Str_Random(length: number) {
         return result;
 }
 
-export function formatRibuan(amount: number): string {
-  return new Intl.NumberFormat("id-ID", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
+// export function formatRibuan(amount: number): string {
+//   return new Intl.NumberFormat("id-ID", {
+//     minimumFractionDigits: 0,
+//     maximumFractionDigits: 0,
+//   }).format(amount);
+// }
+export function formatRibuan(amount: number | string): string {
+  const numericValue = Math.round(Number(amount) || 0);
+  return numericValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
