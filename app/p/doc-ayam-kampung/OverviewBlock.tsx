@@ -45,6 +45,8 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
     const [nilaiDiskon, setNilaiDiskon] = useState<number>(0);
     const [childValue, setChildValue] = useState(1); //Quantity
+    const [stokTersedia, setStokTersedia] = useState(0); //Quantity
+    const [stokItem, setStokItem] = useState(0); //Quantity
     const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
@@ -54,6 +56,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     const [productImage, setProductImage] = useState('url-to-image');
     //const [itemProduct, setItemProduct] = useState([]);
     const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
+          
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
       setHargaList(hargaItem - hargaDiskon);
@@ -73,7 +76,8 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
       idList: idList,
     });
 
-    const handleValueFromChild = (value: number) => {
+    const handleValueFromChildQuantity = (value: number) => {
+          // (qty) => setQuantity(qty)
         setChildValue(value);
         console.log('Received value from child:', value);
       };
@@ -87,35 +91,45 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     switch (numericValue) {
        case 60000:
         diskon = 0.00
+            stokTersdia = 4;
          return (() => {
+            setStokItem(stokTersdia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 120000:
         diskon = 0.05
+          stokTersdia = 4;
          return (() => {
+          setStokItem(stokTersdia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 240000:
         diskon = 0.10
+          stokTersdia = 3;
         return (() => {
+          setStokItem(stokTersdia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
      case 500000:
         diskon = 0.15
+          stokTersdia = 3;
         return (() => {
+          setStokItem(stokTersdia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 1000000:
         diskon = 0.20
+          stokTersdia = 3;
         return (() => {
+                  setStokItem(stokTersdia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
@@ -123,6 +137,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     default:
           // Opsional: Berikan nilai default jika harga tidak ada yang cocok
           return (() => {
+                    setStokItem(0);
                 setNilaiDiskon(0);
                 setHargaDiskon(0);
               })();
@@ -220,7 +235,12 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                              <QuantityInput onValueChange={handleValueFromChild}/>
+                              <QuantityInput
+                                min={stokTersedia === 0 ? 0 : 1}
+                                max={stokTersedia}
+                                initialValue={stokTersedia === 0 ? 0 : 1}
+                                onValueChange={handleValueFromChildQuantity}
+                              />
                             </div>
                             
                             <div className="flex items-center gap-2.5">
