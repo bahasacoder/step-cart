@@ -87,7 +87,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     console.log('Received harga from child:', numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
     let diskon: number = 0;
-    let stokTersdia = 0;
+    let stokTersedia = 0;
     switch (numericValue) {
       case 35000:
         diskon = 0.00
