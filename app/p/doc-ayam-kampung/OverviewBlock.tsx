@@ -45,8 +45,8 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
     const [nilaiDiskon, setNilaiDiskon] = useState<number>(0);
     const [childValue, setChildValue] = useState(1); //Quantity
-    // const [stokTersedia, setStokTersedia] = useState(0); //Quantity
-    const [stokItem, setStokItem] = useState(0); //Quantity
+    const [stokTersedia, setStokTersedia] = useState(0); //Quantity
+    // const [stokItem, setStokItem] = useState(0); //Quantity
     const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
@@ -89,62 +89,37 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     console.log('Received harga from child:', numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
     let diskon: number = 0;
-    let stokTersedia: number = 0;
+    let stok: number = 0;
     switch (numericValue) {
        case 60000:
         diskon = 0.00
-            stokTersedia = 4;
-         return (() => {
-            setStokItem(stokTersedia);
-            setNilaiDiskon(diskon);
-            setHargaDiskon(numericValue * diskon);
-          })();
+          stok = 4;
         break;
       case 120000:
         diskon = 0.05
-          stokTersedia = 4;
-         return (() => {
-          setStokItem(stokTersedia);
-            setNilaiDiskon(diskon);
-            setHargaDiskon(numericValue * diskon);
-          })();
+          stok = 4;
         break;
       case 240000:
         diskon = 0.10
-          stokTersdia = 3;
-        return (() => {
-          setStokItem(stokTersedia);
-            setNilaiDiskon(diskon);
-            setHargaDiskon(numericValue * diskon);
-          })();
+          stok = 3;
         break;
      case 500000:
         diskon = 0.15
-          stokTersdia = 3;
-        return (() => {
-          setStokItem(stokTersedia);
-            setNilaiDiskon(diskon);
-            setHargaDiskon(numericValue * diskon);
-          })();
+          stok = 3;
         break;
       case 1000000:
         diskon = 0.20
-          stokTersdia = 3;
-        return (() => {
-                  setStokItem(stokTersedia);
-            setNilaiDiskon(diskon);
-            setHargaDiskon(numericValue * diskon);
-          })();
+          stok = 3;
         break;
     default:
           // Opsional: Berikan nilai default jika harga tidak ada yang cocok
-          return (() => {
-                    setStokItem(0);
-                setNilaiDiskon(0);
-                setHargaDiskon(0);
-              })();
+          diskon = 0;
+          stok = 0;
           break;
-      } // <-- Menutup switch          
+      } // <-- Menutup switch     
+            setStokTersedia(stok);
+          setNilaiDiskon(diskon);
+          setHargaDiskon(numericValue * diskon);
   };
 
  const handleAddToCart = (currentProduct: any) => {
