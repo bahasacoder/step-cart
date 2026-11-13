@@ -87,21 +87,21 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     let diskon: number = 0;
     switch (numericValue) {
        case 60000:
-        diskon = 0.04
+        diskon = 0.00
          return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 120000:
-        diskon = 0.08
+        diskon = 0.5
          return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 240000:
-        diskon = 0.12
+        diskon = 0.10
         return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
