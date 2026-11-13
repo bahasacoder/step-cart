@@ -15,11 +15,11 @@ import "./styles.css";
 
 const SLIDES = [
   {
-    src: "https://freeimage.host/i/nyOMC8u",
+    src: "https://iili.io/nyOMC8u.jpg",
     alt: "DOC Ayam Kampung",
   },
   {
-    src: "https://freeimage.host/i/nyOMdZl",
+    src: "https://iili.io/nyOMdZl.jpg",
     alt: "DOC Ayam Kampung Asli",
   },
 ];
