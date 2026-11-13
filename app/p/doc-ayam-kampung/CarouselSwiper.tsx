@@ -15,12 +15,12 @@ import "./styles.css";
 
 const SLIDES = [
   {
-    src: "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png",
-    alt: "Whole frozen chicken on dark slate",
+    src: "https://freeimage.host/i/nyOMC8u",
+    alt: "DOC Ayam Kampung",
   },
   {
-    src: "https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/public/assets/all/frozen-chicken-1.jpg",
-    alt: "Pebe Frozen Chicken 1kg pack",
+    src: "https://freeimage.host/i/nyOMdZl",
+    alt: "DOC Ayam Kampung Asli",
   },
 ];
 
