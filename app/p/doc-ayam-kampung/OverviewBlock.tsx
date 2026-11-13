@@ -94,7 +94,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
           })();
         break;
       case 120000:
-        diskon = 0.5
+        diskon = 0.05
          return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
@@ -108,7 +108,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
           })();
         break;
      case 500000:
-        diskon = 0.16
+        diskon = 0.15
         return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
