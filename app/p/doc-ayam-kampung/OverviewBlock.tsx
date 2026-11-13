@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { addItemToCart } from '@/lib/features/cart/cartSlice';
 
 import CarouselSwiper from "./CarouselSwiper"
-import OptionsBerat from "./OptionsBerat"
+import OptionsPaket from "./OptionsPaket"
 import QuantityInput from "./QuantityInput"
 // import CartCardDialog from "./cart-card";
 import CartDialog from './CartDialog';
@@ -209,7 +209,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                         </p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
                        
-                    <OptionsBerat onChangeHarga={handleHargaFromChild} />
+                    <OptionsPaket onChangeHarga={handleHargaFromChild} />
                     
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
