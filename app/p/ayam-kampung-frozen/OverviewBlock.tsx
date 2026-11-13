@@ -45,18 +45,21 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
     const [nilaiDiskon, setNilaiDiskon] = useState<number>(0);
     const [childValue, setChildValue] = useState(1); //Quantity
+    const [stokTersedia, setStokTersedia] = useState(0); //Quantity
+    const [stikItem, setStokItem] = useState(0); //Quantity
     const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
     const totalHargaItem = hargaItem * childValue; // hargaItem * Quantity
     const [hargaList, setHargaList] = useState(0); // (hargaItem - hargaDiskon)*Quantity
+    const [hargaItemDiskon, setHargaItemDiskon] = useState(0); // (hargaItem - hargaDiskon)
     const [productName, setProductName] = useState('Ayam Kampung Frozen');
     const [productImage, setProductImage] = useState('url-to-image');
     //const [itemProduct, setItemProduct] = useState([]);
     const [itemProduct, setItemProduct] = useState<ProductState[]>([]);
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
-      setHargaList(hargaItem - hargaDiskon);
+      setHargaItemDiskon(hargaItem - hargaDiskon);
     }, [hargaItem, hargaDiskon]);
 
     const [productState, setProductState] = useState<ProductState>({
@@ -84,31 +87,40 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     console.log('Received harga from child:', numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
     let diskon: number = 0;
+    let stokTersdia = 0;
     switch (numericValue) {
       case 35000:
         diskon = 0.00
+          stokTersedia = 5;   
          return (() => {
+            setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 55000:
-        diskon = 0.00
+        diskon = 0.00;
+          stokTersedia = 6; 
         return (() => {
+          setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
      case 75000:
         diskon = 0.20
+          stokTersedia = 4; 
         return (() => {
+          setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
       case 90000:
         diskon = 0.30
+          stokTersedia = 4; 
         return (() => {
+          setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
@@ -116,6 +128,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     default:
           // Opsional: Berikan nilai default jika harga tidak ada yang cocok
           return (() => {
+                    setStokItem(0);
                 setNilaiDiskon(0);
                 setHargaDiskon(0);
               })();
@@ -192,7 +205,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                             </span><span className="text-muted-foreground">210{/*<!-- -->*/} Reviews</span>
                         </div>                    
                         <div className="flex items-center gap-3">
-                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{formatRibuan(hargaList)}</p>
+                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{formatRibuan(hargaItemDiskon)}</p>
                             <span className="text-muted-foreground font-medium line-through">
                                 { nilaiDiskon > 0 ? 
                                     'Rp ' +
