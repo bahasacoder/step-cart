@@ -76,7 +76,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
       idList: idList,
     });
 
-    const handleValueFromChild = (value: number) => {
+    const handleValueFromChildQuantity = (value: number) => {
         setChildValue(value);
         console.log('Received value from child:', value);
       };
@@ -224,7 +224,12 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                         <div className="flex items-center gap-6">
                             <h4 className="text-lg font-semibold text-nowrap">Atur Jumlah :</h4>
                             <div role="radiogroup" data-slot="radio-group" className="cn-radio-group w-full flex gap-3!">
-                              <QuantityInput onValueChange={handleValueFromChild}/>
+                               <QuantityInput
+                                min={stokTersedia === 0 ? 0 : 1}
+                                max={stokTersedia}
+                                initialValue={stokTersedia === 0 ? 0 : 1}
+                                onValueChange={handleValueFromChildQuantity}
+                              />
                             </div>
                             
                             <div className="flex items-center gap-2.5">
