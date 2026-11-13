@@ -9,6 +9,13 @@ interface OptionsPaketProps {
 
 const PAKET_OPTIONS = [
   {
+    label: "6 ekor",
+    value: "60000",
+    bgClass: "bg-blue-600",
+    ringClass: "group-hover:ring-rose-600/50 peer-checked:ring-rose-600",
+    activeRingClass: "ring-2 ring-rose-600",
+  },
+  {
     label: "12 ekor",
     value: "120000",
     bgClass: "bg-blue-600",
