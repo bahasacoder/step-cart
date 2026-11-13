@@ -10,28 +10,28 @@ interface OptionsPaketProps {
 const PAKET_OPTIONS = [
   {
     label: "12 ekor",
-    value: "100000",
+    value: "120000",
     bgClass: "bg-blue-600",
     ringClass: "group-hover:ring-blue-600/50 peer-checked:ring-blue-600",
     activeRingClass: "ring-2 ring-blue-600",
   },
   {
     label: "24 ekor",
-    value: "200000",
+    value: "240000",
     bgClass: "bg-amber-600",
     ringClass: "group-hover:ring-amber-600/50 peer-checked:ring-amber-600",
     activeRingClass: "ring-2 ring-amber-600",
   },
   {
     label: "50 Ekor",
-    value: "450000",
+    value: "500000",
     bgClass: "bg-purple-600",
     ringClass: "group-hover:ring-purple-600/50 peer-checked:ring-purple-600",
     activeRingClass: "ring-2 ring-purple-600",
   },
   {
     label: "100 Ekor",
-    value: "800000",
+    value: "1000000",
     bgClass: "bg-lime-600",
     ringClass: "group-hover:ring-lime-600/50 peer-checked:ring-lime-600",
     activeRingClass: "ring-2 ring-lime-600",
