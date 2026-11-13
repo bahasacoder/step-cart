@@ -95,7 +95,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         diskon = 0.00
             stokTersedia = 4;
          return (() => {
-            setStokItem(stokTersdia);
+            setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
@@ -104,7 +104,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         diskon = 0.05
           stokTersedia = 4;
          return (() => {
-          setStokItem(stokTersdia);
+          setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
@@ -113,7 +113,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         diskon = 0.10
           stokTersdia = 3;
         return (() => {
-          setStokItem(stokTersdia);
+          setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
@@ -122,7 +122,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         diskon = 0.15
           stokTersdia = 3;
         return (() => {
-          setStokItem(stokTersdia);
+          setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
@@ -131,7 +131,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         diskon = 0.20
           stokTersdia = 3;
         return (() => {
-                  setStokItem(stokTersdia);
+                  setStokItem(stokTersedia);
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
