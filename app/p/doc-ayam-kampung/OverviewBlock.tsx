@@ -45,13 +45,14 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
     const [nilaiDiskon, setNilaiDiskon] = useState<number>(0);
     const [childValue, setChildValue] = useState(1); //Quantity
-    const [stokTersedia, setStokTersedia] = useState(0); //Quantity
+    // const [stokTersedia, setStokTersedia] = useState(0); //Quantity
     const [stokItem, setStokItem] = useState(0); //Quantity
     const [idItem, setIdItem] = useState('ay211');
     const [idList, setIdList] = useState(() => Str_Random(4));
     const [product, setProduct] = useState({ id: '', nama: '', item: '', jumlah: '', harga: '' });
     const totalHargaItem = hargaItem * childValue; // hargaItem * Quantity
-    const [hargaList, setHargaList] = useState(0); // (hargaItem - hargaDiskon)
+    const [hargaList, setHargaList] = useState(0); // (hargaItem - hargaDiskon)    
+    const [hargaItemDiskon, setHargaItemDiskon] = useState(0); // (hargaItem - hargaDiskon)
     const [productName, setProductName] = useState('Ayam Kampung Frozen');
     const [productImage, setProductImage] = useState('url-to-image');
     //const [itemProduct, setItemProduct] = useState([]);
@@ -59,7 +60,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
           
     // Sinkronisasi state jika nilai dasar berubah
     useEffect(() => {
-      setHargaList(hargaItem - hargaDiskon);
+      setHargaItemDiskon(hargaItem - hargaDiskon);
     }, [hargaItem, hargaDiskon]);
 
     const [productState, setProductState] = useState<ProductState>({
@@ -88,10 +89,11 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     console.log('Received harga from child:', numericValue);
     //setDiskonHarga(numericValue * getDiskonHarga)
     let diskon: number = 0;
+    let stokTersedia: number = 0;
     switch (numericValue) {
        case 60000:
         diskon = 0.00
-            stokTersdia = 4;
+            stokTersedia = 4;
          return (() => {
             setStokItem(stokTersdia);
             setNilaiDiskon(diskon);
@@ -100,7 +102,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         break;
       case 120000:
         diskon = 0.05
-          stokTersdia = 4;
+          stokTersedia = 4;
          return (() => {
           setStokItem(stokTersdia);
             setNilaiDiskon(diskon);
@@ -214,7 +216,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                             </span><span className="text-muted-foreground">210{/*<!-- -->*/} Reviews</span>
                         </div>                    
                         <div className="flex items-center gap-3">
-                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{formatRibuan(hargaList)}</p>
+                            <p className="text-3xl font-bold">Rp {/*<!-- -->*/}{formatRibuan(hargaItemDiskon)}</p>
                             <span className="text-muted-foreground font-medium line-through">
                                 { nilaiDiskon > 0 ? 
                                     'Rp ' +
