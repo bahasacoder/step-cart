@@ -2,43 +2,43 @@
 
 import React, { useEffect, useState } from "react";
 
-interface OptionsBeratProps {
+interface OptionsPaketProps {
   onChangeHarga: (value: number, label?: string) => void;
   defaultValue?: string;
 }
 
-const BERAT_OPTIONS = [
+const PAKET_OPTIONS = [
   {
-    label: "250 gr",
-    value: "30000",
+    label: "12 ekor",
+    value: "100000",
     bgClass: "bg-blue-600",
     ringClass: "group-hover:ring-blue-600/50 peer-checked:ring-blue-600",
     activeRingClass: "ring-2 ring-blue-600",
   },
   {
-    label: "500 gr",
-    value: "55000",
+    label: "24 ekor",
+    value: "200000",
     bgClass: "bg-amber-600",
     ringClass: "group-hover:ring-amber-600/50 peer-checked:ring-amber-600",
     activeRingClass: "ring-2 ring-amber-600",
   },
   {
-    label: "750 gr",
-    value: "75000",
+    label: "50 Ekor",
+    value: "450000",
     bgClass: "bg-purple-600",
     ringClass: "group-hover:ring-purple-600/50 peer-checked:ring-purple-600",
     activeRingClass: "ring-2 ring-purple-600",
   },
   {
-    label: "1000 gr",
-    value: "90000",
+    label: "100 Ekor",
+    value: "800000",
     bgClass: "bg-lime-600",
     ringClass: "group-hover:ring-lime-600/50 peer-checked:ring-lime-600",
     activeRingClass: "ring-2 ring-lime-600",
   },
 ] as const;
 
-export default function OptionsBerat({
+export default function OptionsPaket({
   onChangeHarga,
   defaultValue = "55000",
 }: OptionsBeratProps) {
@@ -71,7 +71,7 @@ export default function OptionsBerat({
         aria-label="Pilih Berat"
         className="flex flex-wrap items-center gap-4"
       >
-        {BERAT_OPTIONS.map((option) => {
+        {PAKET_OPTIONS.map((option) => {
           const isChecked = selectedValue === option.value;
 
           return (
