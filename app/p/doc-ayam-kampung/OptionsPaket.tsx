@@ -56,7 +56,7 @@ export default function OptionsPaket({
 
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const nextValue = e.target.value;
-    const selectedOption = BERAT_OPTIONS.find((opt) => opt.value === nextValue);
+    const selectedOption = PAKET_OPTIONS.find((opt) => opt.value === nextValue);
 
     setSelectedValue(nextValue);
     onChangeHarga(Number(nextValue), selectedOption?.label);
@@ -68,7 +68,7 @@ export default function OptionsPaket({
 
       <div
         role="radiogroup"
-        aria-label="Pilih Berat"
+        aria-label="Pilih Paket"
         className="flex flex-wrap items-center gap-4"
       >
         {PAKET_OPTIONS.map((option) => {
@@ -88,7 +88,7 @@ export default function OptionsPaket({
               >
                 <input
                   type="radio"
-                  name="berat"
+                  name="paket"
                   value={option.value}
                   checked={isChecked}
                   onChange={handleValueChange}
