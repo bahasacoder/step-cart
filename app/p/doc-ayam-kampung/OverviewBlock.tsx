@@ -204,7 +204,9 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
                                 {nilaiDiskon*100}{/*<!-- -->*/}% Off
                             </span>
                         </div>
-                        <p className="text-muted-foreground">Daging Ayam Kampung Asli yang dipotong segar dari peternakan langsung dan diproses secara cepat kemudian dibekukan sehingga kualitas daging ayam tetap terjaga.</p>
+                        <p className="text-muted-foreground">
+                                  Mulai usaha ternak ayam kampung dengan bibit berkualitas terbaik! Kami menyediakan DOC (Day Old Chick) Ayam Kampung Asli hasil penetasan dari indukan pilihan yang sehat dan produktif.
+                        </p>
                         <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator" className="bg-border shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"></div>
                        
                     <OptionsBerat onChangeHarga={handleHargaFromChild} />
