@@ -109,7 +109,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
         break;
       case 1000000:
         diskon = 0.20
-          stok = 3;
+          stok = 0; // PRODUCT ITEM KOSONG
         break;
     default:
           // Opsional: Berikan nilai default jika harga tidak ada yang cocok
