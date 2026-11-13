@@ -2,15 +2,15 @@
 
 import React, { useEffect, useState } from "react";
 
-interface OptionsBeratProps {
+interface OptionsPaketProps {
   onChangeHarga: (value: number, label?: string) => void;
   defaultValue?: string;
 }
 
-const BERAT_OPTIONS = [
+const PAKET_OPTIONS = [
   {
     label: "250 gr",
-    value: "30000",
+    value: "35000",
     bgClass: "bg-blue-600",
     ringClass: "group-hover:ring-blue-600/50 peer-checked:ring-blue-600",
     activeRingClass: "ring-2 ring-blue-600",
@@ -38,14 +38,14 @@ const BERAT_OPTIONS = [
   },
 ] as const;
 
-export default function OptionsBerat({
+export default function OptionsPaket({
   onChangeHarga,
   defaultValue = "55000",
-}: OptionsBeratProps) {
+}: OptionsPaketProps) {
   const [selectedValue, setSelectedValue] = useState<string>(defaultValue);
 
   useEffect(() => {
-    const initialOption = BERAT_OPTIONS.find(
+    const initialOption = PAKET_OPTIONS.find(
       (opt) => opt.value === defaultValue
     );
     if (initialOption) {
@@ -56,7 +56,7 @@ export default function OptionsBerat({
 
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const nextValue = e.target.value;
-    const selectedOption = BERAT_OPTIONS.find((opt) => opt.value === nextValue);
+    const selectedOption = PAKET_OPTIONS.find((opt) => opt.value === nextValue);
 
     setSelectedValue(nextValue);
     onChangeHarga(Number(nextValue), selectedOption?.label);
@@ -68,10 +68,10 @@ export default function OptionsBerat({
 
       <div
         role="radiogroup"
-        aria-label="Pilih Berat"
+        aria-label="Pilih Paket"
         className="flex flex-wrap items-center gap-4"
       >
-        {BERAT_OPTIONS.map((option) => {
+        {PAKET_OPTIONS.map((option) => {
           const isChecked = selectedValue === option.value;
 
           return (
@@ -88,7 +88,7 @@ export default function OptionsBerat({
               >
                 <input
                   type="radio"
-                  name="berat"
+                  name="paket"
                   value={option.value}
                   checked={isChecked}
                   onChange={handleValueChange}
