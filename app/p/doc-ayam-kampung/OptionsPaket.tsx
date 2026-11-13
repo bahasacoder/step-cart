@@ -47,7 +47,7 @@ const PAKET_OPTIONS = [
 
 export default function OptionsPaket({
   onChangeHarga,
-  defaultValue = "120000",
+  defaultValue = "60000",
 }: OptionsPaketProps) {
   const [selectedValue, setSelectedValue] = useState<string>(defaultValue);
 
