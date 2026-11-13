@@ -9,3 +9,10 @@ export function Str_Random(length: number) {
         }
         return result;
 }
+
+export function formatRibuan(amount: number): string {
+  return new Intl.NumberFormat("id-ID", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
