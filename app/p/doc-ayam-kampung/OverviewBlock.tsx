@@ -86,29 +86,36 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     //setDiskonHarga(numericValue * getDiskonHarga)
     let diskon: number = 0;
     switch (numericValue) {
-      case 35000:
-        diskon = 0.00
+       case 60000:
+        diskon = 4.00
          return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
-      case 55000:
-        diskon = 0.00
+      case 120000:
+        diskon = 8.00
+         return (() => {
+            setNilaiDiskon(diskon);
+            setHargaDiskon(numericValue * diskon);
+          })();
+        break;
+      case 240000:
+        diskon = 12.00
         return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
-     case 75000:
-        diskon = 0.25
+     case 500000:
+        diskon = 16.00
         return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
           })();
         break;
-      case 90000:
-        diskon = 0.30
+      case 1000000:
+        diskon = 20.00
         return (() => {
             setNilaiDiskon(diskon);
             setHargaDiskon(numericValue * diskon);
