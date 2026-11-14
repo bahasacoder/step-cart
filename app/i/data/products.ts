@@ -2,7 +2,7 @@
 export interface ProductItem {
   idItem: string;
   namaItem: string;
-  imageItem: string;
+  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  
   size: string;
   unit: string;
   netto: string;
@@ -17,8 +17,8 @@ export interface Product {
   idProduct: string;
   productName: string;
   productSlug: string;
-  productImage: string;
-  category: string[]; // <-- Tambahkan [] di sini agar menjadi array
+  productImage: string | string[]; // <-- Ubah agar menerima array string[]  
+  category: string | string[]; // <-- Ubah dari string menjadi string | string[]
   teaser: string;
   descriptions: string;
   specification: string;
