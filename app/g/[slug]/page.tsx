@@ -5,7 +5,7 @@ import database from "@/data/database.json"; // Sesuaikan path ke database.json 
 export interface ProductItem {
   idItem: string;
   namaItem: string;
-  imageItem: string;
+  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  
   size: string;
   unit: string;
   netto: string;
@@ -20,8 +20,8 @@ export interface Product {
   idProduct: string;
   productName: string;
   productSlug: string;
-  productImage: string;
-  category: string[];
+  productImage: string | string[]; // <-- Ubah agar menerima array string[]  
+  category: string | string[]; // <-- Ubah dari string menjadi string | string[]
   teaser: string;
   descriptions: string;
   specification: string;
