@@ -11,11 +11,11 @@
       "specification": "Isi bervariasi, Kemasan aman",
       "satuan": "gram",
       "productItems": [
-        { "idItem": "ITEM-543d84bd", "namaItem": "100 gr", "imageItem": "running-40.jpg", "size": "100", "unit": "gram", "netto": "1", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 15000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
-        { "idItem": "ITEM-896e4e44", "namaItem": "200 gr", "imageItem": "running-40.jpg", "size": "200", "unit": " gram", "netto": "6", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 20000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
-        { "idItem": "ITEM-a9ddd059", "namaItem": "300 gr", "imageItem": "running-40.jpg", "size": "300", "unit": "gram", "netto": "12", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 25000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
-        { "idItem": "ITEM-4e61f19f", "namaItem": "400 gr", "imageItem": "running-40.jpg", "size": "400", "unit": "gram", "netto": "24", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 30000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
-        { "idItem": "ITEM-45abe4fa", "namaItem": "500 gr", "imageItem": "running-40.jpg", "size": "500", "unit": "gram", "netto": "24", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 35000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 }
+        { "idItem": "ITEM-543d84bd", "namaItem": "100 gr", "imageItem": "running-40.jpg", "size": "100", "unit": "gram", "netto": "100", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 15000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
+        { "idItem": "ITEM-896e4e44", "namaItem": "200 gr", "imageItem": "running-40.jpg", "size": "200", "unit": " gram", "netto": "200", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 20000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
+        { "idItem": "ITEM-a9ddd059", "namaItem": "300 gr", "imageItem": "running-40.jpg", "size": "300", "unit": "gram", "netto": "300", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 25000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
+        { "idItem": "ITEM-4e61f19f", "namaItem": "400 gr", "imageItem": "running-40.jpg", "size": "400", "unit": "gram", "netto": "400", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 30000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
+        { "idItem": "ITEM-45abe4fa", "namaItem": "500 gr", "imageItem": "running-40.jpg", "size": "500", "unit": "gram", "netto": "500", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 35000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 }
       ]
     },
     {
