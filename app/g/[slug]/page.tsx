@@ -36,6 +36,15 @@ const allProducts = database.products.map((item) => ({
   category: Array.isArray(item.category)
     ? item.category.join(", ")
     : item.category,
+  productImage: Array.isArray(item.productImage)
+    ? item.productImage[0] ?? ""
+    : item.productImage,
+  productItems: item.productItems.map((subItem) => ({
+    ...subItem,
+    imageItem: Array.isArray(subItem.imageItem)
+      ? subItem.imageItem[0] ?? ""
+      : subItem.imageItem,
+  })),
 }));
 // Ambil semua produk
 // products = database.products;
