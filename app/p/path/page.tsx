@@ -1,8 +1,19 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-export default function ExampleClientComponent() {
+export default function PathnameBadge() {
   const pathname = usePathname()
-  return <p>Current pathname: {pathname}</p>
+  const [clientPathname, setClientPathname] = useState('')
+
+  useEffect(() => {
+    setClientPathname(pathname)
+  }, [pathname])
+
+  return (
+    <p>
+      Current pathname: <span>{clientPathname}</span>
+    </p>
+  )
 }
