@@ -1,9 +1,7 @@
 import { notFound } from "next/navigation";
 import ProductDetailClient from "./ProductDetailClient";
-// Sesuaikan path import ini dengan lokasi file JSON Anda (misal: @/data/products.json)
-import productsData from "@/db/database.json";
+import database from "@/data/database.json"; // Sesuaikan path ke database.json Anda
 
-// 1. Definisikan tipe data struktur objek sesuai JSON terbaru
 export interface ProductItem {
   idItem: string;
   namaItem: string;
@@ -23,7 +21,7 @@ export interface Product {
   productName: string;
   productSlug: string;
   productImage: string;
-  category: string | string[]; // Mendukung string maupun array string[] dari JSON
+  category: string[];
   teaser: string;
   descriptions: string;
   specification: string;
@@ -31,10 +29,9 @@ export interface Product {
   productItems: ProductItem[];
 }
 
-// 2. Ambil array products dari file JSON
-const allProducts: Product[] = productsData.products;
+// Ambil seluruh produk dari database.json
+const allProducts: Product[] = database.products;
 
-// 3. Fungsi SSG untuk membuat route statis saat proses build dijalankan
 export async function generateStaticParams() {
   return allProducts.map((product) => ({
     slug: product.productSlug,
@@ -46,11 +43,9 @@ interface PageProps {
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
-  const resolvedParams = await params;
+  const { slug } = await params;
 
-  const product = allProducts.find(
-    (p) => p.productSlug === resolvedParams.slug
-  );
+  const product = allProducts.find((p) => p.productSlug === slug);
 
   if (!product) {
     notFound();
