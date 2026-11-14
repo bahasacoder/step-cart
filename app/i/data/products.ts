@@ -26,7 +26,7 @@ export interface Product {
 }
 
 // 2. Import langsung dari properti "products" di dalam JSON
-import dataJson from "@/db/database.json";
+import dataJson from "@/data/database.json";
 
 export const productsData: Product[] = dataJson.products.map(product => ({
   ...product,
