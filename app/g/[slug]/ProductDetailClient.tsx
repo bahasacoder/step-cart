@@ -5,7 +5,8 @@ import { useState } from "react";
 interface ProductItem {
   idItem: string;
   namaItem: string;
-  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  size: string;
+  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  
+  size: string;
   unit: string;
   netto: string;
   dimensi: string;
