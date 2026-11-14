@@ -91,24 +91,24 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     let diskon: number = 0;
     let stok: number = 0;
     switch (numericValue) {
-       case 60000:
+       case 15000:
         diskon = 0.00
           stok = 4;
         break;
-      case 120000:
-        diskon = 0.05
+      case 20000:
+        diskon = 0.0;
           stok = 4;
         break;
-      case 240000:
-        diskon = 0.10
+      case 25000:
+        diskon = 0.0;
           stok = 3;
         break;
-     case 500000:
-        diskon = 0.15
+     case 30000:
+        diskon = 0.0;
           stok = 3;
         break;
-      case 1000000:
-        diskon = 0.20
+      case 35000:
+        diskon = 0.0;
           stok = 0; // PRODUCT ITEM KOSONG
         break;
     default:
