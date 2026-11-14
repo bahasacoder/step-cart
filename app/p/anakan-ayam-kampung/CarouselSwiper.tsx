@@ -15,12 +15,20 @@ import "./styles.css";
 
 const SLIDES = [
   {
-    src: "https://iili.io/nyOMC8u.jpg",
-    alt: "DOC Ayam Kampung",
+    src: "https://iili.io/o9o2L4R.jpg",
+    alt: "Anakan Ayam Kampung Asli",
   },
   {
-    src: "https://iili.io/nyOMdZl.jpg",
-    alt: "DOC Ayam Kampung Asli",
+    src: "https://iili.io/o9o3oZu.jpg",
+    alt: "Anakan Ayam Kampung Asli",
+  },
+  {
+    src: "https://iili.io/o9o3Qou.jpg",
+    alt: "Anakan Ayam Kampung",
+  },
+  {
+    src: "https://iili.io/o9o3rS2.jpg",
+    alt: "Anakan Ayam Kampung Asli",
   },
 ];
 
