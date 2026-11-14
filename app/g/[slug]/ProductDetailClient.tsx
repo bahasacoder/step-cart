@@ -21,13 +21,13 @@ interface Product {
   productName: string;
   productSlug: string;
   productImage: string;
-  category: string;
+  category: string | string[]; // <-- Ubah dari string menjadi string | string[]
   teaser: string;
   descriptions: string;
   specification: string;
+  satuan?: string;
   productItems: ProductItem[];
 }
-
 export default function ProductDetailClient({ product }: { product: Product }) {
   // Secara otomatis memuat varian pertama index ke-0 sebagai default terpilih
   const [selectedItem, setSelectedItem] = useState<ProductItem>(product.productItems[0]);
@@ -61,7 +61,9 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       <div className="flex flex-col justify-between">
         <div>
           <span className="inline-block bg-green-50 text-green-700 text-xs font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full mb-3">
-            {product.category}
+            {Array.isArray(product.category)
+            ? product.category.join(", ")
+            : product.category}
           </span>
           
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
