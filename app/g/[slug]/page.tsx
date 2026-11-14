@@ -31,6 +31,13 @@ export interface Product {
 
 // Ambil seluruh produk dari database.json
 const allProducts: Product[] = database.products;
+// Ambil semua produk
+// products = database.products;
+
+// Cari satu produk berdasarkan slug
+// const anakanAyam = database.products.find(
+//   (item) => item.productSlug === "anakan-ayam-kampung"
+// );
 
 export async function generateStaticParams() {
   return allProducts.map((product) => ({
