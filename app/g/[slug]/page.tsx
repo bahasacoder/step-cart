@@ -30,7 +30,13 @@ export interface Product {
 }
 
 // Ambil seluruh produk dari database.json
-const allProducts: Product[] = database.products;
+// const allProducts: Product[] = database.products;
+const allProducts = database.products.map((item) => ({
+  ...item,
+  category: Array.isArray(item.category)
+    ? item.category.join(", ")
+    : item.category,
+}));
 // Ambil semua produk
 // products = database.products;
 
