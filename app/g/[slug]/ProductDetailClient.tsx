@@ -5,8 +5,7 @@ import { useState } from "react";
 interface ProductItem {
   idItem: string;
   namaItem: string;
-  imageItem: string;
-  size: string;
+  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  size: string;
   unit: string;
   netto: string;
   dimensi: string;
@@ -20,7 +19,7 @@ interface Product {
   idProduct: string;
   productName: string;
   productSlug: string;
-  productImage: string;
+  productImage: string | string[]; // <-- Ubah agar menerima array string[]  
   category: string | string[]; // <-- Ubah dari string menjadi string | string[]
   teaser: string;
   descriptions: string;
@@ -28,6 +27,7 @@ interface Product {
   satuan?: string;
   productItems: ProductItem[];
 }
+
 export default function ProductDetailClient({ product }: { product: Product }) {
   // Secara otomatis memuat varian pertama index ke-0 sebagai default terpilih
   const [selectedItem, setSelectedItem] = useState<ProductItem>(product.productItems[0]);
@@ -43,13 +43,18 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
   const finalPrice = selectedItem.hargaItem - selectedItem.hargaDiskon;
 
+  const mainImage = Array.isArray(product.productImage)
+  ? product.productImage[0]
+  : product.productImage;
+  //mainImage == product.productImage
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 sm:p-8">
       {/* Sisi Kiri: Gambar Produk */}
       <div className="flex flex-col gap-4">
         <div className="relative aspect-square w-full rounded-xl bg-gray-100 overflow-hidden flex items-center justify-center border border-gray-200">
           <span className="text-gray-400 text-sm font-medium">
-            [ Gambar: {product.productImage} ]
+            [ Gambar: {mainImage} ]
           </span>
         </div>
         <p className="text-xs text-center text-gray-400 italic">
