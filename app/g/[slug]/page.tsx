@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import ProductDetailClient from "./ProductDetailClient";
 // Sesuaikan path import ini dengan lokasi file JSON Anda (misal: @/data/products.json)
-import productsData from "@/data/products.json";
+import productsData from "@/db/database.json";
 
 // 1. Definisikan tipe data struktur objek sesuai JSON terbaru
 export interface ProductItem {
