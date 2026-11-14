@@ -20,12 +20,12 @@ export default function ProductDetailClient({
 }: ProductDetailClientProps) {
   const dispatch = useAppDispatch();
 
-  // Pilih varian pertama secara default
-  const [selectedItem, setSelectedItem] = useState<ProductItem>(
-    product.productItems
-  );
+  // Ambil varian pertama dengan indeks [0]
+  const firstItem = product.productItems[0];
+
+  const [selectedItem, setSelectedItem] = useState<ProductItem>(firstItem);
   const [quantity, setQuantity] = useState<number>(
-    product.productItems?.stokItem > 0 ? 1 : 0
+    firstItem?.stokItem > 0 ? 1 : 0
   );
 
   // Kumpulkan semua gambar (gambar utama produk + gambar dari tiap varian)
@@ -34,6 +34,10 @@ export default function ProductDetailClient({
       ...(product.productImage || []),
       ...product.productItems.flatMap((item) => item.imageItem || []),
     ])
+  );
+
+  const [activeImage, setActiveImage] = useState<string>(
+    galleryImages[0] ?? ""
   );
 
   // Hitung harga akhir setelah diskon
@@ -46,6 +50,9 @@ export default function ProductDetailClient({
   const handleSelectVariant = (item: ProductItem) => {
     setSelectedItem(item);
     setQuantity(item.stokItem > 0 ? 1 : 0);
+    if (item.imageItem?.[0]) {
+      setActiveImage(item.imageItem[0]);
+    }
   };
 
   const handleAddToCart = () => {
@@ -57,7 +64,8 @@ export default function ProductDetailClient({
         idList: `${product.idProduct}-${selectedItem.idItem}-${Date.now()}`,
         idItem: selectedItem.idItem,
         productName: `${product.productName} - ${selectedItem.namaItem}`,
-        productImage: selectedItem.imageItem ?? product.productImage ?? "",
+        productImage:
+          selectedItem.imageItem?.[0] ?? product.productImage?.[0] ?? "",
         hargaItem: selectedItem.hargaItem,
         hargaDiskon: selectedItem.hargaDiskon,
         nilaiDiskon: selectedItem.nilaiDiskon,
@@ -73,7 +81,7 @@ export default function ProductDetailClient({
       <div className="space-y-4">
         <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-50">
           <img
-            src={`/assets/all/${galleryImages}`}
+            src={`/assets/all/${activeImage}`}
             alt={product.productName}
             className="h-full w-full object-contain"
           />
@@ -82,12 +90,20 @@ export default function ProductDetailClient({
         {galleryImages.length > 1 && (
           <div className="flex gap-2 overflow-x-auto">
             {galleryImages.map((img, idx) => (
-              <img
+              <button
                 key={idx}
-                src={`/assets/all/${img}`}
-                alt={`${product.productName} ${idx + 1}`}
-                className="h-16 w-16 rounded-md object-contain border border-gray-200"
-              />
+                type="button"
+                onClick={() => setActiveImage(img)}
+                className={`h-16 w-16 rounded-md overflow-hidden border transition-colors cursor-pointer ${
+                  activeImage === img ? "border-blue-600" : "border-gray-200"
+                }`}
+              >
+                <img
+                  src={`/assets/all/${img}`}
+                  alt={`${product.productName} ${idx + 1}`}
+                  className="h-full w-full object-contain"
+                />
+              </button>
             ))}
           </div>
         )}
@@ -161,7 +177,9 @@ export default function ProductDetailClient({
 
           {/* Info Stok & Dimensi */}
           <div className="text-xs text-gray-500 space-y-1 pt-2 border-t">
-            <p>Stok tersedia: {selectedItem.stokItem} {selectedItem.unit}</p>
+            <p>
+              Stok tersedia: {selectedItem.stokItem} {selectedItem.unit}
+            </p>
             <p>Dimensi kemasan: {selectedItem.dimensi}</p>
             <p>Spesifikasi: {product.specification}</p>
           </div>
