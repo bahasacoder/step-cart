@@ -9,36 +9,36 @@ interface OptionsPaketProps {
 
 const PAKET_OPTIONS = [
   {
-    label: "6 ekor",
-    value: "60000",
+    label: "100 gram",
+    value: "15000",
     bgClass: "bg-rose-600",
     ringClass: "group-hover:ring-rose-600/50 peer-checked:ring-rose-600",
     activeRingClass: "ring-2 ring-rose-600",
   },
   {
-    label: "12 ekor",
-    value: "120000",
+    label: "200 gram",
+    value: "20000",
     bgClass: "bg-blue-600",
     ringClass: "group-hover:ring-blue-600/50 peer-checked:ring-blue-600",
     activeRingClass: "ring-2 ring-blue-600",
   },
   {
-    label: "24 ekor",
-    value: "240000",
+    label: "300 gram",
+    value: "25000",
     bgClass: "bg-amber-600",
     ringClass: "group-hover:ring-amber-600/50 peer-checked:ring-amber-600",
     activeRingClass: "ring-2 ring-amber-600",
   },
   {
-    label: "50 Ekor",
-    value: "500000",
+    label: "400 gram",
+    value: "30000",
     bgClass: "bg-purple-600",
     ringClass: "group-hover:ring-purple-600/50 peer-checked:ring-purple-600",
     activeRingClass: "ring-2 ring-purple-600",
   },
   {
-    label: "100 Ekor",
-    value: "1000000",
+    label: "500 gram",
+    value: "35000",
     bgClass: "bg-lime-600",
     ringClass: "group-hover:ring-lime-600/50 peer-checked:ring-lime-600",
     activeRingClass: "ring-2 ring-lime-600",
@@ -47,7 +47,7 @@ const PAKET_OPTIONS = [
 
 export default function OptionsPaket({
   onChangeHarga,
-  defaultValue = "60000",
+  defaultValue = "35000",
 }: OptionsPaketProps) {
   const [selectedValue, setSelectedValue] = useState<string>(defaultValue);
 
