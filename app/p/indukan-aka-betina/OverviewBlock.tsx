@@ -41,7 +41,7 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     0
   );
             
-    const [hargaItem, setHargaItem] = useState<number>(55000)//useState<number | null>(null);
+    const [hargaItem, setHargaItem] = useState<number>(70000)//useState<number | null>(null);
     const [hargaDiskon, setHargaDiskon] = useState<number>(0); //  | null > (null)
     const [nilaiDiskon, setNilaiDiskon] = useState<number>(0);
     const [childValue, setChildValue] = useState(1); //Quantity
