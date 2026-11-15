@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import OverviewBlock from "./OverviewBlock"
 
-export default function anakanAyamKampungPage() {
+export default function ayamKampungPejantanPage() {
   const [quantity, setQuantity] = useState(5);
   const [selectedOption, setSelectedOption] = useState("0");
   
