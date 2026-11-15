@@ -91,25 +91,13 @@ const cartItems = useAppSelector((state: RootState) => state.cart.items);
     let diskon: number = 0;
     let stok: number = 0;
     switch (numericValue) {
-       case 15000:
+       case 70000:
         diskon = 0.00
           stok = 4;
         break;
-      case 20000:
-        diskon = 0.0;
-          stok = 4;
-        break;
-      case 25000:
+      case 90000:
         diskon = 0.0;
           stok = 3;
-        break;
-     case 30000:
-        diskon = 0.0;
-          stok = 3;
-        break;
-      case 35000:
-        diskon = 0.0;
-          stok = 0; // PRODUCT ITEM KOSONG
         break;
     default:
           // Opsional: Berikan nilai default jika harga tidak ada yang cocok
