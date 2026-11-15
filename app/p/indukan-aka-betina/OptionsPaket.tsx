@@ -9,41 +9,20 @@ interface OptionsPaketProps {
 
 const PAKET_OPTIONS = [
   {
-    label: "100 gram",
-    value: "15000",
+    label: "lite",
+    value: "70000",
     bgClass: "bg-rose-600",
     ringClass: "group-hover:ring-rose-600/50 peer-checked:ring-rose-600",
     activeRingClass: "ring-2 ring-rose-600",
   },
   {
-    label: "200 gram",
-    value: "20000",
+    label: "maxi",
+    value: "90000",
     bgClass: "bg-blue-600",
     ringClass: "group-hover:ring-blue-600/50 peer-checked:ring-blue-600",
     activeRingClass: "ring-2 ring-blue-600",
   },
-  {
-    label: "300 gram",
-    value: "25000",
-    bgClass: "bg-amber-600",
-    ringClass: "group-hover:ring-amber-600/50 peer-checked:ring-amber-600",
-    activeRingClass: "ring-2 ring-amber-600",
-  },
-  {
-    label: "400 gram",
-    value: "30000",
-    bgClass: "bg-purple-600",
-    ringClass: "group-hover:ring-purple-600/50 peer-checked:ring-purple-600",
-    activeRingClass: "ring-2 ring-purple-600",
-  },
-  {
-    label: "500 gram",
-    value: "35000",
-    bgClass: "bg-lime-600",
-    ringClass: "group-hover:ring-lime-600/50 peer-checked:ring-lime-600",
-    activeRingClass: "ring-2 ring-lime-600",
-  },
-] as const;
+ ] as const;
 
 export default function OptionsPaket({
   onChangeHarga,
