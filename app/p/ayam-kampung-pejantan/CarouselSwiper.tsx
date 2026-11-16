@@ -15,17 +15,22 @@ import "./styles.css";
 
 const SLIDES = [
   {
-    src: "https://images.unsplash.com/photo-1794663672810-bd0f162b77a3?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    src: "https://iili.io/oHk3GUP.md.jpg",
     alt: "Indukan Ayam Kampung Asli",
   },
   {
-    src: "https://iili.io/o91YNN1.md.png",
+    src: "https://iili.io/oHk3XOg.md.jpg",
     alt: "Indukan Ayam Kampung Asli",
   },
   {
-    src: "https://iili.io/o91uY0B.md.jpg",
+    src: "https://iili.io/oHk2Jyu.md.jpg",
     alt: "Indukan Ayam Kampung Asli",
-  },];
+  },
+  {
+    src: "https://iili.io/oHkHxvs.md.jpg",
+    alt: "Indukan Ayam Kampung Asli",
+  },
+];
 
 export default function CarouselSwiper() {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
