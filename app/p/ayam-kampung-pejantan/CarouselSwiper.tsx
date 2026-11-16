@@ -15,7 +15,7 @@ import "./styles.css";
 
 const SLIDES = [
   {
-    src: "https://iili.io/oHk3GUP.md.jpg",
+    src: "https://iili.io/o91uY0B.md.jpg",
     alt: "Indukan Ayam Kampung Asli",
   },
   {
