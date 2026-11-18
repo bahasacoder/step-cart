@@ -2,7 +2,7 @@
 export interface ProductItem {
   idItem: string;
   namaItem: string;
-  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  
+  imagesItem: string | string[]; // <-- Ubah agar menerima array string[]  
   size: string;
   unit: string;
   netto: string;
@@ -17,8 +17,8 @@ export interface Product {
   idProduct: string;
   productName: string;
   productSlug: string;
-  productImage: string | string[]; // <-- Ubah agar menerima array string[]  
-  category: string | string[]; // <-- Ubah dari string menjadi string | string[]
+  productImages: string | string[]; // <-- Ubah agar menerima array string[]  
+  categories: string | string[]; // <-- Ubah dari string menjadi string | string[]
   teaser: string;
   descriptions: string;
   specification: string;
@@ -32,7 +32,7 @@ export const productsData: Product[] = dataJson.products.map(product => ({
   ...product,
   // Cek jika category di JSON sudah berupa array, gunakan langsung. 
   // Jika masih string tunggal, bungkus ke dalam array [].
-  category: Array.isArray(product.category) 
-    ? product.category 
-    : [product.category] 
+  categories: Array.isArray(product.categories) 
+    ? product.categories
+    : [product.categories] 
 }));
