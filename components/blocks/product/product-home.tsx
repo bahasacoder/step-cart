@@ -14,7 +14,7 @@ import "swiper/css/pagination";
 import "./styles.css";
 
 interface ProductItem {
-  id: string;
+  id: number;
   idProduct: string;
   productSlug: string;
   productName: string;
