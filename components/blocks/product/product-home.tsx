@@ -32,6 +32,22 @@ interface ProductItem {
 
 const products: ProductItem[] = [
   {
+    id: 6,
+    idProduct: "PROD-05b38a6e-42da-4f5d-95c5-ce979ed60055",
+    productName: "Anakan Ayam Kampung",
+    productSlug: "anakan-ayam-kampung",
+    idItem: "ITEM-896e4e44",
+    namaItem: "200 gr",
+    categories: "Ayam",
+    hargaItem: 20000,
+    nilaiDiskon: 0,
+    imagesItem: [
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
+    ],
+  },
+  {
     id: 5,
     idProduct: "PROD-138dc19c-52aa-4d53-b295-59e324d68a85",
     productName: "DOC Ayam Kampung",
