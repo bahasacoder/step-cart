@@ -70,6 +70,21 @@ const products: ProductItem[] = [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
     ],
   },
+  {
+    idProduct: "PROD-d336f8b3-7b58-417f-9cf0-872038daba02",
+    productName: "Telur Kampung Kampung",
+    productSlug: "telur-ayam-kampung",
+    idItem: "ITEM-bf6eb902",
+    namaItem: "6 butir",
+    categories: ["ayam", "meat"],
+    hargaItem: 15000,
+    nilaiDiskon: "0",
+    imagesItem: [
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+    ],
+  },
 ];
 
 const formatRupiah = (value: number) =>
