@@ -64,19 +64,6 @@ const formatRupiah = (value: number) =>
 export default function ProductPage() {
   const dispatch = useDispatch();
 
-  const handleAddToCart = (item: ProductItem) => {
-    dispatch(
-      addItemToCart({
-        id: item.id,
-        productSlug: item.productSlug,
-        name: item.name,
-        price: item.price,
-        image: item.images,
-        quantity: 1,
-      })
-    );
-  };
-
   return (
     <main className="flex flex-col py-8">
       <section className="flex-1">
