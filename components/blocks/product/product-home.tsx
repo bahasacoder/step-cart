@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 
 // Import Redux Toolkit hooks & action
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/cartSlice"; // Sesuaikan path cartSlice Anda
+import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
 
 // Import Swiper styles
 import "swiper/css";
