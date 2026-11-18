@@ -139,7 +139,7 @@ export default function ProductPage() {
                   )}
 
                   {/* Tombol Add to Cart Slide-Up */}
-                  <div className="bg-card/65 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full translate-y-0 opacity-100 md:translate-y-full md:opacity-0 flex-col items-center px-5 py-3 transition-all duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100 border-t">
+                  <div className="bg-card/75 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full translate-y-0 opacity-100 md:translate-y-full md:opacity-0 flex-col items-center px-5 py-3 transition-all duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100 border-t">
                     <button
                       type="button"
                       data-slot="button"
