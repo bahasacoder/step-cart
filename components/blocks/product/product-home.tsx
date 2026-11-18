@@ -130,7 +130,6 @@ export default function ProductPage() {
                   <div className="bg-card/95 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full translate-y-0 opacity-100 md:translate-y-full md:opacity-0 flex-col items-center px-5 py-3 transition-all duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100 border-t">
                     <button
                       type="button"
-                      onClick={() => handleAddToCart(product)}
                       data-slot="button"
                       className="focus-visible:border-ring focus-visible:ring-ring/50 inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] bg-background hover:bg-accent hover:text-accent-foreground border shadow-xs h-10 rounded-md px-6 w-full cursor-pointer"
                     >
