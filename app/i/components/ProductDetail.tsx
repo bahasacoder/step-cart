@@ -41,14 +41,14 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             {/* Fallback box jika gambar aset belum tersedia */}
             <span className="text-gray-400 font-medium">{product.productName} Image</span>
           </div>
-          <p className="text-xs text-gray-400 mt-2">Gambar varian: {selectedItem.imageItem}</p>
+          <p className="text-xs text-gray-400 mt-2">Gambar varian: {selectedItem.imagesItem}</p>
         </div>
 
         {/* Kanan: Info Produk */}
         <div className="flex flex-col space-y-6">
           <div>
             <span className="text-xs font-semibold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded">
-              {product.category}
+              {product.categories}
             </span>
             <h1 className="text-3xl font-bold mt-2 text-gray-900">{product.productName}</h1>
             <p className="text-sm text-gray-500 mt-1">ID: {product.idProduct}</p>
