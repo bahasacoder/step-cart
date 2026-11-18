@@ -11,8 +11,8 @@
       "specification": "Kenalan dulu sama Ayam Kampung Pejantan! 🐓✨",
       "satuan": "ekor",
       "productItems": [
-        { "idItem": "ITEM-6c2070ba", "namaItem": "Spesial", "imageItem": ["running-40.jpg"], "size": "1200", "unit": "ekor", "netto": "999", "dimensi": "25cm x 25cm x 25cm", "hargaItem": 80000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 5 },
-        { "idItem": "ITEM-497041ff", "namaItem": "Eksklusif", "imageItem": ["running-40.jpg"], "size": "1500", "unit": "ekor", "netto": "1000", "dimensi": "25cm x 25cm x 25cm", "hargaItem": 100000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 4 }
+        { "idItem": "ITEM-6c2070ba", "namaItem": "Spesial", "imageItem": ["https://iili.io/oHkHxvs.md.jpg", "https://iili.io/oHk2Jyu.md.jpg"], "size": "1200", "unit": "ekor", "netto": "999", "dimensi": "25cm x 25cm x 25cm", "hargaItem": 80000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 5 },
+        { "idItem": "ITEM-497041ff", "namaItem": "Eksklusif", "imageItem": ["https://iili.io/oHk3XOg.md.jpg", "https://iili.io/oHk3GUP.md.jpg"], "size": "1500", "unit": "ekor", "netto": "1000", "dimensi": "25cm x 25cm x 25cm", "hargaItem": 100000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 4 }
       ]
     },
     {
@@ -46,6 +46,24 @@
         { "idItem": "ITEM-a9ddd059", "namaItem": "300 gr", "imageItem": ["running-40.jpg"], "size": "300", "unit": "gram", "netto": "300", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 25000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
         { "idItem": "ITEM-4e61f19f", "namaItem": "400 gr", "imageItem": ["running-40.jpg"], "size": "400", "unit": "gram", "netto": "400", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 30000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 },
         { "idItem": "ITEM-45abe4fa", "namaItem": "500 gr", "imageItem": ["running-40.jpg"], "size": "500", "unit": "gram", "netto": "500", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 35000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 15 }
+      ]
+    },
+    {
+      "idProduct": "PROD-138dc19c-52aa-4d53-b295-59e324d68a85",
+      "productName": "DOC Ayam Kampung",
+      "productSlug": "doc-ayam-kampung",
+      "productImage": ["doc-ayam-kampung.jpg"],
+      "category": ["daging", "meat"],
+      "teaser": "Bibit Unggul DOC Ayam Kampung Asli – Sehat, Lincah, dan Siap Tumbuh. Dihasilkan dari indukan pilihan yang dipelihara secara alami tanpa hormon pertumbuhan maupun bahan kimia berbahaya.",
+      "descriptions": "Mulai kesuksesan ternak Anda dari bibit terbaik. DOC Ayam Kampung kami ditetaskan dari indukan pilihan yang dipelihara secara alami tanpa hormon pertumbuhan maupun bahan kimia berbahaya.",
+      "specification": "Isi bervariasi, Kemasan aman",
+      "satuan": "gram",
+      "productItems": [
+        { "idItem": "ITEM-4169fce8", "namaItem": "3 ekor", "imageItem": ["running-40.jpg"], "size": "3", "unit": "ekor", "netto": "3", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 30000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 10 },
+        { "idItem": "ITEM-1fb54640", "namaItem": "5 ekor", "imageItem": ["running-40.jpg"], "size": "5", "unit": "ekor", "netto": "5", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 50000, "hargaDiskon": 0, "nilaiDiskon": 0, "stokItem": 8 },
+        { "idItem": "ITEM-ebface", "namaItem": "10 ekor", "imageItem": ["running-40.jpg"], "size": "10", "unit": "ekor", "netto": "10", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 100000, "hargaDiskon": 10, "nilaiDiskon": 0, "stokItem": 5 },
+        { "idItem": "ITEM-4f1e51", "namaItem": "20 ekor", "imageItem": ["running-40.jpg"], "size": "20", "unit": "ekor", "netto": "20", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 200000, "hargaDiskon": 20, "nilaiDiskon": 0, "stokItem": 4 },
+        { "idItem": "ITEM-b57d4f", "namaItem": "50 ekor", "imageItem": ["running-40.jpg"], "size": "50", "unit": "ekor", "netto": "50", "dimensi": "15cm x 15cm x 15cm", "hargaItem": 500000, "hargaDiskon": 30, "nilaiDiskon": 0, "stokItem": 2 }
       ]
     },
     {
