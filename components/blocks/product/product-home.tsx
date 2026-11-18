@@ -15,9 +15,10 @@ import "./styles.css";
 
 interface ProductItem {
   id: string;
+  idProduct: string;
   productSlug: string;
-  name: string;
-  category: string;
+  productName: string;
+  categories: string;
   price: number;
   originalPrice: number;
   discount: string;
