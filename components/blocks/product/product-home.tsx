@@ -86,6 +86,21 @@ const products: ProductItem[] = [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
     ],
   },
+  {
+    idProduct: "PROD-269062b1-c936-440c-b85c-023ad3b4709e",
+    productName: "Ayam Kampung Pejantan",
+    productSlug: "ayam-kampung-pejantan",
+    idItem: "ITEM-6c2070ba",
+    namaItem: "< 1200",
+    categories: ["ayam", "meat"],
+    hargaItem: 10000,
+    nilaiDiskon: "0",
+    imagesItem: [
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+    ],
+  },
 ];
 
 const formatRupiah = (value: number) =>
