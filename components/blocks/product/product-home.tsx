@@ -32,6 +32,7 @@ interface ProductItem {
 
 const products: ProductItem[] = [
   {
+    id: 5,
     idProduct: "PROD-138dc19c-52aa-4d53-b295-59e324d68a85",
     productName: "DOC Ayam Kampung",
     productSlug: "doc-ayam-kampung",
@@ -39,7 +40,7 @@ const products: ProductItem[] = [
     namaItem: "5 ekor",
     categories: "Ayam",
     hargaItem: 50000,
-    nilaiDiskon: "0",
+    nilaiDiskon: 0,
     imagesItem: [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@5836d3cfdc6d204d154b7992ff888b6df3e6759e/uploads/2026-02-12T05-51-25-172Z-bqpydx82p.png",
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@5836d3cfdc6d204d154b7992ff888b6df3e6759e/uploads/2026-02-12T05-51-25-172Z-bqpydx82p.png",
@@ -47,6 +48,7 @@ const products: ProductItem[] = [
     ],
   },
   {
+    id: 4,
     idProduct: "PROD-3650e2eb-66d5-4da1-9cfb-146e83b3a214",
     productName: "Indukan AKA Betina",
     productSlug: "indukan-aka-betina",
@@ -54,7 +56,7 @@ const products: ProductItem[] = [
     namaItem: "1 ekor",
     categories: "Ayam",
     hargaItem: 80000,
-    nilaiDiskon: "0",
+    nilaiDiskon: 0,
     imagesItem: [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@e3a8ff34a8d74beae6ace2b9b853d2a50fce3773/uploads/2026-02-12T05-56-39-420Z-e1rah59mc.png",
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@e3a8ff34a8d74beae6ace2b9b853d2a50fce3773/uploads/2026-02-12T05-56-39-420Z-e1rah59mc.png",
@@ -62,6 +64,7 @@ const products: ProductItem[] = [
     ],
   },
   {
+    id: 3,
     idProduct: "PROD-5fd3f354-fa58-4466-b413-a9006c2d5728",
     productName: "Ayam Kampung Frozen",
     productSlug: "ayam-kampung-frozen",
@@ -69,7 +72,7 @@ const products: ProductItem[] = [
     namaItem: "1000 Gram",
     categories: ["ayam", "frozen"],
     hargaItem: 100000,
-    nilaiDiskon: "0",
+    nilaiDiskon: 0,
     imagesItem: [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
@@ -77,6 +80,7 @@ const products: ProductItem[] = [
     ],
   },
   {
+    id: 2,
     idProduct: "PROD-d336f8b3-7b58-417f-9cf0-872038daba02",
     productName: "Telur Kampung Kampung",
     productSlug: "telur-ayam-kampung",
@@ -84,7 +88,7 @@ const products: ProductItem[] = [
     namaItem: "6 butir",
     categories: ["ayam", "meat"],
     hargaItem: 15000,
-    nilaiDiskon: "0",
+    nilaiDiskon: 0,
     imagesItem: [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
@@ -92,6 +96,7 @@ const products: ProductItem[] = [
     ],
   },
   {
+    id: 1,
     idProduct: "PROD-269062b1-c936-440c-b85c-023ad3b4709e",
     productName: "Ayam Kampung Pejantan",
     productSlug: "ayam-kampung-pejantan",
@@ -99,9 +104,9 @@ const products: ProductItem[] = [
     namaItem: "< 1200",
     categories: ["ayam", "meat"],
     hargaItem: 10000,
-    nilaiDiskon: "0",
+    nilaiDiskon: 0,
     imagesItem: [
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
     ],
