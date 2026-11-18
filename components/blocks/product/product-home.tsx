@@ -152,7 +152,7 @@ export default function ProductPage() {
  const dispatch = useDispatch();
  const handleAddToCart = (item: ProductItem, finalPrice: number) => {
     dispatch(
-      addToCart({
+      addItemToCart({
         idProduct: item.idProduct,
         idItem: item.idItem,
         productName: item.productName,
