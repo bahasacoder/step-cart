@@ -1,11 +1,14 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
+
+// Import Redux Toolkit hooks & action
 import { useDispatch } from "react-redux";
-import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
+import { addToCart } from "@/store/cartSlice"; // Sesuaikan path cartSlice Anda
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,21 +16,30 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./styles.css";
 
-interface ProductItem {
+export interface ProductItem {
   id: number;
   idProduct: string;
-  productSlug: string;
   productName: string;
-  idItem: string,
-  namaItem: string,
-  hargaItem: number,
-  nilaiDiskon: number,
-  imagesItem: string | string[],
-  categories: string | string[];
-  price: number;
-  originalPrice: number;
-  discount: string;
-  imagesProduct: string | string[];
+  productSlug: string;
+  idItem: string;
+  namaItem: string;
+  categories: string[];
+  hargaItem: number;
+  nilaiDiskon: number;
+  imagesItem: string[];
+}
+
+export interface ProductItem {
+  id: number;
+  idProduct: string;
+  productName: string;
+  productSlug: string;
+  idItem: string;
+  namaItem: string;
+  categories: string[];
+  hargaItem: number;
+  nilaiDiskon: number;
+  imagesItem: string[];
 }
 
 const products: ProductItem[] = [
@@ -38,7 +50,7 @@ const products: ProductItem[] = [
     productSlug: "anakan-ayam-kampung",
     idItem: "ITEM-896e4e44",
     namaItem: "200 gr",
-    categories: "Ayam",
+    categories: ["Ayam"],
     hargaItem: 20000,
     nilaiDiskon: 0,
     imagesItem: [
@@ -54,7 +66,7 @@ const products: ProductItem[] = [
     productSlug: "doc-ayam-kampung",
     idItem: "ITEM-1fb54640",
     namaItem: "5 ekor",
-    categories: "Ayam",
+    categories: ["Ayam"],
     hargaItem: 50000,
     nilaiDiskon: 0,
     imagesItem: [
@@ -70,7 +82,7 @@ const products: ProductItem[] = [
     productSlug: "indukan-aka-betina",
     idItem: "ITEM-700cd608",
     namaItem: "1 ekor",
-    categories: "Ayam",
+    categories: ["Ayam"],
     hargaItem: 80000,
     nilaiDiskon: 0,
     imagesItem: [
@@ -86,7 +98,7 @@ const products: ProductItem[] = [
     productSlug: "ayam-kampung-frozen",
     idItem: "ITEM-d24df704",
     namaItem: "1000 Gram",
-    categories: ["ayam", "frozen"],
+    categories: ["Ayam", "Frozen"],
     hargaItem: 100000,
     nilaiDiskon: 0,
     imagesItem: [
@@ -98,11 +110,11 @@ const products: ProductItem[] = [
   {
     id: 2,
     idProduct: "PROD-d336f8b3-7b58-417f-9cf0-872038daba02",
-    productName: "Telur Kampung Kampung",
+    productName: "Telur Ayam Kampung",
     productSlug: "telur-ayam-kampung",
     idItem: "ITEM-bf6eb902",
     namaItem: "6 butir",
-    categories: ["ayam", "meat"],
+    categories: ["Ayam", "Egg"],
     hargaItem: 15000,
     nilaiDiskon: 0,
     imagesItem: [
@@ -117,14 +129,14 @@ const products: ProductItem[] = [
     productName: "Ayam Kampung Pejantan",
     productSlug: "ayam-kampung-pejantan",
     idItem: "ITEM-6c2070ba",
-    namaItem: "< 1200",
-    categories: ["ayam", "meat"],
+    namaItem: "< 1200 gr",
+    categories: ["Ayam", "Meat"],
     hargaItem: 10000,
     nilaiDiskon: 0,
     imagesItem: [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
     ],
   },
 ];
