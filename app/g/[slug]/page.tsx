@@ -5,7 +5,7 @@ import database from "@/data/database.json"; // Sesuaikan path ke database.json 
 export interface ProductItem {
   idItem: string;
   namaItem: string;
-  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  
+  imagesItem: string | string[]; // <-- Ubah agar menerima array string[]  
   size: string;
   unit: string;
   netto: string;
@@ -20,8 +20,8 @@ export interface Product {
   idProduct: string;
   productName: string;
   productSlug: string;
-  productImage: string | string[]; // <-- Ubah agar menerima array string[]  
-  category: string | string[]; // <-- Ubah dari string menjadi string | string[]
+  productImages: string | string[]; // <-- Ubah agar menerima array string[]  
+  categories: string | string[]; // <-- Ubah dari string menjadi string | string[]
   teaser: string;
   descriptions: string;
   specification: string;
@@ -33,17 +33,17 @@ export interface Product {
 // const allProducts: Product[] = database.products;
 const allProducts = database.products.map((item) => ({
   ...item,
-  category: Array.isArray(item.category)
-    ? item.category.join(", ")
-    : item.category,
-  productImage: Array.isArray(item.productImage)
-    ? item.productImage[0] ?? ""
-    : item.productImage,
+  categories: Array.isArray(item.categories)
+    ? item.categories.join(", ")
+    : item.categories,
+  productImages: Array.isArray(item.productImages)
+    ? item.productImages[0] ?? ""
+    : item.productImages,
   productItems: item.productItems.map((subItem) => ({
     ...subItem,
-    imageItem: Array.isArray(subItem.imageItem)
-      ? subItem.imageItem[0] ?? ""
-      : subItem.imageItem,
+    imagesItem: Array.isArray(subItem.imagesItem)
+      ? subItem.imagesItem[0] ?? ""
+      : subItem.imagesItem,
   })),
 }));
 // Ambil semua produk
