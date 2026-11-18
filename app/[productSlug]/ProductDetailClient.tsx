@@ -32,7 +32,7 @@ export default function ProductDetailClient({
   const galleryImages = Array.from(
     new Set([
       ...(product.productImages || []),
-      ...product.productItems.flatMap((item) => item.imageItem || []),
+      ...product.productItems.flatMap((item) => item.imagesItem || []),
     ])
   );
 
