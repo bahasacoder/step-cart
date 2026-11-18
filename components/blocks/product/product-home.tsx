@@ -3,6 +3,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
 
@@ -79,7 +80,7 @@ export default function ProductPage() {
             </h2>
           </div>
 
-          {/* Grid Kartu Produk */}
+           {/* Grid Kartu Produk */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <div
@@ -95,7 +96,10 @@ export default function ProductPage() {
                 >
                   <Swiper
                     modules={[Navigation, Pagination]}
-                    navigation
+                    navigation={{
+                      prevEl: `.prev-${product.id}`,
+                      nextEl: `.next-${product.id}`,
+                    }}
                     pagination={{ clickable: true }}
                     loop={product.images.length > 1}
                     className="h-full w-full"
@@ -112,6 +116,27 @@ export default function ProductPage() {
                       </SwiperSlide>
                     ))}
                   </Swiper>
+
+                  {/* Custom Tombol Prev & Next */}
+                  {product.images.length > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        aria-label="Previous slide"
+                        className={`prev-${product.id} absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-gray-900 shadow-md backdrop-blur-xs border border-gray-200 transition-all duration-300 hover:bg-white hover:scale-105 opacity-90 md:opacity-0 md:group-hover:opacity-100 cursor-pointer`}
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                      </button>
+
+                      <button
+                        type="button"
+                        aria-label="Next slide"
+                        className={`next-${product.id} absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-gray-900 shadow-md backdrop-blur-xs border border-gray-200 transition-all duration-300 hover:bg-white hover:scale-105 opacity-90 md:opacity-0 md:group-hover:opacity-100 cursor-pointer`}
+                      >
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
+                    </>
+                  )}
 
                   {/* Tombol Add to Cart Slide-Up */}
                   <div className="bg-card/95 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full translate-y-0 opacity-100 md:translate-y-full md:opacity-0 flex-col items-center px-5 py-3 transition-all duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100 border-t">
