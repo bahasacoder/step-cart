@@ -66,7 +66,7 @@ export default function ProductPage() {
 
   const handleAddToCart = (item: ProductItem) => {
     dispatch(
-      addToCart({
+      addItemToCart({
         id: item.id,
         productSlug: item.productSlug,
         name: item.name,
