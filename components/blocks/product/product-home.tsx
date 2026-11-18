@@ -4,7 +4,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/cartSlice"; // Sesuaikan path cartSlice Anda
+import { addToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
 
 // Import Swiper styles
 import "swiper/css";
