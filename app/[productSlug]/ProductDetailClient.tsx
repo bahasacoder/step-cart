@@ -114,7 +114,7 @@ export default function ProductDetailClient({
         <div className="space-y-4">
           {/* Kategori */}
           <div className="flex flex-wrap gap-2">
-            {product.category.map((cat) => (
+            {product.categories.map((cat) => (
               <span
                 key={cat}
                 className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 capitalize"
