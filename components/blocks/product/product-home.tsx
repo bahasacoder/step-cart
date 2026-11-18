@@ -149,14 +149,28 @@ const formatRupiah = (value: number) =>
   }).format(value);
 
 export default function ProductPage() {
-  const dispatch = useDispatch();
+ const dispatch = useDispatch();
+ const handleAddToCart = (item: ProductItem, finalPrice: number) => {
+    dispatch(
+      addToCart({
+        idProduct: item.idProduct,
+        idItem: item.idItem,
+        productName: item.productName,
+        productSlug: item.productSlug,
+        namaItem: item.namaItem,
+        price: finalPrice,
+        image: item.imagesItem[0],
+        quantity: 1,
+      })
+    );
+  };
 
   return (
     <main className="flex flex-col py-8">
       <section className="flex-1">
         {/* Wadah max-w-7xl membungkus judul SEKALIGUS grid kartu produk */}
         <div className="mx-auto max-w-7xl space-y-10 px-4 sm:px-6 lg:px-8">
-          {/* Header Section */}
+          {/* Header Section */} 
           <div className="space-y-2 text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
               Ayam Kampung Asli
@@ -168,44 +182,55 @@ export default function ProductPage() {
 
            {/* Grid Kartu Produk */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                data-slot="card"
-                className="bg-card text-card-foreground flex flex-col rounded-xl border group overflow-hidden shadow-xs transition-all duration-300 hover:shadow-md"
-              >
-                {/* Area Swiper Carousel */}
+            {products.map((product) => {
+              // Hitung harga akhir jika nilaiDiskon > 0
+              const hasDiscount = product.nilaiDiskon > 0;
+              const hargaAkhir = hasDiscount
+                ? product.hargaItem - (product.hargaItem * product.nilaiDiskon) / 100
+                : product.hargaItem;
+
+              return (
+               <div
+                  key={product.idProduct}
+                  data-slot="card"
+                  className="bg-card text-card-foreground flex flex-col rounded-xl border group overflow-hidden shadow-xs transition-all duration-300 hover:shadow-md"
+                >
+                  {/* Area Swiper Carousel */}
                 <div
                   className="relative aspect-square w-full overflow-hidden bg-muted/30"
                   aria-roledescription="carousel"
                   data-slot="carousel"
                 >
                   <Swiper
-                    modules={[Navigation, Pagination]}
-                    navigation={{
-                      prevEl: `.prev-${product.id}`,
-                      nextEl: `.next-${product.id}`,
-                    }}
-                    pagination={{ clickable: true }}
-                    loop={product.images.length > 1}
-                    className="h-full w-full"
-                  >
-                    {product.images.map((imgSrc, idx) => (
-                      <SwiperSlide key={idx}>
-                        <div className="flex h-full w-full items-center justify-center">
-                          <img
-                            src={imgSrc}
-                            alt={`${product.name} ${idx + 1}`}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                      modules={[Navigation, Pagination]}
+                      navigation={{
+                        prevEl: `.prev-${product.id}`,
+                        nextEl: `.next-${product.id}`,
+                      }}
+                      pagination={{ clickable: true }}
+                      loop={product.imagesItem.length > 1}
+                      className="h-full w-full"
+                    >
+                      {product.imagesItem.map((imgSrc, idx) => (
+                        <SwiperSlide key={idx}>
+                          <Link
+                            href={`/${product.productSlug}`}
+                            className="flex h-full w-full items-center justify-center"
+                          >
+                            <img
+                              src={imgSrc}
+                              alt={`${product.productName} ${idx + 1}`}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </Link>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
 
                   {/* Custom Tombol Prev & Next */}
-                  {product.images.length > 1 && (
-                    <>
+                   {/* Custom Tombol Prev & Next */}
+                    {product.imagesItem.length > 1 && (
+                      <>
                       <button
                         type="button"
                         aria-label="Previous slide"
