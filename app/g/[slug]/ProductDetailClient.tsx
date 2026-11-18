@@ -5,7 +5,7 @@ import { useState } from "react";
 interface ProductItem {
   idItem: string;
   namaItem: string;
-  imageItem: string | string[]; // <-- Ubah agar menerima array string[]  
+  imagesItem: string | string[]; // <-- Ubah agar menerima array string[]  
   size: string;
   unit: string;
   netto: string;
@@ -20,8 +20,8 @@ interface Product {
   idProduct: string;
   productName: string;
   productSlug: string;
-  productImage: string | string[]; // <-- Ubah agar menerima array string[]  
-  category: string | string[]; // <-- Ubah dari string menjadi string | string[]
+  productImages: string | string[]; // <-- Ubah agar menerima array string[]  
+  categories: string | string[]; // <-- Ubah dari string menjadi string | string[]
   teaser: string;
   descriptions: string;
   specification: string;
@@ -44,9 +44,9 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
   const finalPrice = selectedItem.hargaItem - selectedItem.hargaDiskon;
 
-  const mainImage = Array.isArray(product.productImage)
-  ? product.productImage[0]
-  : product.productImage;
+  const mainImage = Array.isArray(product.productImages)
+  ? product.productImages[0]
+  : product.productImages;
   //mainImage == product.productImage
 
   return (
@@ -67,9 +67,9 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       <div className="flex flex-col justify-between">
         <div>
           <span className="inline-block bg-green-50 text-green-700 text-xs font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full mb-3">
-            {Array.isArray(product.category)
-            ? product.category.join(", ")
-            : product.category}
+            {Array.isArray(product.categories)
+            ? product.categories.join(", ")
+            : product.categories}
           </span>
           
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
