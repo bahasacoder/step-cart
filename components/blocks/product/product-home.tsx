@@ -18,11 +18,16 @@ interface ProductItem {
   idProduct: string;
   productSlug: string;
   productName: string;
-  categories: string;
+  idItem: string,
+  namaItem: string,
+  hargaItem: number,
+  nilaiDiskon: number,
+  imagesItem: string | string[],
+  categories: string | string[];
   price: number;
   originalPrice: number;
   discount: string;
-  images: string[];
+  imagesProduct: string | string[];
 }
 
 const products: ProductItem[] = [
