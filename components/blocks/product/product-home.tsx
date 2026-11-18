@@ -151,18 +151,7 @@ const formatRupiah = (value: number) =>
 export default function ProductPage() {
  const dispatch = useDispatch();
  const handleAddToCart = (item: ProductItem, finalPrice: number) => {
-    dispatch(
-      addItemToCart({
-        idProduct: item.idProduct,
-        idItem: item.idItem,
-        productName: item.productName,
-        productSlug: item.productSlug,
-        namaItem: item.namaItem,
-        price: finalPrice,
-        image: item.imagesItem[0],
-        quantity: 1,
-      })
-    );
+   return ;
   };
 
   return (
