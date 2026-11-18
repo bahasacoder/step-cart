@@ -11,9 +11,9 @@ const PAKET_OPTIONS = [
   {
     label: "Spesial",
     value: "80000",
-    bgClass: "bg-blue-600",
-    ringClass: "group-hover:ring-blue-600/50 peer-checked:ring-blue-600",
-    activeRingClass: "ring-2 ring-blue-600",
+    bgClass: "bg-amber-600",
+    ringClass: "group-hover:ring-amber-600/50 peer-checked:ring-amber-600",
+    activeRingClass: "ring-2 ring-amber-600",
   },
   {
     label: "Eksklusif",
