@@ -170,7 +170,7 @@ export default function ProductPage() {
       <section className="flex-1">
         {/* Wadah max-w-7xl membungkus judul SEKALIGUS grid kartu produk */}
         <div className="mx-auto max-w-7xl space-y-10 px-4 sm:px-6 lg:px-8">
-          {/* Header Section */} 
+          {/* Header Section */}
           <div className="space-y-2 text-center">
             <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
               Ayam Kampung Asli
@@ -180,7 +180,7 @@ export default function ProductPage() {
             </h2>
           </div>
 
-           {/* Grid Kartu Produk */}
+          {/* Grid Kartu Produk */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => {
               // Hitung harga akhir jika nilaiDiskon > 0
@@ -190,18 +190,18 @@ export default function ProductPage() {
                 : product.hargaItem;
 
               return (
-               <div
+                <div
                   key={product.idProduct}
                   data-slot="card"
                   className="bg-card text-card-foreground flex flex-col rounded-xl border group overflow-hidden shadow-xs transition-all duration-300 hover:shadow-md"
                 >
                   {/* Area Swiper Carousel */}
-                <div
-                  className="relative aspect-square w-full overflow-hidden bg-muted/30"
-                  aria-roledescription="carousel"
-                  data-slot="carousel"
-                >
-                  <Swiper
+                  <div
+                    className="relative aspect-square w-full overflow-hidden bg-muted/30"
+                    aria-roledescription="carousel"
+                    data-slot="carousel"
+                  >
+                    <Swiper
                       modules={[Navigation, Pagination]}
                       navigation={{
                         prevEl: `.prev-${product.id}`,
@@ -227,85 +227,93 @@ export default function ProductPage() {
                       ))}
                     </Swiper>
 
-                  {/* Custom Tombol Prev & Next */}
-                   {/* Custom Tombol Prev & Next */}
+                    {/* Custom Tombol Prev & Next */}
                     {product.imagesItem.length > 1 && (
                       <>
+                        <button
+                          type="button"
+                          aria-label="Previous slide"
+                          className={`prev-${product.id} absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-gray-900 shadow-md backdrop-blur-xs border border-gray-200 transition-all duration-300 hover:bg-white hover:scale-105 opacity-90 md:opacity-0 md:group-hover:opacity-100 cursor-pointer`}
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+
+                        <button
+                          type="button"
+                          aria-label="Next slide"
+                          className={`next-${product.id} absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-gray-900 shadow-md backdrop-blur-xs border border-gray-200 transition-all duration-300 hover:bg-white hover:scale-105 opacity-90 md:opacity-0 md:group-hover:opacity-100 cursor-pointer`}
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </>
+                    )}
+
+                    {/* Tombol Add to Cart Slide-Up */}
+                    <div className="bg-card/75 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full translate-y-0 opacity-100 md:translate-y-full md:opacity-0 flex-col items-center px-5 py-3 transition-all duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100 border-t">
                       <button
                         type="button"
-                        aria-label="Previous slide"
-                        className={`prev-${product.id} absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-gray-900 shadow-md backdrop-blur-xs border border-gray-200 transition-all duration-300 hover:bg-white hover:scale-105 opacity-90 md:opacity-0 md:group-hover:opacity-100 cursor-pointer`}
+                        onClick={() => handleAddToCart(product, hargaAkhir)}
+                        data-slot="button"
+                        className="focus-visible:border-ring focus-visible:ring-ring/50 inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] bg-background hover:bg-accent hover:text-accent-foreground border shadow-xs h-10 rounded-md px-6 w-full cursor-pointer"
                       >
-                        <ChevronLeft className="h-4 w-4" />
+                        Add to Cart
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-shopping-cart"
+                          aria-hidden="true"
+                        >
+                          <circle cx="8" cy="21" r="1" />
+                          <circle cx="19" cy="21" r="1" />
+                          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                        </svg>
                       </button>
-
-                      <button
-                        type="button"
-                        aria-label="Next slide"
-                        className={`next-${product.id} absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 text-gray-900 shadow-md backdrop-blur-xs border border-gray-200 transition-all duration-300 hover:bg-white hover:scale-105 opacity-90 md:opacity-0 md:group-hover:opacity-100 cursor-pointer`}
-                      >
-                        <ChevronRight className="h-4 w-4" />
-                      </button>
-                    </>
-                  )}
-
-                  {/* Tombol Add to Cart Slide-Up */}
-                  <div className="bg-card/75 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full translate-y-0 opacity-100 md:translate-y-full md:opacity-0 flex-col items-center px-5 py-3 transition-all duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100 border-t">
-                    <button
-                      type="button"
-                      data-slot="button"
-                      className="focus-visible:border-ring focus-visible:ring-ring/50 inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] bg-background hover:bg-accent hover:text-accent-foreground border shadow-xs h-10 rounded-md px-6 w-full cursor-pointer"
-                    >
-                      Add to Cart
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-shopping-cart"
-                        aria-hidden="true"
-                      >
-                        <circle cx="8" cy="21" r="1" />
-                        <circle cx="19" cy="21" r="1" />
-                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Konten Detail Kartu */}
-                <div
-                  data-slot="card-content"
-                  className="px-6 py-5 z-10 flex flex-col gap-1.5 bg-card"
-                >
-                  <div className="flex items-center justify-between gap-2 font-semibold">
-                    <h3 className="text-lg line-clamp-1">{product.name}</h3>
-                    <span className="text-xl font-bold shrink-0">
-                      {formatRupiah(product.price)}
-                    </span>
+                    </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">
-                      {product.category}
-                    </span>
-                    <div className="flex items-center gap-2">
-                      <span className="line-through text-muted-foreground text-xs">
-                        {formatRupiah(product.originalPrice)}
+                  {/* Konten Detail Kartu */}
+                  <div
+                    data-slot="card-content"
+                    className="px-6 py-5 z-10 flex flex-col gap-1.5 bg-card"
+                  >
+                    <div className="flex items-center justify-between gap-2 font-semibold">
+                      <Link
+                        href={`/${product.productSlug}`}
+                        className="text-lg line-clamp-1 hover:underline"
+                      >
+                        {product.productName}
+                      </Link>
+                      <span className="text-xl font-bold shrink-0">
+                        {formatRupiah(hargaAkhir)}
                       </span>
-                      <span className="text-xs font-semibold text-green-600 dark:text-green-400">
-                        {product.discount}
+                    </div>
+
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">
+                        {product.categories.join(", ")} • {product.namaItem}
                       </span>
+                      {hasDiscount && (
+                        <div className="flex items-center gap-2">
+                          <span className="line-through text-muted-foreground text-xs">
+                            {formatRupiah(product.hargaItem)}
+                          </span>
+                          <span className="text-xs font-semibold text-green-600 dark:text-green-400">
+                            {product.nilaiDiskon}% Off
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
