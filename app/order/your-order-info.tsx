@@ -2,17 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
-import { addListToCheckeds, removeListFromCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice'; // Sesuaikan dengan jalur file Anda
+import { addItemToCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice'; // Sesuaikan dengan jalur file Anda
 import { RootState } from "@/lib/store";
+import { useRouter } from 'next/navigation';
 
-interface CheckoutItem {
+export interface CheckoutItem {
   idList?: string | number;
   idCheckout?: string | number;
   productName?: string;
     productImage?: string;
-
     hargaItem?: string | number;
-    hargaDiskon?: string | number;
+    hargaDiskon?: string | number;    
+    totalHargaItem?: string | number; // hargaItem*Quantity
     totalHargaList?: string | number;
   diskonHarga?: number;
   totalHargaJadi?: number;
@@ -22,9 +23,18 @@ interface CheckoutItem {
 
 type CheckoutList = CheckoutItem[];
 
-export default function YourOrderInfo() {
+interface FormProps {
+  setBiayaPengiriman: React.Dispatch<React.SetStateAction<number>>;
+}
+interface YourOrderInfoProps {
+  onSelectionChange?: (selectedIds: Array<string | number>) => void;
+}
+
+export default function YourOrderInfo({ onSelectionChange }: YourOrderInfoProps) {
 
     const dispatch = useDispatch();
+    const router = useRouter();
+
       const [couponCode, setCouponCode] = useState('');
     // 1. Ambil data biayaPengiriman dari checkoutSlice
 const biayaPengirimanFromStore = useAppSelector((state) => state.checkout.biayaPengiriman) ?? 0;
@@ -36,8 +46,8 @@ const [biayaPengiriman, setBiayaPengiriman] = useState<number>(() => {
     return Number(biayaPengirimanFromStore);
 });
 
-// 2. Ambil juga biayaLayanan jika ada di slice yang sama (atau berikan default 0)
-const biayaLayanan = useAppSelector((state) => state.checkout.biayaLayanan) ?? 0;
+    // 2. Ambil juga biayaLayanan jika ada di slice yang sama (atau berikan default 0)
+    const biayaLayanan = useAppSelector((state) => state.checkout.biayaLayanan) ?? 0;
       // 1. Ambil data items dari Redux Store (default ke array kosong jika null/undefined)
         const checkedItems = (useAppSelector((state: RootState) => state.checkout.items) ?? []) as unknown[];
         const getItemsCart = (useAppSelector((state: RootState) => state.cart.items) ?? []) as unknown as CheckoutItem[];      
@@ -45,11 +55,12 @@ const biayaLayanan = useAppSelector((state) => state.checkout.biayaLayanan) ?? 0
             const checkoutGroups: CheckoutItem[] = checkedItems.flatMap((group) => 
                 Array.isArray(group) ? group : [group]
             );
-                        const checkedItemsStringify: string[] = checkoutGroups.map((chites: CheckoutItem): string => JSON.stringify(chites));
+        const checkedItemsStringify: string[] = checkoutGroups.map((chites: CheckoutItem): string => JSON.stringify(chites));
             
-const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Boolean);
+  
+    const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Boolean);
 
-            const getListItemCheckout: CheckoutItem[] = getIdListItemCheck
+    const getListItemCheckout: CheckoutItem[] = getIdListItemCheck
               .map((gilic) => getItemsCart.find((gisfy) => (gisfy as CheckoutItem).idList === gilic))
               .filter((item): item is CheckoutItem => Boolean(item));
         // 1. Dapatkan daftar idList yang di-check (tanpa stringify/parse yang berat)
@@ -117,7 +128,12 @@ const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Bool
         localStorage.setItem('user_shipping_price', value); // Menyimpan permanen ke browser
         setBiayaPengiriman(Number(value))
     };
-    
+    function useCheckoutData() {  
+        return {
+        setBiayaPengiriman, 
+        biayaPengiriman
+    };
+}
     //const totalPayable = totalHargaCart - totalHargaDiskon + biayaPengiriman + biayaLayanan
     
     // 3. Hitung total yang harus dibayar dengan proteksi nilai default
@@ -157,6 +173,7 @@ const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Bool
                                     <button 
                                         type="button"
                                         className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900 active:scale-98"
+                                        onClick={() => router.push('/cart')}
                                     >
                                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
@@ -189,6 +206,7 @@ const getIdListItemCheck = checkoutGroups.map((item) => item.idList).filter(Bool
                                                 return(
                                                                     <div key={getlic?.idList || index} className="flex items-center justify-between gap-4">
                                                                         <div className="flex h-full items-center gap-4">
+                                                                            
                                                                             <img
                                                                                 src={getlic?.productImage}
                                                                                 alt="Red cap"

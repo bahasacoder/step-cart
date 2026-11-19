@@ -3,6 +3,9 @@ import React, { type ChangeEvent, useState } from "react";
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { registerCustomer } from '@/lib/features/customer/customerSlice'; // Import action biasa
 import { savePrimaryAddress } from '@/lib/features/customer/addressSlice'; 
+import { RootState } from "@/lib/store";
+import {uniqueNameChecker, getFormattedDate, generateDateUUID} from "./orderFunctions"
+
 import {
   Card,
   CardAction,
@@ -21,6 +24,7 @@ interface RegionOption {
 
 type PrimaryAddressFieldName =
   | "id"
+  |  "idCustomer"
   | "idAddressPrimary"
   | "uniqueName"
   | "firstNamePrimary"
@@ -40,10 +44,12 @@ type PrimaryAddressFieldName =
     }
 export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: RegisterCustomerPrimary) {
     const dispatch = useAppDispatch();
-    
+    // 1. ✅ PINDAHKAN KE SINI (Di dalam fungsi komponen, tapi di luar event handler)
+  const getDataAddress = useAppSelector((state: RootState) => state.address);
       // Mengambil data dari Redux store
-      const { isRegistered, idCustomer } = useAppSelector((state) => state.customer);
-      const truePrimaryAddress = useAppSelector((state) => state.address);
+    //     const { isRegistered, idCustomer: registeredCustomerId } = useAppSelector((state) => state.customer);
+
+    const truePrimaryAddress = useAppSelector((state) => state.address);
 
    //  const [region, setRegion] = useState("")
     const [isLoading, setIsLoading] = useState(false);
@@ -52,6 +58,7 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
     const [id, setId] = useState<string>("")
     const [generatedId, setGeneratedId] = useState('');
     const [idAddressPrimary, setIdAddressPrimary] = useState<string>("")
+    const [idCustomer, setIdCustomer] = useState<string>(""); // idCustomer === idUniqueName
     const [uniqueName, setUniqueName] = useState<string>("")
     const [firstNamePrimary, setFirstNamePrimary] = useState<string>("")
     const [lastNamePrimary, setLastNamePrimary] = useState<string>("")
@@ -63,6 +70,7 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
     const [kecamatanPrimary, setKecamatanPrimary] = useState<string>("")
     const [kabupatenPrimary, setKabupatenPrimary] = useState<string>("")
     const [postCodePrimary, setPostCodePrimary] = useState<string>("")
+    const [isSavedPrimary, setIsSavedPrimary] = useState<boolean>(false);
 
     // FUNGSI INTI: Mengubah nama menjadi ID acak kriptografi
     const convertNameToUniqueId = (name: any, length = 12) => {
@@ -86,23 +94,6 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
         // 3. Gabungkan nama yang sudah bersih dengan string acak
         return `${cleanName}-${randomStr}`;
     };
-
-     // Fungsi pembantu untuk mendapatkan format tanggal saat ini (YYYYMMDD-HHMMSS)
-    const getFormattedDate = () => {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        
-        return `${year}${month}${day}-${hours}${minutes}${seconds}`;
-    };
-
-    function generateDateUUID(): string {
-    return window.crypto.randomUUID(); 
-    }
 
     // 1. State untuk mengontrol nilai wilayah yang dipilih
     const [regionPrimary, setRegionPrimary] = useState<string>("")
@@ -150,38 +141,57 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
         if (fieldName === "postCodePrimary") setPostCodePrimary(value)
         if (fieldName === "regionPrimary") setRegionPrimary(value)
     }
+const generateSimpleId = (length: number): string => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+};
 
-    function handleSubmitPrimaryAddress(event: React.FormEvent<HTMLFormElement>): void {
+function handleSubmitPrimaryAddress(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    
+    if (empty(uniqueName)) { alert('harap isi nama unik'); return }
     const newId = generateDateUUID();
     const uniqueId = convertNameToUniqueId(uniqueName);
-        //const subNewId = newId.substring(0,8)
-         setGeneratedId(uniqueId);
+    setGeneratedId(uniqueId);
 
-        // 1. Kumpulkan semua state lokal menjadi satu objek payload
-         const addressPayload = {
-            id: newId,
-            idAddressPrimary: uniqueId, 
-            uniqueName,
-            firstNamePrimary,
-            lastNamePrimary,
-            emailPrimary,
-            phonePrimary,
-            companyNamePrimary,
-            addressPrimary,
-            desaPrimary, // pastikan mapping variabel lokal Anda benar
-            kecamatanPrimary,
-            kabupatenPrimary,
-            postCodePrimary,
-            regionPrimary, // pastikan state regionPrimary sudah diperbaiki pengisiannya
-        };
-
-        // 2. Simpan data langsung ke store Redux
-        dispatch(savePrimaryAddress(addressPayload));
+    const currentCustomerId = generateSimpleId(8);
         
-        console.log("Data alamat berhasil disimpan ke Redux!", addressPayload);
-    }
+    uniqueNameChecker(getDataAddress, uniqueName, firstNamePrimary, lastNamePrimary)
+    const combineUniqueNameId = `${uniqueName}${currentCustomerId}`;
+    setIdCustomer(combineUniqueNameId);
+    
+    if (empty(idCustomer)) { alert('harap isi ulang form'); return }
+    // checker
+    // 4. Jika TIDAK DITEMUKAN (undefined), proses simpan payload dilanjutkan
+    const addressPayload = {
+        id: newId,
+        idCustomer, // ✨ FIX: Gunakan variabel lokal yang pasti ada nilainya
+        idAddressPrimary: uniqueId, 
+        uniqueName,
+        firstNamePrimary,
+        lastNamePrimary,
+        emailPrimary,
+        phonePrimary,
+        companyNamePrimary,
+        addressPrimary,
+        desaPrimary, 
+        kecamatanPrimary,
+        kabupatenPrimary,
+        postCodePrimary,
+        regionPrimary, 
+    };
+
+    // 3. Simpan data langsung ke store Redux
+    dispatch(savePrimaryAddress(addressPayload));
+    setIsSavedPrimary(true);     
+    console.log("Data alamat berhasil disimpan ke Redux!", addressPayload);
+    // kirim idCustomer ke customerSlice?
+    dispatch(registerCustomer({id: newId, idCustomer, uniqueName, emailPrimary, phonePrimary}));
+    console.log('registerCustomer', {id: newId, idCustomer, uniqueName, emailPrimary, phonePrimary})
+}
 
     return (
 
@@ -438,7 +448,7 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
                                                                 Provinsi / Region State
                                                                 </label>
                                                                 <input
-                                                                id=""
+                                                                id="regionState"
                                                                 type="text"                                                                
                                                                 name="regionPrimary"
                                                                 value={regionPrimary}
@@ -467,6 +477,24 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
                                                 >
                                                 Save
                                                 </button>
+                                                {isSavedPrimary && (
+                                                <svg 
+                                                    xmlns="http://www.w3.org/2000/svg" 
+                                                    width="24" 
+                                                    height="24" 
+                                                    viewBox="0 0 24 24" 
+                                                    fill="none" 
+                                                    stroke="currentColor" 
+                                                    strokeWidth="2" 
+                                                    strokeLinecap="round" 
+                                                    strokeLinejoin="round" 
+                                                    className="lucide lucide-thumbs-up preview-icon"
+                                                >
+                                                    <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>
+                                                    <path d="M7 10v12"/>
+                                                </svg>
+                                                )}
+
                                             </div>
                                         </form>
                                         </div>
@@ -475,3 +503,7 @@ export default function FormPrimaryAddress({ onRegisterPrimarySuccess }: Registe
                                         
     )
 }
+function empty(uniqueName: string) {
+    return uniqueName.trim().length === 0;
+}
+

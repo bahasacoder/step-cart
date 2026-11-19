@@ -4,19 +4,20 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';;
 import type { RootState, AppDispatch } from "@/lib/store";
-import { addListToCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addItemToCheckout } from '@/lib/features/checkout/checkoutSlice';
 import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import CartListItem from "./CartListItem";
 import { useRouter } from 'next/navigation';
-import { Str_Random } from '../actions/generalFunctions';
+import { Str_Random } from '@/actions/generalFunctions';
 
 interface CheckedItem {
   idList: string;
+  idCheckout: string;
   productName: string;
-  totalHargaList: number | string;
+  hargaList: number;
   hargaItem: number;
   hargaDiskon?: number;
   quantity?: number;
@@ -115,7 +116,7 @@ export default function CartResumeItems({ itemsChecked: initialItemsChecked }: C
     return total + ((item.hargaDiskon || 0) * (item.quantity || 0));
   }, 0);
   const totalHargaChecked = initialItemsChecked.reduce((total, item) => {
-    return total + ((Number(item.totalHargaList) || 0) * (item.quantity || 0));
+    return total + ((Number(item.hargaList) || 0) * (item.quantity || 0));
   }, 0);
 
   // Hasil akhir yang harus dibayar untuk item yang dicentang
@@ -123,69 +124,75 @@ export default function CartResumeItems({ itemsChecked: initialItemsChecked }: C
   const biayaPengiriman = Number(selectedShippingPrice) || 0;
   const totalPayable = totalHargaCheckList - totalDiskonChecked + biayaPajak + biayaLayanan + biayaPengiriman ;
     
-  
-     const handleProceedToCheckout = (itemsChecked: string[]) => {
-      if (itemsChecked.length > 0) {
-        // Implement the logic to proceed to checkout
-        console.log('Proceeding to checkout...', itemsChecked);
-       const selectedItems = itemsChecked.join(', ');
-        console.log(Array.isArray(itemsChecked));
-  
-        alert(`Proceeding to checkout with the following items: ${selectedItems}`);
-  
-        const newCheckoutId = `CK-${Str_Random(3)}`;
-        setIdCheckout(newCheckoutId);
-        // cartItems = {items}
-        const checkoutItems = cartItems.filter(
-          (item) => item.idList !== undefined && itemsChecked.includes(String(item.idList))
-        );
-        // pecah id checkbox menjadi tersendiri
-        const daftarListChecked = [];
-        // 1. Ambil nilai biaya dari useState Anda saat ini (pastikan nilainya divalidasi ke Number)
-        const biayaPengirimanValue = Number(selectedShippingPrice) || 0; // State biaya pengiriman
-        const biayaPajakValue = Number(biayaPajak) || 0;                 // State biaya pajak Anda
-        const biayaLayananValue = 0; // Tambahkan jika ada state biaya layanan
-        const biayaPengiriman = Number(selectedShippingPrice) || 0;
-        // PERBAIKAN: Mengubah <= menjadi < dan menyamakan nama variabel itemChecked
-        for (let i = 0; i < itemsChecked.length; i++) {
-          // Buat objek baru di setiap putaran
-          const listBaru = {
-            id: i + 1,
-            nama: `List Ke-${i + 1}`, // Diubah ke i + 1 agar nama mulai dari "List Ke-1"
-            idList: itemsChecked[i],    // Mengambil nilai dari array ('sddsf', dll)
-            idCheckout: newCheckoutId,
-            status: "Aktif"
-          };
-          // Masukkan objek ke dalam array
-          daftarListChecked.push(listBaru);
-          console.log('daftarListChecked', listBaru )
-        }
-  
-        console.log('daftarList Dialog', daftarListChecked);
-  
-        // const checkedLists = {} 
-        const getItemsChecked = [...itemChecked, ...itemsChecked];
-        setNewItemsChecked(getItemsChecked);
-        console.log('itemsChecked', itemsChecked, checkoutItems);
-        // ✨ FIX UTAMA: BUNGKUS BIAYA KE DALAM PAYLOAD DISPATCH
-        // ==========================================
-        dispatch(addListToCheckout({
-          idCheckout: newCheckoutId,
-          items: daftarListChecked,
-          summary: {
-            biayaPengiriman: biayaPengirimanValue,
-            biayaPajak: biayaPajakValue,
-            biayaLayanan: biayaLayananValue
-          }
-        } as any));
+const handleProceedToCheckout = (itemsChecked: string[]) => {
+  if (itemsChecked.length > 0) {
+    console.log('Proceeding to checkout...', itemsChecked);
+    const selectedItems = itemsChecked.join(', ');
+    console.log(Array.isArray(itemsChecked));
 
-        // Navigasi ke halaman checkout
-        router.push('/order');
-        
-      } else {
-        alert('Please select at least one item to proceed to checkout.');
-      }
+    alert(`Proceeding to checkout with the following items: ${selectedItems}`);
+
+    // 1. Buat ID Checkout baru dan simpan di variabel lokal
+    const newCheckoutId = `CK-${Str_Random(3)}`;
+    
+    // Tetap set state untuk penggunaan di luar fungsi ini jika diperlukan
+    setIdCheckout(newCheckoutId); 
+
+    const checkoutItems = cartItems.filter(
+      (item) => item.idList !== undefined && itemsChecked.includes(String(item.idList))
+    );
+    
+    const daftarListChecked = [];
+    const biayaPengirimanValue = Number(selectedShippingPrice) || 0;
+    const biayaPajakValue = Number(biayaPajak) || 0;                 
+    const biayaLayananValue = 0; 
+
+    for (let i = 0; i < itemsChecked.length; i++) {
+      // 2. ✨ FIX: Pastikan menggunakan newCheckoutId (variabel lokal) di sini
+      const listBaru = {
+        id: i + 1,
+        nama: `List Ke-${i + 1}`,
+        idList: itemsChecked[i],    
+        idCheckout: newCheckoutId, // Menggunakan variabel lokal yang pasti ada nilainya
+        status: "Aktif"
+      };
+      daftarListChecked.push(listBaru);
+      console.log('daftarListChecked per item:', listBaru);
+    }
+
+    console.log('daftarList Dialog', daftarListChecked);
+
+    // Pastikan variabel itemChecked (tanpa 's') sudah didefinisikan di component Anda
+    const getItemsChecked = [...itemChecked, ...itemsChecked];
+    setNewItemsChecked(getItemsChecked);
+    
+    console.log('itemsChecked info:', itemsChecked, checkoutItems);
+
+    // 3. ✨ FIX: Kirim payload ke Redux menggunakan newCheckoutId
+    //addListToCheckout
+    const checkoutPayload = {
+      items: checkoutItems.map((item) => ({
+        ...item,
+        idCheckout: newCheckoutId, // Gunakan variabel lokal yang pasti ada nilainya
+      })),
+      biayaPengiriman: biayaPengirimanValue,
+      biayaPajak: biayaPajakValue,
+      biayaLayanan: biayaLayananValue
     };
+    dispatch(addItemToCheckout(checkoutPayload as any)); // Gunakan 'as any' untuk menghindari error tipe data 
+
+    // Navigasi ke halaman checkout
+    //router.push('/order');
+    console.log('Navigating to checkout with ID:', newCheckoutId);
+    console.log('Checkout Payload:', checkoutPayload);
+    // const checkoutUrl = `/order?checkoutId=${newCheckoutId}`;
+    // router.push(checkoutUrl);
+    
+  } else {
+    alert('Please select at least one item to proceed to checkout.');
+  }
+};
+
 
   return (
                <div className="space-y-6 rounded-lg border bg-green-50 p-6 shadow-sm">

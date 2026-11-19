@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CartItem as CartItemType } from '@/lib/features/cart/cartSlice';
 import { removeItemFromCart, onUpdateQuantity, increaseQuantity, decreaseQuantity, clearCart } from '@/lib/features/cart/cartSlice';
-import { addListToCheckeds, canceListToCheckeds, addListToCheckout } from '@/lib/features/checkout/checkoutSlice'
+import { addItemToCheckout } from '@/lib/features/checkout/checkoutSlice'
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { Checkbox } from "@/components/ui/checkbox";
 import  styles from "./CartListItem.module.css";

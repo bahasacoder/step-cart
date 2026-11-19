@@ -16,6 +16,7 @@ import productReducer from './features/products/productSlice';
 import checkoutReducer from './features/checkout/checkoutSlice';
 import customerReducer from "./features/customer/customerSlice";
 import addressReducer from "./features/customer/addressSlice";
+import invoiceReducer from "./features/invoice/invoiceSlice"
 // import customerMultiReducer from './features/customer/customerMultiSlice';
 
 const rootPersistConfig = {
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   // customerMulti: customerMultiReducer
   customer: customerReducer,
   address: addressReducer,
+  invoice: invoiceReducer,
 })
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
   

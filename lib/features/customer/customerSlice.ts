@@ -1,13 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface PrimaryAddressState {
+export interface CustomerState {
     id: string;
-    idCustomer: string;
+    // idCustomer: string;
+  currentCustomer: Record<string, unknown> | null;
+  // uniqueName: string;
+  // firstNamePrimary: string;
+  // lastNamePrimary: string;
+  // emailPrimary: string;
+  // phonePrimary: string;
+  isRegistered: boolean;
 }
 
-const initialState = {
-  idCustomer: '',
+const initialState: CustomerState = {
+  id: '',
+  // idCustomer: '',
   currentCustomer: null as Record<string, unknown> | null, // Menampung data profil pelanggan yang aktif
+  // uniqueName: '',
+  // firstNamePrimary:'',
+  // lastNamePrimary:'',
+  // emailPrimary: '',
+  // phonePrimary: '',
   isRegistered: false,   // Status penanda sukses registrasi
 };
 

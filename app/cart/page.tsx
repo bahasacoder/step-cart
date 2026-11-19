@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
-import { addListToCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addItemToCheckout } from '@/lib/features/checkout/checkoutSlice';
 import { removeListItemFromCart, removeItemFromCart, onUpdateQuantity, clearCart } from '@/lib/features/cart/cartSlice';
 import { useRouter } from 'next/navigation';
 import CartListItems from "./cart-list-items";
@@ -80,9 +80,10 @@ export default function ViewCartPage() {
     const resultsChecked = findMultipleCheckeds(cartItems, arrayIdChecked).map((item) => ({
       ...item,
       id: String(item.id),
+      idCheckout,
       hargaItem: item.hargaItem ?? 0,
       productName: item.productName ?? getItemName(item),
-      totalHargaList: item.totalHargaList ?? 0,
+      hargaList: item.hargaList ?? 0,
     }));
 
   return (

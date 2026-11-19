@@ -2,9 +2,14 @@
 import { useState, useEffect } from "react"; 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import { User, CreditCard, CheckCircle2, Form } from "lucide-react"
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
-import { addListToCheckeds, removeListFromCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addItemToCheckout, removeItemFromCheckout, clearCheckout } from '@/lib/features/checkout/checkoutSlice';
+import { addInvoice } from '@/lib/features/invoice/invoiceSlice';
+import { CheckoutItem } from "./your-order-info";
+import { useAmbilListItemCheckout } from "./orderFunctions"
+
 import { RootState } from "@/lib/store";
 import {
   Accordion,
@@ -20,10 +25,11 @@ import FormSecondaryAddress from "./form-secondary-address";
 import YourOrderInfo from "./your-order-info";
 import PaymentMethods from "./payment-methods";
 import ShippingMethods from "./shipping-methods";
+import { uniqueNameChecker } from "./orderFunctions";
 
 export default function BeliSajaPage() {
   const dispatch = useAppDispatch();
- 
+  const router = useRouter();
   function cn(arg0: string, arg1: string, arg2: string): string | undefined {
     throw new Error("Function not implemented.");
   }
@@ -46,8 +52,103 @@ export default function BeliSajaPage() {
     { id: 3, name: 'Payment Method', description: 'Choose how to pay', accordionContent: 'payment_methods' },
     { id: 4, name: 'Confirmation', description: 'Receipt & tracking', accordionContent: 'confirmation_details' },
   ];
+  
+// 1. Buat state untuk menampung metode pembayaran yang dipilih
+    const [selectedPayment, setSelectedPayment] = useState<string>('qris'); // 'qris' sebagai default
+// 2. Buat fungsi handler untuk menangkap perubahan klik radio button
+    const handlePaymentsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedPayment(e.target.value);
+    };
+    
+  // === BEGIN itemOrder: getListItemCheckout ==== 
+  /* awal 
+  
+end */ //
 
+// ==== itemOrder: getListItemCheckout === 
+// ====   customer: 
+// 1. Ambil data waktu UTC
+let obj = new Date();
+// Gunakan padStart agar angka di bawah 10 tetap memiliki format 2 digit (contoh: 09)
+let day = String(obj.getUTCDate()).padStart(2, '0');
+let month = String(obj.getUTCMonth() + 1).padStart(2, '0');
+let year = obj.getUTCFullYear();
 
+// 2. Buat Tanggal Kedaluwarsa (+2 Hari dari Sekarang)
+let objExpired = new Date(); 
+// Otomatis menangani perpindahan bulan/tahun (misal: dari tanggal 30 ke tanggal 1)
+objExpired.setUTCDate(objExpired.getUTCDate() + 2); 
+let expDay = String(objExpired.getUTCDate()).padStart(2, '0');
+let expMonth = String(objExpired.getUTCMonth() + 1).padStart(2, '0');
+let expYear = objExpired.getUTCFullYear();
+
+// 2. Perbaikan sintaks useState (tambahkan tanda kurung setelah useState)
+const [tanggalHariIni, setTanggalHariIni] = useState(`${day}/${month}/${year}`);
+const [expireDate, setExpireDate] = useState(`${expDay}/${expMonth}/${expYear}`);
+const getCustomer = useAppSelector(
+  (state: RootState) => (state as RootState & { customer?: unknown }).customer
+) ?? [];
+const getAddress = useAppSelector((state: RootState) => state.address) ?? [];
+const idCheckout = useAppSelector((state: RootState) => state.checkout) ?? [];
+const itemCheckoutData = useAmbilListItemCheckout(idCheckout); // Ambil datanya
+const getListItemCheckout = itemCheckoutData.getListItemCheckout;
+const hargaPerListItem = itemCheckoutData.hargaPerListItem;
+const totalHargaCheckout = itemCheckoutData.totalHargaCheckout;
+const totalHargaDiskon = itemCheckoutData.totalHargaDiskon;
+const totalBiayaPajak = itemCheckoutData.totalBiayaPajak;
+const totalbiayaPengiriman = itemCheckoutData.biayaPengiriman;
+const totalQuantity  = itemCheckoutData.totalQuantity;
+const totalPayable  = itemCheckoutData.totalPayable;
+
+const handleBuatInvoice = () => {
+      // AmbilListItemCheckout(idCheckout);
+      // 1. Satukan data ke dalam satu objek payload yang valid
+      
+      const newId = crypto.randomUUID();
+      const dataItemCheckout = itemCheckoutData
+      console.log('dataItemCheckout', dataItemCheckout);
+      console.log('getAddress.idCustomer', getAddress.idCustomer);
+      
+  const currentYear = new Date().getFullYear();
+
+  const randomInvioceNumber = () => {
+    return String(Math.floor(Math.random() * 1000000)).padStart(6, '0');
+  };
+  // console.log('randomInvioceNumber', randomInvioceNumber)
+  const getInvoiceNumber = `INV-${currentYear}-${randomInvioceNumber()}`;
+
+// Amankan properti getAddress dengan tanda ?. agar tidak crash jika datanya kosong
+const invoicePayload = {
+  id: newId,
+  idCustomer: getAddress?.idCustomer || "",
+  invoiceNumber: getInvoiceNumber,
+      invoiceDate: tanggalHariIni,
+      totalHarga: totalPayable,
+      itemOrder: dataItemCheckout.getListItemCheckout,
+      items: dataItemCheckout.getListItemCheckout,
+      totalAmount: totalPayable,
+      customer: { 
+        idCustomer: getAddress?.idCustomer || "", 
+        uniqueName: getAddress?.uniqueName || "" 
+      },
+      subTotal: totalHargaCheckout, 
+      diskon: totalHargaDiskon,
+      pajak: totalBiayaPajak,    
+      layanan: 100,  
+      ship: totalbiayaPengiriman,     
+      totalInvoice: totalPayable,
+      jumlahItem: totalQuantity,
+      payment: selectedPayment, 
+      status: "belum bayar",
+      expireDate: expireDate,
+    };
+
+      // Baris ini sekarang dijamin akan terbaca
+      dispatch(addInvoice(invoicePayload))
+    console.log('invoicePayload', invoicePayload);
+    // router.push('/invoice');
+
+  };
 
   return (
     <>
@@ -141,7 +242,9 @@ export default function BeliSajaPage() {
             <AccordionItem value="your_order"  className="w-full p-4">
               <AccordionTrigger className="bg-blue-300 p-2">Cart Summary</AccordionTrigger>
               <AccordionContent>
+
                 <YourOrderInfo />
+
               </AccordionContent>
             </AccordionItem>
 
@@ -166,13 +269,21 @@ export default function BeliSajaPage() {
             <AccordionItem value="payment_methods"  className="w-full p-4">
               <AccordionTrigger className="bg-blue-300 p-2">Payment Methods</AccordionTrigger>
               <AccordionContent>
-                <PaymentMethods />
+                <PaymentMethods 
+                    selectedPayment={selectedPayment} 
+                    onPaymentChange={handlePaymentsChange} 
+                />
               </AccordionContent>
             </AccordionItem>
           </Accordion>     
     </div>
     <div className="w-full flex justify-center gap-2 mx-auto p-8">
-      <Button variant="secondary" className="bg-blue-400 hover:scale-105 hover:border-2 hover:border-blue-600">Buat Pesanan</Button>
+      <Button 
+        variant="secondary" className="bg-blue-400 hover:scale-105 hover:border-2 hover:border-blue-600"
+         onClick={handleBuatInvoice}
+      >
+        Buat Pesanan
+      </Button>
     </div>
     
     </>
