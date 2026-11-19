@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -28,19 +28,7 @@ export interface ProductItem {
   hargaItem: number;
   nilaiDiskon: number;
   imagesItem: string[];
-}
-
-export interface ProductItem {
-  id: number;
-  idProduct: string;
-  productName: string;
-  productSlug: string;
-  idItem: string;
-  namaItem: string;
-  categories: string[];
-  hargaItem: number;
-  nilaiDiskon: number;
-  imagesItem: string[];
+  quantity: number;
 }
 
 const products: ProductItem[] = [
