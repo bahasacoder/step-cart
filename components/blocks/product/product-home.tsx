@@ -9,6 +9,7 @@ import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 // Import Redux Toolkit hooks & action
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
+import { Str_Random, formatRibuan, formatRupiah } from "@/actions/generalFunctions"
 
 // Import Swiper styles
 import "swiper/css";
@@ -141,14 +142,10 @@ const products: ProductItem[] = [
   },
 ];
 
-const formatRupiah = (value: number) =>
-  new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-  }).format(value);
 
 export default function ProductPage() {
+      const [idList, setIdList] = useState(() => Str_Random(4));
+
  const dispatch = useDispatch();
  const handleAddToCart = (item: ProductItem, finalPrice: number) => {
    return ;
