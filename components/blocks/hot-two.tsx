@@ -1,6 +1,9 @@
 import { AirVent } from "lucide-react";
 import { ShoppingBag, Sparkles } from "lucide-react";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
+import { Str_Random, formatRibuan, formatRupiah } from "@/actions/generalFunctions"
 
 const PRODUCTS = [
   {
@@ -25,6 +28,59 @@ const PRODUCTS = [
 ];
 
 export default function HotTwoProducts() {
+  const dispatch = useDispatch();
+  const [idList, setIdList] = useState<string>(() => Str_Random(4));
+  const [itemProduct, setItemProduct] = useState<any[]>([]);
+  // State untuk efek animasi tombol per produk & notifikasi toast
+  const [addedItemId, setAddedItemId] = useState<string | null>(null);
+  const [toastProduct, setToastProduct] = useState<string | null>(null);
+
+ const handleAddToCart = (product: ProductItem, hargaAkhir: number) => {
+   const newIdList = Str_Random(4);
+   setIdList(newIdList);
+    const qty = 1; // Default quantity 1 saat klik dari kartu produk
+    const hargaItemNum = Number(product.hargaItem);
+    const hargaDiskon = (hargaItemNum * product.nilaiDiskon) / 100;
+    const totalHargaItem = hargaItemNum * qty;
+   
+      const nextProductState = {
+         productName: product.productName,
+         productImage: product.imagesItem[0] ?? "", // Ambil gambar pertama dari array imagesItem
+         hargaItem: hargaItemNum,
+         hargaDiskon: hargaDiskon,
+         nilaiDiskon: product.nilaiDiskon,
+         quantity: qty, // default=1
+         idItem: product.idItem,
+         totalHargaItem: totalHargaItem, // hargaItem * Qty
+         hargaList: Number(hargaAkhir) * qty, // (hargaItem - hargaDiskon) * Qty
+         idList: newIdList,
+         // idList: Str_Random(4), // Generate a new random idList for each product added to the cart
+      };
+    const newItemProduct = [...itemProduct, nextProductState];
+        setItemProduct(newItemProduct);
+     const cartProduct = {
+          ...nextProductState,
+          id: newIdList,
+      } as unknown as Parameters<typeof addItemToCart>[0];
+
+        console.log('addItemToCart', cartProduct)
+        console.log('idList', idList)
+     // Kirim data ke Redux Store
+    dispatch(addItemToCart(cartProduct));
+   
+    // Picu animasi tombol & toast notifikasi
+    setAddedItemId(product.idItem);
+    setToastProduct(`${product.productName} (${product.namaItem})`);
+
+    setTimeout(() => {
+      setAddedItemId((prev) => (prev === product.idItem ? null : prev));
+    }, 1500);
+
+    setTimeout(() => {
+      setToastProduct(null);
+    }, 2500);
+  };
+
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       {/* Section Header */}
