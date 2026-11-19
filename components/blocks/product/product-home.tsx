@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion"
 
 // Import Redux Toolkit hooks & action
