@@ -102,9 +102,9 @@ const products: ProductItem[] = [
     hargaItem: 100000,
     nilaiDiskon: 0,
     imagesItem: [
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@76d2f18cbbb5d6294cad122fbc5b62baf1d4f5ba/uploads/2026-02-12T07-03-40-599Z-su0xe2suz.png",
     ],
   },
   {
@@ -118,9 +118,9 @@ const products: ProductItem[] = [
     hargaItem: 15000,
     nilaiDiskon: 0,
     imagesItem: [
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@f23f3bcbe88aa817beefd139e1864048af4bb8a6/uploads/2026-02-12T07-08-35-970Z-689dx58l9.png",
     ],
   },
   {
@@ -134,9 +134,9 @@ const products: ProductItem[] = [
     hargaItem: 10000,
     nilaiDiskon: 0,
     imagesItem: [
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
-      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@dd26c643cc88c067b5225453d7e1cc5332e37db5/uploads/2026-02-12T07-35-04-532Z-czubo9knp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
+      "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
     ],
   },
 ];
