@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion"
 
 // Import Redux Toolkit hooks & action
 import { useDispatch } from "react-redux";
@@ -22,14 +23,14 @@ export interface ProductItem {
   idProduct: string;
   productName: string;
   productSlug: string;  
-  
+  // productImages: string[];
   categories: string[];
   idItem: string;
   namaItem: string;
   hargaItem: number;
   nilaiDiskon: number;
   imagesItem: string[];
-  quantity: number;
+  quantity?: number;
 }
 
 const products: ProductItem[] = [
@@ -139,10 +140,13 @@ const products: ProductItem[] = [
 
 
 export default function ProductPage() {
+  const dispatch = useDispatch();
   const [idList, setIdList] = useState<string>(() => Str_Random(4));
   const [itemProduct, setItemProduct] = useState<any[]>([]);
+  // State untuk efek animasi tombol per produk & notifikasi toast
+  const [addedItemId, setAddedItemId] = useState<string | null>(null);
+  const [toastProduct, setToastProduct] = useState<string | null>(null);
 
- const dispatch = useDispatch();
  const handleAddToCart = (product: ProductItem, hargaAkhir: number) => {
    const newIdList = Str_Random(4);
    setIdList(newIdList);
@@ -175,6 +179,18 @@ export default function ProductPage() {
         console.log('idList', idList)
      // Kirim data ke Redux Store
     dispatch(addItemToCart(cartProduct));
+   
+    // Picu animasi tombol & toast notifikasi
+    setAddedItemId(product.idItem);
+    setToastProduct(`${product.productName} (${product.namaItem})`);
+
+    setTimeout(() => {
+      setAddedItemId((prev) => (prev === product.idItem ? null : prev));
+    }, 1500);
+
+    setTimeout(() => {
+      setToastProduct(null);
+    }, 2500);
   };
 
   return (
@@ -200,6 +216,7 @@ export default function ProductPage() {
               const hargaAkhir = hasDiscount
                 ? product.hargaItem - (product.hargaItem * product.nilaiDiskon) / 100
                 : product.hargaItem;
+              const isAdded = addedItemId === product.idItem;
 
               return (
                 <div
@@ -259,35 +276,56 @@ export default function ProductPage() {
                         </button>
                       </>
                     )}
-
-                    {/* Tombol Add to Cart Slide-Up */}
-                    <div className="bg-card/75 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full translate-y-0 opacity-100 md:translate-y-full md:opacity-0 flex-col items-center px-5 py-3 transition-all duration-300 md:group-hover:translate-y-0 md:group-hover:opacity-100 border-t">
-                      <button
+                    {/* Tombol Add to Cart Slide-Up dengan Animasi Feedback */}
+                    <div
+                      className={`bg-card/85 backdrop-blur-xs absolute bottom-0 left-0 right-0 z-10 flex w-full flex-col items-center px-5 py-3 transition-all duration-300 border-t ${
+                        isAdded
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-0 opacity-100 md:translate-y-full md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
+                      }`}
+                    >
+                      <motion.button
                         type="button"
+                        whileTap={{ scale: 0.94 }}
                         onClick={() => handleAddToCart(product, hargaAkhir)}
                         data-slot="button"
-                        className="focus-visible:border-ring focus-visible:ring-ring/50 inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] bg-background hover:bg-accent hover:text-accent-foreground border shadow-xs h-10 rounded-md px-6 w-full cursor-pointer"
+                        className={`inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium whitespace-nowrap transition-all duration-300 outline-none border shadow-xs h-10 rounded-md px-6 w-full cursor-pointer ${
+                          isAdded
+                            ? "bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-600"
+                            : "bg-background hover:bg-accent hover:text-accent-foreground"
+                        }`}
                       >
-                        Add to Cart
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="lucide lucide-shopping-cart"
-                          aria-hidden="true"
-                        >
-                          <circle cx="8" cy="21" r="1" />
-                          <circle cx="19" cy="21" r="1" />
-                          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-                        </svg>
-                      </button>
+                        <AnimatePresence mode="wait" initial={false}>
+                          {isAdded ? (
+                            <motion.span
+                              key="added"
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -6 }}
+                              transition={{ duration: 0.18 }}
+                              className="inline-flex items-center gap-2"
+                            >
+                              <Check className="h-4 w-4 stroke-[2.5]" />
+                              Ditambahkan!
+                            </motion.span>
+                          ) : (
+                            <motion.span
+                              key="default"
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -6 }}
+                              transition={{ duration: 0.18 }}
+                              className="inline-flex items-center gap-2"
+                            >
+                              Add to Cart
+                              <ShoppingCart className="h-4 w-4" />
+                            </motion.span>
+                          )}
+                        </AnimatePresence>
+                      </motion.button>
                     </div>
+
+                    
                   </div>
 
                   {/* Konten Detail Kartu */}
