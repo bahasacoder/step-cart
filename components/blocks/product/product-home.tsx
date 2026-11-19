@@ -125,7 +125,7 @@ const products: ProductItem[] = [
     idItem: "ITEM-6c2070ba",
     namaItem: "< 1200 gr",
     categories: ["Ayam", "Meat"],
-    hargaItem: 10000,
+    hargaItem: 8000,
     nilaiDiskon: 0,
     imagesItem: [
       "https://cdn.jsdelivr.net/gh/free-whiteboard-online/Free-Erasorio-Alternative-for-Collaborative-Design@7ede68d3dc1c8a65138b92cc464271bfda006a7d/uploads/2026-02-12T07-14-39-174Z-6o4qguvkp.png",
@@ -142,6 +142,19 @@ export default function ProductPage() {
 
  const dispatch = useDispatch();
  const handleAddToCart = (item: ProductItem, finalPrice: number) => {
+   setIdList(Str_Random(4));
+      const nextProductState: ProductState = {
+        productName,
+        productImage,
+        hargaItem: Number(hargaItem),
+        hargaDiskon,
+        nilaiDiskon,
+        quantity: Number(childValue),
+        idItem,
+        totalHargaItem: totalHargaItem, // hargaItem*Qty
+        hargaList: number(hargaAkhir), // (hargaItem-hargaDiskon) * Qty
+        idList: Str_Random(4), // Generate a new random idList for each product added to the cart
+      };
    return ;
   };
 
@@ -171,7 +184,7 @@ export default function ProductPage() {
 
               return (
                 <div
-                  key={product.idProduct}
+                  key={product.idItem}
                   data-slot="card"
                   className="bg-card text-card-foreground flex flex-col rounded-xl border group overflow-hidden shadow-xs transition-all duration-300 hover:shadow-md"
                 >
