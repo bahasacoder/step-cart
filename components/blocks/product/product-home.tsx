@@ -160,7 +160,7 @@ export default function ProductPage() {
          quantity: qty, // default=1
          idItem: product.idItem,
          totalHargaItem: totalHargaItem, // hargaItem * Qty
-         hargaList: Number(finalPrice) * qty, // (hargaItem - hargaDiskon) * Qty
+         hargaList: Number(hargaAkhir) * qty, // (hargaItem - hargaDiskon) * Qty
          idList: newIdList,
          // idList: Str_Random(4), // Generate a new random idList for each product added to the cart
       };
