@@ -145,13 +145,13 @@ export default function ProductPage() {
  const handleAddToCart = (item: ProductItem, finalPrice: number) => {
    setIdList(Str_Random(4));
       const nextProductState = {
-        productName,
-        productImage,
+        productName: product.productName,
+        productImage: product.productImage,
         hargaItem: Number(hargaItem),
-        hargaDiskon,
-        nilaiDiskon,
+        hargaDiskon: ((product.hargaItem * product.nilaiDiskon) / 100),
+        nilaiDiskon: product.nilaiDiskon,
         quantity: Number(childValue),
-        idItem,
+        idItem: product.idItem,
         totalHargaItem: totalHargaItem, // hargaItem*Qty
         hargaList: number(hargaAkhir), // (hargaItem-hargaDiskon) * Qty
         idList: Str_Random(4), // Generate a new random idList for each product added to the cart
