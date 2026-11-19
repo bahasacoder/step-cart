@@ -1,3 +1,10 @@
+export const formatRupiah = (value: number) =>
+  new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(value);
+
 export function Str_Random(length: number) {
         let result = '';
         const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
