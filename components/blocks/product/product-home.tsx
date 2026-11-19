@@ -21,10 +21,10 @@ export interface ProductItem {
   id: number;
   idProduct: string;
   productName: string;
-  productSlug: string;
+  productSlug: string;  
+  categories: string[];
   idItem: string;
   namaItem: string;
-  categories: string[];
   hargaItem: number;
   nilaiDiskon: number;
   imagesItem: string[];
@@ -138,12 +138,13 @@ const products: ProductItem[] = [
 
 
 export default function ProductPage() {
-      const [idList, setIdList] = useState(() => Str_Random(4));
+    const [idList, setIdList] = useState(() => Str_Random(4));
+   const [itemProduct, setItemProduct] = useState([]);
 
  const dispatch = useDispatch();
  const handleAddToCart = (item: ProductItem, finalPrice: number) => {
    setIdList(Str_Random(4));
-      const nextProductState: ProductState = {
+      const nextProductState = {
         productName,
         productImage,
         hargaItem: Number(hargaItem),
@@ -155,6 +156,12 @@ export default function ProductPage() {
         hargaList: number(hargaAkhir), // (hargaItem-hargaDiskon) * Qty
         idList: Str_Random(4), // Generate a new random idList for each product added to the cart
       };
+   const newItemProduct = [...itemProduct, nextProductState];
+      setItemProduct(newItemProduct);
+   const cartProduct = {
+        ...nextProductState,
+        id: Number(nextProductState.idList),
+      } as Parameters<typeof addItemToCart>[0];
    return ;
   };
 
