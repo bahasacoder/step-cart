@@ -22,6 +22,7 @@ export interface ProductItem {
   idProduct: string;
   productName: string;
   productSlug: string;  
+  
   categories: string[];
   idItem: string;
   namaItem: string;
@@ -138,31 +139,42 @@ const products: ProductItem[] = [
 
 
 export default function ProductPage() {
-    const [idList, setIdList] = useState(() => Str_Random(4));
-   const [itemProduct, setItemProduct] = useState([]);
+  const [idList, setIdList] = useState<string>(() => Str_Random(4));
+  const [itemProduct, setItemProduct] = useState<any[]>([]);
 
  const dispatch = useDispatch();
- const handleAddToCart = (item: ProductItem, finalPrice: number) => {
-   setIdList(Str_Random(4));
+ const handleAddToCart = (product: ProductItem, hargaAkhir: number) => {
+   const newIdList = Str_Random(4);
+   setIdList(newIdList);
+    const qty = 1; // Default quantity 1 saat klik dari kartu produk
+    const hargaItemNum = Number(product.hargaItem);
+    const hargaDiskon = (hargaItemNum * product.nilaiDiskon) / 100;
+    const totalHargaItem = hargaItemNum * qty;
+   
       const nextProductState = {
-        productName: product.productName,
-        productImage: product.productImage,
-        hargaItem: Number(hargaItem),
-        hargaDiskon: ((product.hargaItem * product.nilaiDiskon) / 100),
-        nilaiDiskon: product.nilaiDiskon,
-        quantity: Number(childValue),
-        idItem: product.idItem,
-        totalHargaItem: totalHargaItem, // hargaItem*Qty
-        hargaList: number(hargaAkhir), // (hargaItem-hargaDiskon) * Qty
-        idList: Str_Random(4), // Generate a new random idList for each product added to the cart
+         productName: product.productName,
+         productImage: product.imagesItem[0] ?? "", // Ambil gambar pertama dari array imagesItem
+         hargaItem: hargaItemNum,
+         hargaDiskon: hargaDiskon,
+         nilaiDiskon: product.nilaiDiskon,
+         quantity: qty, // default=1
+         idItem: product.idItem,
+         totalHargaItem: totalHargaItem, // hargaItem * Qty
+         hargaList: Number(finalPrice) * qty, // (hargaItem - hargaDiskon) * Qty
+         idList: newIdList,
+         // idList: Str_Random(4), // Generate a new random idList for each product added to the cart
       };
-   const newItemProduct = [...itemProduct, nextProductState];
-      setItemProduct(newItemProduct);
-   const cartProduct = {
-        ...nextProductState,
-        id: Number(nextProductState.idList),
-      } as Parameters<typeof addItemToCart>[0];
-   return ;
+    const newItemProduct = [...itemProduct, nextProductState];
+        setItemProduct(newItemProduct);
+     const cartProduct = {
+          ...nextProductState,
+          id: newIdList,
+      } as unknown as Parameters<typeof addItemToCart>[0];
+
+        console.log('addItemToCart', cartProduct)
+        console.log('idList', idList)
+     // Kirim data ke Redux Store
+    dispatch(addItemToCart(cartProduct));
   };
 
   return (
