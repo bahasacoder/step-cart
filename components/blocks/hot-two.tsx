@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { AirVent } from "lucide-react";
-import { ShoppingBag, Sparkles } from "lucide-react";
+import { ShoppingBag, Sparkles, Check } from "lucide-react";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
@@ -11,46 +11,53 @@ export interface ProductItem {
   id: number;
   idProduct: string;
   productName: string;
-  productSlug: string;  
-  // productImages: string[];
-  categories: string[];
+  productSlug?: string;
+  categories?: string[];
   idItem: string;
   namaItem: string;
   hargaItem: number;
   nilaiDiskon: number;
   imagesItem: string[];
+  description: string;
+  badge: string;
+  bgAccent: string;
   quantity?: number;
 }
 
-const PRODUCTS = [
+const PRODUCTS: ProductItem[] = [
   {
     id: 1,
     idProduct: "PROD-98a948cd-00bf-4a8f-ad02-93aaa427ddfa",
-    productName: "Abon Telur Kita", // Fixed spelling from "Abone" based on package label
+    productName: "Abon Telur Kita",
+    productSlug: "abon-telur-kita",
+    categories: ["Makanan Ringan", "Lauk"],
     idItem: "ITEM-bb4928e1",
     namaItem: "100gr",
-    hargaItem: "Rp 25.000",
+    hargaItem: 25000, // Diubah ke number agar tidak NaN saat kalkulasi
     nilaiDiskon: 0,
     description: "Bahan Telur Ayam • Gurih Rasa (100g)",
-    imagesItem:
-      ["https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/uploads/2026-07-29T06-46-44-073Z-p2c3zeb2s.png"],
+    imagesItem: [
+      "https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/uploads/2026-07-29T06-46-44-073Z-p2c3zeb2s.png",
+    ],
     badge: "Best Seller",
     bgAccent: "bg-amber-50/70",
-    quantitu: 1,
+    quantity: 1,
   },
   {
     id: 2,
     idProduct: "PROD-61abbf5c-15ce-4a0a-ab7a-90857d6279be",
     productName: "Sambal Cakalang",
+    productSlug: "sambal-cakalang",
+    categories: ["Sambal", "Lauk"],
     idItem: "ITEM-aab9cfca",
     namaItem: "1 Botol",
-    hargaItem: "Rp 25.000",
+    hargaItem: 25000, // Diubah ke number agar tidak NaN saat kalkulasi
     nilaiDiskon: 0,
     description: "Bahan Ikan Cakalang Pilihan",
     imagesItem: ["/images/sambacakalang2.png"],
     badge: "New Arrival",
     bgAccent: "bg-emerald-50/70",
-    quntity: 1,
+    quantity: 1,
   },
 ];
 
@@ -69,6 +76,7 @@ export default function HotTwoProducts() {
     const hargaItemNum = Number(product.hargaItem);
     const hargaDiskon = (hargaItemNum * product.nilaiDiskon) / 100;
     const totalHargaItem = hargaItemNum * qty;
+   // HARGA LIST === SUB TOTAL
    
       const nextProductState = {
          productName: product.productName,
