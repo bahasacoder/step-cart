@@ -7,25 +7,50 @@ import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
 import { Str_Random, formatRibuan, formatRupiah } from "@/actions/generalFunctions"
 
+export interface ProductItem {
+  id: number;
+  idProduct: string;
+  productName: string;
+  productSlug: string;  
+  // productImages: string[];
+  categories: string[];
+  idItem: string;
+  namaItem: string;
+  hargaItem: number;
+  nilaiDiskon: number;
+  imagesItem: string[];
+  quantity?: number;
+}
+
 const PRODUCTS = [
   {
     id: 1,
-    name: "Abon Telur Kita", // Fixed spelling from "Abone" based on package label
-    price: "Rp 25.000",
+    idProduct: "PROD-98a948cd-00bf-4a8f-ad02-93aaa427ddfa",
+    productName: "Abon Telur Kita", // Fixed spelling from "Abone" based on package label
+    idItem: "ITEM-bb4928e1",
+    namaItem: "100gr",
+    hargaItem: "Rp 25.000",
+    nilaiDiskon: 0,
     description: "Bahan Telur Ayam • Gurih Rasa (100g)",
-    image:
-      "https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/uploads/2026-07-29T06-46-44-073Z-p2c3zeb2s.png",
+    imagesItem:
+      ["https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/uploads/2026-07-29T06-46-44-073Z-p2c3zeb2s.png"],
     badge: "Best Seller",
     bgAccent: "bg-amber-50/70",
+    quantitu: 1,
   },
   {
     id: 2,
-    name: "Sambal Cakalang",
-    price: "Rp 25.000",
+    idProduct: "PROD-61abbf5c-15ce-4a0a-ab7a-90857d6279be",
+    productName: "Sambal Cakalang",
+    idItem: "ITEM-aab9cfca",
+    namaItem: "1 Botol",
+    hargaItem: "Rp 25.000",
+    nilaiDiskon: 0,
     description: "Bahan Ikan Cakalang Pilihan",
-    image: "/images/sambacakalang2.png",
+    imagesItem: ["/images/sambacakalang2.png"],
     badge: "New Arrival",
     bgAccent: "bg-emerald-50/70",
+    quntity: 1,
   },
 ];
 
