@@ -6,10 +6,10 @@ import DialogBoxHome from "@/components/blocks/dialog-box-home";
 import HotTwoProducts from "@/components/blocks/hot-two";
 
 export default function Home() {
-  
+  //      <DialogBoxHome />
+
   return (
     <>
-     <DialogBoxHome />
      <HeroPage />
      <MarqueeCategories />
      <HotTwoProducts />

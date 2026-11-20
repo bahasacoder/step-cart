@@ -1,56 +1,225 @@
+"use client"
+import { useState } from "react";
 import { AirVent } from "lucide-react";
+import { ShoppingBag, Sparkles, Check } from "lucide-react";
 import Image from "next/image";
-export default function HotTwoProducts(){
-  return(
-	  <>
-		  <div className="w-full mx-auto mt-24 p-8">
-	        <h1 className="w-full text-2xl font-semibold sm:text-3xl lg:text-4xl text-center">New Hot Products</h1>
-	      </div>
-			 
-		    <div className="w-full flex flex-col md:flex-row md-flex-wrap md:justify-between bg-zinc-50">
-		      
-		        <div className="flex w-full bg-yellow-100">
-		            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 bg-white">
-		            {/* <!-- Image --> */}
-		                <div className="w-full h-auto relative bg-gray-100 rounded-2xl p-8 flex items-center justify-center w-48">
-		                    <Image 
-		                        src="https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/uploads/2026-07-29T06-46-44-073Z-p2c3zeb2s.png"
-		                        alt="Product" 
-		                        width={100} height={100}
-								style={{ objectFit: 'fill', borderRadius: '10px', objectPosition: 'top', width:'200px', height: '228px'}}
-		                    />
-		                </div>
-		                {/* <!-- Details --> */}
-		                <div className="w-full space-y-6">
-		                    <h1 className="text-3xl font-bold">Abone Telur Kita</h1>
-		                    <p className="text-2xl font-semibold text-gray-700">Rp. 25.000</p>
-		                    <p className="text-gray-600">Bahan Telur Ayam</p>
-		                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
-		                </div>
-		            </div>
-		        </div>
-		        <div className="flex w-full bg-green-100">
-		            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-6 bg-white">
-		            {/* <!-- Image --> */}
-		                <div className="w-full h-auto relative bg-gray-100 rounded-2xl p-8 flex items-center justify-center w-48">
-		                    <Image 
-		                        src="/images/sambacakalang2.png"
-		                        alt="Product" 
-		                        width={100} height={100}
-								style={{ objectFit: 'fill', borderRadius: '10px', objectPosition: 'top', width:'200px', height: '228px'}}
-										
-		                    />
-		                </div>
-		                {/* <!-- Details --> */}
-		                <div className="w-full space-y-6">
-		                    <h1 className="text-3xl font-bold">Sambal Cakalang</h1>
-		                    <p className="text-2xl font-semibold text-gray-700">Rp. 25.000</p>
-		                    <p className="text-gray-600">Bahan Ikan Cakalang</p>
-		                    <button className="w-full bg-indigo-600 text-white py-3 rounded-lg">Add to Cart</button>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		 </>
-  )
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "@/lib/features/cart/cartSlice"; // Sesuaikan path cartSlice Anda
+import { Str_Random, formatRibuan, formatRupiah } from "@/actions/generalFunctions"
+
+export interface ProductItem {
+  id: number;
+  idProduct: string;
+  productName: string;
+  productSlug?: string;
+  categories?: string[];
+  idItem: string;
+  namaItem: string;
+  hargaItem: number;
+  nilaiDiskon: number;
+  imagesItem: string[];
+  description: string;
+  badge: string;
+  bgAccent: string;
+  quantity?: number;
+}
+
+const PRODUCTS: ProductItem[] = [
+  {
+    id: 1,
+    idProduct: "PROD-98a948cd-00bf-4a8f-ad02-93aaa427ddfa",
+    productName: "Abon Telur Kita",
+    productSlug: "abon-telur-kita",
+    categories: ["Makanan Ringan", "Lauk"],
+    idItem: "ITEM-bb4928e1",
+    namaItem: "100gr",
+    hargaItem: 25000, // Diubah ke number agar tidak NaN saat kalkulasi
+    nilaiDiskon: 0,
+    description: "Bahan Telur Ayam • Gurih Rasa (100g)",
+    imagesItem: [
+      "https://raw.githubusercontent.com/bahasacoder/step-cart/refs/heads/main/uploads/2026-07-29T06-46-44-073Z-p2c3zeb2s.png",
+    ],
+    badge: "Best Seller",
+    bgAccent: "bg-amber-50/70",
+    quantity: 1,
+  },
+  {
+    id: 2,
+    idProduct: "PROD-61abbf5c-15ce-4a0a-ab7a-90857d6279be",
+    productName: "Sambal Cakalang",
+    productSlug: "sambal-cakalang",
+    categories: ["Sambal", "Lauk"],
+    idItem: "ITEM-aab9cfca",
+    namaItem: "1 Botol",
+    hargaItem: 25000, // Diubah ke number agar tidak NaN saat kalkulasi
+    nilaiDiskon: 0,
+    description: "Bahan Ikan Cakalang Pilihan",
+    imagesItem: ["/images/sambacakalang2.png"],
+    badge: "New Arrival",
+    bgAccent: "bg-emerald-50/70",
+    quantity: 1,
+  },
+];
+
+export default function HotTwoProducts() {
+  const dispatch = useDispatch();
+  const [idList, setIdList] = useState<string>(() => Str_Random(4));
+  const [itemProduct, setItemProduct] = useState<any[]>([]);
+  // State untuk efek animasi tombol per produk & notifikasi toast
+  const [addedItemId, setAddedItemId] = useState<string | null>(null);
+  const [toastProduct, setToastProduct] = useState<string | null>(null);
+
+ const handleAddToCart = (product: ProductItem, hargaAkhir: number) => {
+   const newIdList = Str_Random(4);
+   setIdList(newIdList);
+    const qty = 1; // Default quantity 1 saat klik dari kartu produk
+    const hargaItemNum = Number(product.hargaItem);
+    const hargaDiskon = (hargaItemNum * product.nilaiDiskon) / 100;
+    const totalHargaItem = hargaItemNum * qty;
+   // HARGA LIST === SUB TOTAL
+   
+      const nextProductState = {
+         productName: product.productName,
+         productImage: product.imagesItem[0] ?? "", // Ambil gambar pertama dari array imagesItem
+         hargaItem: hargaItemNum,
+         hargaDiskon: hargaDiskon,
+         nilaiDiskon: product.nilaiDiskon,
+         quantity: qty, // default=1
+         idItem: product.idItem,
+         totalHargaItem: totalHargaItem, // hargaItem * Qty
+         hargaList: Number(hargaAkhir) * qty, // (hargaItem - hargaDiskon) * Qty
+         idList: newIdList,
+         // idList: Str_Random(4), // Generate a new random idList for each product added to the cart
+      };
+    const newItemProduct = [...itemProduct, nextProductState];
+        setItemProduct(newItemProduct);
+     const cartProduct = {
+          ...nextProductState,
+          id: newIdList,
+      } as unknown as Parameters<typeof addItemToCart>[0];
+
+        console.log('addItemToCart', cartProduct)
+        console.log('idList', idList)
+     // Kirim data ke Redux Store
+    dispatch(addItemToCart(cartProduct));
+   
+    // Picu animasi tombol & toast notifikasi
+    setAddedItemId(product.idItem);
+    setToastProduct(`${product.productName} (${product.namaItem})`);
+
+    setTimeout(() => {
+      setAddedItemId((prev) => (prev === product.idItem ? null : prev));
+    }, 1500);
+
+    setTimeout(() => {
+      setToastProduct(null);
+    }, 2500);
+  };
+
+  return (
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      {/* Section Header */}
+      <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-indigo-50 text-indigo-600 mb-3">
+          <Sparkles className="w-3.5 h-3.5" />
+          Featured Selection
+        </span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900">
+          New Hot Products
+        </h2>
+        <p className="mt-3 text-base sm:text-lg text-zinc-500">
+          Handcrafted local delicacies made with authentic ingredients.
+        </p>
+      </div>
+
+      {/* Responsive Product Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        {PRODUCTS.map((product) => {
+  const isAdded = addedItemId === product.idItem;
+  const hargaAkhir =
+    product.hargaItem - (product.hargaItem * product.nilaiDiskon) / 100;
+
+  return (
+    <div
+      key={product.id}
+      className="group relative flex flex-col sm:flex-row bg-white rounded-3xl border border-zinc-200/80 shadow-sm hover:shadow-xl hover:border-indigo-100 transition-all duration-300 overflow-hidden"
+    >
+      {/* Image Container */}
+      <div
+        className={`relative w-full sm:w-2/5 min-h-[260px] sm:min-h-full ${product.bgAccent} flex items-center justify-center p-6 overflow-hidden`}
+      >
+        <span className="absolute top-4 left-4 z-10 px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-sm text-zinc-800 rounded-full shadow-sm">
+          {product.badge}
+        </span>
+
+        <div className="relative w-44 h-52 transition-transform duration-500 group-hover:scale-105">
+          <Image
+            src={product.imagesItem[0] ?? "/images/placeholder.png"}
+            alt={product.productName}
+            fill
+            sizes="(max-width: 640px) 176px, 200px"
+            className="object-contain drop-shadow-md"
+          />
+        </div>
+      </div>
+
+      {/* Product Details */}
+      <div className="flex flex-col justify-between w-full sm:w-3/5 p-6 sm:p-8">
+        <div>
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-2xl font-bold text-zinc-900 group-hover:text-indigo-600 transition-colors">
+              {product.productName}
+            </h3>
+            <span className="text-xs font-medium px-2.5 py-1 bg-zinc-100 text-zinc-600 rounded-md">
+              {product.namaItem}
+            </span>
+          </div>
+
+          <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
+            {product.description}
+          </p>
+
+          <div className="mt-4 flex items-baseline gap-2">
+            <span className="text-2xl font-extrabold text-zinc-900">
+              {formatRupiah(hargaAkhir)}
+            </span>
+            {product.nilaiDiskon > 0 && (
+              <span className="text-sm text-zinc-400 line-through">
+                {formatRupiah(product.hargaItem)}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-8 pt-4 border-t border-zinc-100">
+          <button
+            type="button"
+            onClick={() => handleAddToCart(product, hargaAkhir)}
+            className={`w-full inline-flex items-center justify-center gap-2 font-semibold py-3.5 px-6 rounded-xl shadow-sm hover:shadow transition-all duration-200 cursor-pointer active:scale-[0.98] ${
+              isAdded
+                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                : "bg-indigo-600 hover:bg-indigo-700 text-white"
+            }`}
+          >
+            {isAdded ? (
+              <>
+                <Check className="w-4 h-4" />
+                Added to Cart
+              </>
+            ) : (
+              <>
+                <ShoppingBag className="w-4 h-4" />
+                Add to Cart
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+})}
+
+      </div>
+    </section>
+  );
 }

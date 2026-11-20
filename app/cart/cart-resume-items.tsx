@@ -187,6 +187,7 @@ const handleProceedToCheckout = (itemsChecked: string[]) => {
     console.log('Checkout Payload:', checkoutPayload);
     // const checkoutUrl = `/order?checkoutId=${newCheckoutId}`;
     // router.push(checkoutUrl);
+    router.push('/checkout');
     
   } else {
     alert('Please select at least one item to proceed to checkout.');
