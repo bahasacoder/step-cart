@@ -134,58 +134,91 @@ export default function HotTwoProducts() {
 
       {/* Responsive Product Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-        {PRODUCTS.map((product) => (
-          <div
-            key={product.id}
-            className="group relative flex flex-col sm:flex-row bg-white rounded-3xl border border-zinc-200/80 shadow-sm hover:shadow-xl hover:border-indigo-100 transition-all duration-300 overflow-hidden"
-          >
-            {/* Image Container */}
-            <div
-              className={`relative w-full sm:w-2/5 min-h-[260px] sm:min-h-full ${product.bgAccent} flex items-center justify-center p-6 overflow-hidden`}
-            >
-              <span className="absolute top-4 left-4 z-10 px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-sm text-zinc-800 rounded-full shadow-sm">
-                {product.badge}
-              </span>
+        {PRODUCTS.map((product) => {
+  const isAdded = addedItemId === product.idItem;
+  const hargaAkhir =
+    product.hargaItem - (product.hargaItem * product.nilaiDiskon) / 100;
 
-              <div className="relative w-44 h-52 transition-transform duration-500 group-hover:scale-105">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 640px) 176px, 200px"
-                  className="object-contain drop-shadow-md"
-                />
-              </div>
-            </div>
+  return (
+    <div
+      key={product.id}
+      className="group relative flex flex-col sm:flex-row bg-white rounded-3xl border border-zinc-200/80 shadow-sm hover:shadow-xl hover:border-indigo-100 transition-all duration-300 overflow-hidden"
+    >
+      {/* Image Container */}
+      <div
+        className={`relative w-full sm:w-2/5 min-h-[260px] sm:min-h-full ${product.bgAccent} flex items-center justify-center p-6 overflow-hidden`}
+      >
+        <span className="absolute top-4 left-4 z-10 px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-sm text-zinc-800 rounded-full shadow-sm">
+          {product.badge}
+        </span>
 
-            {/* Product Details */}
-            <div className="flex flex-col justify-between w-full sm:w-3/5 p-6 sm:p-8">
-              <div>
-                <h3 className="text-2xl font-bold text-zinc-900 group-hover:text-indigo-600 transition-colors">
-                  {product.name}
-                </h3>
-                <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
-                  {product.description}
-                </p>
-                <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-2xl font-extrabold text-zinc-900">
-                    {product.price}
-                  </span>
-                </div>
-              </div>
+        <div className="relative w-44 h-52 transition-transform duration-500 group-hover:scale-105">
+          <Image
+            src={product.imagesItem[0] ?? "/images/placeholder.png"}
+            alt={product.productName}
+            fill
+            sizes="(max-width: 640px) 176px, 200px"
+            className="object-contain drop-shadow-md"
+          />
+        </div>
+      </div>
 
-              <div className="mt-8 pt-4 border-t border-zinc-100">
-                <button
-                  type="button"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-semibold py-3.5 px-6 rounded-xl shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  Add to Cart
-                </button>
-              </div>
-            </div>
+      {/* Product Details */}
+      <div className="flex flex-col justify-between w-full sm:w-3/5 p-6 sm:p-8">
+        <div>
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-2xl font-bold text-zinc-900 group-hover:text-indigo-600 transition-colors">
+              {product.productName}
+            </h3>
+            <span className="text-xs font-medium px-2.5 py-1 bg-zinc-100 text-zinc-600 rounded-md">
+              {product.namaItem}
+            </span>
           </div>
-        ))}
+
+          <p className="mt-2 text-sm text-zinc-500 leading-relaxed">
+            {product.description}
+          </p>
+
+          <div className="mt-4 flex items-baseline gap-2">
+            <span className="text-2xl font-extrabold text-zinc-900">
+              {formatRupiah(hargaAkhir)}
+            </span>
+            {product.nilaiDiskon > 0 && (
+              <span className="text-sm text-zinc-400 line-through">
+                {formatRupiah(product.hargaItem)}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-8 pt-4 border-t border-zinc-100">
+          <button
+            type="button"
+            onClick={() => handleAddToCart(product, hargaAkhir)}
+            className={`w-full inline-flex items-center justify-center gap-2 font-semibold py-3.5 px-6 rounded-xl shadow-sm hover:shadow transition-all duration-200 cursor-pointer active:scale-[0.98] ${
+              isAdded
+                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                : "bg-indigo-600 hover:bg-indigo-700 text-white"
+            }`}
+          >
+            {isAdded ? (
+              <>
+                <Check className="w-4 h-4" />
+                Added to Cart
+              </>
+            ) : (
+              <>
+                <ShoppingBag className="w-4 h-4" />
+                Add to Cart
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+})}
+
       </div>
     </section>
   );
