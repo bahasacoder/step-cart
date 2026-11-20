@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "React";
+import { useState } from "react";
 import { AirVent } from "lucide-react";
 import { ShoppingBag, Sparkles } from "lucide-react";
 import Image from "next/image";
