@@ -205,7 +205,7 @@ export default function CartListItems({ items, totalItems, subTotal, totalDiscou
                       disabled= {true} //{itemsChecked.length === 0}
                       className="w-full flex items-center justify-center bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Proceed to Checkout ({itemsChecked.length})
+                      Item Count to Checkout ({itemsChecked.length})
                     </button>
                   </div>
 
