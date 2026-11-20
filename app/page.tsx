@@ -10,7 +10,6 @@ export default function Home() {
 
   return (
     <>
-     <DialogBoxHome />
      <HeroPage />
      <MarqueeCategories />
      <HotTwoProducts />
