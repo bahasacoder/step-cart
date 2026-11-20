@@ -3,7 +3,12 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { LogInIcon, MenuIcon } from 'lucide-react'
+import {
+  CreditCardIcon,
+  LogInIcon,
+  MenuIcon,
+  ShoppingCartIcon,
+} from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -63,46 +68,82 @@ const HeaderMenu = ({ navigationData, className }: HeaderProps) => {
         />
 
         {/* Actions */}
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-2 sm:gap-3'>
+          <TooltipProvider>
+            {/* Cart Button (Icon Only) */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant='outline'
+                  size='icon'
+                  className='rounded-full'
+                  asChild
+                >
+                  <Link href='/cart'>
+                    <ShoppingCartIcon className='size-4' />
+                    <span className='sr-only'>Cart</span>
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Cart</TooltipContent>
+            </Tooltip>
+
+            {/* Checkout Button (Icon Only) */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant='outline'
+                  size='icon'
+                  className='rounded-full'
+                  asChild
+                >
+                  <Link href='/checkout'>
+                    <CreditCardIcon className='size-4' />
+                    <span className='sr-only'>Checkout</span>
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Checkout</TooltipContent>
+            </Tooltip>
+
+            {/* Mobile Login Button (Icon Only) */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size='icon'
+                  className='rounded-full sm:hidden'
+                  asChild
+                >
+                  <Link href='/login'>
+                    <LogInIcon className='size-4' />
+                    <span className='sr-only'>Login</span>
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Login</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          {/* Desktop Login Button */}
           <Button className='rounded-full max-sm:hidden' asChild>
             <Link href='/login'>Login</Link>
           </Button>
 
-          {/* Mobile Actions */}
-          <div className='flex items-center gap-3'>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    size='icon'
-                    className='rounded-full sm:hidden'
-                    asChild
-                  >
-                    <Link href='/login'>
-                      <LogInIcon className='size-4' />
-                      <span className='sr-only'>Login</span>
-                    </Link>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>Login</TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
-            <MenuDropdown
-              align='end'
-              navigationData={navigationData}
-              trigger={
-                <Button
-                  variant='outline'
-                  size='icon'
-                  className='rounded-full lg:hidden'
-                >
-                  <MenuIcon className='size-4' />
-                  <span className='sr-only'>Menu</span>
-                </Button>
-              }
-            />
-          </div>
+          {/* Mobile Menu Dropdown */}
+          <MenuDropdown
+            align='end'
+            navigationData={navigationData}
+            trigger={
+              <Button
+                variant='outline'
+                size='icon'
+                className='rounded-full lg:hidden'
+              >
+                <MenuIcon className='size-4' />
+                <span className='sr-only'>Menu</span>
+              </Button>
+            }
+          />
         </div>
       </div>
     </header>
