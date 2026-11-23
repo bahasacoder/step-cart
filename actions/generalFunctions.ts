@@ -27,3 +27,10 @@ export function formatRibuan(amount: number | string): string {
   const numericValue = Math.round(Number(amount) || 0);
   return numericValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
+
+export const formatIDR = (amount: number) =>
+    new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      maximumFractionDigits: 0,
+    }).format(amount)
